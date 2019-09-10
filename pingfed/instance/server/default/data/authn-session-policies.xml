@@ -2,5 +2,7 @@
 <authnSessionPolicies>
     <applicationPolicy idleTimeoutMins="60" maxTimeoutMins="480"/>
     <globalPolicy enableSessions="false" idleTimeoutDisplayUnit="MINUTES" idleTimeoutMins="60" maxTimeoutDisplayUnit="MINUTES" maxTimeoutMins="480" persistentSessions="false"/>
-    <sourcePolicies/>
+    <sourcePolicies>
+        <policy authnContextSensitive="false" authnSourceId="HTMLForm" authnSourceType="ADAPTER" enableSessions="true" id="vjSzMAXLrzrf7BVVp58P9kDtf" idleTimeoutMins="-1" maxTimeoutMins="10080" persistent="false" timeoutDisplayUnit="DAYS"/>
+    </sourcePolicies>
 </authnSessionPolicies>

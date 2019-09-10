@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urn:PluginConfiguration isInheritExtendedContractAttributes="false" name="MFA Required" xmlns:urn="urn:sourceid.org:saml2:adapter:conf">
+    <urn:Fields>
+        <urn:Field name="Extended Property">UseMFA</urn:Field>
+    </urn:Fields>
+    <urn:AdvancedFields/>
+    <urn:Tables/>
+    <urn:ExtendedContractAttributes>
+        <urn:AttributeName>Yes</urn:AttributeName>
+    </urn:ExtendedContractAttributes>
+</urn:PluginConfiguration>
