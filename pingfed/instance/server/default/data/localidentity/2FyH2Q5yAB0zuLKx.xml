@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<loc:localIdentity profileId="2FyH2Q5yAB0zuLKx" profileName="Default Identity Profile" contractId="hRsB6datB6BJplah" profileEnabled="false" registrationEnabled="false" xmlns:loc="http://pingidentity.com/2017/07/localIdentity">
+    <loc:auth-sources>
+        <loc:auth-source id="k0cZ3veSQ8BbzGJa" name="Facebook">
+            <loc:update-policy attributeStorageEnabled="false" retainAttributes="false" updateAttributes="false" updateInterval="0.0"/>
+        </loc:auth-source>
+        <loc:auth-source id="xtVvg2JqdqKdDwZj" name="Google">
+            <loc:update-policy attributeStorageEnabled="false" retainAttributes="false" updateAttributes="false" updateInterval="0.0"/>
+        </loc:auth-source>
+    </loc:auth-sources>
+</loc:localIdentity>
