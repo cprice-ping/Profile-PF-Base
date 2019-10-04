@@ -10,9 +10,11 @@ services:
     - SERVER_PROFILE_URL=https://github.com/cprice-ping/Profile-PF-Base.git
     - SERVER_PROFILE_PATH=pingfed
     # PF Base URL \ SAML EntityID
-    - PF_BASE_URL=https://localhost:9031
+    - PF_BASE_URL={{Base PF URL}}
     # PF Logging Level
     - PF_LOG_LEVEL=INFO
+    # PD User Base DN
+    - USER_BASE_DN={{Base PD User DN}} # Default for PD is `dc=example,dc=com`
     #volumes:
     #  - ${HOME}/projects/devops/volumes/full-stack.pingfederate:/opt/out
     #  - ${HOME}/projects/devops/pingidentity-server-profiles/baseline/pingfederate:/opt/in
