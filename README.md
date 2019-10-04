@@ -2,6 +2,8 @@ This profile provides a base configuration for PingFederate.
 
 It is designed to be used in conjunction with the Baseline Pingdirectory image \ Profile.
 
+Modify the `docker-compose.yaml` file to match your environment and then launch the stack with `docker-compose up`
+
 ## Configuration
 
 To access the Admin UI for PF go to:
