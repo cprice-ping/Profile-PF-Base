@@ -15,7 +15,7 @@
                 <urn:AllowAllEntities>false</urn:AllowAllEntities>
                 <urn:AdditionalAllowedEntities/>
             </urn:AdditionalAllowedEntitiesConfiguration>
-            <urn:ExtendedProperties name="authnExp" value="MFA"/>
+            <urn:ExtendedProperties name="authnExp" value="Basic"/>
         </urn:EntityExtension>
     </md:Extensions>
     <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" AuthnRequestsSigned="false" WantAssertionsSigned="false" SignResponseAsRequired="true">
