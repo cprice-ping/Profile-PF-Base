@@ -19,6 +19,11 @@ This configuration includes:
 * HTML Form with LIP
 * PingID
 
+### PingID - Special Considerations
+The PingID adapter uses the secrets from your PingID tenant to create the proper calls to the service. As such, storing those values in a public location, such as GitHub, sound be considered **risky**.
+
+For this Profile, you can place the `base64` encoded text from a `pingid.properties` file that will be placed into the PingID Adapter settings 
+
 ### Authentication Policy
 Extended Property Selector
   * Basic (HTML Form)
