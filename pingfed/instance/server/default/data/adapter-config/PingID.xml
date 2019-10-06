@@ -25,7 +25,7 @@
         <urn:Field name="Distinguished Name Pattern"/>
         <urn:Field name="HTML Template">pingid.offline.auth.login.template.html</urn:Field>
         <urn:Field name="Cookie Duration">1</urn:Field>
-        <urn:Field name="PingID Properties File Name">pingid.properties.1</urn:Field>
+        <urn:Field name="PingID Properties File Name">pingid.properties</urn:Field>
         <urn:Field name="Refresh UserId Cookie">false</urn:Field>
         <urn:Field name="Require PingID Registration">false</urn:Field>
     </urn:Fields>
