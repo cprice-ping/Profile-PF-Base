@@ -6,17 +6,10 @@ services:
     command: wait-for pingdirectory:389 -t 300 -- entrypoint.sh start-server
     env_file:
       - ~/.pingidentity/devops
+      - ./env_vars
     environment:
     - SERVER_PROFILE_URL=https://github.com/cprice-ping/Profile-PF-Base.git
     - SERVER_PROFILE_PATH=pingfed
-    # PF Base URL \ SAML EntityID
-    - PF_BASE_URL={{Base PF URL}}
-    # PF Logging Level
-    - PF_LOG_LEVEL=INFO
-    # PingID Properties -- base64 encoded value
-    - PID_BASE64={{base64 encoded pingid.properties}}
-    # PD User Base DN
-    - USER_BASE_DN={{Base PD User DN}} # Default for PD is `dc=example,dc=com`
     #volumes:
     #  - ${HOME}/projects/devops/volumes/full-stack.pingfederate:/opt/out
     #  - ${HOME}/projects/devops/pingidentity-server-profiles/baseline/pingfederate:/opt/in
@@ -31,6 +24,7 @@ services:
     image: pingidentity/pingdirectory:edge
     env_file:
       - ~/.pingidentity/devops
+      - ./env_vars
     environment:
     - SERVER_PROFILE_URL=https://github.com/pingidentity/pingidentity-server-profiles.git
     - SERVER_PROFILE_PATH=baseline/pingdirectory
