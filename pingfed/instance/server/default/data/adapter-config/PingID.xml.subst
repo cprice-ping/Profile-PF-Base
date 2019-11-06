@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urn:AdapterConfiguration authnCtxClassRef="" isInheritAttributeSettings="false" isInheritAttributeMapping="false" maskOgnlValues="false" isInheritExtendedContractAttributes="false" name="PingID" xmlns:urn="urn:sourceid.org:saml2:adapter:conf">
     <urn:Fields>
-        <urn:Field name="PingID Properties">I0F1dG8tR2VuZXJhdGVkIGZyb20gUGluZ09uZSwgZG93bmxvYWRlZCBieSBpZD1bMTU4MDAwXSBlbWFpbD1bY3ByaWNlK2xhYkBwaW5naWRlbnRpdHkuY29tXQojTW9uIE9jdCAwNyAxMjozNjozNyBNRFQgMjAxOQp1c2VfYmFzZTY0X2tleT0vaU00Q1h6WHJ4R1M1SEdGdEloUUIxZ1d0dTRJNHM5RlYrZ2FPdDhFdkUwPQp1c2Vfc2lnbmF0dXJlPXRydWUKdG9rZW49N2IxZjRlMjA3MDNmMTc4Yzg0MjQ4MDk0NDk4MDM1YzQKaWRwX3VybD1odHRwczovL2lkcHhueWwzbS5waW5naWRlbnRpdHkuY29tL3BpbmdpZApvcmdfYWxpYXM9YzZkOGNmNTgtNmQ3OC00OWRhLTkzOGEtNGZiNDRmNzQ2Mzk3CmFkbWluX3VybD1odHRwczovL2lkcHhueWwzbS5waW5naWRlbnRpdHkuY29tL3BpbmdpZAphdXRoZW50aWNhdG9yX3VybD1odHRwczovL2F1dGhlbnRpY2F0b3IucGluZ29uZS5jb20vcGluZ2lkL3BwbQ==</urn:Field>
+        <urn:Field name="PingID Properties">${PID_BASE64}</urn:Field>
         <urn:Field name="LDAP Data source"/>
         <urn:Field name="Query Directory">false</urn:Field>
         <urn:Field name="Base Domain"/>
