@@ -51,7 +51,8 @@ Two applications are pre-wired:
 https://${PF_BASE_URL}/idp/startSSO.ping?PartnerSpId=Dummy-SAML
 
 **OAuth \ OIDC:**  
-`client_id` == PingLogon
+`client_id` == PingLogon  
+`client_secret` == 2FederateM0re
 
 **Introspect**  
 `client_id` == PingIntrospect  
