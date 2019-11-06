@@ -32,14 +32,17 @@ Extended Property Selector
   * Basic (HTML Form)
   * Enhanced (HTML Form with LIP)
   * MFA (Enhanced --> PingID)
-  * _Anything Else_ (AuthN API Explorer)
 
 The Authentication Experience is controlled by setting the `Extended Properties` on the Application.  
+
+Authentication API
+* HTML Form with LIP --> AuthN API Explorer  
 
 ### Extended Properties
 * `Basic` (Plain HTML Form)
 * `Enhanced` (HTML Form with LIP -- Google & Facebook buttons [not configured])
 * `MFA` (HTML Form with LIP --> PingID adapter)
+* _Anything Else_ (AuthN API Explorer)
 
 ### Applications
 Two applications are pre-wired:
