@@ -2,12 +2,15 @@ This profile provides a base configuration for PingFederate.
 
 It is designed to be used in conjunction with the Baseline Pingdirectory image \ Profile.
 
-Modify the `docker-compose.yaml` file to match your environment and then launch the stack with `docker-compose up`
+## Deployment
+* Copy the `docker-compose.yaml` and `env_vars` files to a folder
+* Modify the `env_vars` file to match your environment
+* Launch the stack with `docker-compose up -d`
 
 ## Configuration
 
 To access the Admin UI for PF go to:
-https://{{PF_BASE_URL}}:9999/pingfederate
+https://{{PF_HOSTNAME}}:9999/pingfederate
 
 Credentials:  
 `Administrator` / `2FederateM0re`
@@ -30,7 +33,9 @@ Extended Property Selector
   * Enhanced (HTML Form with LIP)
   * MFA (Enhanced --> PingID)
 
-The Authentication Experience is controlled by setting the `Extended Properties` on the Application.
+The Authentication Experience is controlled by setting the `Extended Properties` on the Application.  
+
+Any other value will trigger the Authentication API that is mapped to the AuthN API Explorer app.
 
 ### Extended Properties
 * `Basic` (Plain HTML Form)
@@ -41,7 +46,7 @@ The Authentication Experience is controlled by setting the `Extended Properties`
 Two applications are pre-wired:
 
 **SAML:**  
-https://${pf_base_url}/idp/startSSO.ping?PartnerSpId=Dummy-SAML
+https://${PF_BASE_URL}/idp/startSSO.ping?PartnerSpId=Dummy-SAML
 
 **OAuth \ OIDC:**  
 `client_id` == PingLogon
