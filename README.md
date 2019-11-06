@@ -9,7 +9,7 @@ It is designed to be used in conjunction with the Baseline Pingdirectory image \
 
 ## Configuration
 
-To access the Admin UI for PF go to:
+To access the Admin UI for PF go to:  
 https://{{PF_HOSTNAME}}:9999/pingfederate
 
 Credentials:  
@@ -51,6 +51,8 @@ Two applications are pre-wired:
 https://${PF_BASE_URL}/idp/startSSO.ping?PartnerSpId=Dummy-SAML
 
 **OAuth \ OIDC:**  
+`Issuer` == ${PF_BASE_URL}  
+
 `client_id` == PingLogon  
 `client_secret` == 2FederateM0re
 
@@ -62,4 +64,3 @@ https://${PF_BASE_URL}/idp/startSSO.ping?PartnerSpId=Dummy-SAML
 If you are using the BASELINE PingDirectory image, the credentials you can use for these applications are:
 
 `user.[0-4]` / `2FederateM0re`
-
