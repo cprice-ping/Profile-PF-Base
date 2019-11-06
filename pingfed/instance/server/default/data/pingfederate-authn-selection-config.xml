@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urn:AuthnSelectionConfig lastModifiedMillis="1570212902297" enableAuthnSelection="true" enableSpAuthnSelection="false" failIfNoSelection="false" xmlns:urn="urn:pingidentity.com:pf:authn-selection">
+<urn:AuthnSelectionConfig lastModifiedMillis="1573003198753" enableAuthnSelection="true" enableSpAuthnSelection="false" failIfNoSelection="false" xmlns:urn="urn:pingidentity.com:pf:authn-selection">
     <urn:AuthnSelectionTrees>
-        <urn:AuthnSelectionTree treeName="AuthN Experience" disabled="false" authnApiApp="">
+        <urn:AuthnSelectionTree treeName="Default AuthN Policy" disabled="false" authnApiApp="">
             <urn:AstRoot context="">
-                <urn:AstAction authnSelectorId="MFARequired" xsi:type="urn:AuthnSelectorActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <urn:AstAction authnSelectorId="authnExp" xsi:type="urn:AuthnSelectorActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
                 <urn:AstChild context="Basic">
                     <urn:AstAction xsi:type="urn:AuthnSourceActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                         <urn:AuthnSourceKey type="ADAPTER">HTMLForm</urn:AuthnSourceKey>
@@ -13,14 +13,13 @@
                         <urn:AstAction noOpType="DONE" xsi:type="urn:NoOpActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
                     </urn:AstChild>
                     <urn:AstChild context="Success">
-                        <urn:AstAction lipId="2FyH2Q5yAB0zuLKx" xsi:type="urn:LocalIdentityMappingActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                            <urn:InboundAttributeMapping/>
-                            <urn:OutboundAttributeMapping>
+                        <urn:AstAction apcId="hRsB6datB6BJplah" xsi:type="urn:ApcMappingActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <urn:AttributeMapping>
                                 <urn1:AttributeMap Name="entryUUID" Type="Adapter" AttributeSourceId="HTMLForm" Value="entryUUID" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
                                 <urn1:AttributeMap Name="mail" Type="Adapter" AttributeSourceId="HTMLForm" Value="mail" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
                                 <urn1:AttributeMap Name="subject" Type="Adapter" AttributeSourceId="HTMLForm" Value="username" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
                                 <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
-                            </urn:OutboundAttributeMapping>
+                            </urn:AttributeMapping>
                         </urn:AstAction>
                     </urn:AstChild>
                 </urn:AstChild>
@@ -75,23 +74,24 @@
                 </urn:AstChild>
             </urn:AstRoot>
         </urn:AuthnSelectionTree>
-        <urn:AuthnSelectionTree treeName="Default AuthN Policy" disabled="false" authnApiApp="">
+        <urn:AuthnSelectionTree treeName="Default AuthN API" disabled="false" authnApiApp="4mUqlT8oDQ0ws85IP1kFXSc3B">
             <urn:AstRoot context="">
                 <urn:AstAction xsi:type="urn:AuthnSourceActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                    <urn:AuthnSourceKey type="ADAPTER">HTMLForm</urn:AuthnSourceKey>
+                    <urn:AuthnSourceKey type="ADAPTER">HTMLFormWithLIP</urn:AuthnSourceKey>
                     <urn:fallbackToSuccess>true</urn:fallbackToSuccess>
                 </urn:AstAction>
                 <urn:AstChild context="Fail">
                     <urn:AstAction noOpType="DONE" xsi:type="urn:NoOpActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
                 </urn:AstChild>
                 <urn:AstChild context="Success">
-                    <urn:AstAction apcId="hRsB6datB6BJplah" xsi:type="urn:ApcMappingActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                        <urn:AttributeMapping>
-                            <urn1:AttributeMap Name="entryUUID" Type="Adapter" AttributeSourceId="HTMLForm" Value="entryUUID" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
-                            <urn1:AttributeMap Name="mail" Type="Adapter" AttributeSourceId="HTMLForm" Value="mail" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
-                            <urn1:AttributeMap Name="subject" Type="Adapter" AttributeSourceId="HTMLForm" Value="entryUUID" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+                    <urn:AstAction lipId="2FyH2Q5yAB0zuLKx" xsi:type="urn:LocalIdentityMappingActionType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                        <urn:InboundAttributeMapping/>
+                        <urn:OutboundAttributeMapping>
+                            <urn1:AttributeMap Name="entryUUID" Type="Adapter" AttributeSourceId="HTMLFormWithLIP" Value="entryUUID" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+                            <urn1:AttributeMap Name="mail" Type="Adapter" AttributeSourceId="HTMLFormWithLIP" Value="mail" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
+                            <urn1:AttributeMap Name="subject" Type="Adapter" AttributeSourceId="HTMLFormWithLIP" Value="username" xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
                             <urn1:TokenAuthorizationIssuanceCriteria xmlns:urn1="urn:sourceid.org:saml2:metadata-extension:v2"/>
-                        </urn:AttributeMapping>
+                        </urn:OutboundAttributeMapping>
                     </urn:AstAction>
                 </urn:AstChild>
             </urn:AstRoot>

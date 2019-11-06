@@ -3,4 +3,5 @@
     <con:map name="docker"/>
     <con:map name="https://httpbin.org"/>
     <con:map name="Dummy-SAML-HTML"/>
+    <con:map name="Dummy-SAML"/>
 </con:config>
