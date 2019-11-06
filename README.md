@@ -40,7 +40,7 @@ Any other value will trigger the Authentication API that is mapped to the AuthN 
 ### Extended Properties
 * `Basic` (Plain HTML Form)
 * `Enhanced` (HTML Form with LIP -- Google & Facebook buttons [not configured])
-* `MFA` (HTML Form with LIP --> PingID adapter [not configured])
+* `MFA` (HTML Form with LIP --> PingID adapter)
 
 ### Applications
 Two applications are pre-wired:
