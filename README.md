@@ -1,6 +1,6 @@
 This profile provides a base configuration for PingFederate.
 
-It is designed to be used in conjunction with the Baseline Pingdirectory image \ Profile.
+It is designed to be used in conjunction with my PD-Base Profile (https://github.com/cprice-ping/PD-Base).
 
 ## Deployment
 * Copy the `docker-compose.yaml` and `env_vars` files to a folder
