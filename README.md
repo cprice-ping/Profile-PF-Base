@@ -20,7 +20,9 @@ This configuration includes:
 ### Adapters
 * HTML Form
 * HTML Form with LIP
+* Identifier-First (Passwordless)
 * PingID
+
 
 ### PingID - Special Considerations
 The PingID adapter uses the secrets from your PingID tenant to create the proper calls to the service. As such, storing those values in a public location, such as GitHub, sound be considered **risky**.
@@ -32,6 +34,7 @@ Extended Property Selector
   * Basic (HTML Form)
   * Enhanced (HTML Form with LIP)
   * MFA (Enhanced --> PingID)
+  * Passwordless (ID-First --> PingID)
 
 The Authentication Experience is controlled by setting the `Extended Properties` on the Application.  
 
@@ -42,6 +45,7 @@ Authentication API
 * `Basic` (Plain HTML Form)
 * `Enhanced` (HTML Form with LIP -- Google & Facebook buttons [not configured])
 * `MFA` (HTML Form with LIP --> PingID adapter)
+* `Passwordless` (ID-First --> PingID)
 * _Anything Else_ (AuthN API Explorer)
 
 ### Applications
