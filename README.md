@@ -1,6 +1,6 @@
-This profile provides a base configuration for PingFederate.
+This profile provides the configuration of CPriceLab -- this is the full version of what I do with PingFed...
 
-It is designed to be used in conjunction with my PD-Base Profile (https://github.com/cprice-ping/PD-Base).
+It is based on Profile-PF-Base, and is designed to be used in conjunction with my PD-Base Profile (https://github.com/cprice-ping/PD-Base).
 
 ## Deployment
 * Copy the `docker-compose.yaml` and `env_vars` files to a folder
