@@ -1362,7 +1362,7 @@
               "name": "OIDC Policy",
               "item": [
                 {
-                  "name": "Create OIDC Policy (HTML)",
+                  "name": "Create OIDC Policy",
                   "event": [
                     {
                       "listen": "test",
@@ -2020,43 +2020,43 @@
   ],
   "variable": [
     {
-      "id": "3e42e2a1-8efe-4416-861b-7c550ef3fc8c",
+      "id": "62603e6a-cdb0-4b69-be1e-a0fe83d23c3d",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "705d2041-3bb8-4746-bcac-430410bd9e8a",
+      "id": "cb8aaa67-b660-411f-9596-160fab3fdd07",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "2c87f6ae-269d-4858-80bd-1c13a079a32c",
+      "id": "a0e238f3-00d6-497e-9838-bcd842c29287",
       "key": "runtime",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "ca18b7e6-e694-49d7-95fa-06a5ff2c6de5",
+      "id": "64035829-09e5-4a99-a4e7-ff22860d7bcb",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "86d58a06-34bc-4e88-be2e-a3757c8712db",
+      "id": "f08b8681-dee4-4052-8dc5-f056bf504ba3",
       "key": "pingdirAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "d2ded840-0072-4df5-8b61-7e03a9dc4d2a",
+      "id": "dedd8b2b-76cd-4466-817e-1f5ca08510a7",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "2ac6bc28-c967-4d1b-949e-36b306df492a",
+      "id": "e93e1c5b-1b7b-4ea0-ba39-b649034316fc",
       "value": "",
       "type": "string"
     }
