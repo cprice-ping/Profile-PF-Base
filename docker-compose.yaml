@@ -10,6 +10,7 @@ services:
     environment:
     - SERVER_PROFILE_URL=https://github.com/cprice-ping/Profile-PF-Base.git
     - SERVER_PROFILE_PATH=pingfed
+    - SERVER_PROFILE_BRANCH=api-testing
     #volumes:
     #  - ${HOME}/projects/devops/volumes/full-stack.pingfederate:/opt/out
     #  - ${HOME}/projects/devops/pingidentity-server-profiles/baseline/pingfederate:/opt/in
@@ -19,6 +20,12 @@ services:
     networks:
       - pingnet-internal
       - pingnet-dmz
+
+  pf-config:
+    image: postman/newman
+    command: run https://www.getpostman.com/collections/2e0df14dcf26f1ddb39a --insecure
+    networks:
+      - pingnet-internal
 
   pingdirectory:
     image: pingidentity/pingdirectory:edge
