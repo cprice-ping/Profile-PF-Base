@@ -303,9 +303,6 @@
                     "exec": [
                       "pm.test(\"LDAP PCV Created\", function () {",
                       "    pm.response.to.have.status(201);",
-                      "    ",
-                      "    var response = pm.response.json();",
-                      "    pm.environment.set(\"pcvId\", response.id);",
                       "});"
                     ],
                     "type": "text/javascript"
@@ -434,9 +431,6 @@
                     "exec": [
                       "pm.test(\"PD Datastore Created\", function () {",
                       "    pm.response.to.have.status(201);",
-                      "    ",
-                      "    var response = pm.response.json();",
-                      "    pm.environment.set(\"adapterId\", response.id);",
                       "});"
                     ],
                     "type": "text/javascript"
@@ -2369,43 +2363,43 @@
   ],
   "variable": [
     {
-      "id": "ebef3304-7dd8-46c5-8543-79e1149810f6",
+      "id": "d65f2643-c3df-40ef-88ca-819bd4c7d9e3",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "aa6de244-05c8-4fc3-a396-cdb31b7eb6d3",
+      "id": "a949377b-7b8b-4871-b263-6ba9385718b4",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "105666cf-2447-4822-8138-f09e6f419779",
+      "id": "fb26a2a8-f45d-43f4-912b-3dac62312cf5",
       "key": "runtime",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "6c7cd3f5-e860-47e9-bc21-31b51dce7ab7",
+      "id": "3bda715a-267d-461d-a38b-155097eeade4",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "11a2e9c0-dd96-472e-87c6-7d8ff455a258",
+      "id": "a298ebec-0c13-4824-b160-c3d0410ff390",
       "key": "pingdirAdmin",
       "value": "cn=administrator",
       "type": "string"
     },
     {
-      "id": "81f19eae-142a-4634-a58f-a38ea32cd22a",
+      "id": "b8977a13-0311-4489-83b0-ac7882939f0e",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "a592d651-02a8-411f-a55e-66f2e4381e1c",
+      "id": "bc760187-466d-417d-bcfc-6a5af63e65b5",
       "value": "",
       "type": "string"
     }
