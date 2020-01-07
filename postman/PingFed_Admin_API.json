@@ -8,7 +8,60 @@
   "item": [
     {
       "name": "Check PF is Running",
-      "item": [],
+      "item": [
+        {
+          "name": "Check if Server is up Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "4a7864a9-1358-402a-b81d-bcc6da8044ff",
+                "exec": [
+                  "// Checks to see if the server actually responded",
+                  "// If not, run the call again (with the 30 sec delay)",
+                  "postman.setNextRequest(\"Check if Server is up\");",
+                  "",
+                  "pm.test(\"Server is Up\", function () {",
+                  "    pm.response.to.be.ok;",
+                  "    postman.setNextRequest(\"00-Start-API-Calls\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "f9e66381-07f9-487a-b8e4-f97b5521bef7",
+                "exec": [
+                  "// Puts a 30 sec delay into this call",
+                  "setTimeout(function() {",
+                  " console.log(\"Connecting to Server\");",
+                  "}, 30000);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "49372564-a18e-4ced-9150-083ed9e5fe54",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-user-id",
+                "type": "text",
+                "value": "admin"
+              }
+            ],
+            "url": "https://pingdatagov-pap:9443/api/system/status"
+          },
+          "response": []
+        }
+      ],
       "_postman_id": "18a8c929-293b-40d3-8adc-e9809f196055"
     },
     {
