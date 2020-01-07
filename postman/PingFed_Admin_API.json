@@ -62,7 +62,7 @@
           "response": []
         },
         {
-          "name": "00-Start-API-Calls Copy",
+          "name": "00-Start-API-Calls",
           "_postman_id": "cb2b102b-49d7-47b2-b08c-7b6096528d40",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
