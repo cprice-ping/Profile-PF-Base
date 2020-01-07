@@ -2344,8 +2344,8 @@
   "auth": {
     "type": "basic",
     "basic": {
-      "username": "administrator",
-      "password": "2FederateM0re"
+      "password": "{{pingdirAdminPwd}}",
+      "username": "{{pingdirAdmin}}"
     }
   },
   "event": [
@@ -2372,33 +2372,44 @@
   ],
   "variable": [
     {
-      "id": "f5356b0d-eda5-4f30-b148-1386003799e7",
+      "id": "9f9eb072-7457-40ed-8ae7-eca92e68acdb",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "4a6edcb7-e943-4e15-a1b4-7194b8059c57",
+      "id": "2a4d2053-ed61-4c4a-9dae-29ce8be4e886",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "958f3bdf-60a3-4b8a-bd86-d85970ab1346",
+      "id": "6512bf4e-1d43-4a72-aac2-1b202db322e1",
+      "key": "runtime",
+      "value": "9999",
+      "type": "string"
+    },
+    {
+      "id": "1e54d3de-b54c-40ce-a4c0-13a093cf16b6",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "9d642e59-6e69-417f-a45e-b646504d1030",
+      "id": "278a8f73-02a4-45e9-817c-41a536d195ec",
       "key": "pingdirAdmin",
       "value": "cn=administrator",
       "type": "string"
     },
     {
-      "id": "fbda78b7-18e7-456c-bde7-a81ccc6eb7ca",
+      "id": "1135d978-6f2a-43bd-bf6b-4cb7d9734ad5",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
+      "type": "string"
+    },
+    {
+      "id": "5b6559f0-b582-461e-b69a-5cf3dc09b115",
+      "value": "",
       "type": "string"
     }
   ]
