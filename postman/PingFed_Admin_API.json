@@ -1555,60 +1555,6 @@
               "name": "SAML - HTML Form",
               "item": [
                 {
-                  "name": "Get Policy Contract",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "8b058b38-3a70-42c3-820d-2841e6e8b6f6",
-                        "exec": [
-                          "pm.test(\"Policy Contracts retrieved\", function () {",
-                          "    pm.response.to.have.status(200);",
-                          "    ",
-                          "    var response = pm.response.json();",
-                          "    pm.environment.set(\"policyContract\", response.items[0].id);",
-                          "});"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    }
-                  ],
-                  "_postman_id": "df2c5b25-7b34-4b47-9e7c-1efdc5ef0b75",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "GET",
-                    "header": [
-                      {
-                        "key": "X-XSRF-Header",
-                        "value": "pingfederate",
-                        "type": "text"
-                      }
-                    ],
-                    "url": {
-                      "raw": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/authenticationPolicyContracts?filter=HTML",
-                      "protocol": "https",
-                      "host": [
-                        "{{pingfed}}"
-                      ],
-                      "port": "{{admin}}",
-                      "path": [
-                        "pf-admin-api",
-                        "v1",
-                        "authenticationPolicyContracts"
-                      ],
-                      "query": [
-                        {
-                          "key": "filter",
-                          "value": "HTML"
-                        }
-                      ]
-                    }
-                  },
-                  "response": []
-                },
-                {
                   "name": "Add SP Connection",
                   "_postman_id": "8e3bb9f8-b67d-4a8e-a1c5-446c4678b2fd",
                   "protocolProfileBehavior": {
@@ -1778,43 +1724,43 @@
   ],
   "variable": [
     {
-      "id": "a2737f68-0ba2-4708-a3bb-c8bc1813f954",
+      "id": "25fe67a6-f82e-4424-8422-511a3b55f825",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "fa527ee8-3323-4c09-9e4a-ab7567fb9c86",
+      "id": "f492541f-3544-454e-9305-12e657f10149",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "dbbf3dc1-6eb7-4908-873b-7e4c36131f5a",
+      "id": "5ee885be-7e20-4737-8270-e9f9540cf303",
       "key": "runtime",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "0d445078-9fb6-4d3a-a45e-fdcc38c82e77",
+      "id": "e848a31a-be0b-485d-830f-c5d2dfffe85b",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "59e96f07-5124-4e75-83fe-c9cf1a553753",
+      "id": "72d84411-e740-47d4-ac96-b11cbdf5c8c6",
       "key": "pingdirAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "e399c09e-4b1a-4ddd-90d7-faf45d1f1a08",
+      "id": "fd786376-35e5-4e2d-81f2-ba9896535365",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "4f6a5769-b4df-4af4-baf1-e04c2ce43a09",
+      "id": "00f4afe1-8005-4276-a376-e5602656cc7e",
       "value": "",
       "type": "string"
     }
