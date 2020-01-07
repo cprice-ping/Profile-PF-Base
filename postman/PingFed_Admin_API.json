@@ -50,13 +50,7 @@
           },
           "request": {
             "method": "GET",
-            "header": [
-              {
-                "key": "x-user-id",
-                "type": "text",
-                "value": "admin"
-              }
-            ],
+            "header": [],
             "url": "https://pingfederate:9031/pf/heartbeat.ping"
           },
           "response": []
@@ -2343,31 +2337,31 @@
   ],
   "variable": [
     {
-      "id": "e834aa57-75dd-4bfe-b287-b3906d11c269",
+      "id": "c12d1f43-143b-42ca-84b3-03006dfbd933",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "2b34b57a-d455-4ad7-8f47-18ca4ac32a27",
+      "id": "34ccaf4d-5151-4fa7-b27c-62a8551a1a28",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "0d323f91-a6f5-4daf-b201-8734f17f37d8",
+      "id": "39da60ee-ef19-483d-a102-1f2aef3bf4ce",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "15f8d786-2273-40ca-a3d2-a2171fd5d56d",
+      "id": "3c210e84-062b-41d0-a876-c33a318d635e",
       "key": "pingdirAdmin",
       "value": "cn=administrator",
       "type": "string"
     },
     {
-      "id": "3667a53e-a7cf-411b-b62c-cc3923251069",
+      "id": "4db82914-7f10-433a-a90e-ba707f6d0509",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
