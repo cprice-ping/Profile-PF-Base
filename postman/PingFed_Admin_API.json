@@ -523,9 +523,6 @@
                         "exec": [
                           "pm.test(\"Policy Contract (HTML) Created\", function () {",
                           "    pm.response.to.have.status(201);",
-                          "    ",
-                          "    var response = pm.response.json();",
-                          "    pm.environment.set(\"policyContractHTML\", response.id);",
                           "});"
                         ],
                         "type": "text/javascript"
@@ -553,7 +550,7 @@
                     ],
                     "body": {
                       "mode": "raw",
-                      "raw": "    {\n      \"name\": \"HTML Form\",\n      \"coreAttributes\": [\n        {\n          \"name\": \"subject\"\n        }\n      ],\n      \"extendedAttributes\": [\n        {\n          \"name\": \"entryUUID\"\n        },\n        {\n          \"name\": \"mail\"\n        }\n      ]\n    }"
+                      "raw": "    {\n      \"id\": \"defaultPolicy\",\n      \"name\": \"Default Policy Contract\",\n      \"coreAttributes\": [\n        {\n          \"name\": \"subject\"\n        }\n      ],\n      \"extendedAttributes\": [\n        {\n          \"name\": \"entryUUID\"\n        },\n        {\n          \"name\": \"mail\"\n        }\n      ]\n    }"
                     },
                     "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/authenticationPolicyContracts"
                   },
@@ -2363,43 +2360,43 @@
   ],
   "variable": [
     {
-      "id": "fcf5818c-ff88-4ba9-9504-5c592e034b32",
+      "id": "31e5d3e2-8665-4163-98b4-f91a9008b7de",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "b146ece7-4530-4db0-8920-042ca8b70d4c",
+      "id": "4c754772-0783-484c-bd90-a7f39e8c0c6f",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "1b59d123-c5f5-429c-a661-c228138e6385",
+      "id": "bbc78795-0672-4c1c-a306-33ded8e4be20",
       "key": "runtime",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "5ef236f6-1e4a-48bb-8a0d-635e96ed91b6",
+      "id": "3c6ebc8e-dce5-4374-bfd6-45d1e0e06d3d",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "4c48ee9e-bbac-46fa-8e91-d0a1c6d2de68",
+      "id": "73475c9b-21b6-4da5-958e-21d8d0d990a8",
       "key": "pingdirAdmin",
       "value": "cn=administrator",
       "type": "string"
     },
     {
-      "id": "5ba2af96-2229-4508-a6ce-2b3304159654",
+      "id": "bc0fdae8-88d8-45b4-b311-d2209270f5c5",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "6a34a944-a654-4d86-b00d-f744ad697baa",
+      "id": "10efe6cb-f81a-4367-a4b3-309d3ca5c4af",
       "value": "",
       "type": "string"
     }
