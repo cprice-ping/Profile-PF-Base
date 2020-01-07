@@ -1312,7 +1312,7 @@
               "name": "Token Mappings",
               "item": [
                 {
-                  "name": "Create JWT (HTML) Token Mapping to AuthN Policy Contract",
+                  "name": "Create JWT Token Mapping to AuthN Policy Contract",
                   "event": [
                     {
                       "listen": "test",
@@ -2063,43 +2063,43 @@
   ],
   "variable": [
     {
-      "id": "30549f79-9747-4a50-980f-ff3542df8742",
+      "id": "789bb73c-d606-48b3-8e34-742e2c879b2a",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "70481a0b-b0e1-4983-bcd9-d5e15de74c70",
+      "id": "19bc6a09-517d-4baa-b874-f11ddcdb38d7",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "58eb3d84-c6bf-413e-98fa-4cf42443a041",
+      "id": "48831054-bef8-4c95-a148-eca74aab64a8",
       "key": "runtime",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "b83edc2f-d3da-4468-af1b-2209d27c255e",
+      "id": "e456cb5d-8126-4e85-a872-40c01a92cedd",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "6a7dc345-8b1c-428a-8eca-81a1a7cb8fa1",
+      "id": "e9337354-bfba-4dc3-8aca-d8a687925c2f",
       "key": "pingdirAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "76ddef33-dd5b-4748-a5a2-89c098778ce4",
+      "id": "247d4812-99ac-4ab6-aaa5-c222930fe0ec",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "0e093781-2abe-406d-8efb-95aad9f1bd5a",
+      "id": "444392b8-deeb-409f-b6cf-d174a79d210f",
       "value": "",
       "type": "string"
     }
