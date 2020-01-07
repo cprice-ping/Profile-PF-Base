@@ -1302,49 +1302,6 @@
                     "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/accessTokenManagers"
                   },
                   "response": []
-                },
-                {
-                  "name": "Create JWT (MFA) Token Manager",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "ccbbf694-929a-43a7-a81a-cb8c87449a9e",
-                        "exec": [
-                          "pm.test(\"Access Token Manager (JWT-MFA) Created\", function () {",
-                          "    pm.response.to.have.status(201);",
-                          "});"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    }
-                  ],
-                  "_postman_id": "fd7542d6-b1cb-4c92-aeae-e6eb79b3c388",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "POST",
-                    "header": [
-                      {
-                        "key": "Content-Type",
-                        "name": "Content-Type",
-                        "type": "text",
-                        "value": "application/json"
-                      },
-                      {
-                        "key": "X-XSRF-Header",
-                        "type": "text",
-                        "value": "pingfederate"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "    {\n      \"id\": \"jwtMFA\",\n      \"name\": \"JWT-MFA\",\n      \"pluginDescriptorRef\": {\n        \"id\": \"com.pingidentity.pf.access.token.management.plugins.JwtBearerAccessTokenManagementPlugin\" },\n      \"configuration\": {\n        \"tables\": [\n          {\n            \"name\": \"Symmetric Keys\",\n            \"rows\": [\n              {\n                \"fields\": [\n                  {\n                    \"name\": \"Key ID\",\n                    \"value\": \"sym\"\n                  },\n                  {\n                    \"name\": \"Key\",\n                    \"value\": \"MkZlZGVyYXRlTTByZTJGZWRlcmF0ZU0wcmUyRmVkZXJhdGVNMHJl\"\n                  },\n                  {\n                    \"name\": \"Encoding\",\n                    \"value\": \"b64u\"\n                  }\n                ]\n              }\n            ]\n          }\n        ],\n        \"fields\": [\n          {\n            \"name\": \"Token Lifetime\",\n            \"value\": \"120\"\n          },\n          {\n            \"name\": \"JWS Algorithm\",\n            \"value\": \"HS256\"\n          },\n          {\n            \"name\": \"Active Symmetric Key ID\",\n            \"value\": \"sym\"\n          }\n        ]\n      },\n      \"attributeContract\": {\n        \"coreAttributes\": [],\n        \"extendedAttributes\": [\n          {\n            \"name\": \"sub\"\n          }\n        ]\n      },\n      \"selectionSettings\": {\n        \"resourceUris\": []\n      },\n      \"accessControlSettings\": {\n        \"restrictClients\": false,\n        \"allowedClients\": []\n      },\n      \"sessionValidationSettings\": {\n        \"checkValidAuthnSession\": false,\n        \"checkSessionRevocationStatus\": false,\n        \"updateAuthnSessionActivity\": false\n      }\n    }"
-                    },
-                    "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/accessTokenManagers"
-                  },
-                  "response": []
                 }
               ],
               "_postman_id": "e75b5ca0-5cdc-45f2-87b7-d8ffaec848c8",
@@ -2149,43 +2106,43 @@
   ],
   "variable": [
     {
-      "id": "0741c944-91c7-429a-b1a4-d341115fb36f",
+      "id": "8346a7b8-f997-42b5-8cbb-686d78d07c41",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "c6bff270-7ebe-4158-97bd-a77ce707ed97",
+      "id": "1d8199dd-37aa-40fc-af86-eb8558bbbfb9",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "cf2e2c87-940b-40ce-8764-4c9f70dea6ae",
+      "id": "c25f4e61-b51a-489e-aeab-85e2966b174d",
       "key": "runtime",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "77e1c00e-553d-44ee-859c-e03279151805",
+      "id": "66d648b2-125b-4b00-af32-f63e2d3a717e",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "706e374a-bba0-4ba2-b220-6436d9c3a3e1",
+      "id": "8beab0f3-ee75-4649-b952-14dfbc12d8d0",
       "key": "pingdirAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "8462872b-c5f4-43c3-944e-d39c28bdc970",
+      "id": "d8237a2b-b7ad-4e1b-87e7-513fc0812a16",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "44ac19ec-18da-4096-bfcf-b08d708bc229",
+      "id": "9a3ec498-706c-43f0-a7d2-3fb880ea8eef",
       "value": "",
       "type": "string"
     }
