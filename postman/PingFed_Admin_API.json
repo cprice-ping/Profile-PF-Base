@@ -417,7 +417,7 @@
                       "    return output;",
                       "};",
                       "",
-                      "var licenseBase64 = base64object(pm.environment.get('pingID'));",
+                      "var licenseBase64 = base64object(pm.environment.get('pingId'));",
                       "",
                       "pm.environment.set('encodedPingID', licenseBase64);"
                     ],
@@ -2363,43 +2363,43 @@
   ],
   "variable": [
     {
-      "id": "d65f2643-c3df-40ef-88ca-819bd4c7d9e3",
+      "id": "28fd7db7-b9be-45f9-aeaf-0900023f1c3e",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "a949377b-7b8b-4871-b263-6ba9385718b4",
+      "id": "ccbeede7-3ff4-4b25-8c45-7384be91e784",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "fb26a2a8-f45d-43f4-912b-3dac62312cf5",
+      "id": "628c3822-6f0e-45d0-8516-305e9f4283da",
       "key": "runtime",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "3bda715a-267d-461d-a38b-155097eeade4",
+      "id": "7e748858-97f5-44f2-8b5c-e11a7086dd9e",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "a298ebec-0c13-4824-b160-c3d0410ff390",
+      "id": "b68ca292-dc1a-4d6a-96e9-3e67846364d4",
       "key": "pingdirAdmin",
       "value": "cn=administrator",
       "type": "string"
     },
     {
-      "id": "b8977a13-0311-4489-83b0-ac7882939f0e",
+      "id": "8dd1b218-3fb3-4ba2-8f26-e31eac10e9f1",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "bc760187-466d-417d-bcfc-6a5af63e65b5",
+      "id": "af437215-1a4c-431a-bae9-0aee3e53a59a",
       "value": "",
       "type": "string"
     }
