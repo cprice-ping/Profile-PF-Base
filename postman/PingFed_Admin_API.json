@@ -555,118 +555,6 @@
                     "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/authenticationPolicyContracts"
                   },
                   "response": []
-                },
-                {
-                  "name": "APC - MFA",
-                  "event": [
-                    {
-                      "listen": "prerequest",
-                      "script": {
-                        "id": "18654f1f-702d-45d1-b2e2-4742a2253d2e",
-                        "exec": [
-                          ""
-                        ],
-                        "type": "text/javascript"
-                      }
-                    },
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "4f14cf69-4857-4f29-b857-d41ad98f72a3",
-                        "exec": [
-                          "pm.test(\"Policy Contract (MFA) Created\", function () {",
-                          "    pm.response.to.have.status(201);",
-                          "    ",
-                          "    var response = pm.response.json();",
-                          "    pm.environment.set(\"policyContractMFA\", response.id);",
-                          "});"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    }
-                  ],
-                  "_postman_id": "08066eeb-94d5-498e-9f8b-0ef5187e6543",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "POST",
-                    "header": [
-                      {
-                        "key": "Content-Type",
-                        "name": "Content-Type",
-                        "type": "text",
-                        "value": "application/json"
-                      },
-                      {
-                        "key": "X-XSRF-Header",
-                        "type": "text",
-                        "value": "PingFederate"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "    {\n      \"name\": \"MFA\",\n      \"coreAttributes\": [\n        {\n          \"name\": \"subject\"\n        }\n      ],\n      \"extendedAttributes\": [\n        {\n          \"name\": \"entryUUID\"\n        },\n        {\n          \"name\": \"mail\"\n        }\n      ]\n    }"
-                    },
-                    "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/authenticationPolicyContracts"
-                  },
-                  "response": []
-                },
-                {
-                  "name": "APC - Federated OIDC",
-                  "event": [
-                    {
-                      "listen": "prerequest",
-                      "script": {
-                        "id": "18654f1f-702d-45d1-b2e2-4742a2253d2e",
-                        "exec": [
-                          ""
-                        ],
-                        "type": "text/javascript"
-                      }
-                    },
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "4f14cf69-4857-4f29-b857-d41ad98f72a3",
-                        "exec": [
-                          "pm.test(\"Policy Contract Created\", function () {",
-                          "    pm.response.to.have.status(201);",
-                          "    ",
-                          "    var response = pm.response.json();",
-                          "    pm.environment.set(\"policyContract\", response.id);",
-                          "});"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    }
-                  ],
-                  "_postman_id": "3ad671b1-6bf4-44e4-8ab3-960a96f5b585",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "POST",
-                    "header": [
-                      {
-                        "key": "Content-Type",
-                        "name": "Content-Type",
-                        "type": "text",
-                        "value": "application/json"
-                      },
-                      {
-                        "key": "X-XSRF-Header",
-                        "type": "text",
-                        "value": "PingFederate"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": ""
-                    },
-                    "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/authenticationPolicyContracts"
-                  },
-                  "response": []
                 }
               ],
               "_postman_id": "665dcf21-7087-4a8c-9686-fe390c8f5b39",
@@ -2304,43 +2192,43 @@
   ],
   "variable": [
     {
-      "id": "51179728-d156-4b43-bc5a-f3f8a6047f41",
+      "id": "905310ee-d653-4819-b263-5a2d9bf000e2",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "ca303029-79fa-45cc-9ebf-3a47bd5a75f9",
+      "id": "95a2e3e4-515b-46c5-b278-e191b4b80d4b",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "749e9276-8294-45d6-8d41-b9a69dc99b3f",
+      "id": "dc26e809-4a68-4fcd-b86a-6e968eca1b52",
       "key": "runtime",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "6577f539-3410-46aa-82d3-918ab9f325a2",
+      "id": "8a79ba4a-6a04-4d74-9dd4-574cacf22b28",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "540aaca8-641b-41ec-ae20-5723fd91ae83",
+      "id": "0f08064f-042a-42c6-98f1-df059c2a13e7",
       "key": "pingdirAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "1809ae6c-e3b7-4ec8-9ac4-7e845942f00d",
+      "id": "84aebea8-43fe-438a-b4d5-548e5b3d4696",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "94d304d4-dece-45fa-84db-7d218cfcfac4",
+      "id": "d3d35973-636e-4b01-bc44-591a2af3e130",
       "value": "",
       "type": "string"
     }
