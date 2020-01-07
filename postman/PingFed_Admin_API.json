@@ -1348,7 +1348,7 @@
                     ],
                     "body": {
                       "mode": "raw",
-                      "raw": "{\n  \"context\": {\n    \"type\": \"AUTHENTICATION_POLICY_CONTRACT\",\n    \"contextRef\": {\n      \"id\": \"{{policyContractHTML}}\"\n    }\n  },\n  \"accessTokenManagerRef\": {\n    \"id\": \"jwtHTML\"\n  },\n  \"attributeContractFulfillment\": {\n    \"sub\": {\n      \"source\": {\n        \"type\": \"AUTHENTICATION_POLICY_CONTRACT\"\n      },\n      \"value\": \"entryUUID\"\n    }\n  }\n}"
+                      "raw": "{\n  \"context\": {\n    \"type\": \"AUTHENTICATION_POLICY_CONTRACT\",\n    \"contextRef\": {\n      \"id\": \"defaultPolicyContract\"\n    }\n  },\n  \"accessTokenManagerRef\": {\n    \"id\": \"jwtDefault\"\n  },\n  \"attributeContractFulfillment\": {\n    \"sub\": {\n      \"source\": {\n        \"type\": \"AUTHENTICATION_POLICY_CONTRACT\"\n      },\n      \"value\": \"entryUUID\"\n    }\n  }\n}"
                     },
                     "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/accessTokenMappings"
                   },
@@ -1399,49 +1399,6 @@
                     "body": {
                       "mode": "raw",
                       "raw": "    {\n      \"id\": \"OIDCPolicyHTML\",\n      \"name\": \"OIDC Policy (HTML)\",\n      \"idTokenLifetime\": 5,\n      \"attributeContract\": {\n        \"coreAttributes\": [\n          {\n            \"name\": \"sub\"\n          }\n        ],\n        \"extendedAttributes\": []\n      },\n      \"attributeMapping\": {\n        \"attributeSources\": [],\n        \"attributeContractFulfillment\": {\n          \"sub\": {\n            \"source\": {\n              \"type\": \"TOKEN\"\n            },\n            \"value\": \"sub\"\n          }\n        },\n        \"issuanceCriteria\": {\n          \"conditionalCriteria\": []\n        }\n      },\n      \"includeSriInIdToken\": false,\n      \"includeUserInfoInIdToken\": false,\n      \"includeSHashInIdToken\": false,\n      \"accessTokenManagerRef\": {\n        \"id\": \"jwtHTML\"\n    }\n    }"
-                    },
-                    "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/openIdConnect/policies"
-                  },
-                  "response": []
-                },
-                {
-                  "name": "Create OIDC Policy (MFA)",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "6e05969e-5670-4966-9136-02e62a2dc299",
-                        "exec": [
-                          "pm.test(\"OIDC Policy (MFA) Created\", function () {",
-                          "    pm.response.to.have.status(201);",
-                          "});"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    }
-                  ],
-                  "_postman_id": "b60f358f-4661-4dbb-98d5-d0818b18f342",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "POST",
-                    "header": [
-                      {
-                        "key": "Content-Type",
-                        "name": "Content-Type",
-                        "type": "text",
-                        "value": "application/json"
-                      },
-                      {
-                        "key": "X-XSRF-Header",
-                        "type": "text",
-                        "value": "pingdfederate"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "    {\n      \"id\": \"OIDCPolicyMFA\",\n      \"name\": \"OIDC Policy (MFA)\",\n      \"idTokenLifetime\": 5,\n      \"attributeContract\": {\n        \"coreAttributes\": [\n          {\n            \"name\": \"sub\"\n          }\n        ],\n        \"extendedAttributes\": []\n      },\n      \"attributeMapping\": {\n        \"attributeSources\": [],\n        \"attributeContractFulfillment\": {\n          \"sub\": {\n            \"source\": {\n              \"type\": \"TOKEN\"\n            },\n            \"value\": \"sub\"\n          }\n        },\n        \"issuanceCriteria\": {\n          \"conditionalCriteria\": []\n        }\n      },\n      \"includeSriInIdToken\": false,\n      \"includeUserInfoInIdToken\": false,\n      \"includeSHashInIdToken\": false,\n      \"accessTokenManagerRef\": {\n        \"id\": \"jwtMFA\"\n    }\n    }"
                     },
                     "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/openIdConnect/policies"
                   },
@@ -2063,43 +2020,43 @@
   ],
   "variable": [
     {
-      "id": "789bb73c-d606-48b3-8e34-742e2c879b2a",
+      "id": "090854c5-d05c-4566-a734-0febe9e8df3a",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "19bc6a09-517d-4baa-b874-f11ddcdb38d7",
+      "id": "c548822b-f58e-4a9b-9b5d-ba9c8328e756",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "48831054-bef8-4c95-a148-eca74aab64a8",
+      "id": "1cd51fdf-cd95-4054-9714-e328aceeac35",
       "key": "runtime",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "e456cb5d-8126-4e85-a872-40c01a92cedd",
+      "id": "56e99a07-6f73-4981-8238-ff8158ac86ca",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "e9337354-bfba-4dc3-8aca-d8a687925c2f",
+      "id": "f6dbaf0f-e713-43f6-ab42-ae237eb4c764",
       "key": "pingdirAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "247d4812-99ac-4ab6-aaa5-c222930fe0ec",
+      "id": "93d9253f-60f4-48bf-bfa5-3bd86d2b2b7a",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "444392b8-deeb-409f-b6cf-d174a79d210f",
+      "id": "76b1fe3f-3bd6-4fac-ae7f-6f8486f389a8",
       "value": "",
       "type": "string"
     }
