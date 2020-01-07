@@ -1594,7 +1594,7 @@
           "_postman_isSubFolder": true
         },
         {
-          "name": "Create Ping OIDC Clients",
+          "name": "Create OIDC Clients",
           "item": [
             {
               "name": "Create OIDC Client (Logon)",
@@ -1724,43 +1724,43 @@
   ],
   "variable": [
     {
-      "id": "48a841b6-d1d5-479f-99ed-26891d702f12",
+      "id": "15d387ce-dda5-4841-9342-fd1f5fb5e9c6",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "c97bc6d5-1978-43e2-8819-efce5ad2bada",
+      "id": "37f957f6-e17f-4dd6-a7e4-d0db20a1d591",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "0fc8e7d2-5a6f-4043-8218-860bbbb4d86a",
+      "id": "15ae68b0-79fd-4d52-adf1-c775ff183f05",
       "key": "runtime",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "1888efbe-fbf1-4dd8-aa6c-2ee5521be960",
+      "id": "2f19b743-dcf0-4ed0-a2e3-a67d1a4b5834",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "e0f19eb0-a9df-4754-ac88-6c22b94218f4",
+      "id": "4ca7478e-c6fd-4eaf-b9d1-4928afba3b8f",
       "key": "pingdirAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "1be6fa05-46ab-4eb3-9502-e6366f421a1b",
+      "id": "32b3af7b-bb01-4d9f-ac9a-3847b416f3a6",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "aab97cb7-4fe7-4f58-9854-9593616235b0",
+      "id": "dd30d01f-583d-47b1-8b5f-910c1b8c9a7e",
       "value": "",
       "type": "string"
     }
