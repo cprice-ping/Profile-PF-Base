@@ -57,7 +57,7 @@
                 "value": "admin"
               }
             ],
-            "url": "https://pingdatagov-pap:9443/api/system/status"
+            "url": "https://ext-docker.cpricedomain.ping-eng.com:9031/pf/heartbeat.ping"
           },
           "response": []
         }
