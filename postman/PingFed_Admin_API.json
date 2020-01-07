@@ -557,62 +557,6 @@
                   "response": []
                 },
                 {
-                  "name": "APC - HTML Form with LIP",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "83fd87e5-6289-4245-aeac-d5686d94d167",
-                        "exec": [
-                          "pm.test(\"Policy Contract (HTML) Created\", function () {",
-                          "    pm.response.to.have.status(201);",
-                          "    ",
-                          "    var response = pm.response.json();",
-                          "    pm.environment.set(\"policyContractHTMLwithLIP\", response.id);",
-                          "});"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    },
-                    {
-                      "listen": "prerequest",
-                      "script": {
-                        "id": "80a442b0-65ac-4672-922a-c8b4585bd0eb",
-                        "exec": [
-                          ""
-                        ],
-                        "type": "text/javascript"
-                      }
-                    }
-                  ],
-                  "_postman_id": "95d1dab6-6675-4d36-bade-cef468dbe346",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "POST",
-                    "header": [
-                      {
-                        "key": "Content-Type",
-                        "name": "Content-Type",
-                        "type": "text",
-                        "value": "application/json"
-                      },
-                      {
-                        "key": "X-XSRF-Header",
-                        "type": "text",
-                        "value": "PingFederate"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n      \"name\": \"HTML Form with LIP\",\n      \"coreAttributes\": [\n        {\n          \"name\": \"subject\"\n        }\n      ],\n      \"extendedAttributes\": [\n        {\n          \"name\": \"entryUUID\"\n        },\n        {\n          \"name\": \"mail\"\n        }\n      ]\n    }"
-                    },
-                    "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/authenticationPolicyContracts"
-                  },
-                  "response": []
-                },
-                {
                   "name": "APC - MFA",
                   "event": [
                     {
@@ -2360,43 +2304,43 @@
   ],
   "variable": [
     {
-      "id": "d2f5e21a-4983-4490-959e-c87705906fe4",
+      "id": "ebe587c6-ab40-4243-8b20-d2348715205a",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "9dd74fb1-ca4a-45a3-8237-7b07bff4b3f4",
+      "id": "8337fe02-15a2-4635-a03f-0e487912dc4c",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "16bd9283-3645-486a-bdfb-e52bc9f61841",
+      "id": "92cb2064-55de-4dff-9a3a-c93076ab9f90",
       "key": "runtime",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "fe27e533-67ea-419e-b9da-408c5bcdc9ca",
+      "id": "ad78f2f9-5361-43b2-b530-d93940406421",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "5b2c0dbb-032a-435b-b50f-a447cee16585",
+      "id": "5e84fff9-44ae-448d-b350-361639dfccca",
       "key": "pingdirAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "6ff886f9-eae2-435a-a923-c5f913c85ad9",
+      "id": "d100134a-e942-4af5-ae64-f91656e66070",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "7f56e2ae-9466-4a1a-ae44-9f2f935e8b04",
+      "id": "73dd6a0a-5789-4b66-9788-a92444996a0b",
       "value": "",
       "type": "string"
     }
