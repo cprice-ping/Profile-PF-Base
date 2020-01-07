@@ -2356,31 +2356,31 @@
   ],
   "variable": [
     {
-      "id": "7b70f5c8-0bbe-4ad3-bda1-a23f2e1655af",
+      "id": "9f8ca057-fe40-438e-b29b-a38de7dda5e3",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "b85c1b5f-0e92-46c7-9d3c-bb60885281a3",
+      "id": "1c2798b3-089a-4ad6-a871-f74a9619a95e",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "d473dc44-055b-40aa-9084-3f3281736528",
+      "id": "8cc0ed0e-b13f-425a-9607-7fb304a3691f",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "d8ca64b4-0361-4665-b90a-d9b45f5063db",
+      "id": "fb165dc7-eec5-43df-8d86-7f2e84ade4e7",
       "key": "pingdirAdmin",
       "value": "cn=administrator",
       "type": "string"
     },
     {
-      "id": "40b0c4c0-cf82-48d2-a019-64f0ff7ef057",
+      "id": "7cd18872-9547-42b7-8283-d323d68a6824",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
