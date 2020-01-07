@@ -2343,31 +2343,31 @@
   ],
   "variable": [
     {
-      "id": "71c9a01e-0656-4218-a833-394f14139e94",
+      "id": "4781025b-2d71-4c11-a40e-fd88495a4f46",
       "key": "pingfed",
       "value": "ext-docker.cpricedomain.ping-eng.com",
       "type": "string"
     },
     {
-      "id": "acbb2491-7919-4464-a158-c9aa11f309c2",
+      "id": "f5a2661d-aef8-4f42-9dfc-5dfef905a427",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "c5a42fa6-4369-4786-8aac-2e5d5e86fa8b",
+      "id": "bc33c70a-8d54-4b08-b745-82d4d85b7264",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "a3d9335f-50f9-4cf3-a304-22dd58cfbf0a",
+      "id": "6ea5ba2a-98b7-48c6-b001-eabf84af049e",
       "key": "pingdirAdmin",
       "value": "cn=administrator",
       "type": "string"
     },
     {
-      "id": "6fb86cf5-c73b-4a1f-b323-3a97fe67e7a9",
+      "id": "34a1885e-c3f0-455b-b230-18970cb3bdac",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
