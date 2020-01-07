@@ -83,7 +83,7 @@
           "request": {
             "method": "GET",
             "header": [],
-            "url": ""
+            "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/license/agreement"
           },
           "response": []
         }
@@ -2356,31 +2356,31 @@
   ],
   "variable": [
     {
-      "id": "d03ae73e-c329-4440-a993-3aafbdb09606",
+      "id": "7b70f5c8-0bbe-4ad3-bda1-a23f2e1655af",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "1d19097c-66a9-47ed-bf6d-4900928ee9ee",
+      "id": "b85c1b5f-0e92-46c7-9d3c-bb60885281a3",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "84c6c686-8713-4293-a168-a0cc51334b05",
+      "id": "d473dc44-055b-40aa-9084-3f3281736528",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "1e8b417b-e364-415a-af61-e5ee49ee3fd6",
+      "id": "d8ca64b4-0361-4665-b90a-d9b45f5063db",
       "key": "pingdirAdmin",
       "value": "cn=administrator",
       "type": "string"
     },
     {
-      "id": "7eca3f98-3f71-4d18-914b-47fed8424b2f",
+      "id": "40b0c4c0-cf82-48d2-a019-64f0ff7ef057",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
