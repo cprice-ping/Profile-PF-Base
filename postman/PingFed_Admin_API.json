@@ -10,7 +10,7 @@
       "name": "Check PF is Running",
       "item": [
         {
-          "name": "Check if Server is up Copy",
+          "name": "Check if Server is up",
           "event": [
             {
               "listen": "test",
