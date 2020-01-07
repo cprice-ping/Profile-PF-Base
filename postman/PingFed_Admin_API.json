@@ -550,7 +550,7 @@
                     ],
                     "body": {
                       "mode": "raw",
-                      "raw": "    {\n      \"id\": \"defaultPolicy\",\n      \"name\": \"Default Policy Contract\",\n      \"coreAttributes\": [\n        {\n          \"name\": \"subject\"\n        }\n      ],\n      \"extendedAttributes\": [\n        {\n          \"name\": \"entryUUID\"\n        },\n        {\n          \"name\": \"mail\"\n        }\n      ]\n    }"
+                      "raw": "    {\n      \"id\": \"defaultPolicyContract\",\n      \"name\": \"Default Policy Contract\",\n      \"coreAttributes\": [\n        {\n          \"name\": \"subject\"\n        }\n      ],\n      \"extendedAttributes\": [\n        {\n          \"name\": \"entryUUID\"\n        },\n        {\n          \"name\": \"mail\"\n        }\n      ]\n    }"
                     },
                     "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/authenticationPolicyContracts"
                   },
@@ -2192,43 +2192,43 @@
   ],
   "variable": [
     {
-      "id": "5196d8f0-5f7e-48de-aed7-35877c7866f3",
+      "id": "6e7764db-cd5d-45aa-b013-e8fcfa627b47",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "9d2ee236-fb7d-4f43-859d-c3d0955108cf",
+      "id": "905d00f8-a795-4a44-b42d-7601ed532c5e",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "c2b73ce4-df6c-49ac-b116-aec1e54204fb",
+      "id": "a00ba412-6c13-4f79-b996-53a5adef45f2",
       "key": "runtime",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "855b50b6-4432-44c7-9477-390ad43f2b5d",
+      "id": "0f2912b5-7d10-4b3d-853e-89b6441119b3",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "86185106-eb7f-4454-a0ba-3182b30bd925",
+      "id": "5bc8a13a-4236-4037-b937-f873c05112bd",
       "key": "pingdirAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "373d72ee-79e9-421e-b851-53d2be1d5424",
+      "id": "ad7315af-be4e-4044-ae8f-3ce2f8acc3bb",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "b4362d41-7520-4a18-95da-b1bd79936584",
+      "id": "532ffdea-1857-4a47-b2ef-242a8f98d003",
       "value": "",
       "type": "string"
     }
