@@ -250,9 +250,6 @@
                     "exec": [
                       "pm.test(\"PD Datastore Created\", function () {",
                       "    pm.response.to.have.status(201);",
-                      "    ",
-                      "    var response = pm.response.json();",
-                      "    pm.environment.set(\"datastoreId\", response.id);",
                       "});"
                     ],
                     "type": "text/javascript"
@@ -280,7 +277,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "    {\n      \"type\": \"LDAP\",\n      \"maskAttributeValues\": false,\n      \"hostnames\": [\n        \"pingdirectory\"\n      ],\n      \"ldapType\": \"PING_DIRECTORY\",\n      \"bindAnonymously\": false,\n      \"userDN\": \"cn=pingfederate\",\n\t  \"password\": \"{{pingdirAdminPwd}}\",\n      \"useSsl\": false,\n      \"useDnsSrvRecords\": false,\n      \"name\": \"PingDirectory\",\n      \"testOnBorrow\": false,\n      \"testOnReturn\": false,\n      \"createIfNecessary\": true\n    }"
+                  "raw": "    {\n      \"type\": \"LDAP\",\n      \"id\": \"LDAP-PingDirectory\",\n      \"maskAttributeValues\": false,\n      \"hostnames\": [\n        \"pingdirectory\"\n      ],\n      \"ldapType\": \"PING_DIRECTORY\",\n      \"bindAnonymously\": false,\n      \"userDN\": \"cn=pingfederate\",\n\t  \"password\": \"{{pingdirAdminPwd}}\",\n      \"useSsl\": false,\n      \"useDnsSrvRecords\": false,\n      \"name\": \"PingDirectory\",\n      \"testOnBorrow\": false,\n      \"testOnReturn\": false,\n      \"createIfNecessary\": true\n    }"
                 },
                 "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/dataStores"
               },
@@ -2372,43 +2369,43 @@
   ],
   "variable": [
     {
-      "id": "4a108014-317d-4168-ba9d-590ea9b501d7",
+      "id": "6956b8c6-dc2e-4817-ac2c-706704f7e674",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "b20db57f-d62e-4916-b970-fb0e368db60f",
+      "id": "176f927b-3e6f-420e-9d04-83ff4927f80a",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "e4beabeb-81cc-4210-9f73-f1b7d6580c28",
+      "id": "3a289a0d-9ef6-4d42-a6d4-0fee26ebe58a",
       "key": "runtime",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "374877ce-98e0-4e95-b671-20fd4244d3c5",
+      "id": "20c90392-52d4-4996-9ef1-cf58ee849579",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "e02a28a8-6dee-4e08-b19d-a608887cbf72",
+      "id": "2296efef-7b5e-4848-9f77-d04c067fd1e7",
       "key": "pingdirAdmin",
       "value": "cn=administrator",
       "type": "string"
     },
     {
-      "id": "de922ff8-c5e8-4d1d-88f6-9d92b83a5ccb",
+      "id": "5a3137ea-bfe9-4e36-b8d1-90b9ccb920ff",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "7787a127-c323-40e1-8826-36823849cba0",
+      "id": "d6480a42-2f42-47a6-adc1-4d2872262f6d",
       "value": "",
       "type": "string"
     }
