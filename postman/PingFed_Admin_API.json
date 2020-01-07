@@ -83,7 +83,27 @@
           "request": {
             "method": "GET",
             "header": [],
-            "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/license/agreement"
+            "url": {
+              "raw": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/license/agreement?X-XSRF-Header=pingfederate",
+              "protocol": "https",
+              "host": [
+                "{{pingfed}}"
+              ],
+              "port": "{{admin}}",
+              "path": [
+                "pf-admin-api",
+                "v1",
+                "license",
+                "agreement"
+              ],
+              "query": [
+                {
+                  "key": "X-XSRF-Header",
+                  "value": "pingfederate",
+                  "type": "text"
+                }
+              ]
+            }
           },
           "response": []
         }
@@ -2356,31 +2376,31 @@
   ],
   "variable": [
     {
-      "id": "9f8ca057-fe40-438e-b29b-a38de7dda5e3",
+      "id": "386356dd-c230-49e7-a78f-10123fd41ad7",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "1c2798b3-089a-4ad6-a871-f74a9619a95e",
+      "id": "816fe6a6-8d1f-4034-a4da-f575f563437a",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "8cc0ed0e-b13f-425a-9607-7fb304a3691f",
+      "id": "1fd22490-7dc1-4d36-b2a7-539514758175",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "fb165dc7-eec5-43df-8d86-7f2e84ade4e7",
+      "id": "00497815-fc32-4175-b3a5-3ba51be8577c",
       "key": "pingdirAdmin",
       "value": "cn=administrator",
       "type": "string"
     },
     {
-      "id": "7cd18872-9547-42b7-8283-d323d68a6824",
+      "id": "0a707072-a71e-41b7-baf3-5de64583f7d7",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
