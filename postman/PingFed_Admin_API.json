@@ -217,7 +217,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"commonName\": \"Default Signing Cert\",\n  \"organization\": \"Ping Identity\",\n  \"country\": \"US\",\n  \"validDays\": \"1825\",\n  \"keyAlgorithm\": \"RSA\",\n  \"keySize\": \"2048\",\n  \"signatureAlgorithm\": \"SHA256withRSA\"\n}"
+                  "raw": "{\n  \"commonName\": \"pingfederate\",\n  \"organization\": \"Ping Identity\",\n  \"country\": \"US\",\n  \"validDays\": \"1825\",\n  \"keyAlgorithm\": \"RSA\",\n  \"keySize\": \"2048\",\n  \"signatureAlgorithm\": \"SHA256withRSA\"\n}"
                 },
                 "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/keyPairs/signing/generate"
               },
@@ -2372,43 +2372,43 @@
   ],
   "variable": [
     {
-      "id": "63f2adf7-ad4f-4c69-a812-ca47e037ce53",
+      "id": "4a108014-317d-4168-ba9d-590ea9b501d7",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "ac25c72d-e7ff-405a-b477-81dc2930fc34",
+      "id": "b20db57f-d62e-4916-b970-fb0e368db60f",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "b625b64f-ea31-4a5e-875e-c37939337d36",
+      "id": "e4beabeb-81cc-4210-9f73-f1b7d6580c28",
       "key": "runtime",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "29080a4f-aff9-41a6-90a1-57c106c4024b",
+      "id": "374877ce-98e0-4e95-b671-20fd4244d3c5",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "7987af86-b68c-458f-8b3f-6952834a8da4",
+      "id": "e02a28a8-6dee-4e08-b19d-a608887cbf72",
       "key": "pingdirAdmin",
       "value": "cn=administrator",
       "type": "string"
     },
     {
-      "id": "4eb052ba-e3f8-4d4e-b239-faaf6281e305",
+      "id": "de922ff8-c5e8-4d1d-88f6-9d92b83a5ccb",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "ea8982c2-b603-4c8c-8e5d-1e0ac0acae44",
+      "id": "7787a127-c323-40e1-8826-36823849cba0",
       "value": "",
       "type": "string"
     }
