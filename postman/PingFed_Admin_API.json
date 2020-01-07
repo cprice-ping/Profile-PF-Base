@@ -1469,60 +1469,6 @@
           "name": "Create Default AuthN Ceremonies",
           "item": [
             {
-              "name": "Get Policy Contract - MFA",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "8b058b38-3a70-42c3-820d-2841e6e8b6f6",
-                    "exec": [
-                      "pm.test(\"Policy Contracts retrieved\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "    ",
-                      "    var response = pm.response.json();",
-                      "    pm.environment.set(\"policyContractMFA\", response.items[0].id);",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "a77cc2dc-a54d-41bc-9818-665328d18cf9",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "X-XSRF-Header",
-                    "type": "text",
-                    "value": "pingfederate"
-                  }
-                ],
-                "url": {
-                  "raw": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/authenticationPolicyContracts?filter=MFA",
-                  "protocol": "https",
-                  "host": [
-                    "{{pingfed}}"
-                  ],
-                  "port": "{{admin}}",
-                  "path": [
-                    "pf-admin-api",
-                    "v1",
-                    "authenticationPolicyContracts"
-                  ],
-                  "query": [
-                    {
-                      "key": "filter",
-                      "value": "MFA"
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
               "name": "Create Default Policy",
               "event": [
                 {
@@ -1966,43 +1912,43 @@
   ],
   "variable": [
     {
-      "id": "5cce78c2-da4c-490f-be67-748bc9b28fc2",
+      "id": "a091556c-2fe5-4fd1-ac2f-7cd1f354e565",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "49d5ca77-dcca-40ad-9257-d22fce125d3c",
+      "id": "c537f714-379c-468f-bcd1-4cf8e086d03d",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "06ec722c-7d27-4d2b-89f5-106083a79f1c",
+      "id": "74d80f88-a196-4f3c-b778-4134a4d7f827",
       "key": "runtime",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "3348283c-c973-4cc0-b2e1-2867b02ce3db",
+      "id": "5e53857b-b75f-4a59-ae69-b6926f42c18b",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "49076e62-6bab-4387-afe9-9c91058339e5",
+      "id": "332d1d2f-7a3c-48d7-b404-35a2cebb2fb7",
       "key": "pingdirAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "085c05e9-1746-4488-ae44-de93873ede3d",
+      "id": "f7be5c10-7d81-4eb1-8e54-345ad9672888",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "ed2552fb-ee95-49a3-87fe-a5fb545c6b78",
+      "id": "5625caaf-ba6a-4916-8057-99661b7819c5",
       "value": "",
       "type": "string"
     }
