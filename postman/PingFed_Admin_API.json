@@ -2340,5 +2340,13 @@
         ]
       }
     }
+  ],
+  "variable": [
+    {
+      "id": "046922b7-1b79-45c2-97d1-e05244778fc1",
+      "key": "pingfed",
+      "value": "ext-docker.cpricedomain.ping-eng.com",
+      "type": "string"
+    }
   ]
 }
