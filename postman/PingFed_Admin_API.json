@@ -1721,31 +1721,5 @@
         ]
       }
     }
-  ],
-  "variable": [
-    {
-      "id": "f30199d5-d8ba-4cab-83fa-a8216b9af1c2",
-      "key": "pingfed",
-      "value": "pingfederate",
-      "type": "string"
-    },
-    {
-      "id": "76767f10-ce9a-48fe-b3e1-d517a3fe2c15",
-      "key": "admin",
-      "value": "9999",
-      "type": "string"
-    },
-    {
-      "id": "e4912791-f2eb-4a10-a2f5-56d7f48b0520",
-      "key": "runtime",
-      "value": "9999",
-      "type": "string"
-    },
-    {
-      "id": "6209cfdc-02d2-4bd4-a984-8acce9454376",
-      "key": "pingdir",
-      "value": "pingdirectory",
-      "type": "string"
-    }
   ]
 }
