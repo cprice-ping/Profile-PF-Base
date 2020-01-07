@@ -1353,49 +1353,6 @@
                     "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/accessTokenMappings"
                   },
                   "response": []
-                },
-                {
-                  "name": "Create JWT (MFA) Token Mapping to AuthN Policy Contract",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "869afe02-b9a6-490f-80c5-dc003eca0285",
-                        "exec": [
-                          "pm.test(\"Access Token Mapping (JWT-MFA) Created\", function () {",
-                          "    pm.response.to.have.status(201);",
-                          "});"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    }
-                  ],
-                  "_postman_id": "c556659b-3ad8-4804-a73b-e8dfede5ce46",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "POST",
-                    "header": [
-                      {
-                        "key": "Content-Type",
-                        "name": "Content-Type",
-                        "type": "text",
-                        "value": "application/json"
-                      },
-                      {
-                        "key": "X-XSRF-Header",
-                        "type": "text",
-                        "value": "pingfederate"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"context\": {\n    \"type\": \"AUTHENTICATION_POLICY_CONTRACT\",\n    \"contextRef\": {\n      \"id\": \"{{policyContractMFA}}\"\n    }\n  },\n  \"accessTokenManagerRef\": {\n    \"id\": \"jwtMFA\"\n  },\n  \"attributeContractFulfillment\": {\n    \"sub\": {\n      \"source\": {\n        \"type\": \"AUTHENTICATION_POLICY_CONTRACT\"\n      },\n      \"value\": \"entryUUID\"\n    }\n  }\n}"
-                    },
-                    "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/accessTokenMappings"
-                  },
-                  "response": []
                 }
               ],
               "_postman_id": "7575c61f-3160-4d0e-ac81-9b1616640075",
@@ -2106,43 +2063,43 @@
   ],
   "variable": [
     {
-      "id": "8346a7b8-f997-42b5-8cbb-686d78d07c41",
+      "id": "30549f79-9747-4a50-980f-ff3542df8742",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "1d8199dd-37aa-40fc-af86-eb8558bbbfb9",
+      "id": "70481a0b-b0e1-4983-bcd9-d5e15de74c70",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "c25f4e61-b51a-489e-aeab-85e2966b174d",
+      "id": "58eb3d84-c6bf-413e-98fa-4cf42443a041",
       "key": "runtime",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "66d648b2-125b-4b00-af32-f63e2d3a717e",
+      "id": "b83edc2f-d3da-4468-af1b-2209d27c255e",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "8beab0f3-ee75-4649-b952-14dfbc12d8d0",
+      "id": "6a7dc345-8b1c-428a-8eca-81a1a7cb8fa1",
       "key": "pingdirAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "d8237a2b-b7ad-4e1b-87e7-513fc0812a16",
+      "id": "76ddef33-dd5b-4748-a5a2-89c098778ce4",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "9a3ec498-706c-43f0-a7d2-3fb880ea8eef",
+      "id": "0e093781-2abe-406d-8efb-95aad9f1bd5a",
       "value": "",
       "type": "string"
     }
