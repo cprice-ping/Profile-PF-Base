@@ -1649,7 +1649,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "    {\n      \"clientId\": \"PA WebSession\",\n      \"enabled\": true,\n      \"redirectUris\": [\n        \"https://pingaccess/pa/oidc/cb\"\n      ],\n      \"grantTypes\": [\n        \"IMPLICIT\",\n        \"AUTHORIZATION_CODE\"\n      ],\n      \"name\": \"PingAccess WebSession\",\n      \"description\": \"This client is used to perform OIDC logons to PingAccess\",\n      \"logoUrl\": \"\",\n      \"refreshRolling\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationType\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationTime\": 0,\n      \"persistentGrantExpirationTimeUnit\": \"DAYS\",\n      \"persistentGrantIdleTimeoutType\": \"SERVER_DEFAULT\",\n      \"persistentGrantIdleTimeout\": 0,\n      \"persistentGrantIdleTimeoutTimeUnit\": \"DAYS\",\n      \"bypassApprovalPage\": true,\n      \"restrictScopes\": false,\n      \"restrictedScopes\": [],\n      \"exclusiveScopes\": [\n      ],\n      \"restrictedResponseTypes\": [],\n      \"defaultAccessTokenManagerRef\": {\n        \"id\": \"jwtHTML\"\n      },\n      \"validateUsingAllEligibleAtms\": false,\n      \"oidcPolicy\": {\n        \"policyGroup\": {\n          \"id\": \"OIDCPolicyHTML\"\n        },\n        \"grantAccessSessionRevocationApi\": false,\n        \"pingAccessLogoutCapable\": false\n      },\n      \"clientAuth\": {\n        \"type\": \"NONE\",\n        \"enforceReplayPrevention\": false\n      },\n      \"extendedParameters\": {},\n      \"deviceFlowSettingType\": \"SERVER_DEFAULT\",\n      \"requireSignedRequests\": false\n    }"
+                  "raw": "    {\n      \"clientId\": \"PA WebSession\",\n      \"enabled\": true,\n      \"redirectUris\": [\n        \"https://pingaccess/pa/oidc/cb\"\n      ],\n      \"grantTypes\": [\n        \"IMPLICIT\",\n        \"AUTHORIZATION_CODE\"\n      ],\n      \"name\": \"PingAccess WebSession\",\n      \"description\": \"This client is used to perform OIDC logons to PingAccess\",\n      \"logoUrl\": \"\",\n      \"refreshRolling\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationType\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationTime\": 0,\n      \"persistentGrantExpirationTimeUnit\": \"DAYS\",\n      \"persistentGrantIdleTimeoutType\": \"SERVER_DEFAULT\",\n      \"persistentGrantIdleTimeout\": 0,\n      \"persistentGrantIdleTimeoutTimeUnit\": \"DAYS\",\n      \"bypassApprovalPage\": true,\n      \"restrictScopes\": false,\n      \"restrictedScopes\": [],\n      \"exclusiveScopes\": [\n      ],\n      \"restrictedResponseTypes\": [],\n      \"defaultAccessTokenManagerRef\": {\n        \"id\": \"jwtDefault\"\n      },\n      \"validateUsingAllEligibleAtms\": false,\n      \"oidcPolicy\": {\n        \"policyGroup\": {\n          \"id\": \"OIDCPolicyDefault\"\n        },\n        \"grantAccessSessionRevocationApi\": false,\n        \"pingAccessLogoutCapable\": false\n      },\n      \"clientAuth\": {\n        \"type\": \"NONE\",\n        \"enforceReplayPrevention\": false\n      },\n      \"extendedParameters\": {},\n      \"deviceFlowSettingType\": \"SERVER_DEFAULT\",\n      \"requireSignedRequests\": false\n    }"
                 },
                 "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/clients",
                 "description": "This client can be used to issue tokens for PingAccess WebSessions"
@@ -1724,43 +1724,43 @@
   ],
   "variable": [
     {
-      "id": "f9395a1a-e0d1-4587-a587-6e37fccef352",
+      "id": "2d6df9dd-250f-4285-9c98-51b60a048a86",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "0de47cd0-c00d-43f1-9766-83cff94186e5",
+      "id": "82ba2b63-bafd-47ad-8bd1-847a2d5d5a41",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "a797e7fe-26ef-45bc-a8d7-1938c0546ebd",
+      "id": "d2f54d38-c2e5-469e-a237-defba4a7572a",
       "key": "runtime",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "7972dfd0-88e4-41ba-b4d5-69605e6f6572",
+      "id": "198c169e-5d5e-4a00-bac9-fcdd65b87ff5",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "7f232685-6b44-4d92-9b5c-ae9615d0ea3b",
+      "id": "4bfffe3e-7955-4856-81a6-cab5b6545e8d",
       "key": "pingdirAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "97b2a510-fb78-46c0-a71c-0e3ca7b91449",
+      "id": "7e8b22f5-57f0-4555-a996-649ba4a46303",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "fb3efd43-d062-4fcf-a503-96eb719636f0",
+      "id": "cc101e55-215e-409e-b932-4e43fb938de6",
       "value": "",
       "type": "string"
     }
