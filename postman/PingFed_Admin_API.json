@@ -1246,7 +1246,7 @@
                     ],
                     "body": {
                       "mode": "raw",
-                      "raw": "    {\n      \"attributeSources\": [],\n      \"attributeContractFulfillment\": {\n        \"USER_NAME\": {\n          \"source\": {\n            \"type\": \"AUTHENTICATION_POLICY_CONTRACT\"\n          },\n          \"value\": \"mail\"\n        },\n        \"USER_KEY\": {\n          \"source\": {\n            \"type\": \"AUTHENTICATION_POLICY_CONTRACT\"\n          },\n          \"value\": \"entryUUID\"\n        }\n      },\n      \"issuanceCriteria\": {\n        \"conditionalCriteria\": []\n      },\n      \"authenticationPolicyContractRef\": {\n        \"id\": \"{{policyContractHTML}}\"\n      }\n    }"
+                      "raw": "    {\n      \"attributeSources\": [],\n      \"attributeContractFulfillment\": {\n        \"USER_NAME\": {\n          \"source\": {\n            \"type\": \"AUTHENTICATION_POLICY_CONTRACT\"\n          },\n          \"value\": \"mail\"\n        },\n        \"USER_KEY\": {\n          \"source\": {\n            \"type\": \"AUTHENTICATION_POLICY_CONTRACT\"\n          },\n          \"value\": \"entryUUID\"\n        }\n      },\n      \"issuanceCriteria\": {\n        \"conditionalCriteria\": []\n      },\n      \"authenticationPolicyContractRef\": {\n        \"id\": \"defaultPolicyContract\"\n      }\n    }"
                     },
                     "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/authenticationPolicyContractMappings"
                   },
@@ -2192,43 +2192,43 @@
   ],
   "variable": [
     {
-      "id": "3273f707-15b6-4df1-9e20-4e0626a75e04",
+      "id": "5196d8f0-5f7e-48de-aed7-35877c7866f3",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "fb7a6813-d38d-4b3a-ac32-cfaf19177dee",
+      "id": "9d2ee236-fb7d-4f43-859d-c3d0955108cf",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "80c9079a-3250-40ff-995e-ae1c74f9d360",
+      "id": "c2b73ce4-df6c-49ac-b116-aec1e54204fb",
       "key": "runtime",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "68ee6fff-e4d5-4fe4-a21c-6c23a137951d",
+      "id": "855b50b6-4432-44c7-9477-390ad43f2b5d",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "1bfcede4-f4ad-499b-acc0-d30b957b862b",
+      "id": "86185106-eb7f-4454-a0ba-3182b30bd925",
       "key": "pingdirAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "1be638bb-5946-4961-926f-78feee9b3fe6",
+      "id": "373d72ee-79e9-421e-b851-53d2be1d5424",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "aa643996-44f2-436f-bebf-6306cac37c16",
+      "id": "b4362d41-7520-4a18-95da-b1bd79936584",
       "value": "",
       "type": "string"
     }
