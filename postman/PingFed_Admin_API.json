@@ -75,20 +75,30 @@
       "name": "Accept EULA",
       "item": [
         {
-          "name": "Get EULA URL",
+          "name": "Accept EULA",
           "_postman_id": "90b631d0-04d3-41d2-8e36-9a8810e45246",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
           "request": {
-            "method": "GET",
+            "method": "PUT",
             "header": [
               {
                 "key": "X-XSRF-Header",
                 "value": "pingfederate",
                 "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
               }
             ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"accepted\": true\n}"
+            },
             "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/license/agreement"
           },
           "response": []
@@ -2362,31 +2372,31 @@
   ],
   "variable": [
     {
-      "id": "8985122a-98c9-4187-b007-96c2f0237a8c",
+      "id": "f5356b0d-eda5-4f30-b148-1386003799e7",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "393d895d-f5b3-4af6-ad51-48a9a7f3ef39",
+      "id": "4a6edcb7-e943-4e15-a1b4-7194b8059c57",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "f0645ecf-6d14-4ecc-b7d7-28fd581b5834",
+      "id": "958f3bdf-60a3-4b8a-bd86-d85970ab1346",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "d5d28ce0-ffee-400b-b583-5d65a321e844",
+      "id": "9d642e59-6e69-417f-a45e-b646504d1030",
       "key": "pingdirAdmin",
       "value": "cn=administrator",
       "type": "string"
     },
     {
-      "id": "9838213a-4655-4548-b73f-4e42dc494470",
+      "id": "fbda78b7-18e7-456c-bde7-a81ccc6eb7ca",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
