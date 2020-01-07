@@ -72,6 +72,25 @@
       "_postman_id": "18a8c929-293b-40d3-8adc-e9809f196055"
     },
     {
+      "name": "Accept EULA",
+      "item": [
+        {
+          "name": "Accept EULA",
+          "_postman_id": "90b631d0-04d3-41d2-8e36-9a8810e45246",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": ""
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "64491a04-b445-44f1-9869-dd20b6aa1f32"
+    },
+    {
       "name": "Config Docker image (New Server Profile)",
       "item": [
         {
@@ -2304,11 +2323,6 @@
         }
       ],
       "_postman_id": "05e2283b-eb88-4797-ae2d-2e541f207b15"
-    },
-    {
-      "name": "Accept EULA",
-      "item": [],
-      "_postman_id": "64491a04-b445-44f1-9869-dd20b6aa1f32"
     }
   ],
   "auth": {
@@ -2342,31 +2356,31 @@
   ],
   "variable": [
     {
-      "id": "94792b12-b979-4484-81c5-48a8eccb1ae3",
+      "id": "60fab65d-79df-49f0-bac2-5b993415716e",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "c673982f-5ad2-4fe0-bce8-345d6054395e",
+      "id": "27ce0813-022a-456b-88eb-4b5340e81278",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "4fc3a7a0-65d8-4352-9cd8-fb0d4e0fdebf",
+      "id": "bdd7c334-a625-4cc4-b232-3a9da6c7dce0",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "c79cce15-52f6-48de-aacb-dca78eb2ac9a",
+      "id": "ad65dca5-5cd1-48cb-b721-f3d83993c567",
       "key": "pingdirAdmin",
       "value": "cn=administrator",
       "type": "string"
     },
     {
-      "id": "31388b72-58fe-4c1a-bb33-85222df4ed21",
+      "id": "7b9ad146-52f9-48c2-a7bd-023c43c24adb",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
