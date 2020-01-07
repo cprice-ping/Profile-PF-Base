@@ -333,7 +333,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"id\": \"PDPCV\",\n  \"name\": \"PD PCV\",\n  \"pluginDescriptorRef\": {\n    \"id\": \"org.sourceid.saml20.domain.LDAPUsernamePasswordCredentialValidator\"\n  },\n  \"configuration\": {\n    \"tables\": [\n      {\n        \"name\": \"Authentication Error Overrides\",\n        \"rows\": []\n      }\n    ],\n    \"fields\": [\n      {\n        \"name\": \"LDAP Datastore\",\n        \"value\": \"{{datastoreId}}\"\n      },\n      {\n        \"name\": \"Search Base\",\n        \"value\": \"{{baseDN}}\"\n      },\n      {\n        \"name\": \"Search Filter\",\n        \"value\": \"(|(uid=${username})(mail=${username}))\"\n      },\n      {\n        \"name\": \"Scope of Search\",\n        \"value\": \"Subtree\"\n      },\n      {\n        \"name\": \"Case-Sensitive Matching\",\n        \"value\": \"true\"\n      },\n      {\n        \"name\": \"Display Name Attribute\",\n        \"value\": \"displayName\"\n      },\n      {\n        \"name\": \"Mail Attribute\",\n        \"value\": \"mail\"\n      },\n      {\n        \"name\": \"SMS Attribute\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"PingID Username Attribute\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Mail Search Filter\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Username Attribute\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Mail Verified Attribute\",\n        \"value\": \"\"\n      }\n    ]\n  },\n  \"attributeContract\": {\n    \"coreAttributes\": [\n      {\n        \"name\": \"mail\"\n      },\n      {\n        \"name\": \"givenName\"\n      },\n      {\n        \"name\": \"DN\"\n      },\n      {\n        \"name\": \"username\"\n      }\n    ],\n    \"extendedAttributes\": [\n      {\n        \"name\": \"entryUUID\"\n      }\n    ]\n  }\n}"
+                  "raw": "{\n  \"id\": \"PDPCV\",\n  \"name\": \"PD PCV\",\n  \"pluginDescriptorRef\": {\n    \"id\": \"org.sourceid.saml20.domain.LDAPUsernamePasswordCredentialValidator\"\n  },\n  \"configuration\": {\n    \"tables\": [\n      {\n        \"name\": \"Authentication Error Overrides\",\n        \"rows\": []\n      }\n    ],\n    \"fields\": [\n      {\n        \"name\": \"LDAP Datastore\",\n        \"value\": \"LDAP-PingDirectory\"\n      },\n      {\n        \"name\": \"Search Base\",\n        \"value\": \"{{baseDN}}\"\n      },\n      {\n        \"name\": \"Search Filter\",\n        \"value\": \"(|(uid=${username})(mail=${username}))\"\n      },\n      {\n        \"name\": \"Scope of Search\",\n        \"value\": \"Subtree\"\n      },\n      {\n        \"name\": \"Case-Sensitive Matching\",\n        \"value\": \"true\"\n      },\n      {\n        \"name\": \"Display Name Attribute\",\n        \"value\": \"displayName\"\n      },\n      {\n        \"name\": \"Mail Attribute\",\n        \"value\": \"mail\"\n      },\n      {\n        \"name\": \"SMS Attribute\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"PingID Username Attribute\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Mail Search Filter\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Username Attribute\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Mail Verified Attribute\",\n        \"value\": \"\"\n      }\n    ]\n  },\n  \"attributeContract\": {\n    \"coreAttributes\": [\n      {\n        \"name\": \"mail\"\n      },\n      {\n        \"name\": \"givenName\"\n      },\n      {\n        \"name\": \"DN\"\n      },\n      {\n        \"name\": \"username\"\n      }\n    ],\n    \"extendedAttributes\": [\n      {\n        \"name\": \"entryUUID\"\n      }\n    ]\n  }\n}"
                 },
                 "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/passwordCredentialValidators"
               },
@@ -2369,43 +2369,43 @@
   ],
   "variable": [
     {
-      "id": "6956b8c6-dc2e-4817-ac2c-706704f7e674",
+      "id": "83458fe1-4d14-459d-8e2d-5c0bed196d75",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "176f927b-3e6f-420e-9d04-83ff4927f80a",
+      "id": "1b078b92-a931-4708-a490-101cc6ab0384",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "3a289a0d-9ef6-4d42-a6d4-0fee26ebe58a",
+      "id": "a7451425-e907-4e48-9264-319fea1707c2",
       "key": "runtime",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "20c90392-52d4-4996-9ef1-cf58ee849579",
+      "id": "666260fe-a7db-4367-88ab-4d0b784bfe7f",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "2296efef-7b5e-4848-9f77-d04c067fd1e7",
+      "id": "478ca2b3-c25a-4dfc-b790-2ce7acabd6c1",
       "key": "pingdirAdmin",
       "value": "cn=administrator",
       "type": "string"
     },
     {
-      "id": "5a3137ea-bfe9-4e36-b8d1-90b9ccb920ff",
+      "id": "ac2b1d75-4485-40be-8faf-d00ef7dac002",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "d6480a42-2f42-47a6-adc1-4d2872262f6d",
+      "id": "c16f702f-f259-4bc0-8863-54278cffe8b5",
       "value": "",
       "type": "string"
     }
