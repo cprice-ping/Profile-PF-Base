@@ -1679,7 +1679,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n      \"clientId\": \"PingIntrospect\",\n      \"enabled\": true,\n      \"redirectUris\": [],\n      \"grantTypes\": [\n        \"ACCESS_TOKEN_VALIDATION\"\n      ],\n      \"name\": \"Ping Introspect\",\n      \"description\": \"This client is used to Introspect and validate PF-issued access_tokens\",\n      \"logoUrl\": \"\",\n      \"refreshRolling\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationType\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationTime\": 0,\n      \"persistentGrantExpirationTimeUnit\": \"DAYS\",\n      \"persistentGrantIdleTimeoutType\": \"SERVER_DEFAULT\",\n      \"persistentGrantIdleTimeout\": 0,\n      \"persistentGrantIdleTimeoutTimeUnit\": \"DAYS\",\n      \"bypassApprovalPage\": false,\n      \"restrictScopes\": false,\n      \"restrictedScopes\": [],\n      \"exclusiveScopes\": [],\n      \"restrictedResponseTypes\": [],\n      \"defaultAccessTokenManagerRef\": {\n        \"id\": \"jwtHTML\"\n      },\n      \"validateUsingAllEligibleAtms\": true,\n      \"oidcPolicy\": {\n        \"grantAccessSessionRevocationApi\": false,\n        \"pingAccessLogoutCapable\": false\n      },\n      \"clientAuth\": {\n        \"type\": \"SECRET\",\n        \"secret\": \"2FederateM0re\",\n        \"enforceReplayPrevention\": false\n      },\n      \"extendedParameters\": {},\n      \"deviceFlowSettingType\": \"SERVER_DEFAULT\",\n      \"requireSignedRequests\": false\n    }"
+                  "raw": "{\n      \"clientId\": \"PingIntrospect\",\n      \"enabled\": true,\n      \"redirectUris\": [],\n      \"grantTypes\": [\n        \"ACCESS_TOKEN_VALIDATION\"\n      ],\n      \"name\": \"Ping Introspect\",\n      \"description\": \"This client is used to Introspect and validate PF-issued access_tokens\",\n      \"logoUrl\": \"\",\n      \"refreshRolling\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationType\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationTime\": 0,\n      \"persistentGrantExpirationTimeUnit\": \"DAYS\",\n      \"persistentGrantIdleTimeoutType\": \"SERVER_DEFAULT\",\n      \"persistentGrantIdleTimeout\": 0,\n      \"persistentGrantIdleTimeoutTimeUnit\": \"DAYS\",\n      \"bypassApprovalPage\": false,\n      \"restrictScopes\": false,\n      \"restrictedScopes\": [],\n      \"exclusiveScopes\": [],\n      \"restrictedResponseTypes\": [],\n      \"defaultAccessTokenManagerRef\": {\n        \"id\": \"jwtDefault\"\n      },\n      \"validateUsingAllEligibleAtms\": true,\n      \"oidcPolicy\": {\n        \"grantAccessSessionRevocationApi\": false,\n        \"pingAccessLogoutCapable\": false\n      },\n      \"clientAuth\": {\n        \"type\": \"SECRET\",\n        \"secret\": \"2FederateM0re\",\n        \"enforceReplayPrevention\": false\n      },\n      \"extendedParameters\": {},\n      \"deviceFlowSettingType\": \"SERVER_DEFAULT\",\n      \"requireSignedRequests\": false\n    }"
                 },
                 "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/clients"
               },
@@ -1724,43 +1724,43 @@
   ],
   "variable": [
     {
-      "id": "2d6df9dd-250f-4285-9c98-51b60a048a86",
+      "id": "48a841b6-d1d5-479f-99ed-26891d702f12",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "82ba2b63-bafd-47ad-8bd1-847a2d5d5a41",
+      "id": "c97bc6d5-1978-43e2-8819-efce5ad2bada",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "d2f54d38-c2e5-469e-a237-defba4a7572a",
+      "id": "0fc8e7d2-5a6f-4043-8218-860bbbb4d86a",
       "key": "runtime",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "198c169e-5d5e-4a00-bac9-fcdd65b87ff5",
+      "id": "1888efbe-fbf1-4dd8-aa6c-2ee5521be960",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "4bfffe3e-7955-4856-81a6-cab5b6545e8d",
+      "id": "e0f19eb0-a9df-4754-ac88-6c22b94218f4",
       "key": "pingdirAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "7e8b22f5-57f0-4555-a996-649ba4a46303",
+      "id": "1be6fa05-46ab-4eb3-9502-e6366f421a1b",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "cc101e55-215e-409e-b932-4e43fb938de6",
+      "id": "aab97cb7-4fe7-4f58-9854-9593616235b0",
       "value": "",
       "type": "string"
     }
