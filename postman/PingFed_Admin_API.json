@@ -555,6 +555,62 @@
                     "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/authenticationPolicyContracts"
                   },
                   "response": []
+                },
+                {
+                  "name": "APC - Federated OIDC",
+                  "event": [
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "id": "18654f1f-702d-45d1-b2e2-4742a2253d2e",
+                        "exec": [
+                          ""
+                        ],
+                        "type": "text/javascript"
+                      }
+                    },
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "4f14cf69-4857-4f29-b857-d41ad98f72a3",
+                        "exec": [
+                          "pm.test(\"Policy Contract Created\", function () {",
+                          "    pm.response.to.have.status(201);",
+                          "    ",
+                          "    var response = pm.response.json();",
+                          "    pm.environment.set(\"policyContract\", response.id);",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "_postman_id": "3ad671b1-6bf4-44e4-8ab3-960a96f5b585",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "type": "text",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "X-XSRF-Header",
+                        "type": "text",
+                        "value": "PingFederate"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
+                    "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/authenticationPolicyContracts"
+                  },
+                  "response": []
                 }
               ],
               "_postman_id": "665dcf21-7087-4a8c-9686-fe390c8f5b39",
@@ -2192,43 +2248,43 @@
   ],
   "variable": [
     {
-      "id": "905310ee-d653-4819-b263-5a2d9bf000e2",
+      "id": "02eec55b-d886-46ab-a683-1474f3e2d241",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "95a2e3e4-515b-46c5-b278-e191b4b80d4b",
+      "id": "7d238f52-dba5-44aa-b149-2e00a4ff4612",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "dc26e809-4a68-4fcd-b86a-6e968eca1b52",
+      "id": "28c1a7f0-b328-4c2a-9f16-7da4ea17a06d",
       "key": "runtime",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "8a79ba4a-6a04-4d74-9dd4-574cacf22b28",
+      "id": "6cb9dd18-a55e-40e4-996c-902bbec09dd6",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "0f08064f-042a-42c6-98f1-df059c2a13e7",
+      "id": "9043dbe0-6b0a-4195-a175-5d401c7eadc2",
       "key": "pingdirAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "84aebea8-43fe-438a-b4d5-548e5b3d4696",
+      "id": "92f6f73d-232f-4f58-8027-59fbdb2681e1",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "d3d35973-636e-4b01-bc44-591a2af3e130",
+      "id": "b3e960fc-afdc-4257-b870-5af6115e206e",
       "value": "",
       "type": "string"
     }
