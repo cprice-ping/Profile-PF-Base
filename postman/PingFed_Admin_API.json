@@ -504,7 +504,7 @@
               "name": "Create AuthN Policy Contracts",
               "item": [
                 {
-                  "name": "APC - HTML Form",
+                  "name": "Create Default AuthN Policy Contract",
                   "event": [
                     {
                       "listen": "prerequest",
@@ -2360,43 +2360,43 @@
   ],
   "variable": [
     {
-      "id": "66ef9b5a-1eeb-480c-ba5f-fd9acb8a50a9",
+      "id": "d2f5e21a-4983-4490-959e-c87705906fe4",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "05df5455-3b05-4e48-81fb-b107560c0852",
+      "id": "9dd74fb1-ca4a-45a3-8237-7b07bff4b3f4",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "575fe543-4b76-48d5-a463-c7ce28a7dc72",
+      "id": "16bd9283-3645-486a-bdfb-e52bc9f61841",
       "key": "runtime",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "ca5e14d4-4382-46ec-a109-cc709b7a31d2",
+      "id": "fe27e533-67ea-419e-b9da-408c5bcdc9ca",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "0176176a-b7cc-4d36-874b-76d1c3d6973f",
+      "id": "5b2c0dbb-032a-435b-b50f-a447cee16585",
       "key": "pingdirAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "c4497314-ddff-407a-a303-53c1629a75aa",
+      "id": "6ff886f9-eae2-435a-a923-c5f913c85ad9",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "dff3c6c8-b5b5-4fff-842f-26a14a983b61",
+      "id": "7f56e2ae-9466-4a1a-ae44-9f2f935e8b04",
       "value": "",
       "type": "string"
     }
