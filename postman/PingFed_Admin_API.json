@@ -1261,7 +1261,7 @@
               "name": "Token Managers",
               "item": [
                 {
-                  "name": "Create JWT (HTML) Token Manager",
+                  "name": "Create JWT Token Manager",
                   "event": [
                     {
                       "listen": "test",
@@ -2149,43 +2149,43 @@
   ],
   "variable": [
     {
-      "id": "d1f2443f-f8af-4554-87e9-4f3a60b5d374",
+      "id": "912eb4ef-7c00-47d1-a5be-927a038475b7",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "a89367b4-b2c2-4378-baa5-e04f3ebe33b3",
+      "id": "defeeae9-87a7-441a-a839-8fe2457c60eb",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "4e58a20b-3252-4254-8f0f-b38bda4a4a0f",
+      "id": "d07b629e-6ffd-4021-9e54-138673809c9b",
       "key": "runtime",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "2b796f59-8864-4eca-bac2-8d3071871785",
+      "id": "9883ccba-31ed-4a33-b212-b74d2226887f",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "89c18cfb-be46-4724-bf83-86a7e471be59",
+      "id": "21a800e3-e895-4a15-a554-60311564c465",
       "key": "pingdirAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "e171aceb-4de5-4105-b9fa-b57eb80857ae",
+      "id": "95df987a-bfd5-4fa4-a0da-be54869b89c4",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "6cb19f38-a5bd-48a2-8687-c64353d0c137",
+      "id": "8d82f8d7-5d87-46a2-a2ea-c2800bd28b35",
       "value": "",
       "type": "string"
     }
