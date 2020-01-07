@@ -555,62 +555,6 @@
                     "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/authenticationPolicyContracts"
                   },
                   "response": []
-                },
-                {
-                  "name": "APC - Federated OIDC",
-                  "event": [
-                    {
-                      "listen": "prerequest",
-                      "script": {
-                        "id": "18654f1f-702d-45d1-b2e2-4742a2253d2e",
-                        "exec": [
-                          ""
-                        ],
-                        "type": "text/javascript"
-                      }
-                    },
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "4f14cf69-4857-4f29-b857-d41ad98f72a3",
-                        "exec": [
-                          "pm.test(\"Policy Contract Created\", function () {",
-                          "    pm.response.to.have.status(201);",
-                          "    ",
-                          "    var response = pm.response.json();",
-                          "    pm.environment.set(\"policyContract\", response.id);",
-                          "});"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    }
-                  ],
-                  "_postman_id": "3ad671b1-6bf4-44e4-8ab3-960a96f5b585",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "POST",
-                    "header": [
-                      {
-                        "key": "Content-Type",
-                        "name": "Content-Type",
-                        "type": "text",
-                        "value": "application/json"
-                      },
-                      {
-                        "key": "X-XSRF-Header",
-                        "type": "text",
-                        "value": "PingFederate"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": ""
-                    },
-                    "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/authenticationPolicyContracts"
-                  },
-                  "response": []
                 }
               ],
               "_postman_id": "665dcf21-7087-4a8c-9686-fe390c8f5b39",
@@ -1266,7 +1210,7 @@
               "name": "Grant Mapping",
               "item": [
                 {
-                  "name": "Create APC mapping - HTML Form",
+                  "name": "Create APC mapping - Default Policy Contract",
                   "event": [
                     {
                       "listen": "test",
@@ -2248,43 +2192,43 @@
   ],
   "variable": [
     {
-      "id": "043d5556-4d38-4fcf-bcea-6fa319113aa2",
+      "id": "3273f707-15b6-4df1-9e20-4e0626a75e04",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "33c2eff5-1ccd-46e3-9fc3-074360dfa610",
+      "id": "fb7a6813-d38d-4b3a-ac32-cfaf19177dee",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "b21903cd-73e6-484a-bda1-ffcacf78c31b",
+      "id": "80c9079a-3250-40ff-995e-ae1c74f9d360",
       "key": "runtime",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "84a905b9-ad2f-4f67-8dda-296bfb98767b",
+      "id": "68ee6fff-e4d5-4fe4-a21c-6c23a137951d",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "72b3b1b8-a0f3-4d52-8d10-239139f12626",
+      "id": "1bfcede4-f4ad-499b-acc0-d30b957b862b",
       "key": "pingdirAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "910e5f5f-e4e7-47bf-a447-c1e8fd6fd78a",
+      "id": "1be638bb-5946-4961-926f-78feee9b3fe6",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
     },
     {
-      "id": "9399be2d-bf51-4658-a834-f74169a7eb97",
+      "id": "aa643996-44f2-436f-bebf-6306cac37c16",
       "value": "",
       "type": "string"
     }
