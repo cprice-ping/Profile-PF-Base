@@ -2304,6 +2304,11 @@
         }
       ],
       "_postman_id": "05e2283b-eb88-4797-ae2d-2e541f207b15"
+    },
+    {
+      "name": "Accept EULA",
+      "item": [],
+      "_postman_id": "64491a04-b445-44f1-9869-dd20b6aa1f32"
     }
   ],
   "auth": {
@@ -2337,31 +2342,31 @@
   ],
   "variable": [
     {
-      "id": "d8d18f27-904a-4fd9-9dc2-4866026820d6",
+      "id": "94792b12-b979-4484-81c5-48a8eccb1ae3",
       "key": "pingfed",
       "value": "pingfederate",
       "type": "string"
     },
     {
-      "id": "97f21233-5599-4070-84a5-eee8c328f134",
+      "id": "c673982f-5ad2-4fe0-bce8-345d6054395e",
       "key": "admin",
       "value": "9999",
       "type": "string"
     },
     {
-      "id": "46c8610e-3172-41fe-8ebd-0dcae4b543b6",
+      "id": "4fc3a7a0-65d8-4352-9cd8-fb0d4e0fdebf",
       "key": "pingdir",
       "value": "pingdirectory",
       "type": "string"
     },
     {
-      "id": "dfaacfeb-1e43-4c71-ab61-cd42c0781615",
+      "id": "c79cce15-52f6-48de-aacb-dca78eb2ac9a",
       "key": "pingdirAdmin",
       "value": "cn=administrator",
       "type": "string"
     },
     {
-      "id": "dcb79246-a23a-4d1b-b984-b33119e68033",
+      "id": "31388b72-58fe-4c1a-bb33-85222df4ed21",
       "key": "pingdirAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
