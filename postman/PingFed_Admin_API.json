@@ -60,6 +60,19 @@
             "url": "https://ext-docker.cpricedomain.ping-eng.com:9031/pf/heartbeat.ping"
           },
           "response": []
+        },
+        {
+          "name": "00-Start-API-Calls Copy",
+          "_postman_id": "cb2b102b-49d7-47b2-b08c-7b6096528d40",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "https://postman-echo.com"
+          },
+          "response": []
         }
       ],
       "_postman_id": "18a8c929-293b-40d3-8adc-e9809f196055"
