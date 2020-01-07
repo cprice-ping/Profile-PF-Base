@@ -2343,9 +2343,21 @@
   ],
   "variable": [
     {
-      "id": "046922b7-1b79-45c2-97d1-e05244778fc1",
+      "id": "e4005555-ede4-4938-b623-bcf1d1277f4a",
       "key": "pingfed",
       "value": "ext-docker.cpricedomain.ping-eng.com",
+      "type": "string"
+    },
+    {
+      "id": "3ce19aa1-d0e4-4c99-94e4-9077f3673a33",
+      "key": "admin",
+      "value": "9999",
+      "type": "string"
+    },
+    {
+      "id": "0f4f41da-a96b-4ccb-bd15-a637a335737b",
+      "key": "pingdir",
+      "value": "pingdirectory",
       "type": "string"
     }
   ]
