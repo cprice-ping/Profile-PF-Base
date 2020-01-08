@@ -1230,7 +1230,7 @@
                         "id": "736f229e-688f-4dcf-b4bb-641f6c1e7dde",
                         "exec": [
                           "pm.test(\"Grant Mapping Created\", function () {",
-                          "    pm.response.to.be.ok;",
+                          "    pm.response.to.have.status(\"Created\");",
                           "});"
                         ],
                         "type": "text/javascript"
