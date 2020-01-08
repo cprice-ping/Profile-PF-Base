@@ -1904,7 +1904,7 @@
               "response": []
             },
             {
-              "name": "Create OIDC Client (Introspect)",
+              "name": "Create OIDC Client (PingIntrospect)",
               "event": [
                 {
                   "listen": "test",
