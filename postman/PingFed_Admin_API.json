@@ -1860,7 +1860,7 @@
           "name": "Create OIDC Clients",
           "item": [
             {
-              "name": "Create OIDC Client (Logon)",
+              "name": "Create OIDC Client (PingLogon)",
               "event": [
                 {
                   "listen": "test",
@@ -1885,13 +1885,13 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
+                    "type": "text",
+                    "value": "application/json"
                   },
                   {
                     "key": "X-XSRF-Header",
-                    "value": "pingfederate",
-                    "type": "text"
+                    "type": "text",
+                    "value": "pingfederate"
                   }
                 ],
                 "body": {
@@ -1904,7 +1904,7 @@
               "response": []
             },
             {
-              "name": "Create OIDC Client (Introspect)",
+              "name": "Create OIDC Client (PingIntrospect)",
               "event": [
                 {
                   "listen": "test",
@@ -1981,6 +1981,14 @@
           ""
         ]
       }
+    }
+  ],
+  "variable": [
+    {
+      "id": "529d8c60-7b12-440d-ae14-daf70da31492",
+      "key": "{{pfAdminURL}}",
+      "value": "https://pingfederate:9999",
+      "type": "string"
     }
   ]
 }
