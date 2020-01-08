@@ -24,11 +24,11 @@
 		},
 		{
 			"key": "pingId",
-			"value": "#Auto-Generated from PingOne, downloaded by id=[158000] email=[cprice+lab@pingidentity.com]\n#Mon Oct 07 12:36:37 MDT 2019\nuse_base64_key=/iM4CXzXrxGS5HGFtIhQB1gWtu4I4s9FV+gaOt8EvE0=\nuse_signature=true\ntoken=7b1f4e20703f178c84248094498035c4\nidp_url=https://idpxnyl3m.pingidentity.com/pingid\norg_alias=c6d8cf58-6d78-49da-938a-4fb44f746397\nadmin_url=https://idpxnyl3m.pingidentity.com/pingid\nauthenticator_url=https://authenticator.pingone.com/pingid/ppm",
+			"value": "#Auto-Generated from PingOne, downloaded by id=[158000] email=[someone@anywhere.com]/n#Mon Oct 07 12:36:37 MDT 2019/nuse_base64_key=ThisIsABadKey/nuse_signature=true/ntoken=ThisIsNotAToken/nidp_url=https://idpxnyl3m.pingidentity.com/pingid/norg_alias=ThisIsYourPIDOrgAlias/nadmin_url=https://idpxnyl3m.pingidentity.com/pingid/nauthenticator_url=https://authenticator.pingone.com/pingid/ppm",
 			"enabled": true
 		},
 		{
-			"key": "userBaseDn",
+			"key": "userBaseDN",
 			"value": "dc=example.com",
 			"enabled": true
 		},
