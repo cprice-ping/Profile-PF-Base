@@ -569,7 +569,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"authNexp\",\n  \"description\": \"Authentication Experience\",\n  \"multiValued\": \"false\"\n}"
+                  "raw": "{\n  \"items\": [\n    {\n      \"name\": \"authNexp\",\n      \"description\": \"Authentication Experience\",\n      \"multiValued\": \"false\"\n    }\n  ]\n}"
                 },
                 "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/extendedProperties"
               },
