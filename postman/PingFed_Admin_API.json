@@ -914,7 +914,7 @@
                   "mode": "raw",
                   "raw": "{\n  \"enableSessions\": true,\n  \"persistentSessions\": true,\n  \"idleTimeoutMins\": 60,\n  \"idleTimeoutDisplayUnit\": \"MINUTES\",\n  \"maxTimeoutMins\": 480,\n  \"maxTimeoutDisplayUnit\": \"MINUTES\"\n}"
                 },
-                "url": "{{pfAdminURL}}/pf-admin-api/v1/session/authenticationSessionPolicies/global"
+                "url": "https://pingfederate:9999/pf-admin-api/v1/session/authenticationSessionPolicies/global"
               },
               "response": []
             },
@@ -957,7 +957,7 @@
                   "mode": "raw",
                   "raw": "    {\n      \"id\": \"PingIDSessionOverride\",\n      \"authenticationSource\": {\n        \"type\": \"IDP_ADAPTER\",\n        \"sourceRef\": {\n          \"id\": \"PingID\"\n        }\n      },\n      \"enableSessions\": false,\n      \"persistent\": false,\n      \"timeoutDisplayUnit\": \"MINUTES\",\n      \"authnContextSensitive\": false\n    }"
                 },
-                "url": "{{pfAdminURL}}/pf-admin-api/v1/session/authenticationSessionPolicies"
+                "url": "https://pingfederate:9999/pf-admin-api/v1/session/authenticationSessionPolicies"
               },
               "response": []
             }
