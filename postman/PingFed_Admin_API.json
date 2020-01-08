@@ -526,7 +526,13 @@
               },
               "request": {
                 "method": "PUT",
-                "header": [],
+                "header": [
+                  {
+                    "key": "X-XSRF-Header",
+                    "value": "pingfederate",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"items\": [\n    {\n      \"name\": \"authNexp\",\n      \"description\": \"Authentication Experience\",\n      \"multiValued\": \"false\"\n    }\n  ]\n}"
