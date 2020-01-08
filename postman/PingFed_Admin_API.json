@@ -957,7 +957,7 @@
                   "mode": "raw",
                   "raw": "    {\n      \"id\": \"PingIDSessionOverride\",\n      \"authenticationSource\": {\n        \"type\": \"IDP_ADAPTER\",\n        \"sourceRef\": {\n          \"id\": \"PingID\"\n        }\n      },\n      \"enableSessions\": false,\n      \"persistent\": false,\n      \"timeoutDisplayUnit\": \"MINUTES\",\n      \"authnContextSensitive\": false\n    }"
                 },
-                "url": "https://pingfederate:9999/pf-admin-api/v1/session/authenticationSessionPolicies"
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/session/authenticationSessionPolicies"
               },
               "response": []
             }
@@ -1012,7 +1012,7 @@
                           "mode": "raw",
                           "raw": "{\n  \"name\": \"openid\",\n  \"description\": \"Used to authenticated with OIDC\",\n  \"dynamic\": \"false\"\n}"
                         },
-                        "url": "https://pingfederate:9999/pf-admin-api/v1/oauth/authServerSettings/scopes/commonScopes"
+                        "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authServerSettings/scopes/commonScopes"
                       },
                       "response": []
                     },
