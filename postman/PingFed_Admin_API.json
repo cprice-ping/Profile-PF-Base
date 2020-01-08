@@ -180,8 +180,6 @@
                   "script": {
                     "id": "37cd23c7-5a5a-4834-bc81-9210b59a4074",
                     "exec": [
-                      "console.log(pm.request);",
-                      "",
                       "pm.test(\"Server Settings Configured\", function () {",
                       "    pm.response.to.be.ok;",
                       "});"
@@ -1997,7 +1995,7 @@
   ],
   "variable": [
     {
-      "id": "a0765afa-a98a-416f-9b5d-ae3526bb0f20",
+      "id": "aaa92a30-680e-4a58-a584-65029e81ee06",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
