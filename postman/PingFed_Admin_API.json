@@ -911,9 +911,20 @@
                 "disableBodyPruning": true
               },
               "request": {
-                "method": "GET",
-                "header": [],
-                "url": ""
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"items\": [\n    {\n      \"id\": \"PingIDSessionOverride\",\n      \"authenticationSource\": {\n        \"type\": \"IDP_ADAPTER\",\n        \"sourceRef\": {\n          \"id\": \"PingID\"\n        }\n      },\n      \"enableSessions\": false,\n      \"persistent\": false,\n      \"timeoutDisplayUnit\": \"MINUTES\",\n      \"authnContextSensitive\": false\n    }\n  ]\n}"
+                },
+                "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/session/authenticationSessionPolicies"
               },
               "response": []
             }
