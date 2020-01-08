@@ -1475,7 +1475,7 @@
                       "mode": "raw",
                       "raw": "    {\n      \"attributeSources\": [],\n      \"attributeContractFulfillment\": {\n        \"USER_NAME\": {\n          \"source\": {\n            \"type\": \"AUTHENTICATION_POLICY_CONTRACT\"\n          },\n          \"value\": \"mail\"\n        },\n        \"USER_KEY\": {\n          \"source\": {\n            \"type\": \"AUTHENTICATION_POLICY_CONTRACT\"\n          },\n          \"value\": \"entryUUID\"\n        }\n      },\n      \"issuanceCriteria\": {\n        \"conditionalCriteria\": []\n      },\n      \"authenticationPolicyContractRef\": {\n        \"id\": \"defaultPolicyContract\"\n      }\n    }"
                     },
-                    "url": "https://pingfederate:9999/pf-admin-api/v1/oauth/authenticationPolicyContractMappings"
+                    "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/authenticationPolicyContractMappings"
                   },
                   "response": []
                 }
