@@ -51,7 +51,8 @@
           "request": {
             "method": "GET",
             "header": [],
-            "url": "https://pingfederate:9031/pf/heartbeat.ping"
+            "url": "https://pingfederate:9031/pf/heartbeat.ping",
+            "description": "Uses the API endpoint instead of just the heartbeat"
           },
           "response": []
         },
@@ -582,11 +583,8 @@
                       "script": {
                         "id": "4f14cf69-4857-4f29-b857-d41ad98f72a3",
                         "exec": [
-                          "pm.test(\"Policy Contract (HTML) Created\", function () {",
+                          "pm.test(\"Default LIP Created\", function () {",
                           "    pm.response.to.have.status(201);",
-                          "    ",
-                          "    var response = pm.response.json();",
-                          "    pm.environment.set(\"defaultLIP\", response.id);",
                           "});"
                         ],
                         "type": "text/javascript"
