@@ -920,6 +920,20 @@
             },
             {
               "name": "Add PingID Override",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "eb041198-282f-4559-af0e-d81f1c1abc69",
+                    "exec": [
+                      "pm.test(\"PingID Session Override Created\", function () {",
+                      "    pm.response.to.have.status(\"Created\");",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
               "_postman_id": "a64cba6e-fd58-4baf-90e3-dcaab247a0d6",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
