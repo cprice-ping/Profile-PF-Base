@@ -349,34 +349,6 @@
           "_postman_isSubFolder": true
         },
         {
-          "name": "Server Config -  Extended Properties",
-          "item": [],
-          "_postman_id": "014e4b16-a811-4662-940d-c3ea34a88f04",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "4dfb6acd-0a11-41f3-813c-a2abbc4e8fea",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "bff5bc60-6045-4f9f-a395-912d6282959d",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            }
-          ],
-          "_postman_isSubFolder": true
-        },
-        {
           "name": "IDP Config - DataStore \\ PCV \\ Adapter",
           "item": [
             {
