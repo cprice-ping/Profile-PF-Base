@@ -1569,6 +1569,12 @@
             }
           ],
           "_postman_isSubFolder": true
+        },
+        {
+          "name": "IDP Config - Sessions",
+          "item": [],
+          "_postman_id": "689e475a-d76e-453d-b9e1-4fcb5670451e",
+          "_postman_isSubFolder": true
         }
       ],
       "_postman_id": "853f49ad-5616-468f-9e4f-4870151c3ef2",
