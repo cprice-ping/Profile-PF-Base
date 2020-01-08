@@ -405,9 +405,20 @@
                 "disableBodyPruning": true
               },
               "request": {
-                "method": "GET",
-                "header": [],
-                "url": "",
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"virtualHostNames\": [\n    \"pingfederate\"\n  ]\n}"
+                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/virtualHostNames",
                 "description": "This is used to accept backchannel calls from other services in the stack"
               },
               "response": []
@@ -2286,7 +2297,7 @@
   ],
   "variable": [
     {
-      "id": "0a03983c-0e54-4492-b647-180069c52621",
+      "id": "38ba3bc9-29ca-46fa-a1c1-92e567279a64",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
