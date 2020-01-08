@@ -1697,7 +1697,7 @@
                     "id": "357f9987-ab1f-4e11-aea5-059c0dc4de65",
                     "exec": [
                       "pm.test(\"OIDC Client - PingIntrospect Created\", function () {",
-                      "    pm.response.to.be.ok;",
+                      "    pm.response.to.have.status(\"Created\");",
                       "});"
                     ],
                     "type": "text/javascript"
