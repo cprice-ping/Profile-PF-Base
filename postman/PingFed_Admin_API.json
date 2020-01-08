@@ -1499,7 +1499,7 @@
                     "id": "7cbf9465-6740-4dd7-a6f1-89e0dbeefc48",
                     "exec": [
                       "pm.test(\"Default AuthN Policy Created\", function () {",
-                      "    pm.response.to.have.status(200);",
+                      "    pm.response.to.be.ok;",
                       "});"
                     ],
                     "type": "text/javascript"
