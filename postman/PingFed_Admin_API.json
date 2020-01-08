@@ -120,7 +120,7 @@
               "mode": "raw",
               "raw": "{\n    \"accepted\": true\n}"
             },
-            "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/license/agreement"
+            "url": "https://pingfederate:9999/pf-admin-api/v1/license/agreement"
           },
           "response": []
         }
@@ -167,7 +167,7 @@
                     "type": "text"
                   }
                 ],
-                "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/license",
+                "url": "https://pingfederate:9999/pf-admin-api/v1/license",
                 "description": "Used to configure Server Roles that match the license"
               },
               "response": []
