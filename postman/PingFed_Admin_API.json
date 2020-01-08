@@ -2064,9 +2064,54 @@
             "disableBodyPruning": true
           },
           "request": {
-            "method": "GET",
-            "header": [],
-            "url": ""
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "pf.username",
+                  "value": "user.0",
+                  "type": "text"
+                },
+                {
+                  "key": "pf.pass",
+                  "value": "2FederateM0re",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{pfBaseURL}}/as/authorization.oauth2?response_type=code&client_id=PingLogon&redirect_uri=https://change.me",
+              "host": [
+                "{{pfBaseURL}}"
+              ],
+              "path": [
+                "as",
+                "authorization.oauth2"
+              ],
+              "query": [
+                {
+                  "key": "response_type",
+                  "value": "code"
+                },
+                {
+                  "key": "client_id",
+                  "value": "PingLogon"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://change.me"
+                }
+              ]
+            }
           },
           "response": []
         }
@@ -2105,7 +2150,7 @@
   ],
   "variable": [
     {
-      "id": "c3d0b8de-6104-47b4-b08f-a1bc6af09fd3",
+      "id": "43d8ce6d-7ad9-475a-8e53-ecc56befc758",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
