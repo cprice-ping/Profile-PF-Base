@@ -877,6 +877,20 @@
           "item": [
             {
               "name": "Configure Sessions",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ae78acb7-6654-43cc-9828-4c069e43317b",
+                    "exec": [
+                      "pm.test(\"Global Session Policy created\", function () {",
+                      "    pm.response.to.be.ok;",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
               "_postman_id": "e726a7c7-f4ce-40ef-a2a4-0b942890174f",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
@@ -927,7 +941,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"items\": [\n    {\n      \"id\": \"PingIDSessionOverride\",\n      \"authenticationSource\": {\n        \"type\": \"IDP_ADAPTER\",\n        \"sourceRef\": {\n          \"id\": \"PingID\"\n        }\n      },\n      \"enableSessions\": false,\n      \"persistent\": false,\n      \"timeoutDisplayUnit\": \"MINUTES\",\n      \"authnContextSensitive\": false\n    }\n  ]\n}"
+                  "raw": "    {\n      \"id\": \"PingIDSessionOverride\",\n      \"authenticationSource\": {\n        \"type\": \"IDP_ADAPTER\",\n        \"sourceRef\": {\n          \"id\": \"PingID\"\n        }\n      },\n      \"enableSessions\": false,\n      \"persistent\": false,\n      \"timeoutDisplayUnit\": \"MINUTES\",\n      \"authnContextSensitive\": false\n    }"
                 },
                 "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/session/authenticationSessionPolicies"
               },
