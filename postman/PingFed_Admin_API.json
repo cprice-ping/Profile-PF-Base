@@ -768,7 +768,7 @@
                             "id": "d811d801-bc60-4dae-acfc-2718352313f9",
                             "exec": [
                               "pm.test(\"Scope (openid) Created\", function () {",
-                              "    pm.response.to.be.ok;",
+                              "    pm.response.to.have.status(\"Created\");",
                               "});"
                             ],
                             "type": "text/javascript"
@@ -810,7 +810,7 @@
                             "id": "58ab8f47-2136-4bc6-b45f-f987aeaa2b92",
                             "exec": [
                               "pm.test(\"Scope (address) Created\", function () {",
-                              "    pm.response.to.be.ok;",
+                              "    pm.response.to.have.status(\"Created\");",
                               "});"
                             ],
                             "type": "text/javascript"
