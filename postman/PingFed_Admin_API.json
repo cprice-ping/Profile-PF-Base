@@ -1985,8 +1985,8 @@
   ],
   "variable": [
     {
-      "id": "f80661dd-e0df-409b-a3e0-fbd905223073",
-      "key": "{{pfAdminURL}}",
+      "id": "9b2bc0fb-f162-4874-98b2-6949538b5a56",
+      "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     }
