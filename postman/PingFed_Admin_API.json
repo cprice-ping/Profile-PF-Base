@@ -186,6 +186,16 @@
                     ],
                     "type": "text/javascript"
                   }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "a400b408-df00-44e0-91c1-a96af12aaa85",
+                    "exec": [
+                      "console.log(pm.request);"
+                    ],
+                    "type": "text/javascript"
+                  }
                 }
               ],
               "_postman_id": "fbdea1c9-bb61-41dc-bf01-8d372de0d6c7",
@@ -209,7 +219,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"contactInfo\": {\n    \"company\": \"PF Demo\"\n  },\n  \"rolesAndProtocols\": {\n    \"oauthRole\": {\n      \"enableOauth\": {{oauthEnabled}},\n      \"enableOpenIdConnect\": {{oauthEnabled}}\n    },\n    \"idpRole\": {\n      \"enable\": true,\n      \"saml20Profile\": {\n        \"enable\": true,\n        \"enableAutoConnect\": false\n      },\n      \"enableOutboundProvisioning\": {{provisioningEnabled}},\n      \"enableSaml11\": false,\n      \"enableSaml10\": false,\n      \"enableWsFed\": true,\n      \"enableWsTrust\": {{wsTrustEnabled}}\n    },\n    \"spRole\": {\n      \"enable\": true,\n      \"saml20Profile\": {\n        \"enable\": true,\n        \"enableXASP\": false,\n        \"enableAutoConnect\": false\n      },\n      \"enableSaml11\": false,\n      \"enableSaml10\": false,\n      \"enableWsFed\": false,\n      \"enableWsTrust\": false,\n      \"enableOpenIDConnect\": true,\n      \"enableInboundProvisioning\": false\n    },\n    \"enableIdpDiscovery\": false\n  },\n  \"federationInfo\": {\n    \"baseUrl\": \"{{pingfedBaseURL}}\",\n    \"saml2EntityId\": \"{{pingfedBaseURL}}\",\n    \"autoConnectEntityId\": \"{{pingfedBaseURL}}\",\n    \"saml1xIssuerId\": \"{{pingfedBaseURL}}\",\n    \"saml1xSourceId\": \"{{pingfedBaseURL}}\",\n    \"wsfedRealm\": \"{{pingfedBaseURL}}\"\n  }\n}"
+                  "raw": "{\n  \"contactInfo\": {\n    \"company\": \"PF Demo\"\n  },\n  \"rolesAndProtocols\": {\n    \"oauthRole\": {\n      \"enableOauth\": {{oauthEnabled}},\n      \"enableOpenIdConnect\": {{oauthEnabled}}\n    },\n    \"idpRole\": {\n      \"enable\": true,\n      \"saml20Profile\": {\n        \"enable\": true,\n        \"enableAutoConnect\": false\n      },\n      \"enableOutboundProvisioning\": {{provisioningEnabled}},\n      \"enableSaml11\": false,\n      \"enableSaml10\": false,\n      \"enableWsFed\": true,\n      \"enableWsTrust\": {{wsTrustEnabled}}\n    },\n    \"spRole\": {\n      \"enable\": true,\n      \"saml20Profile\": {\n        \"enable\": true,\n        \"enableXASP\": false,\n        \"enableAutoConnect\": false\n      },\n      \"enableSaml11\": false,\n      \"enableSaml10\": false,\n      \"enableWsFed\": false,\n      \"enableWsTrust\": false,\n      \"enableOpenIDConnect\": true,\n      \"enableInboundProvisioning\": false\n    },\n    \"enableIdpDiscovery\": false\n  },\n  \"federationInfo\": {\n    \"baseUrl\": \"{{pfBaseURL}}\",\n    \"saml2EntityId\": \"{{pfBaseURL}}\",\n    \"autoConnectEntityId\": \"{{pfBaseURL}}\",\n    \"saml1xIssuerId\": \"{{pfBaseURL}}\",\n    \"saml1xSourceId\": \"{{pfBaseURL}}\",\n    \"wsfedRealm\": \"{{pfBaseURL}}\"\n  }\n}"
                 },
                 "url": "{{pfAdminURL}}/pf-admin-api/v1/serverSettings"
               },
@@ -1985,7 +1995,7 @@
   ],
   "variable": [
     {
-      "id": "9b2bc0fb-f162-4874-98b2-6949538b5a56",
+      "id": "ed58da8b-d132-42e8-bfbf-4e4a49f60c4b",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
