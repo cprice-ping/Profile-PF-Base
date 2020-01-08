@@ -210,7 +210,7 @@
                     "id": "f99d64af-a643-4445-bcac-fe0d289c4817",
                     "exec": [
                       "pm.test(\"Signing Cert created\", function () {",
-                      "    pm.response.to.be.ok;",
+                      "    pm.response.to.have.status(\"Created\");",
                       "});"
                     ],
                     "type": "text/javascript"
