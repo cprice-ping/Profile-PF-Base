@@ -1568,6 +1568,20 @@
               "item": [
                 {
                   "name": "Add SP Connection",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "1dcbdc33-6fe7-4b12-a87c-333eb87390d6",
+                        "exec": [
+                          "pm.test(\"SAML SP Connection Created\", function () {",
+                          "    pm.response.to.be.ok;",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
                   "_postman_id": "8e3bb9f8-b67d-4a8e-a1c5-446c4678b2fd",
                   "protocolProfileBehavior": {
                     "disableBodyPruning": true
