@@ -1575,7 +1575,7 @@
                         "id": "1dcbdc33-6fe7-4b12-a87c-333eb87390d6",
                         "exec": [
                           "pm.test(\"SAML SP Connection Created\", function () {",
-                          "    pm.response.to.be.ok;",
+                          "    pm.response.to.have.status(\"Created\");",
                           "});"
                         ],
                         "type": "text/javascript"
