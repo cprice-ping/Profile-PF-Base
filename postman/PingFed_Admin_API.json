@@ -1153,7 +1153,7 @@
                             "id": "75912089-fa51-4c0b-85a9-d7907a66e68a",
                             "exec": [
                               "pm.test(\"Scope (pf:client:reg) Created\", function () {",
-                              "    pm.response.to.be.ok;",
+                              "    pm.response.to.have.status(\"Created\");",
                               "});"
                             ],
                             "type": "text/javascript"
