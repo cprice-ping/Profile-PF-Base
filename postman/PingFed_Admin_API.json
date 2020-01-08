@@ -167,7 +167,7 @@
                     "type": "text"
                   }
                 ],
-                "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/license",
+                "url": "https://pingfederate:9999/pf-admin-api/v1/license",
                 "description": "Used to configure Server Roles that match the license"
               },
               "response": []
@@ -211,7 +211,7 @@
                   "mode": "raw",
                   "raw": "{\n  \"contactInfo\": {\n    \"company\": \"PF Demo\"\n  },\n  \"rolesAndProtocols\": {\n    \"oauthRole\": {\n      \"enableOauth\": {{oauthEnabled}},\n      \"enableOpenIdConnect\": {{oauthEnabled}}\n    },\n    \"idpRole\": {\n      \"enable\": true,\n      \"saml20Profile\": {\n        \"enable\": true,\n        \"enableAutoConnect\": false\n      },\n      \"enableOutboundProvisioning\": {{provisioningEnabled}},\n      \"enableSaml11\": false,\n      \"enableSaml10\": false,\n      \"enableWsFed\": true,\n      \"enableWsTrust\": {{wsTrustEnabled}}\n    },\n    \"spRole\": {\n      \"enable\": true,\n      \"saml20Profile\": {\n        \"enable\": true,\n        \"enableXASP\": false,\n        \"enableAutoConnect\": false\n      },\n      \"enableSaml11\": false,\n      \"enableSaml10\": false,\n      \"enableWsFed\": false,\n      \"enableWsTrust\": false,\n      \"enableOpenIDConnect\": true,\n      \"enableInboundProvisioning\": false\n    },\n    \"enableIdpDiscovery\": false\n  },\n  \"federationInfo\": {\n    \"baseUrl\": \"{{pingfedBaseURL}}\",\n    \"saml2EntityId\": \"{{pingfedBaseURL}}\",\n    \"autoConnectEntityId\": \"{{pingfedBaseURL}}\",\n    \"saml1xIssuerId\": \"{{pingfedBaseURL}}\",\n    \"saml1xSourceId\": \"{{pingfedBaseURL}}\",\n    \"wsfedRealm\": \"{{pingfedBaseURL}}\"\n  }\n}"
                 },
-                "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/serverSettings"
+                "url": "https://pingfederate:9999/pf-admin-api/v1/serverSettings"
               },
               "response": []
             },
@@ -254,7 +254,7 @@
                   "mode": "raw",
                   "raw": "{\n  \"id\": \"signing-cert\",\n  \"commonName\": \"pingfederate\",\n  \"organization\": \"Ping Identity\",\n  \"country\": \"US\",\n  \"validDays\": \"1825\",\n  \"keyAlgorithm\": \"RSA\",\n  \"keySize\": \"2048\",\n  \"signatureAlgorithm\": \"SHA256withRSA\"\n}"
                 },
-                "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/keyPairs/signing/generate"
+                "url": "https://pingfederate:9999/pf-admin-api/v1/keyPairs/signing/generate"
               },
               "response": []
             },
@@ -297,7 +297,7 @@
                   "mode": "raw",
                   "raw": "{\n  \"items\": [\n    {\n      \"name\": \"authNexp\",\n      \"description\": \"Authentication Experience\",\n      \"multiValued\": \"false\"\n    }\n  ]\n}"
                 },
-                "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/extendedProperties"
+                "url": "https://pingfederate:9999/pf-admin-api/v1/extendedProperties"
               },
               "response": []
             },
@@ -340,7 +340,7 @@
                   "mode": "raw",
                   "raw": "{\n      \"id\": \"authnExp\",\n      \"name\": \"AuthN Experience\",\n      \"pluginDescriptorRef\": {\n        \"id\": \"com.pingidentity.pf.selectors.ExtendedPropertyAuthnSelector\"\n      },\n      \"configuration\": {\n        \"tables\": [],\n        \"fields\": [\n          {\n            \"name\": \"Extended Property\",\n            \"value\": \"authNexp\"\n          }\n        ]\n      },\n      \"attributeContract\": {\n        \"extendedAttributes\": [\n          {\n            \"name\": \"Basic\"\n          },\n          {\n            \"name\": \"Enhanced\"\n          },\n          {\n            \"name\": \"MFA\"\n          } ]\n      }\n}"
                 },
-                "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/authenticationSelectors"
+                "url": "https://pingfederate:9999/pf-admin-api/v1/authenticationSelectors"
               },
               "response": []
             }
