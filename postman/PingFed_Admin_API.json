@@ -1984,6 +1984,11 @@
           }
         }
       ]
+    },
+    {
+      "name": "Test Use Cases",
+      "item": [],
+      "_postman_id": "95b9017c-2db9-4b1e-a9cb-99fa26813224"
     }
   ],
   "auth": {
@@ -2017,7 +2022,7 @@
   ],
   "variable": [
     {
-      "id": "ce4d780e-a8af-4073-bd1e-564166e62ba6",
+      "id": "1997e257-5e3b-45a1-ba79-5284833e7f97",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
