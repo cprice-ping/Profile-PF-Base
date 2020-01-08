@@ -1990,6 +1990,25 @@
       "item": [
         {
           "name": "Test SAML Connection (Basic)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "3d23267c-44f2-45ac-9e86-c538560e2537",
+                "exec": [
+                  "var response = cheerio(pm.response);",
+                  "",
+                  "console.log(response);",
+                  "    ",
+                  "pm.test(\"SAML Assertion created\", function () {",
+                  "    pm.expect(response('SAMLResponse').text()).to.not.be.empty ",
+                  "    ",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
           "_postman_id": "f725a011-0211-44ff-95fa-cbd3da7f8b69",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -2073,7 +2092,7 @@
   ],
   "variable": [
     {
-      "id": "3efc9e4c-0747-4a55-bf29-2b718ea8e0e9",
+      "id": "7896aeb9-a74f-4803-8cd9-0d9f2e1bd87e",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
