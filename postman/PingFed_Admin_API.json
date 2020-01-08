@@ -534,6 +534,20 @@
           "item": [
             {
               "name": "Create Extended Propery",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "8b05293b-0945-4079-8094-f921b962ca35",
+                    "exec": [
+                      "pm.test(\"Extended Property Created\", function () {",
+                      "    pm.response.to.be.ok;",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
               "_postman_id": "a908c24a-1077-459e-ae43-893db3235b54",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
