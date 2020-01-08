@@ -270,7 +270,7 @@
                     "id": "7c855f38-dfee-4e47-b7d8-7e230cd38dd3",
                     "exec": [
                       "pm.test(\"PD Datastore Created\", function () {",
-                      "    pm.response.to.have.status(201);",
+                      "    pm.response.to.be.ok;",
                       "});"
                     ],
                     "type": "text/javascript"
