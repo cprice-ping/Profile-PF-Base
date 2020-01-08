@@ -1271,7 +1271,7 @@
                           "mode": "raw",
                           "raw": "{\n  \"name\": \"pd:consents:unpriv\",\n  \"description\": \"Used to access the PingDirectory Consent API (User)\",\n  \"dynamic\": \"false\"\n}"
                         },
-                        "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/authServerSettings/scopes/exclusiveScopes"
+                        "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authServerSettings/scopes/exclusiveScopes"
                       },
                       "response": []
                     },
@@ -1313,7 +1313,7 @@
                           "mode": "raw",
                           "raw": "{\n  \"name\": \"pd:consents:priv\",\n  \"description\": \"Used to access the PingDirectory Consent API (Admin)\",\n  \"dynamic\": \"false\"\n}"
                         },
-                        "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/authServerSettings/scopes/exclusiveScopes"
+                        "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authServerSettings/scopes/exclusiveScopes"
                       },
                       "response": []
                     },
