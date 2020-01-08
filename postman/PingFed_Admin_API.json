@@ -852,7 +852,7 @@
                             "id": "1cd8f58d-2dc3-4cf3-88b8-d678390c12ca",
                             "exec": [
                               "pm.test(\"Scope (email) Created\", function () {",
-                              "    pm.response.to.have.status(201);",
+                              "    pm.response.to.be.ok;",
                               "});"
                             ],
                             "type": "text/javascript"
@@ -894,7 +894,7 @@
                             "id": "1bc376ac-f0f6-41dc-a893-bf17e158fd8b",
                             "exec": [
                               "pm.test(\"Scope (phone) Created\", function () {",
-                              "    pm.response.to.have.status(201);",
+                              "    pm.response.to.be.ok;",
                               "});"
                             ],
                             "type": "text/javascript"
