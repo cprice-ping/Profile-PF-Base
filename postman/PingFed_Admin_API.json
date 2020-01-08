@@ -1069,7 +1069,7 @@
                             "id": "13fbd049-2577-49a8-957a-232556eac771",
                             "exec": [
                               "pm.test(\"Scope (pd:consents:priv) Created\", function () {",
-                              "    pm.response.to.be.ok;",
+                              "    pm.response.to.have.status(\"Created\");",
                               "});"
                             ],
                             "type": "text/javascript"
