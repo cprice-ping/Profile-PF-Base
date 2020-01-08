@@ -2102,7 +2102,7 @@
         }
       ],
       "_postman_id": "05e2283b-eb88-4797-ae2d-2e541f207b15",
-      "description": "Calls to setup some basic use cases:\n\n* Creates AuthN Policy\n * Uses Extended Properties Selector to switch:\n  * Basic (HTML Form)\n  * Enhanced (HTML Form with LIP)\n  * MFA (HTML Form with LIP --> PingID)\n\n* Adds SAML SP Connection (to HTTPBIN)\n* Adds OIDC Clients\n * `PingLogon` -- AuthZ Code \\ Implicit\n * `PingIntrospect` -- Token Validation",
+      "description": "Calls to setup some basic use cases:\n\n* Creates AuthN Policy\n * Uses Extended Properties Selector to switch:\n  * Basic (HTML Form)\n  * Enhanced (HTML Form with LIP)\n  * MFA (HTML Form with LIP --> PingID)  \n\n* Adds SAML SP Connection (to HTTPBIN)\n\n* Adds OIDC Clients\n * `PingLogon` -- AuthZ Code \\ Implicit\n * `PingIntrospect` -- Token Validation",
       "event": [
         {
           "listen": "prerequest",
@@ -2369,7 +2369,7 @@
   ],
   "variable": [
     {
-      "id": "0c7d0425-f6bc-446a-850c-bfce1cd07801",
+      "id": "a1b258c2-e7f8-48ec-a942-acc161f7f5ee",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
