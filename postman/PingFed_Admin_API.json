@@ -57,7 +57,7 @@
                 "type": "text"
               }
             ],
-            "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/license/agreement",
+            "url": "https://pingfederate:9999/pf-admin-api/v1/license/agreement",
             "description": "Uses the API endpoint instead of just the heartbeat"
           },
           "response": []
