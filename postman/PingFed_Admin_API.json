@@ -1577,7 +1577,7 @@
                       "mode": "raw",
                       "raw": "{\n  \"context\": {\n    \"type\": \"AUTHENTICATION_POLICY_CONTRACT\",\n    \"contextRef\": {\n      \"id\": \"defaultPolicyContract\"\n    }\n  },\n  \"accessTokenManagerRef\": {\n    \"id\": \"jwtDefault\"\n  },\n  \"attributeContractFulfillment\": {\n    \"sub\": {\n      \"source\": {\n        \"type\": \"AUTHENTICATION_POLICY_CONTRACT\"\n      },\n      \"value\": \"entryUUID\"\n    }\n  }\n}"
                     },
-                    "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/accessTokenMappings"
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/accessTokenMappings"
                   },
                   "response": []
                 }
