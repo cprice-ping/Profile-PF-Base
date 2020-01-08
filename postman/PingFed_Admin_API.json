@@ -50,7 +50,13 @@
           },
           "request": {
             "method": "GET",
-            "header": [],
+            "header": [
+              {
+                "key": "X-XSRF-Header",
+                "value": "pingfederate",
+                "type": "text"
+              }
+            ],
             "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/license/agreement",
             "description": "Uses the API endpoint instead of just the heartbeat"
           },
