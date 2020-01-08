@@ -2059,6 +2059,21 @@
         },
         {
           "name": "Test OIDC Token request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "bc6b5143-869c-4bb1-b81e-e5d4a03511ea",
+                "exec": [
+                  "var loc = pm.response.headers.get(\"location\");",
+                  "",
+                  "// Parse out the Code value",
+                  "pm.environment.set(\"authzCode\", loc.substr(loc.search(\"code=\") + 5));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
           "_postman_id": "d00a48e0-be10-4973-958b-ed9d1926d7ff",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -2114,6 +2129,19 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "Swap Code for Token",
+          "_postman_id": "eafdac8f-c744-4b65-bc2b-73c23c36e9dd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": ""
+          },
+          "response": []
         }
       ],
       "_postman_id": "95b9017c-2db9-4b1e-a9cb-99fa26813224"
@@ -2150,7 +2178,7 @@
   ],
   "variable": [
     {
-      "id": "43d8ce6d-7ad9-475a-8e53-ecc56befc758",
+      "id": "ce72f73a-92d7-470b-8373-5e9b1d3e046b",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
