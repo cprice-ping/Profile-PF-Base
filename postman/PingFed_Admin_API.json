@@ -448,10 +448,7 @@
                     "id": "1e26e9c5-34dc-4319-94d4-f12ca92fd718",
                     "exec": [
                       "pm.test(\"HTML Form Adapter Created\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "    ",
-                      "    var response = pm.response.json();",
-                      "    pm.environment.set(\"adapterId\", response.id);",
+                      "    pm.response.to.be.ok;",
                       "});"
                     ],
                     "type": "text/javascript"
