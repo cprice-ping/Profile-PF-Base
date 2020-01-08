@@ -985,7 +985,7 @@
                             "id": "e70d9490-f1fa-4ef6-8231-a3d86fe7520d",
                             "exec": [
                               "pm.test(\"Scope (pd:dir:access) Created\", function () {",
-                              "    pm.response.to.be.ok;",
+                              "    pm.response.to.have.status(\"Created\");",
                               "});"
                             ],
                             "type": "text/javascript"
