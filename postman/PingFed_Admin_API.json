@@ -709,7 +709,7 @@
             }
           ],
           "_postman_id": "e556918d-f585-41c2-81d0-898335fa9c0f",
-          "description": "These calls do the initial IdP Configuration:\n\n* Create PD datastore\n* Create LDAP (PD) PCV\n* Add IDP Adapters:\n* * HTML Form\n* * HTML Form with LIP\n* * PingID",
+          "description": "These calls do the initial IdP Configuration:\n\n* Create PD datastore\n* Create LDAP (PD) PCV\n* Add IDP Adapters:\n * HTML Form\n * HTML Form with LIP\n * PingID",
           "auth": {
             "type": "basic",
             "basic": {
@@ -742,7 +742,7 @@
           "_postman_isSubFolder": true
         },
         {
-          "name": "IDP Config - AuthN Policy",
+          "name": "IDP Config - AuthN Policy pre-work",
           "item": [
             {
               "name": "Create AuthN Policy Contracts",
@@ -974,6 +974,29 @@
             }
           ],
           "_postman_id": "abb1ca02-31a8-4a5b-bd24-c2b0bfd27efd",
+          "description": "Calls to setup the things to be used in Policies and LIPs:\n\n* Create Default AuthN Policy Contract\n* Create Default Local Identity Profile\n* Create HTML Form Adapter with LIP",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "0e967485-03db-4214-92f1-8b541d227115",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "b3f4095a-64ed-43fb-afe1-d3ccef6d26b7",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
           "_postman_isSubFolder": true
         },
         {
@@ -2322,7 +2345,7 @@
   ],
   "variable": [
     {
-      "id": "beeb75e9-d80a-4b44-a44c-99bbc80e89de",
+      "id": "af29d35c-e360-45cc-8ef3-277229070de9",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
