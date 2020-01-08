@@ -395,7 +395,7 @@
                     "id": "1e26e9c5-34dc-4319-94d4-f12ca92fd718",
                     "exec": [
                       "pm.test(\"PD Datastore Created\", function () {",
-                      "    pm.response.to.be.ok;",
+                      "    pm.response.to.have.status(\"Created\");",
                       "});"
                     ],
                     "type": "text/javascript"
