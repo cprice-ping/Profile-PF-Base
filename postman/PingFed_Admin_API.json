@@ -903,6 +903,19 @@
                 "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/session/authenticationSessionPolicies/global"
               },
               "response": []
+            },
+            {
+              "name": "Add PingID Override",
+              "_postman_id": "a64cba6e-fd58-4baf-90e3-dcaab247a0d6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": ""
+              },
+              "response": []
             }
           ],
           "_postman_id": "689e475a-d76e-453d-b9e1-4fcb5670451e",
