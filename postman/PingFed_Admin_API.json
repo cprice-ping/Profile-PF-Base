@@ -2,7 +2,7 @@
   "info": {
     "_postman_id": "d8f32c40-44b9-4c2a-8c6e-963a9904c854",
     "name": "PingFed Admin API",
-    "description": "## Collection - PingFed Admin API\n\nThis set demonstrates the new APIs in PF 9.2+ that allow you do use the Admin API to fully build out a PingFed server that's connected to PingDirectory.\n\nThis set of calls:\n* Accepts EULA\n* Imports a PingFed license (stored in the Environment)\n* Adds the intitial Admin user\n* Enables the Server Roles\n* Adds PingDirectory as a Data Store\n* Adds a LDAP Password Credential Validator\n* Adds a HTML Form Adapter with the PCV\n* Adds an AuthN Policy with Contract",
+    "description": "## Collection - PingFed Admin API\n\nThis set demonstrates the new APIs in PF 9.2+ that allow you do use the Admin API to fully build out a PingFed server that's connected to PingDirectory.\n\nIt is designed to be used with a DevOps Server Profile, with the license either supplied by DevOps, or injected into the Docker container with a volume.\n\nThis set of calls:\n* Accepts EULA\n* Enables the Server Roles\n* Adds PingDirectory as a Data Store\n* Adds a LDAP Password Credential Validator\n* Adds IDP Adapters\n* Adds an AuthN Policy with Contract\n* Adds a Local Identity Profile\n* Adds a SP Connection to HTTPBIN\n* Configures OAuth \\ OIDC\n* Adds a couple of OAuth clients",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
@@ -76,7 +76,30 @@
           "response": []
         }
       ],
-      "_postman_id": "18a8c929-293b-40d3-8adc-e9809f196055"
+      "_postman_id": "18a8c929-293b-40d3-8adc-e9809f196055",
+      "description": "This folder contains the call that's used to wait until a desired condition is met.\n\nThe `Pre-request` of the call contains a log event with a timer of 30s. The `Test Script` of the call contains the loop back to this call, and the Condition test that will break the looping.\n\nThe name of the call for the break is `00-Start-API-Calls` -- it's a simple GET request to https://postman-echo.com and allows for this to be always consistent.\n\nThe actual set of API calls for this collection are started right after this GET call.",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "263d6b60-7de9-4ff9-850e-1838ee21a6a3",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "ba5aaee1-d75e-4fca-8667-8ff592b34ad4",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
     },
     {
       "name": "Accept EULA",
@@ -2299,7 +2322,7 @@
   ],
   "variable": [
     {
-      "id": "829dc48e-02a3-48b2-b53e-71f205940462",
+      "id": "beeb75e9-d80a-4b44-a44c-99bbc80e89de",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
