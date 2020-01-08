@@ -1229,8 +1229,8 @@
                       "script": {
                         "id": "736f229e-688f-4dcf-b4bb-641f6c1e7dde",
                         "exec": [
-                          "pm.test(\"Grant Mapping (HTML) Created\", function () {",
-                          "    pm.response.to.have.status(201);",
+                          "pm.test(\"Grant Mapping Created\", function () {",
+                          "    pm.response.to.be.ok;",
                           "});"
                         ],
                         "type": "text/javascript"
