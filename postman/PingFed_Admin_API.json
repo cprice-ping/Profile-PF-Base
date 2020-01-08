@@ -1381,8 +1381,8 @@
                       "script": {
                         "id": "4aa206d6-cc0b-49c2-83a2-ddfdd4de1b6b",
                         "exec": [
-                          "pm.test(\"OIDC Policy (HTML) Created\", function () {",
-                          "    pm.response.to.have.status(201);",
+                          "pm.test(\"OIDC Policy Created\", function () {",
+                          "    pm.response.to.be.ok;",
                           "});"
                         ],
                         "type": "text/javascript"
