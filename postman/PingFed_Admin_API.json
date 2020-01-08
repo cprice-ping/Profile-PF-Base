@@ -1090,6 +1090,29 @@
             }
           ],
           "_postman_id": "689e475a-d76e-453d-b9e1-4fcb5670451e",
+          "description": "Calls to configure the Global Sessions\n* Enable Global Sessions\n* Override PingID Adapter",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "75e125d3-5120-4cb8-93f8-4a135b3b6b1d",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "a072850b-2fd3-4322-9702-015060284c4a",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
           "_postman_isSubFolder": true
         },
         {
@@ -2079,6 +2102,7 @@
         }
       ],
       "_postman_id": "05e2283b-eb88-4797-ae2d-2e541f207b15",
+      "description": "Calls to setup some basic use cases:\n\n* Creates AuthN Policy\n * Uses Extended Properties Selector to switch:\n  * Basic (HTML Form)\n  * Enhanced (HTML Form with LIP)\n  * MFA (HTML Form with LIP --> PingID)\n\n* Adds SAML SP Connection (to HTTPBIN)\n* Adds OIDC Clients\n * `PingLogon` -- AuthZ Code \\ Implicit\n * `PingIntrospect` -- Token Validation",
       "event": [
         {
           "listen": "prerequest",
@@ -2345,7 +2369,7 @@
   ],
   "variable": [
     {
-      "id": "af29d35c-e360-45cc-8ef3-277229070de9",
+      "id": "0c7d0425-f6bc-446a-850c-bfce1cd07801",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
