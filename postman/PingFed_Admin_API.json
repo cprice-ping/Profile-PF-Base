@@ -1355,7 +1355,7 @@
                           "mode": "raw",
                           "raw": "{\n  \"name\": \"urn:pingidentity:directory-delegated-admin\",\n  \"description\": \"Used to access the PD Delegated Admin app\",\n  \"dynamic\": \"false\"\n}"
                         },
-                        "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/authServerSettings/scopes/exclusiveScopes"
+                        "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authServerSettings/scopes/exclusiveScopes"
                       },
                       "response": []
                     },
@@ -1397,7 +1397,7 @@
                           "mode": "raw",
                           "raw": "{\n  \"name\": \"pf:client:reg\",\n  \"description\": \"Used to dynamically register clients (RFC 7591)\",\n  \"dynamic\": \"false\"\n}"
                         },
-                        "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/authServerSettings/scopes/exclusiveScopes"
+                        "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authServerSettings/scopes/exclusiveScopes"
                       },
                       "response": []
                     }
