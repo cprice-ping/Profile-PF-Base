@@ -1012,7 +1012,7 @@
                           "mode": "raw",
                           "raw": "{\n  \"name\": \"openid\",\n  \"description\": \"Used to authenticated with OIDC\",\n  \"dynamic\": \"false\"\n}"
                         },
-                        "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/authServerSettings/scopes/commonScopes"
+                        "url": "https://pingfederate:9999/pf-admin-api/v1/oauth/authServerSettings/scopes/commonScopes"
                       },
                       "response": []
                     },
@@ -1054,12 +1054,12 @@
                           "mode": "raw",
                           "raw": "{\n  \"name\": \"address\",\n  \"description\": \"Used to access your postal address\",\n  \"dynamic\": \"false\"\n}"
                         },
-                        "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/authServerSettings/scopes/commonScopes"
+                        "url": "https://pingfederate:9999/pf-admin-api/v1/oauth/authServerSettings/scopes/commonScopes"
                       },
                       "response": []
                     },
                     {
-                      "name": "OIDC Scope - emai",
+                      "name": "OIDC Scope - email",
                       "event": [
                         {
                           "listen": "test",
