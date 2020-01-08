@@ -300,14 +300,7 @@
                 "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/extendedProperties"
               },
               "response": []
-            }
-          ],
-          "_postman_id": "e2ae9616-4d84-4719-acc8-0ef9c659722e",
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "Server Config -  Extended Properties",
-          "item": [
+            },
             {
               "name": "Create Extended Property Selector",
               "event": [
@@ -352,6 +345,12 @@
               "response": []
             }
           ],
+          "_postman_id": "e2ae9616-4d84-4719-acc8-0ef9c659722e",
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "Server Config -  Extended Properties",
+          "item": [],
           "_postman_id": "014e4b16-a811-4662-940d-c3ea34a88f04",
           "event": [
             {
