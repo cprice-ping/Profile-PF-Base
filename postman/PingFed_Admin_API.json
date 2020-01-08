@@ -1229,7 +1229,7 @@
                           "mode": "raw",
                           "raw": "{\n  \"name\": \"pd:dir:access\",\n  \"description\": \"Used to access the PingDirectory REST API\",\n  \"dynamic\": \"false\"\n}"
                         },
-                        "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/authServerSettings/scopes/exclusiveScopes"
+                        "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authServerSettings/scopes/exclusiveScopes"
                       },
                       "response": []
                     },
