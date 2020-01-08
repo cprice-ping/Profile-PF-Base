@@ -1676,6 +1676,20 @@
             },
             {
               "name": "Create OIDC Client (Introspect)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "357f9987-ab1f-4e11-aea5-059c0dc4de65",
+                    "exec": [
+                      "pm.test(\"OIDC Client - PingIntrospect Created\", function () {",
+                      "    pm.response.to.be.ok;",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
               "_postman_id": "ffc65e2a-f6cc-4329-a3a7-2cd96c484899",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
