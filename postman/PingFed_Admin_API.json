@@ -559,6 +559,12 @@
                     "key": "X-XSRF-Header",
                     "value": "pingfederate",
                     "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
                   }
                 ],
                 "body": {
