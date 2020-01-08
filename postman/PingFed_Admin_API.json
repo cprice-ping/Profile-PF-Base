@@ -1138,7 +1138,7 @@
                           "mode": "raw",
                           "raw": "{\n  \"name\": \"phone\",\n  \"description\": \"Used to access your phone number\",\n  \"dynamic\": \"false\"\n}"
                         },
-                        "url": "https://pingfederate:9999/pf-admin-api/v1/oauth/authServerSettings/scopes/commonScopes"
+                        "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authServerSettings/scopes/commonScopes"
                       },
                       "response": []
                     },
