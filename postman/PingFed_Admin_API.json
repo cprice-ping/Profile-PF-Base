@@ -2137,9 +2137,39 @@
             "disableBodyPruning": true
           },
           "request": {
-            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": {
+                "password": "",
+                "username": "PingLogon"
+              }
+            },
+            "method": "POST",
             "header": [],
-            "url": ""
+            "url": {
+              "raw": "{{pfBaseURL}}/as/token.oauth2?grant_type=authorization_code&redirect_uri=https://change.me&code={{authzCode}}",
+              "host": [
+                "{{pfBaseURL}}"
+              ],
+              "path": [
+                "as",
+                "token.oauth2"
+              ],
+              "query": [
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://change.me"
+                },
+                {
+                  "key": "code",
+                  "value": "{{authzCode}}"
+                }
+              ]
+            }
           },
           "response": []
         }
@@ -2178,7 +2208,7 @@
   ],
   "variable": [
     {
-      "id": "18582a3b-84a8-45ba-ae1c-14275a8bfbf0",
+      "id": "091b238d-90f2-4518-9a58-266b9cb05324",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
