@@ -233,6 +233,10 @@
                   "script": {
                     "id": "f99d64af-a643-4445-bcac-fe0d289c4817",
                     "exec": [
+                      "console.log(pm.request);",
+                      "",
+                      "console.log(pm.response);",
+                      "",
                       "pm.test(\"Signing Cert created\", function () {",
                       "    pm.response.to.have.status(\"Created\");",
                       "});"
@@ -1995,7 +1999,7 @@
   ],
   "variable": [
     {
-      "id": "aaa92a30-680e-4a58-a584-65029e81ee06",
+      "id": "416dbbce-eb75-42b9-b43b-9e1e7d2eb658",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
