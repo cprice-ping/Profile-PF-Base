@@ -2,7 +2,7 @@
   "info": {
     "_postman_id": "d8f32c40-44b9-4c2a-8c6e-963a9904c854",
     "name": "PingFed Admin API",
-    "description": "## Collection - PingFed Admin API\n\nThis set demonstrates the new APIs in PF 9.2+ that allow you do use the Admin API to fully build out a PingFed server that's connected to PingDirectory.\n\nIt is designed to be used with a DevOps Server Profile, with the license either supplied by DevOps, or injected into the Docker container with a volume.\n\nThis set of calls:\n* Accepts EULA\n* Enables the Server Roles\n* Adds PingDirectory as a Data Store\n* Adds a LDAP Password Credential Validator\n* Adds IDP Adapters\n* Adds an AuthN Policy with Contract\n* Adds a Local Identity Profile\n* Adds a SP Connection to HTTPBIN\n* Configures OAuth \\ OIDC\n* Adds a couple of OAuth clients",
+    "description": "## Collection - PingFed Admin API\n\nThis set demonstrates the new APIs in PF 9.2+ that allow you do use the Admin API to fully build out a PingFed server that's connected to PingDirectory.\n\nIt is designed to be used with a DevOps Server Profile, with the license either supplied by DevOps, or injected into the Docker container with a volume.\n\nThis set of calls:\n* Accepts EULA\n* Enables the Server Roles\n* Adds PingDirectory as a Data Store\n* Adds a LDAP Password Credential Validator\n* Adds IDP Adapters\n* Adds an AuthN Policy with Contract\n* Adds a Local Identity Profile\n* Adds a SP Connection to HTTPBIN\n* Configures OAuth \\ OIDC\n* Adds a couple of OAuth clients\n\nThis collection is designed to be executed via a Newman container in the stack:\n\n```pf-config:\n    image: postman/newman\n    command: run https://www.getpostman.com/collections/2e0df14dcf26f1ddb39a -e postman_vars.json --insecure\n    volumes: \n      # An environment file should be injected into the image - this file should contain your specfic info and secrets\n      - ./postman_vars.json:/etc/newman/postman_vars.json\n    networks:\n      - pingnet-internal```\n      \n",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
@@ -2369,7 +2369,7 @@
   ],
   "variable": [
     {
-      "id": "a1b258c2-e7f8-48ec-a942-acc161f7f5ee",
+      "id": "84c1b30c-6297-4359-a99c-251cefeff79f",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
