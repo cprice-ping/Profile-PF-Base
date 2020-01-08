@@ -254,7 +254,7 @@
                   "mode": "raw",
                   "raw": "{\n  \"id\": \"signing-cert\",\n  \"commonName\": \"pingfederate\",\n  \"organization\": \"Ping Identity\",\n  \"country\": \"US\",\n  \"validDays\": \"1825\",\n  \"keyAlgorithm\": \"RSA\",\n  \"keySize\": \"2048\",\n  \"signatureAlgorithm\": \"SHA256withRSA\"\n}"
                 },
-                "url": "https://pingfederate:9999/pf-admin-api/v1/keyPairs/signing/generate"
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/keyPairs/signing/generate"
               },
               "response": []
             },
@@ -297,7 +297,7 @@
                   "mode": "raw",
                   "raw": "{\n  \"items\": [\n    {\n      \"name\": \"authNexp\",\n      \"description\": \"Authentication Experience\",\n      \"multiValued\": \"false\"\n    }\n  ]\n}"
                 },
-                "url": "https://pingfederate:9999/pf-admin-api/v1/extendedProperties"
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/extendedProperties"
               },
               "response": []
             },
