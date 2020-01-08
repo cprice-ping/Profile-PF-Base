@@ -131,7 +131,7 @@
       "name": "Config Docker image (New Server Profile)",
       "item": [
         {
-          "name": "Server Config - License \\ Settings \\ Cert \\ Extended Properties",
+          "name": "Server Config",
           "item": [
             {
               "name": "Get License",
@@ -300,7 +300,14 @@
                 "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/extendedProperties"
               },
               "response": []
-            },
+            }
+          ],
+          "_postman_id": "e2ae9616-4d84-4719-acc8-0ef9c659722e",
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "Server Config -  Extended Properties",
+          "item": [
             {
               "name": "Create Extended Property Selector",
               "event": [
@@ -345,12 +352,12 @@
               "response": []
             }
           ],
-          "_postman_id": "e2ae9616-4d84-4719-acc8-0ef9c659722e",
+          "_postman_id": "014e4b16-a811-4662-940d-c3ea34a88f04",
           "event": [
             {
               "listen": "prerequest",
               "script": {
-                "id": "2db108d5-3306-43e1-b2bc-a7f632d2dc32",
+                "id": "4dfb6acd-0a11-41f3-813c-a2abbc4e8fea",
                 "type": "text/javascript",
                 "exec": [
                   ""
@@ -360,7 +367,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "f8c7d200-9864-40c6-9cea-6a7dc3ec2dc7",
+                "id": "bff5bc60-6045-4f9f-a395-912d6282959d",
                 "type": "text/javascript",
                 "exec": [
                   ""
@@ -870,26 +877,6 @@
             }
           ],
           "_postman_id": "abb1ca02-31a8-4a5b-bd24-c2b0bfd27efd",
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "IDP Config - Sessions",
-          "item": [
-            {
-              "name": "Configure Sessions",
-              "_postman_id": "e726a7c7-f4ce-40ef-a2a4-0b942890174f",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [],
-                "url": ""
-              },
-              "response": []
-            }
-          ],
-          "_postman_id": "689e475a-d76e-453d-b9e1-4fcb5670451e",
           "_postman_isSubFolder": true
         },
         {
