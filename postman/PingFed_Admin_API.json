@@ -852,7 +852,7 @@
                             "id": "1cd8f58d-2dc3-4cf3-88b8-d678390c12ca",
                             "exec": [
                               "pm.test(\"Scope (email) Created\", function () {",
-                              "    pm.response.to.be.ok;",
+                              "    pm.response.to.have.status(\"Created\");",
                               "});"
                             ],
                             "type": "text/javascript"
