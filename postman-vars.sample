@@ -18,8 +18,13 @@
 			"enabled": true
 		},
 		{
+                        "key": "pingdirAdmin",
+                        "value": "administrator",
+                        "enabled": true
+                },
+		{
 			"key": "pingdirAdminPwd",
-			"value": "S0meP@ssword",
+			"value": "2FederateM0re",
 			"enabled": true
 		},
 		{
@@ -31,4 +36,3 @@
 	"_postman_variable_scope": "environment",
 	"_postman_exported_at": "2020-01-07T18:46:15.872Z",
 	"_postman_exported_using": "Postman/7.14.0"
-}
