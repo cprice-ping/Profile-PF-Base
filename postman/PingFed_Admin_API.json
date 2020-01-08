@@ -574,6 +574,19 @@
                 "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/extendedProperties"
               },
               "response": []
+            },
+            {
+              "name": "Create Extended Property Selector",
+              "_postman_id": "9c2dd262-f40a-41e0-8fdd-c710e75692c8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": ""
+              },
+              "response": []
             }
           ],
           "_postman_id": "014e4b16-a811-4662-940d-c3ea34a88f04",
