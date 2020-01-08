@@ -692,7 +692,7 @@
                       "mode": "raw",
                       "raw": "    {\n      \"id\": \"defaultPolicyContract\",\n      \"name\": \"Default Policy Contract\",\n      \"coreAttributes\": [\n        {\n          \"name\": \"subject\"\n        }\n      ],\n      \"extendedAttributes\": [\n        {\n          \"name\": \"entryUUID\"\n        },\n        {\n          \"name\": \"mail\"\n        }\n      ]\n    }"
                     },
-                    "url": "https://pingfederate:9999/pf-admin-api/v1/authenticationPolicyContracts"
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/authenticationPolicyContracts"
                   },
                   "response": []
                 }
@@ -753,7 +753,7 @@
                       "mode": "raw",
                       "raw": "{\n            \"id\": \"defaultIdentityProfile\",\n            \"name\": \"Default Identity Profile\",\n            \"apcId\": {\n                \"id\": \"defaultPolicyContract\"\n            },\n            \"authSources\": [\n                {\n                    \"source\": \"Facebook\",\n                    \"id\": \"facebook\"\n                },\n                {\n                    \"source\": \"QR Code\",\n                    \"id\": \"qrcode\"\n                }\n            ],\n            \"registrationEnabled\": false,\n            \"profileEnabled\": false\n        }"
                     },
-                    "url": "https://pingfederate:9999/pf-admin-api/v1/localIdentity/identityProfiles"
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/localIdentity/identityProfiles"
                   },
                   "response": []
                 }
@@ -811,7 +811,7 @@
                   "mode": "raw",
                   "raw": "{\n  \"id\": \"HTMLFormWithLIP\",\n  \"name\": \"HTML Form with LIP\",\n  \"pluginDescriptorRef\": {\n    \"id\": \"com.pingidentity.adapters.htmlform.idp.HtmlFormIdpAuthnAdapter\"\n  },\n  \"configuration\": {\n    \"tables\": [\n      {\n        \"name\": \"Credential Validators\",\n        \"rows\": [\n          {\n            \"fields\": [\n              {\n                \"name\": \"Password Credential Validator Instance\",\n                \"value\": \"PDPCV\"\n              }\n            ],\n            \"defaultRow\": false\n          }\n        ]\n      }\n    ],\n    \"fields\": [\n      {\n        \"name\": \"Challenge Retries\",\n        \"value\": \"3\"\n      },\n      {\n        \"name\": \"Session State\",\n        \"value\": \"None\"\n      },\n      {\n        \"name\": \"Session Timeout\",\n        \"value\": \"60\"\n      },\n      {\n        \"name\": \"Session Max Timeout\",\n        \"value\": \"480\"\n      },\n      {\n        \"name\": \"Allow Password Changes\",\n        \"value\": \"true\"\n      },\n      {\n        \"name\": \"Password Management System\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Enable 'Remember My Username'\",\n        \"value\": \"false\"\n      },\n      {\n        \"name\": \"Enable 'This is My Device'\",\n        \"value\": \"false\"\n      },\n      {\n        \"name\": \"Change Password Email Notification\",\n        \"value\": \"false\"\n      },\n      {\n        \"name\": \"Show Password Expiring Warning\",\n        \"value\": \"true\"\n      },\n      {\n        \"name\": \"Password Reset Type\",\n        \"value\": \"PingID\"\n      },\n      {\n        \"name\": \"Password Reset Policy Contract\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Account Unlock\",\n        \"value\": \"true\"\n      },\n      {\n        \"name\": \"Local Identity Profile\",\n        \"value\": \"defaultIdentityProfile\"\n      },\n      {\n        \"name\": \"Notification Publisher\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Enable Username Recovery\",\n        \"value\": \"false\"\n      },\n      {\n        \"name\": \"Login Template\",\n        \"value\": \"html.form.login.template.html\"\n      },\n      {\n        \"name\": \"Logout Path\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Logout Redirect\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Logout Template\",\n        \"value\": \"idp.logout.success.page.template.html\"\n      },\n      {\n        \"name\": \"Change Password Template\",\n        \"value\": \"html.form.change.password.template.html\"\n      },\n      {\n        \"name\": \"Change Password Message Template\",\n        \"value\": \"html.form.message.template.html\"\n      },\n      {\n        \"name\": \"Password Management System Message Template\",\n        \"value\": \"html.form.message.template.html\"\n      },\n      {\n        \"name\": \"Change Password Email Template\",\n        \"value\": \"message-template-end-user-password-change.html\"\n      },\n      {\n        \"name\": \"Expiring Password Warning Template\",\n        \"value\": \"html.form.password.expiring.notification.template.html\"\n      },\n      {\n        \"name\": \"Threshold for Expiring Password Warning\",\n        \"value\": \"7\"\n      },\n      {\n        \"name\": \"Snooze Interval for Expiring Password Warning\",\n        \"value\": \"24\"\n      },\n      {\n        \"name\": \"Login Challenge Template\",\n        \"value\": \"html.form.login.challenge.template.html\"\n      },\n      {\n        \"name\": \"'Remember My Username' Lifetime\",\n        \"value\": \"30\"\n      },\n      {\n        \"name\": \"'This is My Device' Lifetime\",\n        \"value\": \"30\"\n      },\n      {\n        \"name\": \"Allow Username Edits During Chaining\",\n        \"value\": \"false\"\n      },\n      {\n        \"name\": \"Track Authentication Time\",\n        \"value\": \"true\"\n      },\n      {\n        \"name\": \"Post-Password Change Re-Authentication Delay\",\n        \"value\": \"0\"\n      },\n      {\n        \"name\": \"Password Reset Username Template\",\n        \"value\": \"forgot-password.html\"\n      },\n      {\n        \"name\": \"Password Reset Code Template\",\n        \"value\": \"forgot-password-resume.html\"\n      },\n      {\n        \"name\": \"Password Reset Template\",\n        \"value\": \"forgot-password-change.html\"\n      },\n      {\n        \"name\": \"Password Reset Error Template\",\n        \"value\": \"forgot-password-error.html\"\n      },\n      {\n        \"name\": \"Password Reset Success Template\",\n        \"value\": \"forgot-password-success.html\"\n      },\n      {\n        \"name\": \"Account Unlock Template\",\n        \"value\": \"account-unlock.html\"\n      },\n      {\n        \"name\": \"OTP Length\",\n        \"value\": \"8\"\n      },\n      {\n        \"name\": \"OTP Time to Live\",\n        \"value\": \"10\"\n      },\n      {\n        \"name\": \"PingID Properties\",\n        \"value\": \"{{encodedPingID}}\"\n      },\n      {\n        \"name\": \"Require Verified Email\",\n        \"value\": \"false\"\n      },\n      {\n        \"name\": \"Username Recovery Template\",\n        \"value\": \"username.recovery.template.html\"\n      },\n      {\n        \"name\": \"Username Recovery Info Template\",\n        \"value\": \"username.recovery.info.template.html\"\n      },\n      {\n        \"name\": \"Username Recovery Email Template\",\n        \"value\": \"message-template-username-recovery.html\"\n      },\n      {\n        \"name\": \"CAPTCHA for Authentication\",\n        \"value\": \"false\"\n      },\n      {\n        \"name\": \"CAPTCHA for Password change\",\n        \"value\": \"false\"\n      },\n      {\n        \"name\": \"CAPTCHA for Password Reset\",\n        \"value\": \"false\"\n      },\n      {\n        \"name\": \"CAPTCHA for Username recovery\",\n        \"value\": \"false\"\n      }\n    ]\n  },\n  \"attributeContract\": {\n    \"coreAttributes\": [\n      {\n        \"name\": \"policy.action\",\n        \"masked\": false,\n        \"pseudonym\": false\n      },\n      {\n        \"name\": \"username\",\n        \"masked\": false,\n        \"pseudonym\": true\n      }\n    ],\n    \"extendedAttributes\": [\n      {\n        \"name\": \"entryUUID\",\n        \"masked\": false,\n        \"pseudonym\": false\n      },\n      {\n        \"name\": \"mail\",\n        \"masked\": false,\n        \"pseudonym\": false\n      }\n    ],\n    \"maskOgnlValues\": false\n  },\n  \"attributeMapping\": {\n    \"attributeSources\": [],\n    \"attributeContractFulfillment\": {\n      \"entryUUID\": {\n        \"source\": {\n          \"type\": \"ADAPTER\"\n        },\n        \"value\": \"entryUUID\"\n      },\n      \"mail\": {\n        \"source\": {\n          \"type\": \"ADAPTER\"\n        },\n        \"value\": \"mail\"\n      },\n      \"policy.action\": {\n        \"source\": {\n          \"type\": \"ADAPTER\"\n        },\n        \"value\": \"policy.action\"\n      },\n      \"username\": {\n        \"source\": {\n          \"type\": \"ADAPTER\"\n        },\n        \"value\": \"username\"\n      }\n    },\n    \"issuanceCriteria\": {\n      \"conditionalCriteria\": []\n    }\n  }\n}"
                 },
-                "url": "https://pingfederate:9999/pf-admin-api/v1/idp/adapters"
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/idp/adapters"
               },
               "response": []
             },
@@ -864,7 +864,7 @@
                   "mode": "raw",
                   "raw": "{\n  \"enableIdpAuthnSelection\": true,\n  \"enableSpAuthnSelection\": false\n}"
                 },
-                "url": "https://pingfederate:9999/pf-admin-api/v1/authenticationPolicies/settings"
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/authenticationPolicies/settings"
               },
               "response": []
             }
@@ -914,7 +914,7 @@
                   "mode": "raw",
                   "raw": "{\n  \"enableSessions\": true,\n  \"persistentSessions\": true,\n  \"idleTimeoutMins\": 60,\n  \"idleTimeoutDisplayUnit\": \"MINUTES\",\n  \"maxTimeoutMins\": 480,\n  \"maxTimeoutDisplayUnit\": \"MINUTES\"\n}"
                 },
-                "url": "https://pingfederate:9999/pf-admin-api/v1/session/authenticationSessionPolicies/global"
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/session/authenticationSessionPolicies/global"
               },
               "response": []
             },
@@ -957,7 +957,7 @@
                   "mode": "raw",
                   "raw": "    {\n      \"id\": \"PingIDSessionOverride\",\n      \"authenticationSource\": {\n        \"type\": \"IDP_ADAPTER\",\n        \"sourceRef\": {\n          \"id\": \"PingID\"\n        }\n      },\n      \"enableSessions\": false,\n      \"persistent\": false,\n      \"timeoutDisplayUnit\": \"MINUTES\",\n      \"authnContextSensitive\": false\n    }"
                 },
-                "url": "https://pingfederate:9999/pf-admin-api/v1/session/authenticationSessionPolicies"
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/session/authenticationSessionPolicies"
               },
               "response": []
             }
@@ -1012,7 +1012,7 @@
                           "mode": "raw",
                           "raw": "{\n  \"name\": \"openid\",\n  \"description\": \"Used to authenticated with OIDC\",\n  \"dynamic\": \"false\"\n}"
                         },
-                        "url": "https://pingfederate:9999/pf-admin-api/v1/oauth/authServerSettings/scopes/commonScopes"
+                        "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authServerSettings/scopes/commonScopes"
                       },
                       "response": []
                     },
@@ -1054,7 +1054,7 @@
                           "mode": "raw",
                           "raw": "{\n  \"name\": \"address\",\n  \"description\": \"Used to access your postal address\",\n  \"dynamic\": \"false\"\n}"
                         },
-                        "url": "https://pingfederate:9999/pf-admin-api/v1/oauth/authServerSettings/scopes/commonScopes"
+                        "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authServerSettings/scopes/commonScopes"
                       },
                       "response": []
                     },
