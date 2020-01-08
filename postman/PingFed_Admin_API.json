@@ -51,7 +51,7 @@
           "request": {
             "method": "GET",
             "header": [],
-            "url": "https://pingfederate:9031/pf/heartbeat.ping",
+            "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/license/agreement",
             "description": "Uses the API endpoint instead of just the heartbeat"
           },
           "response": []
