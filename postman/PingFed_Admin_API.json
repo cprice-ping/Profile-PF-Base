@@ -1027,7 +1027,7 @@
                             "id": "fe6950df-b6ca-4b11-b357-0a560cd8ff02",
                             "exec": [
                               "pm.test(\"Scope (pd:consents:unpriv) Created\", function () {",
-                              "    pm.response.to.be.ok;",
+                              "    pm.response.to.have.status(\"Created\");",
                               "});"
                             ],
                             "type": "text/javascript"
