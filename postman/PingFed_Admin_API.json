@@ -1996,13 +1996,11 @@
               "script": {
                 "id": "3d23267c-44f2-45ac-9e86-c538560e2537",
                 "exec": [
-                  "var response = cheerio(pm.response);",
-                  "",
-                  "console.log(response);",
+                  "const $ = cheerio.load(responseBody);",
                   "    ",
                   "pm.test(\"SAML Assertion created\", function () {",
-                  "    pm.expect(response('SAMLResponse').text()).to.not.be.empty ",
-                  "    ",
+                  "    pm.expect($(\"input[name='SAMLResponse']\").val()).to.not.be.empty ",
+                  "    console.log(\"SAML Assertion was created\");",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -2135,6 +2133,23 @@
         },
         {
           "name": "Swap Code for Token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "dbee2997-28a8-42e5-ab46-915d74cada50",
+                "exec": [
+                  "pm.test(\"Access Token returned\", function () {",
+                  "    ",
+                  "    var jsonData = pm.response.json();",
+                  "    ",
+                  "    pm.expect(jsonData.access_token).to.not.be.empty;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
           "_postman_id": "eafdac8f-c744-4b65-bc2b-73c23c36e9dd",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -2211,7 +2226,7 @@
   ],
   "variable": [
     {
-      "id": "234a230c-ac65-4353-bcbb-f957e196cbf4",
+      "id": "5f4aa7a7-cc8f-4f33-9599-28f1d99862fa",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
