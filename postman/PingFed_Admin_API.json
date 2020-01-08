@@ -1096,7 +1096,7 @@
                           "mode": "raw",
                           "raw": "{\n  \"name\": \"email\",\n  \"description\": \"Used to access your email address\",\n  \"dynamic\": \"false\"\n}"
                         },
-                        "url": "https://pingfederate:9999/pf-admin-api/v1/oauth/authServerSettings/scopes/commonScopes"
+                        "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authServerSettings/scopes/commonScopes"
                       },
                       "response": []
                     },
@@ -1138,7 +1138,7 @@
                           "mode": "raw",
                           "raw": "{\n  \"name\": \"phone\",\n  \"description\": \"Used to access your phone number\",\n  \"dynamic\": \"false\"\n}"
                         },
-                        "url": "https://pingfederate:9999/pf-admin-api/v1/oauth/authServerSettings/scopes/commonScopes"
+                        "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authServerSettings/scopes/commonScopes"
                       },
                       "response": []
                     },
@@ -1180,7 +1180,7 @@
                           "mode": "raw",
                           "raw": "{\n  \"name\": \"profile\",\n  \"description\": \"Used to access your profile\",\n  \"dynamic\": \"false\"\n}"
                         },
-                        "url": "https://pingfederate:9999/pf-admin-api/v1/oauth/authServerSettings/scopes/commonScopes"
+                        "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authServerSettings/scopes/commonScopes"
                       },
                       "response": []
                     }
@@ -1229,7 +1229,7 @@
                           "mode": "raw",
                           "raw": "{\n  \"name\": \"pd:dir:access\",\n  \"description\": \"Used to access the PingDirectory REST API\",\n  \"dynamic\": \"false\"\n}"
                         },
-                        "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/authServerSettings/scopes/exclusiveScopes"
+                        "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authServerSettings/scopes/exclusiveScopes"
                       },
                       "response": []
                     },
@@ -1271,7 +1271,7 @@
                           "mode": "raw",
                           "raw": "{\n  \"name\": \"pd:consents:unpriv\",\n  \"description\": \"Used to access the PingDirectory Consent API (User)\",\n  \"dynamic\": \"false\"\n}"
                         },
-                        "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/authServerSettings/scopes/exclusiveScopes"
+                        "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authServerSettings/scopes/exclusiveScopes"
                       },
                       "response": []
                     },
@@ -1313,7 +1313,7 @@
                           "mode": "raw",
                           "raw": "{\n  \"name\": \"pd:consents:priv\",\n  \"description\": \"Used to access the PingDirectory Consent API (Admin)\",\n  \"dynamic\": \"false\"\n}"
                         },
-                        "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/authServerSettings/scopes/exclusiveScopes"
+                        "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authServerSettings/scopes/exclusiveScopes"
                       },
                       "response": []
                     },
@@ -1355,7 +1355,7 @@
                           "mode": "raw",
                           "raw": "{\n  \"name\": \"urn:pingidentity:directory-delegated-admin\",\n  \"description\": \"Used to access the PD Delegated Admin app\",\n  \"dynamic\": \"false\"\n}"
                         },
-                        "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/authServerSettings/scopes/exclusiveScopes"
+                        "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authServerSettings/scopes/exclusiveScopes"
                       },
                       "response": []
                     },
@@ -1397,7 +1397,7 @@
                           "mode": "raw",
                           "raw": "{\n  \"name\": \"pf:client:reg\",\n  \"description\": \"Used to dynamically register clients (RFC 7591)\",\n  \"dynamic\": \"false\"\n}"
                         },
-                        "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/authServerSettings/scopes/exclusiveScopes"
+                        "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authServerSettings/scopes/exclusiveScopes"
                       },
                       "response": []
                     }
@@ -1475,7 +1475,7 @@
                       "mode": "raw",
                       "raw": "    {\n      \"attributeSources\": [],\n      \"attributeContractFulfillment\": {\n        \"USER_NAME\": {\n          \"source\": {\n            \"type\": \"AUTHENTICATION_POLICY_CONTRACT\"\n          },\n          \"value\": \"mail\"\n        },\n        \"USER_KEY\": {\n          \"source\": {\n            \"type\": \"AUTHENTICATION_POLICY_CONTRACT\"\n          },\n          \"value\": \"entryUUID\"\n        }\n      },\n      \"issuanceCriteria\": {\n        \"conditionalCriteria\": []\n      },\n      \"authenticationPolicyContractRef\": {\n        \"id\": \"defaultPolicyContract\"\n      }\n    }"
                     },
-                    "url": "https://pingfederate:9999/pf-admin-api/v1/oauth/authenticationPolicyContractMappings"
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authenticationPolicyContractMappings"
                   },
                   "response": []
                 }
@@ -1526,7 +1526,7 @@
                       "mode": "raw",
                       "raw": "    {\n      \"id\": \"jwtDefault\",\n      \"name\": \"JWT-Default\",\n      \"pluginDescriptorRef\": {\n        \"id\": \"com.pingidentity.pf.access.token.management.plugins.JwtBearerAccessTokenManagementPlugin\" },\n      \"configuration\": {\n        \"tables\": [\n          {\n            \"name\": \"Symmetric Keys\",\n            \"rows\": [\n              {\n                \"fields\": [\n                  {\n                    \"name\": \"Key ID\",\n                    \"value\": \"sym\"\n                  },\n                  {\n                    \"name\": \"Key\",\n                    \"value\": \"MkZlZGVyYXRlTTByZTJGZWRlcmF0ZU0wcmUyRmVkZXJhdGVNMHJl\"\n                  },\n                  {\n                    \"name\": \"Encoding\",\n                    \"value\": \"b64u\"\n                  }\n                ]\n              }\n            ]\n          }\n        ],\n        \"fields\": [\n          {\n            \"name\": \"Token Lifetime\",\n            \"value\": \"120\"\n          },\n          {\n            \"name\": \"JWS Algorithm\",\n            \"value\": \"HS256\"\n          },\n          {\n            \"name\": \"Active Symmetric Key ID\",\n            \"value\": \"sym\"\n          }\n        ]\n      },\n      \"attributeContract\": {\n        \"coreAttributes\": [],\n        \"extendedAttributes\": [\n          {\n            \"name\": \"sub\"\n          }\n        ]\n      },\n      \"selectionSettings\": {\n        \"resourceUris\": []\n      },\n      \"accessControlSettings\": {\n        \"restrictClients\": false,\n        \"allowedClients\": []\n      },\n      \"sessionValidationSettings\": {\n        \"checkValidAuthnSession\": false,\n        \"checkSessionRevocationStatus\": false,\n        \"updateAuthnSessionActivity\": false\n      }\n    }"
                     },
-                    "url": "https://pingfederate:9999/pf-admin-api/v1/oauth/accessTokenManagers"
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/accessTokenManagers"
                   },
                   "response": []
                 }
@@ -1577,7 +1577,7 @@
                       "mode": "raw",
                       "raw": "{\n  \"context\": {\n    \"type\": \"AUTHENTICATION_POLICY_CONTRACT\",\n    \"contextRef\": {\n      \"id\": \"defaultPolicyContract\"\n    }\n  },\n  \"accessTokenManagerRef\": {\n    \"id\": \"jwtDefault\"\n  },\n  \"attributeContractFulfillment\": {\n    \"sub\": {\n      \"source\": {\n        \"type\": \"AUTHENTICATION_POLICY_CONTRACT\"\n      },\n      \"value\": \"entryUUID\"\n    }\n  }\n}"
                     },
-                    "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/accessTokenMappings"
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/accessTokenMappings"
                   },
                   "response": []
                 }
@@ -1627,7 +1627,7 @@
                       "mode": "raw",
                       "raw": "    {\n      \"id\": \"OIDCPolicyDefault\",\n      \"name\": \"Default OIDC Policy\",\n      \"idTokenLifetime\": 5,\n      \"attributeContract\": {\n        \"coreAttributes\": [\n          {\n            \"name\": \"sub\"\n          }\n        ],\n        \"extendedAttributes\": []\n      },\n      \"attributeMapping\": {\n        \"attributeSources\": [],\n        \"attributeContractFulfillment\": {\n          \"sub\": {\n            \"source\": {\n              \"type\": \"TOKEN\"\n            },\n            \"value\": \"sub\"\n          }\n        },\n        \"issuanceCriteria\": {\n          \"conditionalCriteria\": []\n        }\n      },\n      \"includeSriInIdToken\": false,\n      \"includeUserInfoInIdToken\": false,\n      \"includeSHashInIdToken\": false,\n      \"accessTokenManagerRef\": {\n        \"id\": \"jwtDefault\"\n    }\n}"
                     },
-                    "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/openIdConnect/policies"
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/openIdConnect/policies"
                   },
                   "response": []
                 }
@@ -1693,7 +1693,7 @@
       "name": "Use Cases",
       "item": [
         {
-          "name": "Create Default AuthN Ceremonies",
+          "name": "Create Default AuthN Policy",
           "item": [
             {
               "name": "Create Default Policy",
@@ -1744,13 +1744,13 @@
                   "mode": "raw",
                   "raw": "{\n  \"failIfNoSelection\": false,\n  \"authnSelectionTrees\": [\n    {\n      \"rootNode\": {\n        \"action\": {\n          \"type\": \"AUTHN_SELECTOR\",\n          \"authenticationSelectorRef\": {\n            \"id\": \"authnExp\"\n          }\n        },\n        \"children\": [\n          {\n            \"action\": {\n              \"type\": \"AUTHN_SOURCE\",\n              \"context\": \"Basic\",\n              \"authenticationSource\": {\n                \"type\": \"IDP_ADAPTER\",\n                \"sourceRef\": {\n                  \"id\": \"HTMLForm\"\n                }\n              }\n            },\n            \"children\": [\n              {\n                \"action\": {\n                  \"type\": \"DONE\",\n                  \"context\": \"Fail\"\n                }\n              },\n              {\n                \"action\": {\n                  \"type\": \"APC_MAPPING\",\n                  \"context\": \"Success\",\n                  \"authenticationPolicyContractRef\": {\n                    \"id\": \"defaultPolicyContract\"\n                  },\n                  \"attributeMapping\": {\n                    \"attributeSources\": [],\n                    \"attributeContractFulfillment\": {\n                      \"entryUUID\": {\n                        \"source\": {\n                          \"type\": \"ADAPTER\",\n                          \"id\": \"HTMLForm\"\n                        },\n                        \"value\": \"entryUUID\"\n                      },\n                      \"mail\": {\n                        \"source\": {\n                          \"type\": \"ADAPTER\",\n                          \"id\": \"HTMLForm\"\n                        },\n                        \"value\": \"mail\"\n                      },\n                      \"subject\": {\n                        \"source\": {\n                          \"type\": \"ADAPTER\",\n                          \"id\": \"HTMLForm\"\n                        },\n                        \"value\": \"username\"\n                      }\n                    },\n                    \"issuanceCriteria\": {\n                      \"conditionalCriteria\": []\n                    }\n                  }\n                }\n              }\n            ]\n          },\n          {\n            \"action\": {\n              \"type\": \"AUTHN_SOURCE\",\n              \"context\": \"Enhanced\",\n              \"authenticationSource\": {\n                \"type\": \"IDP_ADAPTER\",\n                \"sourceRef\": {\n                  \"id\": \"HTMLFormWithLIP\"\n                }\n              }\n            },\n            \"children\": [\n              {\n                \"action\": {\n                  \"type\": \"DONE\",\n                  \"context\": \"Fail\"\n                }\n              },\n              {\n                \"action\": {\n                  \"type\": \"LOCAL_IDENTITY_MAPPING\",\n                  \"context\": \"Success\",\n                  \"localIdentityRef\": {\n                    \"id\": \"defaultIdentityProfile\"\n                  },\n                  \"outboundAttributeMapping\": {\n                    \"attributeSources\": [],\n                    \"attributeContractFulfillment\": {\n                      \"entryUUID\": {\n                        \"source\": {\n                          \"type\": \"ADAPTER\",\n                          \"id\": \"HTMLFormWithLIP\"\n                        },\n                        \"value\": \"entryUUID\"\n                      },\n                      \"mail\": {\n                        \"source\": {\n                          \"type\": \"ADAPTER\",\n                          \"id\": \"HTMLFormWithLIP\"\n                        },\n                        \"value\": \"mail\"\n                      },\n                      \"subject\": {\n                        \"source\": {\n                          \"type\": \"ADAPTER\",\n                          \"id\": \"HTMLFormWithLIP\"\n                        },\n                        \"value\": \"username\"\n                      }\n                    },\n                    \"issuanceCriteria\": {\n                      \"conditionalCriteria\": []\n                    }\n                  }\n                }\n              }\n            ]\n          },\n          {\n            \"action\": {\n              \"type\": \"AUTHN_SOURCE\",\n              \"context\": \"MFA\",\n              \"authenticationSource\": {\n                \"type\": \"IDP_ADAPTER\",\n                \"sourceRef\": {\n                  \"id\": \"HTMLFormWithLIP\"\n                }\n              }\n            },\n            \"children\": [\n              {\n                \"action\": {\n                  \"type\": \"DONE\",\n                  \"context\": \"Fail\"\n                }\n              },\n              {\n                \"action\": {\n                  \"type\": \"AUTHN_SOURCE\",\n                  \"context\": \"Success\",\n                  \"authenticationSource\": {\n                    \"type\": \"IDP_ADAPTER\",\n                    \"sourceRef\": {\n                      \"id\": \"PingID\"\n                    }\n                  }\n                },\n                \"children\": [\n                  {\n                    \"action\": {\n                      \"type\": \"DONE\",\n                      \"context\": \"Fail\"\n                    }\n                  },\n                  {\n                    \"action\": {\n                      \"type\": \"LOCAL_IDENTITY_MAPPING\",\n                      \"context\": \"Success\",\n                      \"localIdentityRef\": {\n                        \"id\": \"defaultIdentityProfile\"\n                      },\n                      \"outboundAttributeMapping\": {\n                        \"attributeSources\": [],\n                        \"attributeContractFulfillment\": {\n                          \"entryUUID\": {\n                            \"source\": {\n                              \"type\": \"ADAPTER\",\n                              \"id\": \"HTMLFormWithLIP\"\n                            },\n                            \"value\": \"entryUUID\"\n                          },\n                          \"mail\": {\n                            \"source\": {\n                              \"type\": \"ADAPTER\",\n                              \"id\": \"HTMLFormWithLIP\"\n                            },\n                            \"value\": \"mail\"\n                          },\n                          \"subject\": {\n                            \"source\": {\n                              \"type\": \"ADAPTER\",\n                              \"id\": \"HTMLFormWithLIP\"\n                            },\n                            \"value\": \"username\"\n                          }\n                        },\n                        \"issuanceCriteria\": {\n                          \"conditionalCriteria\": []\n                        }\n                      }\n                    }\n                  }\n                ]\n              }\n            ]\n          }\n        ]\n      },\n      \"name\": \"Default AuthN Policy\",\n      \"enabled\": true\n    }\n  ],\n  \"defaultAuthenticationSources\": [],\n  \"trackedHttpParameters\": []\n}"
                 },
-                "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/authenticationPolicies/default"
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/authenticationPolicies/default"
               },
               "response": []
             }
           ],
           "_postman_id": "2b497726-fab8-4160-ab2e-b0aa04fbc193",
-          "description": "Creates a set of Authentication experiences:\n\n* Basic HTML Form \n* HTML Form --> MFA (PingID)\n* Federated OIDC (P14C)\n\nEach of these end with a different AuthN Policy Contract -- this simplifies the mapping between the App and the AuthN Ceremony you want that app to use.\n\nGets around issues with Connection Selectors:\n* The Selector **must** have at least 1 Connection\n* OAuth & SAML Apps can't be combined into a single Selector\n\nPF Admin API treats all the Policies as belonging to `default` and there's no way to add new Policy Trees directly.\n\nSince we've pre-built all the Adapters \\ Policy Contracts - this uses a single call to pre-built the Policies as well\n\n",
+          "description": "Creates a set of Authentication experiences:\n\n* Basic (HTML Form) \n* Enhanced (HTML Form with LIP)\n* MFA (Enhanced --> PingID) \n\nAn Extended Property Selector determines which path. You can configure the Application (SP Connection \\ OAuth client) on the `Extended Properties` tab with the following values:\n\n* Basic\n* Enhanced\n* MFA\n\nPF Admin API treats all the Policies as belonging to `default` and there's no way to add new Policy Trees directly.\n\nSince we've pre-built all the Adapters \\ Policy Contracts - this uses a single call to pre-built the Policies as well\n\n",
           "event": [
             {
               "listen": "prerequest",
@@ -1820,7 +1820,7 @@
                       "mode": "raw",
                       "raw": "{\n\t\t\t\"id\": \"Dummy-SAML\",\n            \"type\": \"SP\",\n            \"name\": \"Dummy SAML (HTTPBIN)\",\n            \"entityId\": \"Dummy-SAML\",\n            \"active\": true,\n            \"contactInfo\": {},\n            \"loggingMode\": \"STANDARD\",\n            \"virtualEntityIds\": [],\n            \"licenseConnectionGroup\": \"\",\n            \"credentials\": {\n                \"certs\": [],\n                \"signingSettings\": {\n                    \"signingKeyPairRef\": {\n                        \"id\": \"signing-cert\"\n                    },\n                    \"includeCertInSignature\": false,\n                    \"includeRawKeyInSignature\": false,\n                    \"algorithm\": \"SHA256withRSA\"\n                }\n            },\n            \"extendedProperties\": {\n        \t\t\"authNexp\": {\n\t        \t\t\"values\": [\n\t            \t\t\"MFA\"\n\t\t        ]\n\t\t      }\n\t\t    },\n            \"spBrowserSso\": {\n                \"protocol\": \"SAML20\",\n                \"enabledProfiles\": [\n                    \"IDP_INITIATED_SSO\"\n                ],\n                \"ssoServiceEndpoints\": [\n                    {\n                        \"binding\": \"POST\",\n                        \"url\": \"https://httpbin.org/anything\",\n                        \"isDefault\": true,\n                        \"index\": 0\n                    }\n                ],\n                \"signAssertions\": false,\n                \"signResponseAsRequired\": true,\n                \"spSamlIdentityMapping\": \"STANDARD\",\n                \"requireSignedAuthnRequests\": false,\n                \"assertionLifetime\": {\n                    \"minutesBefore\": 5,\n                    \"minutesAfter\": 5\n                },\n                \"encryptionPolicy\": {\n                    \"encryptAssertion\": false,\n                    \"encryptSloSubjectNameId\": false,\n                    \"sloSubjectNameIDEncrypted\": false,\n                    \"encryptedAttributes\": []\n                },\n                \"attributeContract\": {\n                    \"coreAttributes\": [\n                        {\n                            \"name\": \"SAML_SUBJECT\",\n                            \"nameFormat\": \"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified\"\n                        }\n                    ],\n                    \"extendedAttributes\": []\n                },\n                \"adapterMappings\": [],\n                \"authenticationPolicyContractAssertionMappings\": [\n                    {\n                        \"attributeSources\": [],\n                        \"attributeContractFulfillment\": {\n                            \"SAML_SUBJECT\": {\n                                \"source\": {\n                                    \"type\": \"AUTHENTICATION_POLICY_CONTRACT\"\n                                },\n                                \"value\": \"entryUUID\"\n                            }\n                        },\n                        \"issuanceCriteria\": {\n                            \"conditionalCriteria\": []\n                        },\n                        \"authenticationPolicyContractRef\": {\n                            \"id\": \"defaultPolicyContract\"\n                        },\n                        \"restrictVirtualEntityIds\": false,\n                        \"restrictedVirtualEntityIds\": [],\n                        \"abortSsoTransactionAsFailSafe\": false\n                    }\n                ]\n            }\n        }"
                     },
-                    "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/idp/spConnections",
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/idp/spConnections",
                     "description": "Dummy SP Connection -- sends you to https://httpbin.org/anything"
                   },
                   "response": []
@@ -1860,7 +1860,7 @@
           "name": "Create OIDC Clients",
           "item": [
             {
-              "name": "Create OIDC Client (Logon)",
+              "name": "Create OIDC Client (PingLogon)",
               "event": [
                 {
                   "listen": "test",
@@ -1885,20 +1885,20 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
+                    "type": "text",
+                    "value": "application/json"
                   },
                   {
                     "key": "X-XSRF-Header",
-                    "value": "pingfederate",
-                    "type": "text"
+                    "type": "text",
+                    "value": "pingfederate"
                   }
                 ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n      \"clientId\": \"PingLogon\",\n      \"enabled\": true,\n      \"redirectUris\": [\n        \"https://change.me\",\n        \"https://*/delegator/*\"\n      ],\n      \"grantTypes\": [\n        \"IMPLICIT\",\n        \"AUTHORIZATION_CODE\"\n      ],\n      \"name\": \"Ping Logon\",\n      \"description\": \"This client is used to perform OIDC logons to Ping products:\\nPA Admin\\nDelegated Admin\\nConsent \\\\ DirAPI\\nDG (Symphonic)\",\n      \"logoUrl\": \"\",\n      \"refreshRolling\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationType\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationTime\": 0,\n      \"persistentGrantExpirationTimeUnit\": \"DAYS\",\n      \"persistentGrantIdleTimeoutType\": \"SERVER_DEFAULT\",\n      \"persistentGrantIdleTimeout\": 0,\n      \"persistentGrantIdleTimeoutTimeUnit\": \"DAYS\",\n      \"bypassApprovalPage\": true,\n      \"restrictScopes\": false,\n      \"restrictedScopes\": [],\n      \"exclusiveScopes\": [\n        \"pd:consents:priv\",\n        \"pd:consents:unpriv\",\n        \"pd:dir:access\",\n        \"urn:pingidentity:directory-delegated-admin\"\n      ],\n      \"restrictedResponseTypes\": [],\n      \"defaultAccessTokenManagerRef\": {\n        \"id\": \"jwtDefault\"\n      },\n      \"validateUsingAllEligibleAtms\": false,\n      \"oidcPolicy\": {\n        \"policyGroup\": {\n          \"id\": \"OIDCPolicyDefault\"\n        },\n        \"grantAccessSessionRevocationApi\": false,\n        \"pingAccessLogoutCapable\": false,\n        \"pairwiseIdentifierUserType\": false\n      },\n      \"clientAuth\": {\n        \"type\": \"NONE\",\n        \"enforceReplayPrevention\": false\n      },\n      \"extendedParameters\": {\n    \t\"authNexp\": {\n        \t\"values\": [\n        \t\t\"Basic\"\n          ]\n        }\n      },\n      \"deviceFlowSettingType\": \"SERVER_DEFAULT\",\n      \"requireProofKeyForCodeExchange\": false,\n      \"requireSignedRequests\": false\n    }"
                 },
-                "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/clients",
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients",
                 "description": "This client can be used to issue tokens for several Ping Products:\n\n* PD DirAPI\n* PD Consent API\n* PD Delegated Admin App\n* DG Policy Admin App"
               },
               "response": []
@@ -1942,7 +1942,7 @@
                   "mode": "raw",
                   "raw": "{\n      \"clientId\": \"PingIntrospect\",\n      \"enabled\": true,\n      \"redirectUris\": [],\n      \"grantTypes\": [\n        \"ACCESS_TOKEN_VALIDATION\"\n      ],\n      \"name\": \"Ping Introspect\",\n      \"description\": \"This client is used to Introspect and validate PF-issued access_tokens\",\n      \"logoUrl\": \"\",\n      \"refreshRolling\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationType\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationTime\": 0,\n      \"persistentGrantExpirationTimeUnit\": \"DAYS\",\n      \"persistentGrantIdleTimeoutType\": \"SERVER_DEFAULT\",\n      \"persistentGrantIdleTimeout\": 0,\n      \"persistentGrantIdleTimeoutTimeUnit\": \"DAYS\",\n      \"bypassApprovalPage\": false,\n      \"restrictScopes\": false,\n      \"restrictedScopes\": [],\n      \"exclusiveScopes\": [],\n      \"restrictedResponseTypes\": [],\n      \"defaultAccessTokenManagerRef\": {\n        \"id\": \"jwtDefault\"\n      },\n      \"validateUsingAllEligibleAtms\": true,\n      \"oidcPolicy\": {\n        \"grantAccessSessionRevocationApi\": false,\n        \"pingAccessLogoutCapable\": false\n      },\n      \"clientAuth\": {\n        \"type\": \"SECRET\",\n        \"secret\": \"{{oauthSecret}}\",\n        \"enforceReplayPrevention\": false\n      },\n      \"extendedParameters\": {},\n      \"deviceFlowSettingType\": \"SERVER_DEFAULT\",\n      \"requireSignedRequests\": false\n    }"
                 },
-                "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/clients"
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients"
               },
               "response": []
             }
