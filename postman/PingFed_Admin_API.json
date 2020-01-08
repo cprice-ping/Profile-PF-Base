@@ -257,9 +257,124 @@
                 "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/keyPairs/signing/generate"
               },
               "response": []
+            },
+            {
+              "name": "Create Extended Propery",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "8b05293b-0945-4079-8094-f921b962ca35",
+                    "exec": [
+                      "pm.test(\"Extended Property Created\", function () {",
+                      "    pm.response.to.be.ok;",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "a908c24a-1077-459e-ae43-893db3235b54",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-XSRF-Header",
+                    "value": "pingfederate",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"items\": [\n    {\n      \"name\": \"authNexp\",\n      \"description\": \"Authentication Experience\",\n      \"multiValued\": \"false\"\n    }\n  ]\n}"
+                },
+                "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/extendedProperties"
+              },
+              "response": []
             }
           ],
           "_postman_id": "e2ae9616-4d84-4719-acc8-0ef9c659722e",
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "Server Config -  Extended Properties",
+          "item": [
+            {
+              "name": "Create Extended Property Selector",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "2eeefba3-473e-41a4-91b7-85321fd28393",
+                    "exec": [
+                      "pm.test(\"Extended Property Selector Created\", function () {",
+                      "    pm.response.to.have.status(\"Created\");",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "9c2dd262-f40a-41e0-8fdd-c710e75692c8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-XSRF-Header",
+                    "value": "pingfederate",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n      \"id\": \"authnExp\",\n      \"name\": \"AuthN Experience\",\n      \"pluginDescriptorRef\": {\n        \"id\": \"com.pingidentity.pf.selectors.ExtendedPropertyAuthnSelector\"\n      },\n      \"configuration\": {\n        \"tables\": [],\n        \"fields\": [\n          {\n            \"name\": \"Extended Property\",\n            \"value\": \"authNexp\"\n          }\n        ]\n      },\n      \"attributeContract\": {\n        \"extendedAttributes\": [\n          {\n            \"name\": \"Basic\"\n          },\n          {\n            \"name\": \"Enhanced\"\n          },\n          {\n            \"name\": \"MFA\"\n          } ]\n      }\n}"
+                },
+                "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/authenticationSelectors"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "014e4b16-a811-4662-940d-c3ea34a88f04",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "4dfb6acd-0a11-41f3-813c-a2abbc4e8fea",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "bff5bc60-6045-4f9f-a395-912d6282959d",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
           "_postman_isSubFolder": true
         },
         {
@@ -520,121 +635,6 @@
               "listen": "test",
               "script": {
                 "id": "787babf8-a335-48f2-8221-7fe05e963476",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            }
-          ],
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "Server Config -  Extended Properties",
-          "item": [
-            {
-              "name": "Create Extended Propery",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "8b05293b-0945-4079-8094-f921b962ca35",
-                    "exec": [
-                      "pm.test(\"Extended Property Created\", function () {",
-                      "    pm.response.to.be.ok;",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "a908c24a-1077-459e-ae43-893db3235b54",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "PUT",
-                "header": [
-                  {
-                    "key": "X-XSRF-Header",
-                    "value": "pingfederate",
-                    "type": "text"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"items\": [\n    {\n      \"name\": \"authNexp\",\n      \"description\": \"Authentication Experience\",\n      \"multiValued\": \"false\"\n    }\n  ]\n}"
-                },
-                "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/extendedProperties"
-              },
-              "response": []
-            },
-            {
-              "name": "Create Extended Property Selector",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "2eeefba3-473e-41a4-91b7-85321fd28393",
-                    "exec": [
-                      "pm.test(\"Extended Property Selector Created\", function () {",
-                      "    pm.response.to.have.status(\"Created\");",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "9c2dd262-f40a-41e0-8fdd-c710e75692c8",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "X-XSRF-Header",
-                    "value": "pingfederate",
-                    "type": "text"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n      \"id\": \"authnExp\",\n      \"name\": \"AuthN Experience\",\n      \"pluginDescriptorRef\": {\n        \"id\": \"com.pingidentity.pf.selectors.ExtendedPropertyAuthnSelector\"\n      },\n      \"configuration\": {\n        \"tables\": [],\n        \"fields\": [\n          {\n            \"name\": \"Extended Property\",\n            \"value\": \"authNexp\"\n          }\n        ]\n      },\n      \"attributeContract\": {\n        \"extendedAttributes\": [\n          {\n            \"name\": \"Basic\"\n          },\n          {\n            \"name\": \"Enhanced\"\n          },\n          {\n            \"name\": \"MFA\"\n          } ]\n      }\n}"
-                },
-                "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/authenticationSelectors"
-              },
-              "response": []
-            }
-          ],
-          "_postman_id": "014e4b16-a811-4662-940d-c3ea34a88f04",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "4dfb6acd-0a11-41f3-813c-a2abbc4e8fea",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "bff5bc60-6045-4f9f-a395-912d6282959d",
                 "type": "text/javascript",
                 "exec": [
                   ""
