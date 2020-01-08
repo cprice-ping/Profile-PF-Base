@@ -1012,7 +1012,7 @@
                           "mode": "raw",
                           "raw": "{\n  \"name\": \"openid\",\n  \"description\": \"Used to authenticated with OIDC\",\n  \"dynamic\": \"false\"\n}"
                         },
-                        "url": "https://pingfederate:9999/pf-admin-api/v1/oauth/authServerSettings/scopes/commonScopes"
+                        "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/authServerSettings/scopes/commonScopes"
                       },
                       "response": []
                     },
