@@ -1564,7 +1564,7 @@
           "name": "Create SP Connections",
           "item": [
             {
-              "name": "SAML - HTML Form",
+              "name": "SAML - HTTPBIN",
               "item": [
                 {
                   "name": "Add SP Connection",
@@ -1612,6 +1612,28 @@
                 }
               ],
               "_postman_id": "7ea6a756-5f27-415f-8aa2-6ba2abaff62f",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "69b139ef-1043-4efd-b4ca-309158b224fe",
+                    "type": "text/javascript",
+                    "exec": [
+                      ""
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "7e1245ce-0dae-4419-8873-10970ee051c4",
+                    "type": "text/javascript",
+                    "exec": [
+                      ""
+                    ]
+                  }
+                }
+              ],
               "_postman_isSubFolder": true
             }
           ],
