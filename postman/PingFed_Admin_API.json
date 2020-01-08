@@ -768,7 +768,7 @@
                             "id": "d811d801-bc60-4dae-acfc-2718352313f9",
                             "exec": [
                               "pm.test(\"Scope (openid) Created\", function () {",
-                              "    pm.response.to.have.status(\"Created\");",
+                              "    pm.response.to.be.ok;",
                               "});"
                             ],
                             "type": "text/javascript"
