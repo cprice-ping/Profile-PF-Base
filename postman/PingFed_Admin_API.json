@@ -883,7 +883,7 @@
                   "script": {
                     "id": "ae78acb7-6654-43cc-9828-4c069e43317b",
                     "exec": [
-                      "pm.test(\"Global Session Policy created\", function () {",
+                      "pm.test(\"Global Session Policy added\", function () {",
                       "    pm.response.to.be.ok;",
                       "});"
                     ],
