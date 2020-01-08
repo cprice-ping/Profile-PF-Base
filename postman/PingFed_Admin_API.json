@@ -577,6 +577,20 @@
             },
             {
               "name": "Create Extended Property Selector",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "2eeefba3-473e-41a4-91b7-85321fd28393",
+                    "exec": [
+                      "pm.test(\"Extended Property Selector Created\", function () {",
+                      "    pm.response.to.have.status(\"Created\");",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
               "_postman_id": "9c2dd262-f40a-41e0-8fdd-c710e75692c8",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
