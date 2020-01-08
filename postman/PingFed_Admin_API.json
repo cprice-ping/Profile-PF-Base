@@ -131,7 +131,7 @@
       "name": "Configure Server",
       "item": [
         {
-          "name": "Server Config - License \\ Settings \\ Cert \\ Extended Properties",
+          "name": "Initial Server Config",
           "item": [
             {
               "name": "Get License",
@@ -425,6 +425,7 @@
             }
           ],
           "_postman_id": "e2ae9616-4d84-4719-acc8-0ef9c659722e",
+          "description": "This folder contains calls to do the initial configuration of the Server:\n\n* Match the Roles & Protocols to the installed license\n* Add a Signing Certificate\n* Add Extended Property & Selector (Used to direct AuthN Experience)\n* Add native admin (doesn't work in v10- -- Malibu wizard will be shown in UI)\n* Add Virtual Host for `pingfederate` to enable any backchannel calls",
           "event": [
             {
               "listen": "prerequest",
@@ -2297,7 +2298,7 @@
   ],
   "variable": [
     {
-      "id": "38ba3bc9-29ca-46fa-a1c1-92e567279a64",
+      "id": "ee6d80d5-ddfd-49ec-a050-c600812971af",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
