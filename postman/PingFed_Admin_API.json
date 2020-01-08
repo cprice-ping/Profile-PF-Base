@@ -540,7 +540,7 @@
                         "id": "4f14cf69-4857-4f29-b857-d41ad98f72a3",
                         "exec": [
                           "pm.test(\"Policy Contract (HTML) Created\", function () {",
-                          "    pm.response.to.have.status(201);",
+                          "    pm.response.to.be.ok;",
                           "});"
                         ],
                         "type": "text/javascript"
