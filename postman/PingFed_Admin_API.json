@@ -1646,6 +1646,20 @@
           "item": [
             {
               "name": "Create OIDC Client (Logon)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "41847d1c-9c1e-4b88-b671-c997621406f0",
+                    "exec": [
+                      "pm.test(\"OIDC Client - PingLogon Created\", function () {",
+                      "    pm.response.to.have.status(\"Created\");",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
               "_postman_id": "bdd7e744-742e-49a1-bafd-b75ecf0c0352",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
