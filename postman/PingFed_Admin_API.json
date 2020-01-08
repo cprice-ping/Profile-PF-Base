@@ -57,7 +57,7 @@
                 "type": "text"
               }
             ],
-            "url": "https://pingfederate:9999/pf-admin-api/v1/license/agreement",
+            "url": "{{pfAdminURL}}/pf-admin-api/v1/license/agreement",
             "description": "Uses the API endpoint instead of just the heartbeat"
           },
           "response": []
@@ -120,7 +120,7 @@
               "mode": "raw",
               "raw": "{\n    \"accepted\": true\n}"
             },
-            "url": "https://pingfederate:9999/pf-admin-api/v1/license/agreement"
+            "url": "{{pfAdminURL}}/pf-admin-api/v1/license/agreement"
           },
           "response": []
         }
@@ -1475,7 +1475,7 @@
                       "mode": "raw",
                       "raw": "    {\n      \"attributeSources\": [],\n      \"attributeContractFulfillment\": {\n        \"USER_NAME\": {\n          \"source\": {\n            \"type\": \"AUTHENTICATION_POLICY_CONTRACT\"\n          },\n          \"value\": \"mail\"\n        },\n        \"USER_KEY\": {\n          \"source\": {\n            \"type\": \"AUTHENTICATION_POLICY_CONTRACT\"\n          },\n          \"value\": \"entryUUID\"\n        }\n      },\n      \"issuanceCriteria\": {\n        \"conditionalCriteria\": []\n      },\n      \"authenticationPolicyContractRef\": {\n        \"id\": \"defaultPolicyContract\"\n      }\n    }"
                     },
-                    "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/authenticationPolicyContractMappings"
+                    "url": "https://pingfederate:9999/pf-admin-api/v1/oauth/authenticationPolicyContractMappings"
                   },
                   "response": []
                 }
@@ -1526,7 +1526,7 @@
                       "mode": "raw",
                       "raw": "    {\n      \"id\": \"jwtDefault\",\n      \"name\": \"JWT-Default\",\n      \"pluginDescriptorRef\": {\n        \"id\": \"com.pingidentity.pf.access.token.management.plugins.JwtBearerAccessTokenManagementPlugin\" },\n      \"configuration\": {\n        \"tables\": [\n          {\n            \"name\": \"Symmetric Keys\",\n            \"rows\": [\n              {\n                \"fields\": [\n                  {\n                    \"name\": \"Key ID\",\n                    \"value\": \"sym\"\n                  },\n                  {\n                    \"name\": \"Key\",\n                    \"value\": \"MkZlZGVyYXRlTTByZTJGZWRlcmF0ZU0wcmUyRmVkZXJhdGVNMHJl\"\n                  },\n                  {\n                    \"name\": \"Encoding\",\n                    \"value\": \"b64u\"\n                  }\n                ]\n              }\n            ]\n          }\n        ],\n        \"fields\": [\n          {\n            \"name\": \"Token Lifetime\",\n            \"value\": \"120\"\n          },\n          {\n            \"name\": \"JWS Algorithm\",\n            \"value\": \"HS256\"\n          },\n          {\n            \"name\": \"Active Symmetric Key ID\",\n            \"value\": \"sym\"\n          }\n        ]\n      },\n      \"attributeContract\": {\n        \"coreAttributes\": [],\n        \"extendedAttributes\": [\n          {\n            \"name\": \"sub\"\n          }\n        ]\n      },\n      \"selectionSettings\": {\n        \"resourceUris\": []\n      },\n      \"accessControlSettings\": {\n        \"restrictClients\": false,\n        \"allowedClients\": []\n      },\n      \"sessionValidationSettings\": {\n        \"checkValidAuthnSession\": false,\n        \"checkSessionRevocationStatus\": false,\n        \"updateAuthnSessionActivity\": false\n      }\n    }"
                     },
-                    "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/accessTokenManagers"
+                    "url": "https://pingfederate:9999/pf-admin-api/v1/oauth/accessTokenManagers"
                   },
                   "response": []
                 }
