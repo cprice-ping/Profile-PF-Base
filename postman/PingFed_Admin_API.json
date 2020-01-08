@@ -1281,7 +1281,7 @@
                         "id": "3639a176-e3c5-4e1f-babc-d998991cfe6b",
                         "exec": [
                           "pm.test(\"Access Token Manager (JWT) Created\", function () {",
-                          "    pm.response.to.be.ok;",
+                          "    pm.response.to.have.status(\"Created\");",
                           "});"
                         ],
                         "type": "text/javascript"
