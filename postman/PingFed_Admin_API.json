@@ -128,7 +128,7 @@
                     "id": "dad3bd03-a53e-472d-96ae-5dc8c7f52a29",
                     "exec": [
                       "pm.test(\"PF License retrieved\", function () {",
-                      "    pm.response.to.have.status(200);",
+                      "    pm.response.to.be.ok;",
                       "    ",
                       "    var response = pm.response.json();",
                       "    pm.environment.set(\"wsTrustEnabled\", response.wsTrustEnabled);    ",
