@@ -128,7 +128,7 @@
       "_postman_id": "64491a04-b445-44f1-9869-dd20b6aa1f32"
     },
     {
-      "name": "Config Docker image (New Server Profile)",
+      "name": "Configure Server",
       "item": [
         {
           "name": "Server Config - License \\ Settings \\ Cert \\ Extended Properties",
@@ -2056,6 +2056,19 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "Test OIDC Token request",
+          "_postman_id": "d00a48e0-be10-4973-958b-ed9d1926d7ff",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": ""
+          },
+          "response": []
         }
       ],
       "_postman_id": "95b9017c-2db9-4b1e-a9cb-99fa26813224"
@@ -2092,7 +2105,7 @@
   ],
   "variable": [
     {
-      "id": "7896aeb9-a74f-4803-8cd9-0d9f2e1bd87e",
+      "id": "ec8ab578-52e2-4e45-ab35-caf435181bfe",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
