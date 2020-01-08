@@ -83,6 +83,20 @@
       "item": [
         {
           "name": "Accept EULA",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "04f559ef-34fc-4ab3-9a8f-1b7fd36d993c",
+                "exec": [
+                  "pm.test(\"EULA Accepted\", function () {",
+                  "    pm.response.to.be.ok;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
           "_postman_id": "90b631d0-04d3-41d2-8e36-9a8810e45246",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
