@@ -1,3 +1,5 @@
+PING_IDENTITY_ACCEPT_EULA=YES
+
 # Password used by PF to talk to PD
 PF_USER_PWD=S0meP@ssword1
 
