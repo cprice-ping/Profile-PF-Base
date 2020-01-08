@@ -582,9 +582,20 @@
                 "disableBodyPruning": true
               },
               "request": {
-                "method": "GET",
-                "header": [],
-                "url": ""
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n      \"id\": \"authnExp\",\n      \"name\": \"AuthN Experience\",\n      \"pluginDescriptorRef\": {\n        \"id\": \"com.pingidentity.pf.selectors.ExtendedPropertyAuthnSelector\",\n        \"location\": \"https://9b69603823d1:9999/pf-admin-api/v1/authenticationSelectors/descriptors/com.pingidentity.pf.selectors.ExtendedPropertyAuthnSelector\"\n      },\n      \"configuration\": {\n        \"tables\": [],\n        \"fields\": [\n          {\n            \"name\": \"Extended Property\",\n            \"value\": \"authNexp\"\n          }\n        ]\n      },\n      \"attributeContract\": {\n        \"extendedAttributes\": [\n          {\n            \"name\": \"Basic\"\n          },\n          {\n            \"name\": \"Enhanced\"\n          },\n          {\n            \"name\": \"MFA\"\n          }\n      }\n}"
+                },
+                "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/authenticationSelectors"
               },
               "response": []
             }
