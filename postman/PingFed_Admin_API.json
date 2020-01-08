@@ -686,6 +686,7 @@
             }
           ],
           "_postman_id": "e556918d-f585-41c2-81d0-898335fa9c0f",
+          "description": "These calls do the initial IdP Configuration:\n\n* Create PD datastore\n* Create LDAP (PD) PCV\n* Add IDP Adapters:\n* * HTML Form\n* * HTML Form with LIP\n* * PingID",
           "auth": {
             "type": "basic",
             "basic": {
@@ -1745,7 +1746,7 @@
         }
       ],
       "_postman_id": "853f49ad-5616-468f-9e4f-4870151c3ef2",
-      "description": "This set of calls can be used to fully configure a Ping DevOps `10-docker-standalone` PingFederate instance. You can point this to any PingDirectory instance in your Environment {{pingdir}}\n\nThe following components will be created:\nDatastore\n* PingDirectory\nPCV\n* LDAP\nIdP Adapter\n* HTML Form\nIdP AuthN Policy Contract\nIdP Authentication Policy\n* HTML Form --> Policy Contract\nOAuth Scopes\n* Common - Default OIDC\n* Exclusive - Ping integrations\nToken Mapping\n* AuthN Policy Contract\nToken Manager\n* Default JWT (Symmetric Key)\nToken Mapping\n* AuthN Policy Contract --> Default JWT\n\nThese can then be used to build specific Use Cases via the API\n",
+      "description": "This set of calls can be used to fully configure a new PF server\n\nThe following components will be created:  \n\nDatastore:\n* PingDirectory PCV\n\nIdP Adapters:\n* HTML Form\n* HTML Form with LIP\n* PingID\n\nIdP AuthN Policy Contract:\n\nIdP Authentication Policy:\n* Extended Properties Selector\n * Basic:  HTML Form --> Policy Contract\n * Enhanced:  HTML Form with LIP --> Policy Contract\n * MFA: HTML Form with LIP --> PingID --> Policy Contract\n\nIDP Sessions:\n* Global Sessions: **Enabled**\n* Overrides: PingID Adapter\n\nSP Connection:\n* Dummy-SAML (HTTPBIN)\n\nOAuth Scopes:\n* Common - Default OIDC\n* Exclusive - Ping integrations (Delegator \\ ConsentAPI \\ DirAPI)\n\nToken Mapping:\n* AuthN Policy Contract\n\nToken Manager:\n* Default JWT (Symmetric Key)\n\nToken Mapping:\n* AuthN Policy Contract --> Default JWT\n\nOAuth Clients:\n* `PingLogon` -- OIDC AuthZ Code \\ Implicit\n* `PingIntrospect` -- Introspect \\ Validation ",
       "event": [
         {
           "listen": "prerequest",
@@ -2298,7 +2299,7 @@
   ],
   "variable": [
     {
-      "id": "ee6d80d5-ddfd-49ec-a050-c600812971af",
+      "id": "829dc48e-02a3-48b2-b53e-71f205940462",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
