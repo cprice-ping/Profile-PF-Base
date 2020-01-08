@@ -17,6 +17,11 @@
 			"value": "9031",
 			"enabled": true
 		},
+        {
+			"key": "pingfedBaseURL",
+			"value": "https://ext-docker.cpricelab.com:9031",
+			"enabled": true
+		},
 		{
             "key": "pingdirAdmin",
             "value": "administrator",
