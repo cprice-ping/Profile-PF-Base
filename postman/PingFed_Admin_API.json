@@ -864,7 +864,7 @@
                   "mode": "raw",
                   "raw": "{\n  \"enableIdpAuthnSelection\": true,\n  \"enableSpAuthnSelection\": false\n}"
                 },
-                "url": "{{pfAdminURL}}/pf-admin-api/v1/authenticationPolicies/settings"
+                "url": "https://pingfederate:9999/pf-admin-api/v1/authenticationPolicies/settings"
               },
               "response": []
             }
