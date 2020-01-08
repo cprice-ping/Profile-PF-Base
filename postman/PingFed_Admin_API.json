@@ -516,6 +516,26 @@
           "_postman_isSubFolder": true
         },
         {
+          "name": "Configure Extended Properties",
+          "item": [
+            {
+              "name": "Create Extended Propery",
+              "_postman_id": "a908c24a-1077-459e-ae43-893db3235b54",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": ""
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "014e4b16-a811-4662-940d-c3ea34a88f04",
+          "_postman_isSubFolder": true
+        },
+        {
           "name": "IDP Config - AuthN Policy",
           "item": [
             {
@@ -1446,12 +1466,6 @@
               }
             }
           ],
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "Configure Extended Properties",
-          "item": [],
-          "_postman_id": "014e4b16-a811-4662-940d-c3ea34a88f04",
           "_postman_isSubFolder": true
         }
       ],
