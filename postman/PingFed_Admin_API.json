@@ -873,6 +873,26 @@
           "_postman_isSubFolder": true
         },
         {
+          "name": "IDP Config - Sessions",
+          "item": [
+            {
+              "name": "Configure Sessions",
+              "_postman_id": "e726a7c7-f4ce-40ef-a2a4-0b942890174f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": ""
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "689e475a-d76e-453d-b9e1-4fcb5670451e",
+          "_postman_isSubFolder": true
+        },
+        {
           "name": "OAuth Config - AS Settings",
           "item": [
             {
@@ -1568,12 +1588,6 @@
               }
             }
           ],
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "IDP Config - Sessions",
-          "item": [],
-          "_postman_id": "689e475a-d76e-453d-b9e1-4fcb5670451e",
           "_postman_isSubFolder": true
         }
       ],
