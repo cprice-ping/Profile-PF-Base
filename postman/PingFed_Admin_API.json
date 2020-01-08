@@ -353,6 +353,20 @@
                 "url": "{{pfAdminURL}}/pf-admin-api/v1/authenticationSelectors"
               },
               "response": []
+            },
+            {
+              "name": "Create native Admin",
+              "_postman_id": "467bbd92-0647-4f7b-bf01-fabc6bd83a47",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "",
+                "description": "This call is needed to remove the 1st Run Wizard in the UI"
+              },
+              "response": []
             }
           ],
           "_postman_id": "e2ae9616-4d84-4719-acc8-0ef9c659722e",
@@ -2228,7 +2242,7 @@
   ],
   "variable": [
     {
-      "id": "cfacd29d-e0a5-4dfe-9577-edfc65dad2ab",
+      "id": "ed763e93-3b71-453e-ac0d-448b646b55fe",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
