@@ -323,7 +323,7 @@
                     "id": "3a8cf566-6b2a-4887-ac6f-f7e702cb3476",
                     "exec": [
                       "pm.test(\"LDAP PCV Created\", function () {",
-                      "    pm.response.to.have.status(201);",
+                      "    pm.response.to.be.ok;",
                       "});"
                     ],
                     "type": "text/javascript"
