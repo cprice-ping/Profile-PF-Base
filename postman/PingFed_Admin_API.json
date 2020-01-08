@@ -1987,7 +1987,21 @@
     },
     {
       "name": "Test Use Cases",
-      "item": [],
+      "item": [
+        {
+          "name": "Test SAML Connection (Basic)",
+          "_postman_id": "f725a011-0211-44ff-95fa-cbd3da7f8b69",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": ""
+          },
+          "response": []
+        }
+      ],
       "_postman_id": "95b9017c-2db9-4b1e-a9cb-99fa26813224"
     }
   ],
@@ -2022,7 +2036,7 @@
   ],
   "variable": [
     {
-      "id": "1997e257-5e3b-45a1-ba79-5284833e7f97",
+      "id": "73b57fce-706b-4674-8972-99423147f08d",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
