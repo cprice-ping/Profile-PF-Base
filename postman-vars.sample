@@ -17,37 +17,38 @@
 			"value": "9031",
 			"enabled": true
 		},
-        {
+		{
 			"key": "pingfedBaseURL",
 			"value": "https://ext-docker.cpricelab.com:9031",
 			"enabled": true
 		},
 		{
-            "key": "pingdirAdmin",
-            "value": "administrator",
-            "enabled": true
-        },
-		{
-			"key": "pingdirAdminPwd",
-			"value": "2FederateM0re",
-			"enabled": true
-		},
-        {
-            "key": "userBaseDN",
-            "value": "dc=example.com",
-            "enabled": true
-        }
-		{
 			"key": "pingId",
 			"value": "#Auto-Generated from PingOne, downloaded by id=[158000] email=[cprice+lab@pingidentity.com]\n#Mon Oct 07 12:36:37 MDT 2019\nuse_base64_key=/iM4CXzXrxGS5HGFtIhQB1gWtu4I4s9FV+gaOt8EvE0=\nuse_signature=true\ntoken=7b1f4e20703f178c84248094498035c4\nidp_url=https://idpxnyl3m.pingidentity.com/pingid\norg_alias=c6d8cf58-6d78-49da-938a-4fb44f746397\nadmin_url=https://idpxnyl3m.pingidentity.com/pingid\nauthenticator_url=https://authenticator.pingone.com/pingid/ppm",
 			"enabled": true
 		},
-        {
-            "key": "oauthSecret",
-            "value": "2FederateM0re",
-            "enabled": true
-        }
+		{
+			"key": "userBaseDn",
+			"value": "dc=example.com",
+			"enabled": true
+		},
+		{
+			"key": "oauthSecret",
+			"value": "2FederateM0re",
+			"enabled": true
+		},
+		{
+			"key": "pingdirAdmin",
+			"value": "administrator",
+			"enabled": true
+		},
+		{
+			"key": "pingdirAdminPwd",
+			"value": "2FederateM0re",
+			"enabled": true
+		}
 	],
 	"_postman_variable_scope": "environment",
-	"_postman_exported_at": "2020-01-07T18:46:15.872Z",
+	"_postman_exported_at": "2020-01-08T08:57:40.773Z",
 	"_postman_exported_using": "Postman/7.14.0"
+}
