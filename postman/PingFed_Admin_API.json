@@ -1675,36 +1675,6 @@
               "response": []
             },
             {
-              "name": "Create OIDC Client (PA WebSession)",
-              "_postman_id": "adccc591-5c7e-423c-bdd1-8b4f923c83e3",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "X-XSRF-Header",
-                    "value": "pingfederate",
-                    "type": "text"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "    {\n      \"clientId\": \"PA WebSession\",\n      \"enabled\": true,\n      \"redirectUris\": [\n        \"https://pingaccess/pa/oidc/cb\"\n      ],\n      \"grantTypes\": [\n        \"IMPLICIT\",\n        \"AUTHORIZATION_CODE\"\n      ],\n      \"name\": \"PingAccess WebSession\",\n      \"description\": \"This client is used to perform OIDC logons to PingAccess\",\n      \"logoUrl\": \"\",\n      \"refreshRolling\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationType\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationTime\": 0,\n      \"persistentGrantExpirationTimeUnit\": \"DAYS\",\n      \"persistentGrantIdleTimeoutType\": \"SERVER_DEFAULT\",\n      \"persistentGrantIdleTimeout\": 0,\n      \"persistentGrantIdleTimeoutTimeUnit\": \"DAYS\",\n      \"bypassApprovalPage\": true,\n      \"restrictScopes\": false,\n      \"restrictedScopes\": [],\n      \"exclusiveScopes\": [\n      ],\n      \"restrictedResponseTypes\": [],\n      \"defaultAccessTokenManagerRef\": {\n        \"id\": \"jwtDefault\"\n      },\n      \"validateUsingAllEligibleAtms\": false,\n      \"oidcPolicy\": {\n        \"policyGroup\": {\n          \"id\": \"OIDCPolicyDefault\"\n        },\n        \"grantAccessSessionRevocationApi\": false,\n        \"pingAccessLogoutCapable\": false\n      },\n      \"clientAuth\": {\n        \"type\": \"NONE\",\n        \"enforceReplayPrevention\": false\n      },\n      \"extendedParameters\": {},\n      \"deviceFlowSettingType\": \"SERVER_DEFAULT\",\n      \"requireSignedRequests\": false\n    }"
-                },
-                "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/oauth/clients",
-                "description": "This client can be used to issue tokens for PingAccess WebSessions"
-              },
-              "response": []
-            },
-            {
               "name": "Create OIDC Client (Introspect)",
               "_postman_id": "ffc65e2a-f6cc-4329-a3a7-2cd96c484899",
               "protocolProfileBehavior": {
