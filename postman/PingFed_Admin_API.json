@@ -167,7 +167,7 @@
                     "id": "37cd23c7-5a5a-4834-bc81-9210b59a4074",
                     "exec": [
                       "pm.test(\"Server Settings Configured\", function () {",
-                      "    pm.response.to.have.status(200);",
+                      "    pm.response.to.be.ok;",
                       "});"
                     ],
                     "type": "text/javascript"
@@ -203,6 +203,20 @@
             },
             {
               "name": "Add Signing Cert",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "f99d64af-a643-4445-bcac-fe0d289c4817",
+                    "exec": [
+                      "pm.test(\"Signing Cert created\", function () {",
+                      "    pm.response.to.be.ok;",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
               "_postman_id": "fd964aad-0b4f-40a0-9dae-eaa7070508c8",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
