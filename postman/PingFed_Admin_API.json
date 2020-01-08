@@ -810,7 +810,7 @@
                             "id": "58ab8f47-2136-4bc6-b45f-f987aeaa2b92",
                             "exec": [
                               "pm.test(\"Scope (address) Created\", function () {",
-                              "    pm.response.to.have.status(201);",
+                              "    pm.response.to.be.ok;",
                               "});"
                             ],
                             "type": "text/javascript"
@@ -852,7 +852,7 @@
                             "id": "1cd8f58d-2dc3-4cf3-88b8-d678390c12ca",
                             "exec": [
                               "pm.test(\"Scope (email) Created\", function () {",
-                              "    pm.response.to.have.status(201);",
+                              "    pm.response.to.be.ok;",
                               "});"
                             ],
                             "type": "text/javascript"
