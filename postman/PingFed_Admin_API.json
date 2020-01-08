@@ -2069,6 +2069,7 @@
                   "",
                   "        // Parse out the Code value",
                   "        pm.environment.set(\"authzCode\", loc.substr(loc.search(\"code=\") + 5));",
+                  "        console.log(\"AuthZ Code was returned\");",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -2144,6 +2145,7 @@
                   "    var jsonData = pm.response.json();",
                   "    ",
                   "    pm.expect(jsonData.access_token).to.not.be.empty;",
+                  "    console.log(\"Access Token was returned\")",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -2226,7 +2228,7 @@
   ],
   "variable": [
     {
-      "id": "5f4aa7a7-cc8f-4f33-9599-28f1d99862fa",
+      "id": "1368f014-14d7-486a-b225-2f1499f494ba",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
