@@ -422,7 +422,7 @@
                   "mode": "raw",
                   "raw": "    {\n      \"type\": \"LDAP\",\n      \"id\": \"LDAP-PingDirectory\",\n      \"maskAttributeValues\": false,\n      \"hostnames\": [\n        \"pingdirectory\"\n      ],\n      \"ldapType\": \"PING_DIRECTORY\",\n      \"bindAnonymously\": false,\n      \"userDN\": \"cn=pingfederate\",\n\t  \"password\": \"{{pingdirAdminPwd}}\",\n      \"useSsl\": false,\n      \"useDnsSrvRecords\": false,\n      \"name\": \"PingDirectory\",\n      \"testOnBorrow\": false,\n      \"testOnReturn\": false,\n      \"createIfNecessary\": true\n    }"
                 },
-                "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/dataStores"
+                "url": "https://pingfederate:9999/pf-admin-api/v1/dataStores"
               },
               "response": []
             },
@@ -475,7 +475,7 @@
                   "mode": "raw",
                   "raw": "{\n  \"id\": \"PDPCV\",\n  \"name\": \"PD PCV\",\n  \"configuration\": {\n    \"tables\": [\n      {\n        \"name\": \"Authentication Error Overrides\",\n        \"rows\": []\n      }\n    ],\n    \"fields\": [\n      {\n        \"name\": \"LDAP Datastore\",\n        \"value\": \"LDAP-PingDirectory\"\n      },\n      {\n        \"name\": \"Search Base\",\n        \"value\": \"{{userBaseDN}}\"\n      },\n      {\n        \"name\": \"Search Filter\",\n        \"value\": \"(|(uid=${username})(mail=${username}))\"\n      },\n      {\n        \"name\": \"Scope of Search\",\n        \"value\": \"Subtree\"\n      },\n      {\n        \"name\": \"Case-Sensitive Matching\",\n        \"value\": \"true\"\n      },\n      {\n        \"name\": \"Display Name Attribute\",\n        \"value\": \"displayName\"\n      },\n      {\n        \"name\": \"Mail Attribute\",\n        \"value\": \"mail\"\n      },\n      {\n        \"name\": \"SMS Attribute\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"PingID Username Attribute\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Mail Search Filter\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Username Attribute\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Mail Verified Attribute\",\n        \"value\": \"\"\n      }\n    ]\n  },\n  \"attributeContract\": {\n    \"coreAttributes\": [\n      {\n        \"name\": \"mail\"\n      },\n      {\n        \"name\": \"givenName\"\n      },\n      {\n        \"name\": \"DN\"\n      },\n      {\n        \"name\": \"username\"\n      }\n    ],\n    \"extendedAttributes\": [\n      {\n        \"name\": \"entryUUID\"\n      }\n    ]\n  }\n}"
                 },
-                "url": "https://{{pingfed}}:{{admin}}/pf-admin-api/v1/passwordCredentialValidators"
+                "url": "https://pingfederate:9999/pf-admin-api/v1/passwordCredentialValidators"
               },
               "response": []
             },
