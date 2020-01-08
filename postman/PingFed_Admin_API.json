@@ -936,7 +936,7 @@
                             "id": "186cebf3-76f8-4a06-aaae-793276f77cbf",
                             "exec": [
                               "pm.test(\"Scope (profile) Created\", function () {",
-                              "    pm.response.to.have.status(201);",
+                              "    pm.response.to.be.ok;",
                               "});"
                             ],
                             "type": "text/javascript"
