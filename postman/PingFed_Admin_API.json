@@ -131,7 +131,7 @@
       "name": "Config Docker image (New Server Profile)",
       "item": [
         {
-          "name": "Server Config",
+          "name": "Server Config - License \\ Settings \\ Cert \\ Extended Properties",
           "item": [
             {
               "name": "Get License",
@@ -346,6 +346,28 @@
             }
           ],
           "_postman_id": "e2ae9616-4d84-4719-acc8-0ef9c659722e",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "2db108d5-3306-43e1-b2bc-a7f632d2dc32",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "f8c7d200-9864-40c6-9cea-6a7dc3ec2dc7",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
           "_postman_isSubFolder": true
         },
         {
