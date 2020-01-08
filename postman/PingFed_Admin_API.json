@@ -1607,7 +1607,7 @@
                         "id": "4aa206d6-cc0b-49c2-83a2-ddfdd4de1b6b",
                         "exec": [
                           "pm.test(\"OIDC Policy Created\", function () {",
-                          "    pm.response.have.status(200);",
+                          "    pm.response.have.status(201);",
                           "});"
                         ],
                         "type": "text/javascript"
@@ -2228,7 +2228,7 @@
   ],
   "variable": [
     {
-      "id": "e464dcd9-3bf4-4644-ae71-1940dc9c8571",
+      "id": "cfacd29d-e0a5-4dfe-9577-edfc65dad2ab",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
