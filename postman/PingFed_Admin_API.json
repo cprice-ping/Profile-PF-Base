@@ -379,6 +379,20 @@
             },
             {
               "name": "Add `pingfederate` as Virtual Host Name",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "d2d7a1be-be2d-4600-9bd3-d0bb12edd3ed",
+                    "exec": [
+                      "pm.test(\"Virtual Host Created\", function () {",
+                      "    pm.response.to.be.ok;",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
               "_postman_id": "3500525b-eba9-44dc-8cc5-9ad3cb1f68cd",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
@@ -2473,7 +2487,7 @@
   ],
   "variable": [
     {
-      "id": "bed6af43-77af-47a3-9e00-390d2db7f754",
+      "id": "1dc64379-0ae6-4e8f-b35f-78b797e875cd",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
