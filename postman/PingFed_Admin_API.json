@@ -116,115 +116,6 @@
       ]
     },
     {
-      "name": "Check PF is Running Copy",
-      "item": [
-        {
-          "name": "Check if Server is up",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "4a7864a9-1358-402a-b81d-bcc6da8044ff",
-                "exec": [
-                  "// Checks to see if the server actually responded",
-                  "// If not, run the call again (with the 30 sec delay)",
-                  "postman.setNextRequest(\"Check if Server is up\");",
-                  "",
-                  "pm.test(\"Server is Up\", function () {",
-                  "    pm.response.to.be.ok;",
-                  "    postman.setNextRequest(\"00-Start-API-Calls\");",
-                  "});",
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "f9e66381-07f9-487a-b8e4-f97b5521bef7",
-                "exec": [
-                  "// Puts a 30 sec delay into this call",
-                  "setTimeout(function() {",
-                  " console.log(\"Connecting to Server\");",
-                  "}, 30000);"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "bb57114e-1543-490b-8ad6-32911a0dc6c3",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-XSRF-Header",
-                "value": "pingfederate",
-                "type": "text"
-              }
-            ],
-            "url": "{{pfAdminURL}}/pf-admin-api/v1/license/agreement",
-            "description": "Uses the API endpoint instead of just the heartbeat"
-          },
-          "response": []
-        },
-        {
-          "name": "00-Start-API-Calls",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "cd64bf84-50d5-4ada-aec9-ff1d52f0c5cb",
-                "exec": [
-                  "pm.test(\"Starting Collection\", function () {",
-                  "    pm.response.to.be.status(302);",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "12e1cd32-cd1d-4b8c-add4-d4119e1bba27",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "https://postman-echo.com"
-          },
-          "response": []
-        }
-      ],
-      "_postman_id": "f5573284-e386-408a-a9f0-82ba80f7ade3",
-      "description": "This folder contains the call that's used to wait until a desired condition is met.\n\nThe `Pre-request` of the call contains a log event with a timer of 30s. The `Test Script` of the call contains the loop back to this call, and the Condition test that will break the looping.\n\nThe name of the call for the break is `00-Start-API-Calls` -- it's a simple GET request to https://postman-echo.com and allows for this to be always consistent.\n\nThe actual set of API calls for this collection are started right after this GET call.",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "263d6b60-7de9-4ff9-850e-1838ee21a6a3",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "ba5aaee1-d75e-4fca-8667-8ff592b34ad4",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        }
-      ]
-    },
-    {
       "name": "Accept EULA",
       "item": [
         {
@@ -2142,6 +2033,59 @@
                 "url": "{{pfAdminURL}}/pf-admin-api/v1/authenticationPolicies/default"
               },
               "response": []
+            },
+            {
+              "name": "Create Default Policy Copy",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "43c897b9-d3ca-403f-83f8-ae397e06abd4",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "7cbf9465-6740-4dd7-a6f1-89e0dbeefc48",
+                    "exec": [
+                      "pm.test(\"Default AuthN Policy Created\", function () {",
+                      "    pm.response.to.be.ok;",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "35cc6cc2-930f-4371-a8cd-4747995f0ce9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-XSRF-Header",
+                    "type": "text",
+                    "value": "PingFederate"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"failIfNoSelection\": false,\n  \"authnSelectionTrees\": [\n    {\n      \"rootNode\": {\n        \"action\": {\n          \"type\": \"AUTHN_SELECTOR\",\n          \"authenticationSelectorRef\": {\n            \"id\": \"authnExp\"\n          }\n        },\n        \"children\": [\n          {\n            \"action\": {\n              \"type\": \"AUTHN_SOURCE\",\n              \"context\": \"Basic\",\n              \"authenticationSource\": {\n                \"type\": \"IDP_ADAPTER\",\n                \"sourceRef\": {\n                  \"id\": \"HTMLForm\"\n                }\n              }\n            },\n            \"children\": [\n              {\n                \"action\": {\n                  \"type\": \"DONE\",\n                  \"context\": \"Fail\"\n                }\n              },\n              {\n                \"action\": {\n                  \"type\": \"APC_MAPPING\",\n                  \"context\": \"Success\",\n                  \"authenticationPolicyContractRef\": {\n                    \"id\": \"defaultPolicyContract\"\n                  },\n                  \"attributeMapping\": {\n                    \"attributeSources\": [],\n                    \"attributeContractFulfillment\": {\n                      \"entryUUID\": {\n                        \"source\": {\n                          \"type\": \"ADAPTER\",\n                          \"id\": \"HTMLForm\"\n                        },\n                        \"value\": \"entryUUID\"\n                      },\n                      \"mail\": {\n                        \"source\": {\n                          \"type\": \"ADAPTER\",\n                          \"id\": \"HTMLForm\"\n                        },\n                        \"value\": \"mail\"\n                      },\n                      \"subject\": {\n                        \"source\": {\n                          \"type\": \"ADAPTER\",\n                          \"id\": \"HTMLForm\"\n                        },\n                        \"value\": \"username\"\n                      }\n                    },\n                    \"issuanceCriteria\": {\n                      \"conditionalCriteria\": []\n                    }\n                  }\n                }\n              }\n            ]\n          },\n          {\n            \"action\": {\n              \"type\": \"AUTHN_SOURCE\",\n              \"context\": \"Enhanced\",\n              \"authenticationSource\": {\n                \"type\": \"IDP_ADAPTER\",\n                \"sourceRef\": {\n                  \"id\": \"HTMLFormWithLIP\"\n                }\n              }\n            },\n            \"children\": [\n              {\n                \"action\": {\n                  \"type\": \"DONE\",\n                  \"context\": \"Fail\"\n                }\n              },\n              {\n                \"action\": {\n                  \"type\": \"LOCAL_IDENTITY_MAPPING\",\n                  \"context\": \"Success\",\n                  \"localIdentityRef\": {\n                    \"id\": \"defaultIdentityProfile\"\n                  },\n                  \"outboundAttributeMapping\": {\n                    \"attributeSources\": [],\n                    \"attributeContractFulfillment\": {\n                      \"entryUUID\": {\n                        \"source\": {\n                          \"type\": \"ADAPTER\",\n                          \"id\": \"HTMLFormWithLIP\"\n                        },\n                        \"value\": \"entryUUID\"\n                      },\n                      \"mail\": {\n                        \"source\": {\n                          \"type\": \"ADAPTER\",\n                          \"id\": \"HTMLFormWithLIP\"\n                        },\n                        \"value\": \"mail\"\n                      },\n                      \"subject\": {\n                        \"source\": {\n                          \"type\": \"ADAPTER\",\n                          \"id\": \"HTMLFormWithLIP\"\n                        },\n                        \"value\": \"username\"\n                      }\n                    },\n                    \"issuanceCriteria\": {\n                      \"conditionalCriteria\": []\n                    }\n                  }\n                }\n              }\n            ]\n          },\n          {\n            \"action\": {\n              \"type\": \"AUTHN_SOURCE\",\n              \"context\": \"MFA\",\n              \"authenticationSource\": {\n                \"type\": \"IDP_ADAPTER\",\n                \"sourceRef\": {\n                  \"id\": \"HTMLFormWithLIP\"\n                }\n              }\n            },\n            \"children\": [\n              {\n                \"action\": {\n                  \"type\": \"DONE\",\n                  \"context\": \"Fail\"\n                }\n              },\n              {\n                \"action\": {\n                  \"type\": \"AUTHN_SOURCE\",\n                  \"context\": \"Success\",\n                  \"authenticationSource\": {\n                    \"type\": \"IDP_ADAPTER\",\n                    \"sourceRef\": {\n                      \"id\": \"PingID\"\n                    }\n                  },\n                  \"inputUserIdMapping\": {\n                    \"source\": {\n                      \"type\": \"ADAPTER\",\n                      \"id\": \"HTMLFormWithLIP\"\n                    },\n                    \"value\": \"username\"\n                  }\n                },\n                \"children\": [\n                  {\n                    \"action\": {\n                      \"type\": \"DONE\",\n                      \"context\": \"Fail\"\n                    }\n                  },\n                  {\n                    \"action\": {\n                      \"type\": \"LOCAL_IDENTITY_MAPPING\",\n                      \"context\": \"Success\",\n                      \"localIdentityRef\": {\n                        \"id\": \"defaultIdentityProfile\"\n                      },\n                      \"outboundAttributeMapping\": {\n                        \"attributeSources\": [],\n                        \"attributeContractFulfillment\": {\n                          \"entryUUID\": {\n                            \"source\": {\n                              \"type\": \"ADAPTER\",\n                              \"id\": \"HTMLFormWithLIP\"\n                            },\n                            \"value\": \"entryUUID\"\n                          },\n                          \"mail\": {\n                            \"source\": {\n                              \"type\": \"ADAPTER\",\n                              \"id\": \"HTMLFormWithLIP\"\n                            },\n                            \"value\": \"mail\"\n                          },\n                          \"subject\": {\n                            \"source\": {\n                              \"type\": \"ADAPTER\",\n                              \"id\": \"HTMLFormWithLIP\"\n                            },\n                            \"value\": \"username\"\n                          }\n                        },\n                        \"issuanceCriteria\": {\n                          \"conditionalCriteria\": []\n                        }\n                      }\n                    }\n                  }\n                ]\n              }\n            ]\n          },\n          {\n            \"action\": {\n              \"type\": \"AUTHN_SOURCE\",\n              \"context\": \"Passwordless\",\n              \"authenticationSource\": {\n                \"type\": \"IDP_ADAPTER\",\n                \"sourceRef\": {\n                  \"id\": \"IDFirst\"\n                }\n              }\n            },\n            \"children\": [\n              {\n                \"action\": {\n                  \"type\": \"DONE\",\n                  \"context\": \"Fail\"\n                }\n              },\n              {\n                \"action\": {\n                  \"type\": \"AUTHN_SOURCE\",\n                  \"context\": \"Success\",\n                  \"authenticationSource\": {\n                    \"type\": \"IDP_ADAPTER\",\n                    \"sourceRef\": {\n                      \"id\": \"PingID\"\n                    }\n                  },\n                  \"inputUserIdMapping\": {\n                    \"source\": {\n                      \"type\": \"ADAPTER\",\n                      \"id\": \"IDFirst\"\n                    },\n                    \"value\": \"uid\"\n                  }\n                },\n                \"children\": [\n                  {\n                    \"action\": {\n                      \"type\": \"DONE\",\n                      \"context\": \"Fail\"\n                    }\n                  },\n                  {\n                    \"action\": {\n                      \"type\": \"APC_MAPPING\",\n                      \"context\": \"Success\",\n                      \"authenticationPolicyContractRef\": {\n                        \"id\": \"defaultPolicyContract\"\n                      },\n                      \"attributeMapping\": {\n                        \"attributeSources\": [],\n                        \"attributeContractFulfillment\": {\n                          \"entryUUID\": {\n                            \"source\": {\n                              \"type\": \"ADAPTER\",\n                              \"id\": \"IDFirst\"\n                            },\n                            \"value\": \"entryUUID\"\n                          },\n                          \"mail\": {\n                            \"source\": {\n                              \"type\": \"ADAPTER\",\n                              \"id\": \"IDFirst\"\n                            },\n                            \"value\": \"mail\"\n                          },\n                          \"subject\": {\n                            \"source\": {\n                              \"type\": \"ADAPTER\",\n                              \"id\": \"IDFirst\"\n                            },\n                            \"value\": \"subject\"\n                          }\n                        },\n                        \"issuanceCriteria\": {\n                          \"conditionalCriteria\": []\n                        }\n                      }\n                    }\n                  }\n                ]\n              }\n            ]\n          }\n        ]\n      },\n      \"name\": \"Default AuthN Policy\",\n      \"enabled\": true\n    },\n    {\n      \"rootNode\": {\n        \"action\": {\n          \"type\": \"AUTHN_SOURCE\",\n          \"authenticationSource\": {\n            \"type\": \"IDP_ADAPTER\",\n            \"sourceRef\": {\n              \"id\": \"IDFirst\"\n            }\n          }\n        },\n        \"children\": [\n          {\n            \"action\": {\n              \"type\": \"DONE\",\n              \"context\": \"Fail\"\n            }\n          },\n          {\n            \"action\": {\n              \"type\": \"AUTHN_SOURCE\",\n              \"context\": \"Success\",\n              \"authenticationSource\": {\n                \"type\": \"IDP_ADAPTER\",\n                \"sourceRef\": {\n                  \"id\": \"HTMLFormWithLIP\"\n                }\n              },\n              \"inputUserIdMapping\": {\n                \"source\": {\n                  \"type\": \"ADAPTER\",\n                  \"id\": \"IDFirst\"\n                },\n                \"value\": \"subject\"\n              }\n            },\n            \"children\": [\n              {\n                \"action\": {\n                  \"type\": \"DONE\",\n                  \"context\": \"Fail\"\n                }\n              },\n              {\n                \"action\": {\n                  \"type\": \"LOCAL_IDENTITY_MAPPING\",\n                  \"context\": \"Success\",\n                  \"localIdentityRef\": {\n                    \"id\": \"defaultIdentityProfile\"\n                  },\n                  \"outboundAttributeMapping\": {\n                    \"attributeSources\": [],\n                    \"attributeContractFulfillment\": {\n                      \"entryUUID\": {\n                        \"source\": {\n                          \"type\": \"ADAPTER\",\n                          \"id\": \"HTMLFormWithLIP\"\n                        },\n                        \"value\": \"entryUUID\"\n                      },\n                      \"mail\": {\n                        \"source\": {\n                          \"type\": \"ADAPTER\",\n                          \"id\": \"HTMLFormWithLIP\"\n                        },\n                        \"value\": \"mail\"\n                      },\n                      \"subject\": {\n                        \"source\": {\n                          \"type\": \"ADAPTER\",\n                          \"id\": \"HTMLFormWithLIP\"\n                        },\n                        \"value\": \"username\"\n                      }\n                    },\n                    \"issuanceCriteria\": {\n                      \"conditionalCriteria\": []\n                    }\n                  }\n                }\n              }\n            ]\n          }\n        ]\n      },\n      \"name\": \"Default AuthN API\",\n      \"enabled\": true,\n      \"authenticationApiApplicationRef\": {\n        \"id\": \"DefaultAuthNAPIApp\"\n      }\n    }\n  ],\n  \"defaultAuthenticationSources\": [],\n  \"trackedHttpParameters\": []\n}"
+                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/authenticationPolicies/default"
+              },
+              "response": []
             }
           ],
           "_postman_id": "2b497726-fab8-4160-ab2e-b0aa04fbc193",
@@ -2638,7 +2582,7 @@
   ],
   "variable": [
     {
-      "id": "6f3cb283-8e64-4646-a9cf-37edb8cc84ed",
+      "id": "c903330e-59a3-462f-b63f-e2277fdc4d06",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
