@@ -1075,6 +1075,20 @@
             },
             {
               "name": "Create Default AuthN API Application",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "71e3a37a-7c2c-4909-863f-7051ff79ec48",
+                    "exec": [
+                      "pm.test(\"AuthN API App Created\", function () {",
+                      "    pm.response.to.have.status(\"Created\");",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
               "_postman_id": "a3cefefc-946d-48e4-a750-f46c6010f469",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
@@ -2501,7 +2515,7 @@
   ],
   "variable": [
     {
-      "id": "b96f678a-b0e1-4f33-a4b5-88b0deef96cc",
+      "id": "f4123fd9-889e-4960-90e1-5b50c6e25d75",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
