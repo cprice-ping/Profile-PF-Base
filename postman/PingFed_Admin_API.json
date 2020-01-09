@@ -1063,7 +1063,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"items\": [\n    {\n      \"id\": \"DefaultAuthNAPIApp\",\n      \"url\": \"https://ext-docker.cpricelab.com:9031/pf-ws/authn/explorer\",\n      \"description\": \"\",\n      \"additionalAllowedOrigins\": [],\n      \"name\": \"Default AuthN API\"\n    }\n  ]\n}"
+                  "raw": "{\n  \"id\": \"DefaultAuthNAPIApp\",\n  \"url\": \"{{pfBaseURL}}/pf-ws/authn/explorer\",\n  \"description\": \"\",\n  \"additionalAllowedOrigins\": [],\n  \"name\": \"Default AuthN API\"\n}"
                 },
                 "url": "{{pfAdminURL}}/pf-admin-api/v1/authenticationApi/applications"
               },
@@ -2468,7 +2468,7 @@
   ],
   "variable": [
     {
-      "id": "7f94bf51-1185-464f-9113-1534b183e937",
+      "id": "72b6ef52-957e-45d9-91b7-fea9a5d09fd1",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
