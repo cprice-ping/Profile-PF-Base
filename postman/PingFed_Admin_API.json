@@ -1890,7 +1890,7 @@
         }
       ],
       "_postman_id": "853f49ad-5616-468f-9e4f-4870151c3ef2",
-      "description": "This set of calls can be used to fully configure a new PF server\n\nThe following components will be created:  \n\nDatastore:\n* PingDirectory PCV\n\nIdP Adapters:\n* HTML Form\n* HTML Form with LIP\n* PingID\n\nIdP AuthN Policy Contract:\n\nIdP Authentication Policy:\n* Extended Properties Selector\n * Basic:  HTML Form --> Policy Contract\n * Enhanced:  HTML Form with LIP --> Policy Contract\n * MFA: HTML Form with LIP --> PingID --> Policy Contract\n * Passwordless: ID-First --> PingID\n \n* Authentication API\n * ID-First --> HTML Form with LIP --> PF API Explorer\n\nIDP Sessions:\n* Global Sessions: **Enabled**\n* Overrides: PingID Adapter\n\nSP Connection:\n* Dummy-SAML (HTTPBIN)\n\nOAuth Scopes:\n* Common - Default OIDC\n* Exclusive - Ping integrations (Delegator \\ ConsentAPI \\ DirAPI)\n\nToken Mapping:\n* AuthN Policy Contract\n\nToken Manager:\n* Default JWT (Symmetric Key)\n\nToken Mapping:\n* AuthN Policy Contract --> Default JWT\n\nOAuth Clients:\n* `PingLogon` -- OIDC AuthZ Code \\ Implicit\n* `PingIntrospect` -- Introspect \\ Validation ",
+      "description": "This set of calls can be used to fully configure a new PF server\n\nThe following components will be created:  \n\nDatastore:\n* PingDirectory PCV\n\nIdP Adapters:\n* HTML Form\n* HTML Form with LIP\n* PingID\n* ID-First\n\nIdP AuthN Policy Contract:\n\nIdP Authentication Policy:\n* Extended Properties Selector\n * Basic:  HTML Form --> Policy Contract\n * Enhanced:  HTML Form with LIP --> Policy Contract\n * MFA: HTML Form with LIP --> PingID --> Policy Contract\n * Passwordless: ID-First --> PingID\n \n* Authentication API\n * ID-First --> HTML Form with LIP --> PF API Explorer\n\nIDP Sessions:\n* Global Sessions: **Enabled**\n* Overrides: PingID Adapter\n\nSP Connection:\n* Dummy-SAML (HTTPBIN)\n\nOAuth Scopes:\n* Common - Default OIDC\n* Exclusive - Ping integrations (Delegator \\ ConsentAPI \\ DirAPI)\n\nToken Mapping:\n* AuthN Policy Contract\n\nToken Manager:\n* Default JWT (Symmetric Key)\n\nToken Mapping:\n* AuthN Policy Contract --> Default JWT\n\nOAuth Clients:\n* `PingLogon` -- OIDC AuthZ Code \\ Implicit\n* `PingIntrospect` -- Introspect \\ Validation ",
       "event": [
         {
           "listen": "prerequest",
@@ -2468,7 +2468,7 @@
   ],
   "variable": [
     {
-      "id": "161c8c8a-b8a4-47f9-b137-3145cea50f46",
+      "id": "20008649-ab2e-4ef5-aa6d-c5e4a44ced09",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
