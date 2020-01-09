@@ -371,7 +371,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n      \"id\": \"authnExp\",\n      \"name\": \"AuthN Experience\",\n      \"pluginDescriptorRef\": {\n        \"id\": \"com.pingidentity.pf.selectors.ExtendedPropertyAuthnSelector\"\n      },\n      \"configuration\": {\n        \"tables\": [],\n        \"fields\": [\n          {\n            \"name\": \"Extended Property\",\n            \"value\": \"authNexp\"\n          }\n        ]\n      },\n      \"attributeContract\": {\n        \"extendedAttributes\": [\n          {\n            \"name\": \"Basic\"\n          },\n          {\n            \"name\": \"Enhanced\"\n          },\n          {\n            \"name\": \"MFA\"\n          } ]\n      }\n}"
+                  "raw": "{\n      \"id\": \"authnExp\",\n      \"name\": \"AuthN Experience\",\n      \"pluginDescriptorRef\": {\n        \"id\": \"com.pingidentity.pf.selectors.ExtendedPropertyAuthnSelector\"\n      },\n      \"configuration\": {\n        \"tables\": [],\n        \"fields\": [\n          {\n            \"name\": \"Extended Property\",\n            \"value\": \"authNexp\"\n          }\n        ]\n      },\n      \"attributeContract\": {\n        \"extendedAttributes\": [\n          {\n            \"name\": \"Basic\"\n          },\n          {\n            \"name\": \"Enhanced\"\n          },\n          {\n            \"name\": \"MFA\"\n          },\n          {\n            \"name\": \"Passwordless\"\n          } ]\n      }\n}"
                 },
                 "url": "{{pfAdminURL}}/pf-admin-api/v1/authenticationSelectors"
               },
@@ -2458,7 +2458,7 @@
   ],
   "variable": [
     {
-      "id": "9ffe267a-970b-4725-bcfe-07e17f0951f0",
+      "id": "f2ab9d47-3812-4d1a-b8fa-1c9bdab091da",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
