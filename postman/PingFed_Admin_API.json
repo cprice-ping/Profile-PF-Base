@@ -1010,7 +1010,21 @@
         },
         {
           "name": "IDP Config - AuthN API",
-          "item": [],
+          "item": [
+            {
+              "name": "Enable AuthN API",
+              "_postman_id": "65d84bd2-6d7c-46b7-ab81-8e4a54d5724e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": ""
+              },
+              "response": []
+            }
+          ],
           "_postman_id": "012230ad-01e0-4fae-987b-784de4dfea12",
           "description": "Configure the PF Authentication API",
           "_postman_isSubFolder": true
@@ -2409,7 +2423,7 @@
   ],
   "variable": [
     {
-      "id": "9e5865ea-25dc-47b5-8e66-21171c092e20",
+      "id": "af64ac12-e60d-4727-b86c-7b8842ebe095",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
