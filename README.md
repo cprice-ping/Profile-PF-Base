@@ -21,6 +21,10 @@ https://{{PF_HOSTNAME}}:9999/pingfederate
 Credentials (LDAP):  
 `Administrator` / `2FederateM0re`
 
+**Note:** Since the Admin account is in LDAP, you *will* see the First Run Wizard in the Admin UI. You can just click `Next` through it to get to the configured server.
+
+(This does not affect the Runtime operations)
+
 This configuration includes:
 
 ### Adapters
@@ -45,11 +49,11 @@ Extended Property Selector
 The Authentication Experience is controlled by setting the `Extended Properties` on the Application.  
 
 Authentication API
-* HTML Form with LIP --> AuthN API Explorer  
+* ID-First --> HTML Form with LIP --> AuthN API Explorer  
 
 ### Extended Properties
-* `Basic` (Plain HTML Form)
-* `Enhanced` (HTML Form with LIP -- Google & Facebook buttons [not configured])
+* `Basic` (Plain HTML Form) *default*
+* `Enhanced` (HTML Form with LIP --  Facebook & QR Code buttons [not configured])
 * `MFA` (HTML Form with LIP --> PingID adapter)
 * `Passwordless` (ID-First --> PingID)
 * _Anything Else_ (AuthN API Explorer)
