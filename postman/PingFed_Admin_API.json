@@ -2167,7 +2167,7 @@
                   "",
                   "        // Parse out the Code value",
                   "        pm.environment.set(\"authzCode\", authzCode);",
-                  "        console.log(\"AuthZ Code was returned\", authzCode);",
+                  "        console.log(\"AuthZ Code:\", authzCode);",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -2349,7 +2349,7 @@
   ],
   "variable": [
     {
-      "id": "2ae0414d-7fb5-40da-8768-9229f47fe0f2",
+      "id": "3f7e627f-06fb-4385-a85d-429035d63d26",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
