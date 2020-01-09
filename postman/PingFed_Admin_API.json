@@ -1045,49 +1045,6 @@
           "name": "IDP Config - AuthN API",
           "item": [
             {
-              "name": "Enable AuthN API",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "d3648d99-119b-4ff6-be07-e4d62057f518",
-                    "exec": [
-                      "pm.test(\"AuthN API Enabled\", function () {",
-                      "    pm.response.to.be.ok;",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "65d84bd2-6d7c-46b7-ab81-8e4a54d5724e",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "PUT",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "X-XSRF-Header",
-                    "value": "pingfederate",
-                    "type": "text"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"apiEnabled\": true,\n  \"defaultApplicationRef\": {\n    \"id\": \"DefaultAuthNAPI\"\n  },\n  \"enableApiDescriptions\": true\n}"
-                },
-                "url": "{{pfAdminURL}}/pf-admin-api/v1/authenticationApi/settings"
-              },
-              "response": []
-            },
-            {
               "name": "Create Default AuthN API Application",
               "event": [
                 {
@@ -1127,6 +1084,49 @@
                   "raw": "{\n  \"id\": \"DefaultAuthNAPIApp\",\n  \"url\": \"{{pfBaseURL}}/pf-ws/authn/explorer\",\n  \"description\": \"\",\n  \"additionalAllowedOrigins\": [],\n  \"name\": \"Default AuthN API\"\n}"
                 },
                 "url": "{{pfAdminURL}}/pf-admin-api/v1/authenticationApi/applications"
+              },
+              "response": []
+            },
+            {
+              "name": "Enable AuthN API",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "d3648d99-119b-4ff6-be07-e4d62057f518",
+                    "exec": [
+                      "pm.test(\"AuthN API Enabled\", function () {",
+                      "    pm.response.to.be.ok;",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "65d84bd2-6d7c-46b7-ab81-8e4a54d5724e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-XSRF-Header",
+                    "value": "pingfederate",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apiEnabled\": true,\n  \"defaultApplicationRef\": {\n    \"id\": \"DefaultAuthNAPIApp\"\n  },\n  \"enableApiDescriptions\": true\n}"
+                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/authenticationApi/settings"
               },
               "response": []
             }
@@ -2529,7 +2529,7 @@
   ],
   "variable": [
     {
-      "id": "06dc058f-eba1-427c-bf34-e710dc6de231",
+      "id": "8219e2fb-31a1-43bd-82c4-0502f0b8d770",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
