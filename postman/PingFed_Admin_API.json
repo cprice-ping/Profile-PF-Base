@@ -2243,7 +2243,7 @@
                   "    var jsonData = pm.response.json();",
                   "    ",
                   "    pm.expect(jsonData.access_token).to.not.be.empty;",
-                  "    console.log(\"Access Token:\", jsonData.access_token );",
+                  "    console.log(\"Access Token: \", jsonData.access_token );",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -2349,7 +2349,7 @@
   ],
   "variable": [
     {
-      "id": "0841eac8-1b17-4501-990b-8517a357fbb3",
+      "id": "c1d43fcb-a2a1-4879-876d-0bf7c0a139ea",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
