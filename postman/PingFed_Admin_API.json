@@ -2163,9 +2163,10 @@
                   "pm.test(\"OIDC AuthZ Code returned\", function () {",
                   "    pm.response.to.have.status(302);",
                   "        var loc = pm.response.headers.get(\"location\");",
+                  "        var authzCode = loc.substr(loc.search(\"code=\") + 5);",
                   "",
                   "        // Parse out the Code value",
-                  "        pm.environment.set(\"authzCode\", loc.substr(loc.search(\"code=\") + 5));",
+                  "        pm.environment.set(\"authzCode\", authzCode);",
                   "        console.log(\"AuthZ Code was returned\", authzCode);",
                   "});"
                 ],
@@ -2348,7 +2349,7 @@
   ],
   "variable": [
     {
-      "id": "8b7d6d1f-0cff-4cf2-800c-a545974e9d68",
+      "id": "2ae0414d-7fb5-40da-8768-9229f47fe0f2",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
