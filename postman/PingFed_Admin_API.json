@@ -1042,9 +1042,20 @@
                 "disableBodyPruning": true
               },
               "request": {
-                "method": "GET",
-                "header": [],
-                "url": ""
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"items\": [\n    {\n      \"id\": \"DefaultAuthNAPIApp\",\n      \"url\": \"https://ext-docker.cpricelab.com:9031/pf-ws/authn/explorer\",\n      \"description\": \"\",\n      \"additionalAllowedOrigins\": [],\n      \"name\": \"Default AuthN API\"\n    }\n  ]\n}"
+                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/authenticationApi/applications"
               },
               "response": []
             }
@@ -2447,7 +2458,7 @@
   ],
   "variable": [
     {
-      "id": "17d27255-2f86-4eb7-ac2f-470506ffb84d",
+      "id": "35b608f6-7675-4fdd-9c5e-51b386466bc1",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
