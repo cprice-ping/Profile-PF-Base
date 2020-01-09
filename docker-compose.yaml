@@ -23,7 +23,7 @@ services:
 
   pf-config:
     image: postman/newman
-    command: run https://www.getpostman.com/collections/2e0df14dcf26f1ddb39a -e postman_vars.json --insecure
+    command: run https://www.getpostman.com/collections/2e0df14dcf26f1ddb39a -e postman_vars.json --insecure --ignore-redirects
     volumes: 
       # An environment file should be injected into the image - this file should contain your specfic info and secrets
       - ./postman_vars.json:/etc/newman/postman_vars.json
