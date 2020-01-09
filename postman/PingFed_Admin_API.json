@@ -1054,6 +1054,11 @@
                     "name": "Content-Type",
                     "value": "application/json",
                     "type": "text"
+                  },
+                  {
+                    "key": "X-XSRF-Header",
+                    "value": "pingfederate",
+                    "type": "text"
                   }
                 ],
                 "body": {
@@ -2463,7 +2468,7 @@
   ],
   "variable": [
     {
-      "id": "20911d0d-b5bd-4e73-82a4-a89dfb3f030c",
+      "id": "7f94bf51-1185-464f-9113-1534b183e937",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
