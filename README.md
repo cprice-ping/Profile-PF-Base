@@ -33,7 +33,6 @@ This configuration includes:
 * Identifier-First (Passwordless)
 * PingID
 
-
 ### PingID - Special Considerations
 The PingID adapter uses the secrets from your PingID tenant to create the proper calls to the service. As such, storing those values in a public location, such as GitHub, should be considered **risky**.
 
@@ -63,10 +62,10 @@ The AuthN API is enabled -- any value in the Extended Property *other* than the 
 Two applications are pre-wired:
 
 **SAML:**  
-https://${PF_BASE_URL}/idp/startSSO.ping?PartnerSpId=Dummy-SAML
+https://`${PF_BASE_URL}`/idp/startSSO.ping?PartnerSpId=Dummy-SAML
 
 **OAuth \ OIDC:**  
-`Issuer` == ${PF_BASE_URL}  
+`Issuer` == `${PF_BASE_URL}`  
 
 **OIDC Logon**
 `client_id` == PingLogon  
