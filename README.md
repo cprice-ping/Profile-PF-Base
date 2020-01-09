@@ -46,11 +46,7 @@ Extended Property Selector
   * MFA (Enhanced --> PingID)
   * Passwordless (ID-First --> PingID)
 
-The Authentication Experience is controlled by setting the `Extended Properties` on the Application.  
-
-### Authentication API
-The AuthN API is enabled -- any value in the Extended Property *other* than the above will trigger it.
-* ID-First --> HTML Form with LIP --> AuthN API Explorer  
+The Authentication Experience is controlled by setting the `Extended Properties` on the Application.   
 
 ### Extended Properties
 * `Basic` (Plain HTML Form) *default*
@@ -58,6 +54,10 @@ The AuthN API is enabled -- any value in the Extended Property *other* than the 
 * `MFA` (HTML Form with LIP --> PingID adapter)
 * `Passwordless` (ID-First --> PingID)
 * _Anything Else_ (AuthN API Explorer)
+
+### Authentication API
+The AuthN API is enabled -- any value in the Extended Property *other* than the above will trigger it.
+* ID-First --> HTML Form with LIP --> AuthN API Explorer 
 
 ### Applications
 Two applications are pre-wired:
