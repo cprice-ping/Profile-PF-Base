@@ -48,7 +48,8 @@ Extended Property Selector
 
 The Authentication Experience is controlled by setting the `Extended Properties` on the Application.  
 
-Authentication API
+### Authentication API
+The AuthN API is enabled -- any value in the Extended Property *other* than the above will trigger it.
 * ID-First --> HTML Form with LIP --> AuthN API Explorer  
 
 ### Extended Properties
