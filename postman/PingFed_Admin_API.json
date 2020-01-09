@@ -391,30 +391,18 @@
                     "name": "Content-Type",
                     "value": "application/json",
                     "type": "text"
+                  },
+                  {
+                    "key": "X-XSRF-Header",
+                    "value": "pingfederate",
+                    "type": "text"
                   }
                 ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"virtualHostNames\": [\n    \"pingfederate\"\n  ]\n}"
                 },
-                "url": {
-                  "raw": "{{pfAdminURL}}/pf-admin-api/v1/virtualHostNames?X-XSRF-Header=pingfederate",
-                  "host": [
-                    "{{pfAdminURL}}"
-                  ],
-                  "path": [
-                    "pf-admin-api",
-                    "v1",
-                    "virtualHostNames"
-                  ],
-                  "query": [
-                    {
-                      "key": "X-XSRF-Header",
-                      "value": "pingfederate",
-                      "type": "text"
-                    }
-                  ]
-                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/virtualHostNames",
                 "description": "This is used to accept backchannel calls from other services in the stack"
               },
               "response": []
@@ -1766,7 +1754,7 @@
                     ],
                     "body": {
                       "mode": "raw",
-                      "raw": "    {\n      \"id\": \"jwtDefault\",\n      \"name\": \"JWT-Default\",\n      \"pluginDescriptorRef\": {\n        \"id\": \"com.pingidentity.pf.access.token.management.plugins.JwtBearerAccessTokenManagementPlugin\" },\n      \"configuration\": {\n        \"tables\": [\n          {\n            \"name\": \"Symmetric Keys\",\n            \"rows\": [\n              {\n                \"fields\": [\n                  {\n                    \"name\": \"Key ID\",\n                    \"value\": \"sym\"\n                  },\n                  {\n                    \"name\": \"Key\",\n                    \"value\": \"MkZlZGVyYXRlTTByZTJGZWRlcmF0ZU0wcmUyRmVkZXJhdGVNMHJl\"\n                  },\n                  {\n                    \"name\": \"Encoding\",\n                    \"value\": \"b64u\"\n                  }\n                ]\n              }\n            ]\n          }\n        ],\n        \"fields\": [\n          {\n            \"name\": \"Token Lifetime\",\n            \"value\": \"120\"\n          },\n          {\n            \"name\": \"JWS Algorithm\",\n            \"value\": \"HS256\"\n          },\n          {\n            \"name\": \"Active Symmetric Key ID\",\n            \"value\": \"sym\"\n          }\n        ]\n      },\n      \"attributeContract\": {\n        \"coreAttributes\": [],\n        \"extendedAttributes\": [\n          {\n            \"name\": \"sub\"\n          }\n        ]\n      },\n      \"selectionSettings\": {\n        \"resourceUris\": []\n      },\n      \"accessControlSettings\": {\n        \"restrictClients\": false,\n        \"allowedClients\": []\n      },\n      \"sessionValidationSettings\": {\n        \"checkValidAuthnSession\": false,\n        \"checkSessionRevocationStatus\": false,\n        \"updateAuthnSessionActivity\": false\n      }\n    }"
+                      "raw": "{\n  \"id\": \"jwtDefault\",\n  \"name\": \"JWT-Default\",\n  \"pluginDescriptorRef\": {\n    \"id\": \"com.pingidentity.pf.access.token.management.plugins.JwtBearerAccessTokenManagementPlugin\"\n  },\n  \"configuration\": {\n    \"tables\": [\n      {\n        \"name\": \"Symmetric Keys\",\n        \"rows\": []\n      },\n      {\n        \"name\": \"Certificates\",\n        \"rows\": [\n          {\n            \"fields\": [\n              {\n                \"name\": \"Key ID\",\n                \"value\": \"cert\"\n              },\n              {\n                \"name\": \"Certificate\",\n                \"value\": \"signing-cert\"\n              }\n            ],\n            \"defaultRow\": false\n          }\n        ]\n      }\n    ],\n    \"fields\": [\n      {\n        \"name\": \"Token Lifetime\",\n        \"value\": \"120\"\n      },\n      {\n        \"name\": \"JWS Algorithm\",\n        \"value\": \"RS256\"\n      },\n      {\n        \"name\": \"Active Symmetric Key ID\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Active Signing Certificate Key ID\",\n        \"value\": \"cert\"\n      },\n      {\n        \"name\": \"JWE Algorithm\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"JWE Content Encryption Algorithm\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Active Symmetric Encryption Key ID\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Asymmetric Encryption Key\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Asymmetric Encryption JWKS URL\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Include Key ID Header Parameter\",\n        \"value\": \"true\"\n      },\n      {\n        \"name\": \"Include X.509 Thumbprint Header Parameter\",\n        \"value\": \"false\"\n      },\n      {\n        \"name\": \"Default JWKS URL Cache Duration\",\n        \"value\": \"720\"\n      },\n      {\n        \"name\": \"Include JWE Key ID Header Parameter\",\n        \"value\": \"true\"\n      },\n      {\n        \"name\": \"Include JWE X.509 Thumbprint Header Parameter\",\n        \"value\": \"false\"\n      },\n      {\n        \"name\": \"Client ID Claim Name\",\n        \"value\": \"client_id\"\n      },\n      {\n        \"name\": \"Scope Claim Name\",\n        \"value\": \"scope\"\n      },\n      {\n        \"name\": \"Space Delimit Scope Values\",\n        \"value\": \"true\"\n      },\n      {\n        \"name\": \"Issuer Claim Value\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Audience Claim Value\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"JWT ID Claim Length\",\n        \"value\": \"0\"\n      },\n      {\n        \"name\": \"Access Grant GUID Claim Name\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"JWKS Endpoint Path\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"JWKS Endpoint Cache Duration\",\n        \"value\": \"720\"\n      },\n      {\n        \"name\": \"Publish Key ID X.509 URL\",\n        \"value\": \"true\"\n      },\n      {\n        \"name\": \"Publish Thumbprint X.509 URL\",\n        \"value\": \"false\"\n      },\n      {\n        \"name\": \"Expand Scope Groups\",\n        \"value\": \"false\"\n      }\n    ]\n  },\n  \"attributeContract\": {\n    \"coreAttributes\": [],\n    \"extendedAttributes\": [\n      {\n        \"name\": \"sub\"\n      }\n    ]\n  },\n  \"selectionSettings\": {\n    \"resourceUris\": []\n  },\n  \"accessControlSettings\": {\n    \"restrictClients\": false,\n    \"allowedClients\": []\n  },\n  \"sessionValidationSettings\": {\n    \"checkValidAuthnSession\": false,\n    \"checkSessionRevocationStatus\": false,\n    \"updateAuthnSessionActivity\": false\n  }\n}"
                     },
                     "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/accessTokenManagers"
                   },
@@ -1907,7 +1895,7 @@
         }
       ],
       "_postman_id": "853f49ad-5616-468f-9e4f-4870151c3ef2",
-      "description": "This set of calls can be used to fully configure a new PF server\n\nThe following components will be created:  \n\nDatastore:\n* PingDirectory PCV\n\nIdP Adapters:\n* HTML Form\n* HTML Form with LIP\n* PingID\n* ID-First\n\nIdP AuthN Policy Contract\n\nIdP Authentication Policy:\n* Extended Properties Selector\n * Basic:  HTML Form --> Policy Contract\n * Enhanced:  HTML Form with LIP --> Policy Contract\n * MFA: HTML Form with LIP --> PingID --> Policy Contract\n * Passwordless: ID-First --> PingID\n \n* Authentication API\n * ID-First --> HTML Form with LIP --> PF API Explorer\n\nIDP Sessions:\n* Global Sessions: **Enabled**\n* Overrides: PingID Adapter\n\nSP Connection:\n* Dummy-SAML (HTTPBIN)\n\nOAuth Scopes:\n* Common - Default OIDC\n* Exclusive - Ping integrations (Delegator \\ ConsentAPI \\ DirAPI)\n\nToken Mapping:\n* AuthN Policy Contract\n\nToken Manager:\n* Default JWT (Symmetric Key)\n\nToken Mapping:\n* AuthN Policy Contract --> Default JWT\n\nOAuth Clients:\n* `PingLogon` -- OIDC AuthZ Code \\ Implicit\n* `PingIntrospect` -- Introspect \\ Validation \n\nVirtual Host:\n* `pingfederate`",
+      "description": "This set of calls can be used to fully configure a new PF server\n\nThe following components will be created:  \n\nDatastore:\n* PingDirectory PCV\n\nIdP Adapters:\n* HTML Form\n* HTML Form with LIP\n* PingID\n* ID-First\n\nIdP AuthN Policy Contract\n\nIdP Authentication Policy:\n* Extended Properties Selector\n * Basic:  HTML Form --> Policy Contract\n * Enhanced:  HTML Form with LIP --> Policy Contract\n * MFA: HTML Form with LIP --> PingID --> Policy Contract\n * Passwordless: ID-First --> PingID\n \n* Authentication API\n * ID-First --> HTML Form with LIP --> PF API Explorer\n\nIDP Sessions:\n* Global Sessions: **Enabled**\n* Overrides: PingID Adapter\n\nSP Connection:\n* Dummy-SAML (HTTPBIN)\n\nOAuth Scopes:\n* Common - Default OIDC\n* Exclusive - Ping integrations (Delegator \\ ConsentAPI \\ DirAPI)\n\nToken Mapping:\n* AuthN Policy Contract\n\nToken Manager:\n* Default JWT (Certificate)\n\nToken Mapping:\n* AuthN Policy Contract --> Default JWT\n\nOAuth Clients:\n* `PingLogon` -- OIDC AuthZ Code \\ Implicit\n* `PingIntrospect` -- Introspect \\ Validation \n\nVirtual Host:\n* `pingfederate`",
       "event": [
         {
           "listen": "prerequest",
@@ -2485,7 +2473,7 @@
   ],
   "variable": [
     {
-      "id": "949559ef-5c39-43ad-8dc0-4642764e4ed5",
+      "id": "bed6af43-77af-47a3-9e00-390d2db7f754",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
