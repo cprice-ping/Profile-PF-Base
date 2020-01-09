@@ -397,7 +397,24 @@
                   "mode": "raw",
                   "raw": "{\n  \"virtualHostNames\": [\n    \"pingfederate\"\n  ]\n}"
                 },
-                "url": "{{pfAdminURL}}/pf-admin-api/v1/virtualHostNames",
+                "url": {
+                  "raw": "{{pfAdminURL}}/pf-admin-api/v1/virtualHostNames?X-XSRF-Header=pingfederate",
+                  "host": [
+                    "{{pfAdminURL}}"
+                  ],
+                  "path": [
+                    "pf-admin-api",
+                    "v1",
+                    "virtualHostNames"
+                  ],
+                  "query": [
+                    {
+                      "key": "X-XSRF-Header",
+                      "value": "pingfederate",
+                      "type": "text"
+                    }
+                  ]
+                },
                 "description": "This is used to accept backchannel calls from other services in the stack"
               },
               "response": []
@@ -2468,7 +2485,7 @@
   ],
   "variable": [
     {
-      "id": "b40b4c0c-b0b2-447e-b436-dff152e4fef3",
+      "id": "949559ef-5c39-43ad-8dc0-4642764e4ed5",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
