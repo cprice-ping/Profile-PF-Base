@@ -2411,6 +2411,84 @@
           "response": []
         },
         {
+          "name": "Test OIDC Token request Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "bc6b5143-869c-4bb1-b81e-e5d4a03511ea",
+                "exec": [
+                  "pm.test(\"OIDC AuthZ Code returned\", function () {",
+                  "    pm.response.to.have.status(302);",
+                  "        var loc = pm.response.headers.get(\"location\");",
+                  "        var authzCode = loc.substr(loc.search(\"code=\") + 5);",
+                  "",
+                  "        // Parse out the Code value",
+                  "        pm.environment.set(\"authzCode\", authzCode);",
+                  "        console.log(\"AuthZ Code:\", authzCode);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "8d9838e7-ec95-42e0-9f5c-f33931d9a157",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "pf.username",
+                  "value": "user.0",
+                  "type": "text"
+                },
+                {
+                  "key": "pf.pass",
+                  "value": "2FederateM0re",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{pfBaseURL}}/as/authorization.oauth2?response_type=code&client_id=PingLogon&redirect_uri=https://change.me",
+              "host": [
+                "{{pfBaseURL}}"
+              ],
+              "path": [
+                "as",
+                "authorization.oauth2"
+              ],
+              "query": [
+                {
+                  "key": "response_type",
+                  "value": "code"
+                },
+                {
+                  "key": "client_id",
+                  "value": "PingLogon"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://change.me"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
           "name": "Swap Code for Token",
           "event": [
             {
@@ -2529,7 +2607,7 @@
   ],
   "variable": [
     {
-      "id": "113a6e4b-7a49-48c9-a28d-042a0ea5432b",
+      "id": "39b82e6f-59a0-4bae-b771-4d29e033798f",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
