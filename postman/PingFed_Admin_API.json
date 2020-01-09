@@ -64,6 +64,20 @@
         },
         {
           "name": "00-Start-API-Calls",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "cd64bf84-50d5-4ada-aec9-ff1d52f0c5cb",
+                "exec": [
+                  "pm.test(\"Starting Collection\", function () {",
+                  "    pm.response.to.be.status(302);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
           "_postman_id": "cb2b102b-49d7-47b2-b08c-7b6096528d40",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -2515,7 +2529,7 @@
   ],
   "variable": [
     {
-      "id": "f4123fd9-889e-4960-90e1-5b50c6e25d75",
+      "id": "06dc058f-eba1-427c-bf34-e710dc6de231",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
