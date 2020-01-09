@@ -21,7 +21,7 @@ services:
       - pingnet-internal
       - pingnet-dmz
 
-  pf-config:
+  pf-base-config:
     image: postman/newman
     command: run https://www.getpostman.com/collections/2e0df14dcf26f1ddb39a -e postman_vars.json --insecure --ignore-redirects
     volumes: 
