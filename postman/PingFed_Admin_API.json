@@ -378,50 +378,6 @@
               "response": []
             },
             {
-              "name": "Create native Admin",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "e00b46ee-b9c4-4fbc-95dc-014e43a9b39a",
-                    "exec": [
-                      "pm.test(\"Extended Property Selector Created\", function () {",
-                      "    pm.response.to.be.ok;",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "467bbd92-0647-4f7b-bf01-fabc6bd83a47",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "X-XSRF-Header",
-                    "value": "pingfederate",
-                    "type": "text"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"username\": \"localadmin\",\n  \"encryptedPassword\": \"DoesNotMatterReally!\",\n  \"active\": \"false\",\n  \"description\": \"Used to remove the Wizard from the UI\",\n  \"auditor\": \"false\",\n  \"roles\": [\n    \"USER_ADMINISTRATOR\"\n  ]\n}"
-                },
-                "url": "{{pfAdminURL}}/pf-admin-api/v1/administrativeAccounts",
-                "description": "This call is needed to remove the 1st Run Wizard in the UI"
-              },
-              "response": []
-            },
-            {
               "name": "Add `pingfederate` as Virtual Host Name",
               "_postman_id": "3500525b-eba9-44dc-8cc5-9ad3cb1f68cd",
               "protocolProfileBehavior": {
@@ -2392,7 +2348,7 @@
   ],
   "variable": [
     {
-      "id": "e5fbed9e-f853-4212-ab00-138dc7680f10",
+      "id": "440a65e3-fc8f-4863-a4e0-8eec734742cb",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
