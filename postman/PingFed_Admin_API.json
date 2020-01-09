@@ -1034,6 +1034,19 @@
                 "url": "{{pfAdminURL}}/pf-admin-api/v1/authenticationApi/settings"
               },
               "response": []
+            },
+            {
+              "name": "Create Default AuthN API Application",
+              "_postman_id": "a3cefefc-946d-48e4-a750-f46c6010f469",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": ""
+              },
+              "response": []
             }
           ],
           "_postman_id": "012230ad-01e0-4fae-987b-784de4dfea12",
@@ -2434,7 +2447,7 @@
   ],
   "variable": [
     {
-      "id": "d6265a3b-398d-4a18-828a-7e51b8c17f97",
+      "id": "a9a9489e-a7df-43fd-928e-a25adb033f6e",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
