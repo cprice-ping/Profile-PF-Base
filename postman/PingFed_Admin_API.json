@@ -63,6 +63,59 @@
           "response": []
         },
         {
+          "name": "Check if Server is up Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "4a7864a9-1358-402a-b81d-bcc6da8044ff",
+                "exec": [
+                  "// Checks to see if the server actually responded",
+                  "// If not, run the call again (with the 30 sec delay)",
+                  "postman.setNextRequest(\"Check if Server is up\");",
+                  "",
+                  "pm.test(\"Server is Up\", function () {",
+                  "    pm.response.to.be.ok;",
+                  "    postman.setNextRequest(\"00-Start-API-Calls\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "f9e66381-07f9-487a-b8e4-f97b5521bef7",
+                "exec": [
+                  "// Puts a 30 sec delay into this call",
+                  "setTimeout(function() {",
+                  " console.log(\"Connecting to Server\");",
+                  "}, 30000);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "9caa810a-e564-4a78-9b24-01affead02af",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-XSRF-Header",
+                "value": "pingfederate",
+                "type": "text"
+              }
+            ],
+            "url": "{{pfAdminURL}}/pf-admin-api/v1/license/agreement",
+            "description": "Uses the API endpoint instead of just the heartbeat"
+          },
+          "response": []
+        },
+        {
           "name": "00-Start-API-Calls",
           "event": [
             {
@@ -2529,7 +2582,7 @@
   ],
   "variable": [
     {
-      "id": "019639c9-a1e4-461b-8938-7268728da20a",
+      "id": "5f4b6826-1282-44a5-9da4-329c6c72b1ab",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
