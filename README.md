@@ -1,18 +1,24 @@
 This profile provides a base configuration for PingFederate.
 
-It is designed to be used in conjunction with my PD-Base Profile (https://github.com/cprice-ping/PD-Base).
+It uses Postman to do an Admin API collection set to fully configure PF from a Ping Docker image.
+
+The Postman collection is documented here: [PF Admin API - Configure Server](https://documenter.getpostman.com/view/1239082/SWLh4RQB)
 
 ## Deployment
-* Copy the `docker-compose.yaml` and `env_vars` files to a folder
+* Copy the `docker-compose.yaml`, `env_vars.sample` and `postman_vars.json.sample` files to a folder
+* Rename files to `env_vars` and `postman_vars.json`
 * Modify the `env_vars` file to match your environment
+* Modify the `postman.json` file to match your environment
 * Launch the stack with `docker-compose up -d`
+* Logs for the stack can be watched with `docker-compose logs -f`
+* Logs for individual services can be watched with `docker-compose logs -f {service}`
 
 ## Configuration
 
 To access the Admin UI for PF go to:  
 https://{{PF_HOSTNAME}}:9999/pingfederate
 
-Credentials:  
+Credentials (LDAP):  
 `Administrator` / `2FederateM0re`
 
 This configuration includes:
@@ -25,9 +31,9 @@ This configuration includes:
 
 
 ### PingID - Special Considerations
-The PingID adapter uses the secrets from your PingID tenant to create the proper calls to the service. As such, storing those values in a public location, such as GitHub, sound be considered **risky**.
+The PingID adapter uses the secrets from your PingID tenant to create the proper calls to the service. As such, storing those values in a public location, such as GitHub, should be considered **risky**.
 
-For this Profile, you can place the `base64` encoded text from a `pingid.properties` file that will be placed into the PingID Adapter settings 
+For this Profile, you can place the text from a `pingid.properties` file into `postman_vars.json`. The API calls will base64 encode and inject into the PingID Adapter and HTML Form (for Self-Service Password Reset)
 
 ### Authentication Policy
 Extended Property Selector
@@ -57,8 +63,8 @@ https://${PF_BASE_URL}/idp/startSSO.ping?PartnerSpId=Dummy-SAML
 **OAuth \ OIDC:**  
 `Issuer` == ${PF_BASE_URL}  
 
+**OIDC Logon**
 `client_id` == PingLogon  
-`client_secret` == 2FederateM0re
 
 **Introspect**  
 `client_id` == PingIntrospect  
