@@ -1029,7 +1029,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"apiEnabled\": true,\n  \"defaultApplicationRef\": {\n    \"id\": \"DefaultAuthNAPIApp\"\n  },\n  \"enableApiDescriptions\": true\n}"
+                  "raw": "{\n  \"apiEnabled\": true,\n  \"defaultApplicationRef\": {\n    \"id\": \"DefaultAuthNAPI\"\n  },\n  \"enableApiDescriptions\": true\n}"
                 },
                 "url": "{{pfAdminURL}}/pf-admin-api/v1/authenticationApi/settings"
               },
@@ -2458,7 +2458,7 @@
   ],
   "variable": [
     {
-      "id": "35b608f6-7675-4fdd-9c5e-51b386466bc1",
+      "id": "efb473c1-3fab-4eb9-af84-31f631a999ef",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
