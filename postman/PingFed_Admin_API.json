@@ -63,7 +63,7 @@
           "response": []
         },
         {
-          "name": "Check if Server is up Copy",
+          "name": "Check for Extended Property Selector",
           "event": [
             {
               "listen": "test",
@@ -2582,7 +2582,7 @@
   ],
   "variable": [
     {
-      "id": "5f4b6826-1282-44a5-9da4-329c6c72b1ab",
+      "id": "870478ef-9331-4eef-8642-e585fec1de94",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
