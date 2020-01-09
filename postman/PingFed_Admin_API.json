@@ -876,6 +876,13 @@
               "_postman_isSubFolder": true
             },
             {
+              "name": "IDP Config - AuthN API",
+              "item": [],
+              "_postman_id": "012230ad-01e0-4fae-987b-784de4dfea12",
+              "description": "Configure the PF Authentication API",
+              "_postman_isSubFolder": true
+            },
+            {
               "name": "Create Adapter - HTML Form with LIP",
               "event": [
                 {
@@ -1821,13 +1828,6 @@
             }
           ],
           "_postman_isSubFolder": true
-        },
-        {
-          "name": "IDP Config - AuthN API",
-          "item": [],
-          "_postman_id": "012230ad-01e0-4fae-987b-784de4dfea12",
-          "description": "Configure the PF Authentication API",
-          "_postman_isSubFolder": true
         }
       ],
       "_postman_id": "853f49ad-5616-468f-9e4f-4870151c3ef2",
@@ -2409,7 +2409,7 @@
   ],
   "variable": [
     {
-      "id": "da063b56-7d43-4ab2-b33a-9cc222414526",
+      "id": "6fadd62c-a428-4369-be09-479ca47213f5",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
