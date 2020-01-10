@@ -2418,12 +2418,25 @@
               "script": {
                 "id": "dbee2997-28a8-42e5-ab46-915d74cada50",
                 "exec": [
-                  "pm.test(\"Access Token returned\", function () {",
+                  "function parseJwt (token) {",
+                  "            var base64Url = token.split('.')[1];",
+                  "            var base64 = base64Url.replace('-', '+').replace('_', '/');",
+                  "            return JSON.parse(atob(base64));",
+                  "        }",
+                  "",
+                  "",
+                  "pm.test(\"Tokens returned\", function () {",
                   "    ",
                   "    var jsonData = pm.response.json();",
                   "    ",
                   "    pm.expect(jsonData.access_token).to.not.be.empty;",
-                  "    console.log(\"Access Token:\", jsonData.access_token );",
+                  "    console.log(\"Access Token: \", parseJwt(jsonData.access_token));",
+                  "    ",
+                  "    console.log(\"--------------\");",
+                  "    ",
+                  "    pm.expect(jsonData.id_token).to.not.be.empty;",
+                  "    pm.environment.set(\"id_token\", jsonData.id_token );",
+                  "    console.log(\"ID Token: \", parseJwt(jsonData.id_token));",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -2529,7 +2542,7 @@
   ],
   "variable": [
     {
-      "id": "faf8005e-c9c9-450d-9606-7593d4665bc3",
+      "id": "af9480a6-446b-460c-8072-5288275b94b1",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
