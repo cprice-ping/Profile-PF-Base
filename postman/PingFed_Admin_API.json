@@ -2110,50 +2110,6 @@
                     "description": "Dummy SP Connection -- sends you to https://httpbin.org/anything"
                   },
                   "response": []
-                },
-                {
-                  "name": "Add SP Connection Copy",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "1dcbdc33-6fe7-4b12-a87c-333eb87390d6",
-                        "exec": [
-                          "pm.test(\"SAML SP Connection Created\", function () {",
-                          "    pm.response.to.have.status(\"Created\");",
-                          "});"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    }
-                  ],
-                  "_postman_id": "b7e1a5e1-34bb-46ba-b2a5-8942db408997",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "POST",
-                    "header": [
-                      {
-                        "key": "X-XSRF-Header",
-                        "value": "pingfederate",
-                        "type": "text"
-                      },
-                      {
-                        "key": "Content-Type",
-                        "name": "Content-Type",
-                        "value": "application/json",
-                        "type": "text"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n\t\t\t\"id\": \"Dummy-SAML\",\n            \"type\": \"SP\",\n            \"name\": \"Dummy SAML (HTTPBIN)\",\n            \"entityId\": \"Dummy-SAML\",\n            \"active\": true,\n            \"contactInfo\": {},\n            \"loggingMode\": \"STANDARD\",\n            \"virtualEntityIds\": [],\n            \"licenseConnectionGroup\": \"\",\n            \"credentials\": {\n                \"certs\": [],\n                \"signingSettings\": {\n                    \"signingKeyPairRef\": {\n                        \"id\": \"signing-cert\"\n                    },\n                    \"includeCertInSignature\": false,\n                    \"includeRawKeyInSignature\": false,\n                    \"algorithm\": \"SHA256withRSA\"\n                }\n            },\n            \"extendedProperties\": {\n        \t\t\"authNexp\": {\n\t        \t\t\"values\": [\n\t            \t\t\"Basic\"\n\t\t        ]\n\t\t      }\n\t\t    },\n            \"spBrowserSso\": {\n                \"protocol\": \"SAML20\",\n                \"enabledProfiles\": [\n                    \"IDP_INITIATED_SSO\"\n                ],\n                \"ssoServiceEndpoints\": [\n                    {\n                        \"binding\": \"POST\",\n                        \"url\": \"https://httpbin.org/anything\",\n                        \"isDefault\": true,\n                        \"index\": 0\n                    }\n                ],\n                \"signAssertions\": false,\n                \"signResponseAsRequired\": true,\n                \"spSamlIdentityMapping\": \"STANDARD\",\n                \"requireSignedAuthnRequests\": false,\n                \"assertionLifetime\": {\n                    \"minutesBefore\": 5,\n                    \"minutesAfter\": 5\n                },\n                \"encryptionPolicy\": {\n                    \"encryptAssertion\": false,\n                    \"encryptSloSubjectNameId\": false,\n                    \"sloSubjectNameIDEncrypted\": false,\n                    \"encryptedAttributes\": []\n                },\n                \"attributeContract\": {\n                    \"coreAttributes\": [\n                        {\n                            \"name\": \"SAML_SUBJECT\",\n                            \"nameFormat\": \"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified\"\n                        }\n                    ],\n                    \"extendedAttributes\": []\n                },\n                \"adapterMappings\": [],\n                \"authenticationPolicyContractAssertionMappings\": [\n                    {\n                        \"attributeSources\": [],\n                        \"attributeContractFulfillment\": {\n                            \"SAML_SUBJECT\": {\n                                \"source\": {\n                                    \"type\": \"AUTHENTICATION_POLICY_CONTRACT\"\n                                },\n                                \"value\": \"entryUUID\"\n                            }\n                        },\n                        \"issuanceCriteria\": {\n                            \"conditionalCriteria\": []\n                        },\n                        \"authenticationPolicyContractRef\": {\n                            \"id\": \"defaultPolicyContract\"\n                        },\n                        \"restrictVirtualEntityIds\": false,\n                        \"restrictedVirtualEntityIds\": [],\n                        \"abortSsoTransactionAsFailSafe\": false\n                    }\n                ]\n            }\n        }"
-                    },
-                    "url": "{{pfAdminURL}}/pf-admin-api/v1/idp/spConnections",
-                    "description": "Dummy SP Connection -- sends you to https://httpbin.org/anything"
-                  },
-                  "response": []
                 }
               ],
               "_postman_id": "7ea6a756-5f27-415f-8aa2-6ba2abaff62f",
@@ -2586,7 +2542,7 @@
   ],
   "variable": [
     {
-      "id": "a33ffc35-7f01-475e-8638-66411f9b5cbd",
+      "id": "0892433d-8d9a-4398-b438-4ec02cbd50f8",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
