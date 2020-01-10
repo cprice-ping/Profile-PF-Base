@@ -2411,7 +2411,7 @@
           "response": []
         },
         {
-          "name": "Swap Code for Token",
+          "name": "Swap Code for Tokens",
           "event": [
             {
               "listen": "test",
@@ -2529,7 +2529,7 @@
   ],
   "variable": [
     {
-      "id": "66e0d852-372f-4a7d-a69f-18093807f779",
+      "id": "faf8005e-c9c9-450d-9606-7593d4665bc3",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
