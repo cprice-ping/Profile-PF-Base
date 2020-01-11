@@ -1,0 +1,7 @@
+PING_IDENTITY_ACCEPT_EULA=YES
+
+# Password used by PF to talk to PD
+PF_USER_PWD=S0meP@ssword1
+
+# PF Logging Level
+PF_LOG_LEVEL=INFO

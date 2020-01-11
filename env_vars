@@ -1,9 +1,0 @@
-# PF Base URL \ SAML EntityID
-PF_BASE_URL={{Base PF URL}}
-# PF Logging Level
-PF_LOG_LEVEL=INFO
-# PingID Properties -- base64 encoded value
-PID_BASE64={{base64 encoded pingid.properties}}
-# PD User Base DN
-# Default for PD Baseline is `dc=example,dc=com`
-USER_BASE_DN={{Base PD User DN}}
