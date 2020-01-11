@@ -4,6 +4,31 @@ It uses Postman to do an Admin API collection set to fully configure PF from a P
 
 The Postman collection is documented here: [PF Admin API - Configure Server](https://documenter.getpostman.com/view/1239082/SWLh4RQB)
 
+---
+**NOTE:** This will break existing Profiles based on `Profile-PF-Base` -- to resolve, you can:
+
+* Point the Profile to the `pre-api` branch:
+```
+    environment:
+    - SERVER_PROFILE_URL=https://github.com/cprice-ping/Profile-PF-Base.git
+    - SERVER_PROFILE_PATH=pingfed
+    - SERVER_PROFILE_BRANCH=pre-api
+```
+
+* Add the API Calls as a service to your stack:
+
+```
+pf-base-config:
+    image: postman/newman
+    command: run https://www.getpostman.com/collections/2e0df14dcf26f1ddb39a -e postman_vars.json --insecure --ignore-redirects
+    volumes: 
+      # An environment file should be injected into the image - this file should contain your specfic info and secrets
+      - ./postman_vars.json:/etc/newman/postman_vars.json
+    networks:
+      - pingnet-internal
+```
+---
+
 ## Deployment
 * Copy the `docker-compose.yaml`, `env_vars.sample` and `postman_vars.json.sample` files to a folder
 * Rename files to `env_vars` and `postman_vars.json`
