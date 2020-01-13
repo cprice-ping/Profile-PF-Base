@@ -612,20 +612,20 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
+                    "type": "text",
+                    "value": "application/json"
                   },
                   {
                     "key": "X-XSRF-Header",
-                    "value": "pingfederate",
-                    "type": "text"
+                    "type": "text",
+                    "value": "pingfederate"
                   }
                 ],
                 "body": {
                   "mode": "raw",
                   "raw": "    {\n      \"id\": \"PingFederateDSJNDIName\",\n      \"type\": \"STRING\",\n      \"stringValue\": \"LDAP-PingDirectory\"\n    }"
                 },
-                "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.oauth20.domain.ClientManagerLdapImpl/PingFederateDSJNDIName"
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.oauth20.token.AccessGrantManagerLDAPPingDirectoryImpl/PingFederateDSJNDIName"
               },
               "response": []
             }
@@ -2608,7 +2608,7 @@
   ],
   "variable": [
     {
-      "id": "568fc77d-d6ca-4b01-8074-1ff102df2e7c",
+      "id": "a53cd07e-1efd-4174-b8c4-a8c5a7537f29",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
