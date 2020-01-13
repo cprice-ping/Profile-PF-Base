@@ -466,6 +466,12 @@
           "name": "System Config - Datastore \\ Config Store (PD)",
           "item": [
             {
+              "name": "Set PD for OAuth Clients",
+              "item": [],
+              "_postman_id": "33eaedbc-4d6e-490c-b8b9-a0f33e85643b",
+              "_postman_isSubFolder": true
+            },
+            {
               "name": "Add Datastore - PD",
               "event": [
                 {
@@ -2701,7 +2707,7 @@
   ],
   "variable": [
     {
-      "id": "4cd95454-57f0-44a0-85d0-a2bef7a52e05",
+      "id": "19396542-9182-439f-b527-bcdcda762a44",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
