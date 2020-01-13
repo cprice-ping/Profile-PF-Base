@@ -510,6 +510,49 @@
                     "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.oauth20.domain.ClientManagerLdapImpl/PingFederateDSJNDIName"
                   },
                   "response": []
+                },
+                {
+                  "name": "Set SearchBase for  OAuth Clients",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "bdd58167-fbbf-4eac-b0db-adb10cdda528",
+                        "exec": [
+                          "pm.test(\"OAuth Clients in PD\", function () {",
+                          "    pm.response.to.be.ok;",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "_postman_id": "d38b1f5a-4617-402f-9ed3-1caf593fd619",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "type": "text",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "X-XSRF-Header",
+                        "type": "text",
+                        "value": "pingfederate"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"id\": \"SearchBase\",\n    \"type\": \"STRING\",\n    \"stringValue\": \"ou=oauthClients,{{userBaseDN}}\"\n}"
+                    },
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.oauth20.domain.ClientManagerLdapImpl/SearchBase"
+                  },
+                  "response": []
                 }
               ],
               "_postman_id": "33eaedbc-4d6e-490c-b8b9-a0f33e85643b",
@@ -2714,7 +2757,7 @@
   ],
   "variable": [
     {
-      "id": "a780466f-f97d-4939-b26e-4dbe978807a7",
+      "id": "95958545-6dab-43d6-a1bd-430eab4799b5",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
