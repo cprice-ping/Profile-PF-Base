@@ -847,9 +847,9 @@
                     ],
                     "body": {
                       "mode": "raw",
-                      "raw": "    {\n      \"id\": \"PingFederateDSJNDIName\",\n      \"type\": \"STRING\",\n      \"stringValue\": \"LDAP-PingDirectory\"\n    }"
+                      "raw": "    {\n      \"id\": \"SearchBase\",\n      \"type\": \"STRING\",\n      \"stringValue\": \"ou=sessions,{{userBaseDN}}\"\n    }"
                     },
-                    "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.saml20.service.session.data.impl.SessionStorageManagerLdapImpl/PingFederateDSJNDIName"
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.saml20.service.session.data.impl.SessionStorageManagerLdapImpl/SearchBase"
                   },
                   "response": []
                 }
@@ -2858,7 +2858,7 @@
   ],
   "variable": [
     {
-      "id": "01fa0738-6a64-44bc-8954-3fe7d8d2bcab",
+      "id": "d03ec016-b4e8-4416-b34b-d3658b5115c0",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
