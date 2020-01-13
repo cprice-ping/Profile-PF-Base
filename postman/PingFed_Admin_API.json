@@ -599,6 +599,35 @@
                 "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.oauth20.domain.ClientManagerLdapImpl/PingFederateDSJNDIName"
               },
               "response": []
+            },
+            {
+              "name": "Set PD for OAuth Clients Copy",
+              "_postman_id": "37bedea2-e8a6-4931-9702-4978b2f3a38a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-XSRF-Header",
+                    "value": "pingfederate",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "    {\n      \"id\": \"PingFederateDSJNDIName\",\n      \"type\": \"STRING\",\n      \"stringValue\": \"LDAP-PingDirectory\"\n    }"
+                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.oauth20.domain.ClientManagerLdapImpl/PingFederateDSJNDIName"
+              },
+              "response": []
             }
           ],
           "_postman_id": "0a73ed2a-4eb0-4b7c-b797-c36c752947db",
@@ -2579,7 +2608,7 @@
   ],
   "variable": [
     {
-      "id": "f0f0cafa-63c3-4a4a-90a5-048b781e5b9a",
+      "id": "711250ab-251a-49f4-b162-7d61325e1370",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
