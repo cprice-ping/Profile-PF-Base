@@ -464,6 +464,13 @@
         },
         {
           "name": "System Config - Datastore \\ Config Store (PD)",
+          "item": [],
+          "_postman_id": "0a73ed2a-4eb0-4b7c-b797-c36c752947db",
+          "description": "These calls configure the System for PingDirectory for Users and Configuration.",
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "IDP Config - DataStore \\ PCV \\ Adapter",
           "item": [
             {
               "name": "Add Datastore - PD",
@@ -570,15 +577,7 @@
                 "url": "{{pfAdminURL}}/pf-admin-api/v1/passwordCredentialValidators"
               },
               "response": []
-            }
-          ],
-          "_postman_id": "0a73ed2a-4eb0-4b7c-b797-c36c752947db",
-          "description": "These calls configure the System for PingDirectory for Users and Configuration.",
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "IDP Config - DataStore \\ PCV \\ Adapter",
-          "item": [
+            },
             {
               "name": "Create Adapter - PingID",
               "event": [
@@ -2550,7 +2549,7 @@
   ],
   "variable": [
     {
-      "id": "0b507bf9-a3d5-4fb8-a6a2-8e9b5441e22a",
+      "id": "2d89c89d-915e-4842-b6ce-2dc1477f58a8",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
