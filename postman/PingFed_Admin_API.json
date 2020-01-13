@@ -716,6 +716,49 @@
                     "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.oauth20.token.AccessGrantManagerLDAPPingDirectoryImpl/PingFederateDSJNDIName"
                   },
                   "response": []
+                },
+                {
+                  "name": "Set SearchBase for OAuth Sessions",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "526c5a02-2dda-4537-bd6c-9072bb363e1e",
+                        "exec": [
+                          "pm.test(\"OAuth Grants in PD\", function () {",
+                          "    pm.response.to.be.ok;",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "_postman_id": "99911c2d-c939-439d-b87c-bdcb3d44c82a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "type": "text",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "X-XSRF-Header",
+                        "type": "text",
+                        "value": "pingfederate"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "    {\n      \"id\": \"PingFederateDSJNDIName\",\n      \"type\": \"STRING\",\n      \"stringValue\": \"LDAP-PingDirectory\"\n    }"
+                    },
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.oauth20.token.AccessGrantManagerLDAPPingDirectoryImpl/PingFederateDSJNDIName"
+                  },
+                  "response": []
                 }
               ],
               "_postman_id": "ff215c6d-22b2-40f0-8fa3-3ead72fadc10",
@@ -2765,7 +2808,7 @@
   ],
   "variable": [
     {
-      "id": "9fbd6b18-06dc-4319-9148-b1fe9e63282d",
+      "id": "d3db85a9-fe3a-4eb0-9f93-dddafe668abc",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
