@@ -616,6 +616,20 @@
             },
             {
               "name": "Set PD for OAuth Grants",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "526c5a02-2dda-4537-bd6c-9072bb363e1e",
+                    "exec": [
+                      "pm.test(\"OAuth Grants in PD\", function () {",
+                      "    pm.response.to.be.ok;",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
               "_postman_id": "37bedea2-e8a6-4931-9702-4978b2f3a38a",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
@@ -2622,7 +2636,7 @@
   ],
   "variable": [
     {
-      "id": "20c8de3b-2b3f-43f5-9153-19c6f7818aea",
+      "id": "50573e29-9879-4200-bd9a-68254f8bcce9",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
