@@ -696,7 +696,7 @@
                   "mode": "raw",
                   "raw": "    {\n      \"id\": \"PingFederateDSJNDIName\",\n      \"type\": \"STRING\",\n      \"stringValue\": \"LDAP-PingDirectory\"\n    }"
                 },
-                "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.oauth20.token.AccessGrantManagerLDAPPingDirectoryImpl/PingFederateDSJNDIName"
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/org.sourceid.saml20.service.session.data.impl.SessionStorageManagerLdapImpl/PingFederateDSJNDIName"
               },
               "response": []
             }
@@ -2679,7 +2679,7 @@
   ],
   "variable": [
     {
-      "id": "56bf0f48-5379-4375-8d1e-cb897f407378",
+      "id": "64991c8d-bf44-4a4e-9eef-a4811fda5fe8",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
