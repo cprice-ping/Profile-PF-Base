@@ -658,7 +658,7 @@
               "response": []
             },
             {
-              "name": "Set PD for OAuth Grants Copy",
+              "name": "Set PD for Sessions",
               "event": [
                 {
                   "listen": "test",
@@ -2679,7 +2679,7 @@
   ],
   "variable": [
     {
-      "id": "b36659ee-9a70-469f-b2e9-a283ee97959a",
+      "id": "56bf0f48-5379-4375-8d1e-cb897f407378",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
