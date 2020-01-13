@@ -718,7 +718,7 @@
                   "response": []
                 },
                 {
-                  "name": "Set SearchBase for OAuth Sessions",
+                  "name": "Set SearchBase for OAuth Grants",
                   "event": [
                     {
                       "listen": "test",
@@ -2858,7 +2858,7 @@
   ],
   "variable": [
     {
-      "id": "d03ec016-b4e8-4416-b34b-d3658b5115c0",
+      "id": "f8ecb5c9-48fa-4dd3-a1fe-a388c712750e",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
