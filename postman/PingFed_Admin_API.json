@@ -754,9 +754,9 @@
                     ],
                     "body": {
                       "mode": "raw",
-                      "raw": "    {\n      \"id\": \"PingFederateDSJNDIName\",\n      \"type\": \"STRING\",\n      \"stringValue\": \"LDAP-PingDirectory\"\n    }"
+                      "raw": "{\n    \"id\": \"SearchBase\",\n    \"type\": \"STRING\",\n    \"stringValue\": \"ou=oauthClients,{{userBaseDN}}\"\n}"
                     },
-                    "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.oauth20.token.AccessGrantManagerLDAPPingDirectoryImpl/PingFederateDSJNDIName"
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.oauth20.token.AccessGrantManagerLDAPPingDirectoryImpl/SearchBase"
                   },
                   "response": []
                 }
@@ -2808,7 +2808,7 @@
   ],
   "variable": [
     {
-      "id": "d3db85a9-fe3a-4eb0-9f93-dddafe668abc",
+      "id": "02f1010f-2bff-4bbf-a8b8-08a4fdd90d81",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
