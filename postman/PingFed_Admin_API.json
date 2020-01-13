@@ -665,7 +665,7 @@
                   "script": {
                     "id": "526c5a02-2dda-4537-bd6c-9072bb363e1e",
                     "exec": [
-                      "pm.test(\"OAuth Grants in PD\", function () {",
+                      "pm.test(\"PF Sessions in PD\", function () {",
                       "    pm.response.to.be.ok;",
                       "});"
                     ],
@@ -2679,7 +2679,7 @@
   ],
   "variable": [
     {
-      "id": "64991c8d-bf44-4a4e-9eef-a4811fda5fe8",
+      "id": "893c651e-0808-4cf4-a702-6b4339795157",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
