@@ -673,6 +673,12 @@
             },
             {
               "name": "Set PD for OAuth Grants",
+              "item": [],
+              "_postman_id": "ff215c6d-22b2-40f0-8fa3-3ead72fadc10",
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "Set PD for OAuth Grants",
               "event": [
                 {
                   "listen": "test",
@@ -2758,7 +2764,7 @@
   ],
   "variable": [
     {
-      "id": "9df9b685-dfd8-4843-9b97-321f998f59f2",
+      "id": "50138708-6fb2-4f17-8a0f-b51d409ef847",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
