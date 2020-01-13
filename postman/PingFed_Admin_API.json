@@ -464,13 +464,6 @@
         },
         {
           "name": "System Config - Datastore \\ Config Store (PD)",
-          "item": [],
-          "_postman_id": "0a73ed2a-4eb0-4b7c-b797-c36c752947db",
-          "description": "These calls configure the System for PingDirectory for Users and Configuration.",
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "IDP Config - DataStore \\ PCV \\ Adapter",
           "item": [
             {
               "name": "Add Datastore - PD",
@@ -578,6 +571,27 @@
               },
               "response": []
             },
+            {
+              "name": "Set PD for OAuth Clients",
+              "_postman_id": "3fa4bdba-88bf-4e86-9986-7e212c54926d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": ""
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "0a73ed2a-4eb0-4b7c-b797-c36c752947db",
+          "description": "These calls configure the System for PingDirectory for Users and Configuration.",
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "IDP Config - Adapters",
+          "item": [
             {
               "name": "Create Adapter - PingID",
               "event": [
@@ -2549,7 +2563,7 @@
   ],
   "variable": [
     {
-      "id": "2d89c89d-915e-4842-b6ce-2dc1477f58a8",
+      "id": "a2b1f0d2-042d-4c21-a0fa-521b55ae20be",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
