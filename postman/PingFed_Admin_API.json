@@ -601,7 +601,7 @@
               "response": []
             },
             {
-              "name": "Set PD for OAuth Clients Copy",
+              "name": "Set PD for OAuth Grants",
               "_postman_id": "37bedea2-e8a6-4931-9702-4978b2f3a38a",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
@@ -2608,7 +2608,7 @@
   ],
   "variable": [
     {
-      "id": "711250ab-251a-49f4-b162-7d61325e1370",
+      "id": "568fc77d-d6ca-4b01-8074-1ff102df2e7c",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
