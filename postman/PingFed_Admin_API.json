@@ -754,7 +754,7 @@
                     ],
                     "body": {
                       "mode": "raw",
-                      "raw": "{\n    \"id\": \"SearchBase\",\n    \"type\": \"STRING\",\n    \"stringValue\": \"ou=oauthClients,{{userBaseDN}}\"\n}"
+                      "raw": "{\n    \"id\": \"SearchBase\",\n    \"type\": \"STRING\",\n    \"stringValue\": \"ou=grants,{{userBaseDN}}\"\n}"
                     },
                     "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.oauth20.token.AccessGrantManagerLDAPPingDirectoryImpl/SearchBase"
                   },
@@ -2858,7 +2858,7 @@
   ],
   "variable": [
     {
-      "id": "f8ecb5c9-48fa-4dd3-a1fe-a388c712750e",
+      "id": "10513afb-87bb-4f9e-b710-386246e6dbaa",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
