@@ -702,7 +702,29 @@
             }
           ],
           "_postman_id": "0a73ed2a-4eb0-4b7c-b797-c36c752947db",
-          "description": "These calls configure the System for PingDirectory for Users and Configuration.",
+          "description": "These calls configure the System for PingDirectory for Users and Configuration.\n\nAdds the following:\n\n* Datastore\n* Password Credential Validator\n* OAuth Clients\n* OAuth Grants\n* PF AuthN Sessions",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "9c34f025-1678-4334-83f4-7b5866da0ffb",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "9f3681e1-3fae-4abb-a5e8-e5ac2388c8cf",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
           "_postman_isSubFolder": true
         },
         {
@@ -2679,7 +2701,7 @@
   ],
   "variable": [
     {
-      "id": "893c651e-0808-4cf4-a702-6b4339795157",
+      "id": "6b3e88ab-31a6-478f-8642-b75d1c1cb713",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
