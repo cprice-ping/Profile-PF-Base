@@ -467,7 +467,51 @@
           "item": [
             {
               "name": "Set PD for OAuth Clients",
-              "item": [],
+              "item": [
+                {
+                  "name": "Set PD for OAuth Clients",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "bdd58167-fbbf-4eac-b0db-adb10cdda528",
+                        "exec": [
+                          "pm.test(\"OAuth Clients in PD\", function () {",
+                          "    pm.response.to.be.ok;",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "_postman_id": "3fa4bdba-88bf-4e86-9986-7e212c54926d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-XSRF-Header",
+                        "value": "pingfederate",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "    {\n      \"id\": \"PingFederateDSJNDIName\",\n      \"type\": \"STRING\",\n      \"stringValue\": \"LDAP-PingDirectory\"\n    }"
+                    },
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.oauth20.domain.ClientManagerLdapImpl/PingFederateDSJNDIName"
+                  },
+                  "response": []
+                }
+              ],
               "_postman_id": "33eaedbc-4d6e-490c-b8b9-a0f33e85643b",
               "_postman_isSubFolder": true
             },
@@ -574,49 +618,6 @@
                   "raw": "{\n  \"id\": \"PDPCV\",\n  \"name\": \"PD PCV\",\n  \"pluginDescriptorRef\": {\n  \"id\": \"org.sourceid.saml20.domain.LDAPUsernamePasswordCredentialValidator\"\n  },\n  \"configuration\": {\n    \"tables\": [\n      {\n        \"name\": \"Authentication Error Overrides\",\n        \"rows\": []\n      }\n    ],\n    \"fields\": [\n      {\n        \"name\": \"LDAP Datastore\",\n        \"value\": \"LDAP-PingDirectory\"\n      },\n      {\n        \"name\": \"Search Base\",\n        \"value\": \"{{userBaseDN}}\"\n      },\n      {\n        \"name\": \"Search Filter\",\n        \"value\": \"(|(uid=${username})(mail=${username}))\"\n      },\n      {\n        \"name\": \"Scope of Search\",\n        \"value\": \"Subtree\"\n      },\n      {\n        \"name\": \"Case-Sensitive Matching\",\n        \"value\": \"true\"\n      },\n      {\n        \"name\": \"Display Name Attribute\",\n        \"value\": \"displayName\"\n      },\n      {\n        \"name\": \"Mail Attribute\",\n        \"value\": \"mail\"\n      },\n      {\n        \"name\": \"SMS Attribute\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"PingID Username Attribute\",\n        \"value\": \"uid\"\n      },\n      {\n        \"name\": \"Mail Search Filter\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Username Attribute\",\n        \"value\": \"uid\"\n      },\n      {\n        \"name\": \"Mail Verified Attribute\",\n        \"value\": \"\"\n      }\n    ]\n  },\n  \"attributeContract\": {\n    \"coreAttributes\": [\n      {\n        \"name\": \"mail\"\n      },\n      {\n        \"name\": \"givenName\"\n      },\n      {\n        \"name\": \"DN\"\n      },\n      {\n        \"name\": \"username\"\n      }\n    ],\n    \"extendedAttributes\": [\n      {\n        \"name\": \"entryUUID\"\n      }\n    ]\n  }\n}"
                 },
                 "url": "{{pfAdminURL}}/pf-admin-api/v1/passwordCredentialValidators"
-              },
-              "response": []
-            },
-            {
-              "name": "Set PD for OAuth Clients",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "bdd58167-fbbf-4eac-b0db-adb10cdda528",
-                    "exec": [
-                      "pm.test(\"OAuth Clients in PD\", function () {",
-                      "    pm.response.to.be.ok;",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "3fa4bdba-88bf-4e86-9986-7e212c54926d",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "PUT",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "X-XSRF-Header",
-                    "value": "pingfederate",
-                    "type": "text"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "    {\n      \"id\": \"PingFederateDSJNDIName\",\n      \"type\": \"STRING\",\n      \"stringValue\": \"LDAP-PingDirectory\"\n    }"
-                },
-                "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.oauth20.domain.ClientManagerLdapImpl/PingFederateDSJNDIName"
               },
               "response": []
             },
@@ -2707,7 +2708,7 @@
   ],
   "variable": [
     {
-      "id": "3addf552-92f4-40e9-a0dc-2247c38b6901",
+      "id": "c1b1fcd5-889e-4c0a-bc14-350ccd2adcc0",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
