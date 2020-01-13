@@ -765,6 +765,12 @@
               "_postman_isSubFolder": true
             },
             {
+              "name": "Set PD for PF AuthN Sessions",
+              "item": [],
+              "_postman_id": "c39202ef-ac13-4153-826c-648fb045bff1",
+              "_postman_isSubFolder": true
+            },
+            {
               "name": "Set PD for Sessions",
               "event": [
                 {
@@ -2808,7 +2814,7 @@
   ],
   "variable": [
     {
-      "id": "02f1010f-2bff-4bbf-a8b8-08a4fdd90d81",
+      "id": "589ac4bc-3966-4f3c-988a-3a5bb027b5af",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
