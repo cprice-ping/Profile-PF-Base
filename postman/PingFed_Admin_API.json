@@ -673,52 +673,53 @@
             },
             {
               "name": "Set PD for OAuth Grants",
-              "item": [],
-              "_postman_id": "ff215c6d-22b2-40f0-8fa3-3ead72fadc10",
-              "_postman_isSubFolder": true
-            },
-            {
-              "name": "Set PD for OAuth Grants",
-              "event": [
+              "item": [
                 {
-                  "listen": "test",
-                  "script": {
-                    "id": "526c5a02-2dda-4537-bd6c-9072bb363e1e",
-                    "exec": [
-                      "pm.test(\"OAuth Grants in PD\", function () {",
-                      "    pm.response.to.be.ok;",
-                      "});"
+                  "name": "Set PD for OAuth Grants",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "526c5a02-2dda-4537-bd6c-9072bb363e1e",
+                        "exec": [
+                          "pm.test(\"OAuth Grants in PD\", function () {",
+                          "    pm.response.to.be.ok;",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "_postman_id": "37bedea2-e8a6-4931-9702-4978b2f3a38a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "type": "text",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "X-XSRF-Header",
+                        "type": "text",
+                        "value": "pingfederate"
+                      }
                     ],
-                    "type": "text/javascript"
-                  }
+                    "body": {
+                      "mode": "raw",
+                      "raw": "    {\n      \"id\": \"PingFederateDSJNDIName\",\n      \"type\": \"STRING\",\n      \"stringValue\": \"LDAP-PingDirectory\"\n    }"
+                    },
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.oauth20.token.AccessGrantManagerLDAPPingDirectoryImpl/PingFederateDSJNDIName"
+                  },
+                  "response": []
                 }
               ],
-              "_postman_id": "37bedea2-e8a6-4931-9702-4978b2f3a38a",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "PUT",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "type": "text",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "X-XSRF-Header",
-                    "type": "text",
-                    "value": "pingfederate"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "    {\n      \"id\": \"PingFederateDSJNDIName\",\n      \"type\": \"STRING\",\n      \"stringValue\": \"LDAP-PingDirectory\"\n    }"
-                },
-                "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.oauth20.token.AccessGrantManagerLDAPPingDirectoryImpl/PingFederateDSJNDIName"
-              },
-              "response": []
+              "_postman_id": "ff215c6d-22b2-40f0-8fa3-3ead72fadc10",
+              "_postman_isSubFolder": true
             },
             {
               "name": "Set PD for Sessions",
@@ -2764,7 +2765,7 @@
   ],
   "variable": [
     {
-      "id": "7cfb5d4c-5d53-42b6-89bf-0c32f5b8e7ba",
+      "id": "f0dfe0c7-4f27-4141-b853-38a7a4b7b28f",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
