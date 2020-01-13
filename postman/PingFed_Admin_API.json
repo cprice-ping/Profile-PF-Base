@@ -656,6 +656,49 @@
                 "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.oauth20.token.AccessGrantManagerLDAPPingDirectoryImpl/PingFederateDSJNDIName"
               },
               "response": []
+            },
+            {
+              "name": "Set PD for OAuth Grants Copy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "526c5a02-2dda-4537-bd6c-9072bb363e1e",
+                    "exec": [
+                      "pm.test(\"OAuth Grants in PD\", function () {",
+                      "    pm.response.to.be.ok;",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "261144a1-c0c8-4ad8-bd6d-2d1797a45da6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-XSRF-Header",
+                    "type": "text",
+                    "value": "pingfederate"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "    {\n      \"id\": \"PingFederateDSJNDIName\",\n      \"type\": \"STRING\",\n      \"stringValue\": \"LDAP-PingDirectory\"\n    }"
+                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.oauth20.token.AccessGrantManagerLDAPPingDirectoryImpl/PingFederateDSJNDIName"
+              },
+              "response": []
             }
           ],
           "_postman_id": "0a73ed2a-4eb0-4b7c-b797-c36c752947db",
@@ -2636,7 +2679,7 @@
   ],
   "variable": [
     {
-      "id": "50573e29-9879-4200-bd9a-68254f8bcce9",
+      "id": "080334e3-090f-45b5-80d1-1c1bfd0e088e",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
