@@ -573,6 +573,20 @@
             },
             {
               "name": "Set PD for OAuth Clients",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "bdd58167-fbbf-4eac-b0db-adb10cdda528",
+                    "exec": [
+                      "pm.test(\"OAuth Clients in PD\", function () {",
+                      "    pm.response.to.be.ok;",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
               "_postman_id": "3fa4bdba-88bf-4e86-9986-7e212c54926d",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
@@ -2608,7 +2622,7 @@
   ],
   "variable": [
     {
-      "id": "a53cd07e-1efd-4174-b8c4-a8c5a7537f29",
+      "id": "20c8de3b-2b3f-43f5-9153-19c6f7818aea",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
