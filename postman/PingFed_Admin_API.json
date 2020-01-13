@@ -578,9 +578,20 @@
                 "disableBodyPruning": true
               },
               "request": {
-                "method": "GET",
-                "header": [],
-                "url": ""
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "    {\n      \"id\": \"PingFederateDSJNDIName\",\n      \"type\": \"STRING\",\n      \"stringValue\": \"LDAP-PingDirectory\"\n    }"
+                },
+                "url": "{{pfBaseURL}}/pf-admin-api/v1/configStore/org.sourceid.oauth20.domain.ClientManagerLdapImpl"
               },
               "response": []
             }
@@ -2563,7 +2574,7 @@
   ],
   "variable": [
     {
-      "id": "a2b1f0d2-042d-4c21-a0fa-521b55ae20be",
+      "id": "1582745f-8199-4f51-a247-d2a7eecc988c",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
