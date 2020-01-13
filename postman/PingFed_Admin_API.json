@@ -809,6 +809,49 @@
                     "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.saml20.service.session.data.impl.SessionStorageManagerLdapImpl/PingFederateDSJNDIName"
                   },
                   "response": []
+                },
+                {
+                  "name": "Set PD for Sessions Copy",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "526c5a02-2dda-4537-bd6c-9072bb363e1e",
+                        "exec": [
+                          "pm.test(\"PF Sessions in PD\", function () {",
+                          "    pm.response.to.be.ok;",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "_postman_id": "396b729f-d897-42a9-ba83-4c1d5bd95ded",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "type": "text",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "X-XSRF-Header",
+                        "type": "text",
+                        "value": "pingfederate"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "    {\n      \"id\": \"PingFederateDSJNDIName\",\n      \"type\": \"STRING\",\n      \"stringValue\": \"LDAP-PingDirectory\"\n    }"
+                    },
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.saml20.service.session.data.impl.SessionStorageManagerLdapImpl/PingFederateDSJNDIName"
+                  },
+                  "response": []
                 }
               ],
               "_postman_id": "c39202ef-ac13-4153-826c-648fb045bff1",
@@ -2815,7 +2858,7 @@
   ],
   "variable": [
     {
-      "id": "5fa97945-af47-4004-93a2-b48375b76513",
+      "id": "4454ecc8-11d8-4212-baa9-44ff63f9187c",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
