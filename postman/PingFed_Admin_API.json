@@ -874,6 +874,16 @@
                         ],
                         "type": "text/javascript"
                       }
+                    },
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "id": "fdd2cae6-78cb-4453-8cb6-59b41a7f7aef",
+                        "exec": [
+                          "console.log(pm.request);"
+                        ],
+                        "type": "text/javascript"
+                      }
                     }
                   ],
                   "_postman_id": "5fca494c-9e7f-43bf-9fab-60e1701d6f23",
@@ -2974,7 +2984,7 @@
   ],
   "variable": [
     {
-      "id": "2f89ed89-16f8-4293-8b34-74bb1bfb43da",
+      "id": "bbd806f3-7545-417b-92eb-e14a668d2850",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
