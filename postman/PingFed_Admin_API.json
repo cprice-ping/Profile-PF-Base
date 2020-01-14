@@ -903,6 +903,8 @@
                         "exec": [
                           "pm.test(\"OAuth Clients retrieved\", function () {",
                           "    pm.response.to.be.ok;",
+                          "    // Flush the value of {{deleteClientId}}",
+                          "    pm.environment.set(\"deleteClientId\", \"\");",
                           "    ",
                           "    var response = pm.response.json();",
                           "    pm.environment.set(\"deleteClientId\", response.items[0].clientId);",
@@ -2972,7 +2974,7 @@
   ],
   "variable": [
     {
-      "id": "8ff44a16-9fc0-4c3c-90d1-dd2eec51f920",
+      "id": "c2add9cc-b0da-49ef-89d9-958f753e01c0",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
