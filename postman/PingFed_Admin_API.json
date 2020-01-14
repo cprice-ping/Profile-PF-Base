@@ -861,6 +861,25 @@
               "name": "Delete existing OAuth clients",
               "item": [
                 {
+                  "name": "Get existing OAuth clients Copy",
+                  "_postman_id": "5fca494c-9e7f-43bf-9fab-60e1701d6f23",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-XSRF-Header",
+                        "value": "pingfederate",
+                        "type": "text"
+                      }
+                    ],
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients/ac_oic_client"
+                  },
+                  "response": []
+                },
+                {
                   "name": "Get existing OAuth clients",
                   "_postman_id": "bbc44218-c085-4e49-a088-14dc70d9b202",
                   "protocolProfileBehavior": {
@@ -881,7 +900,7 @@
                 },
                 {
                   "name": "Get existing OAuth clients Copy",
-                  "_postman_id": "5fca494c-9e7f-43bf-9fab-60e1701d6f23",
+                  "_postman_id": "01938335-11ca-4f92-8261-d9aa43f4797c",
                   "protocolProfileBehavior": {
                     "disableBodyPruning": true
                   },
@@ -2904,7 +2923,7 @@
   ],
   "variable": [
     {
-      "id": "21b79a3f-0b76-4857-9f95-e1f7e729ffe4",
+      "id": "c3436bba-6616-4c94-8138-20b2254181dc",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
