@@ -856,132 +856,6 @@
               ],
               "_postman_id": "c39202ef-ac13-4153-826c-648fb045bff1",
               "_postman_isSubFolder": true
-            },
-            {
-              "name": "Delete existing OAuth clients",
-              "item": [
-                {
-                  "name": "Delete ac_oic_client Client",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "6809dd36-423d-4e9b-b553-f4982b2b4626",
-                        "exec": [
-                          "pm.test(\"ac_oidc_client OAuth Client deleted\", function () {",
-                          "    pm.response.to.have.status(204);",
-                          "});"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    },
-                    {
-                      "listen": "prerequest",
-                      "script": {
-                        "id": "fdd2cae6-78cb-4453-8cb6-59b41a7f7aef",
-                        "exec": [
-                          "console.log(pm.request);"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    }
-                  ],
-                  "_postman_id": "5fca494c-9e7f-43bf-9fab-60e1701d6f23",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "DELETE",
-                    "header": [
-                      {
-                        "key": "X-XSRF-Header",
-                        "value": "pingfederate",
-                        "type": "text"
-                      }
-                    ],
-                    "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients/ac_oic_client"
-                  },
-                  "response": []
-                },
-                {
-                  "name": "Get existing OAuth clients",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "a112a461-63e3-4701-b1c8-b39bdebe1d92",
-                        "exec": [
-                          "pm.test(\"OAuth Clients retrieved\", function () {",
-                          "    pm.response.to.be.ok;",
-                          "    // Flush the value of {{deleteClientId}}",
-                          "    pm.environment.set(\"deleteClientId\", \"\");",
-                          "    ",
-                          "    var response = pm.response.json();",
-                          "    pm.environment.set(\"deleteClientId\", response.items[0].clientId);",
-                          "});"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    }
-                  ],
-                  "_postman_id": "bbc44218-c085-4e49-a088-14dc70d9b202",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "GET",
-                    "header": [
-                      {
-                        "key": "X-XSRF-Header",
-                        "value": "pingfederate",
-                        "type": "text"
-                      }
-                    ],
-                    "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients"
-                  },
-                  "response": []
-                },
-                {
-                  "name": "Delete OAuth client",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "7cdb2e38-bbd1-4ada-ba6e-b0d189fb9418",
-                        "exec": [
-                          "pm.test(\"Deleted Client - {{deleteClientId}}\", function () {",
-                          "    pm.response.to.have.status(204);",
-                          "    ",
-                          "    if (pm.environment.get(\"deleteClientId\") !== null) {",
-                          "        postman.setNextRequest(\"Get existing OAuth clients\");",
-                          "    }",
-                          "});"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    }
-                  ],
-                  "_postman_id": "01938335-11ca-4f92-8261-d9aa43f4797c",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "DELETE",
-                    "header": [
-                      {
-                        "key": "X-XSRF-Header",
-                        "value": "pingfederate",
-                        "type": "text"
-                      }
-                    ],
-                    "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients/{{deleteClientId}}"
-                  },
-                  "response": []
-                }
-              ],
-              "_postman_id": "24318ebe-72cc-4149-8999-aedb7613a319",
-              "description": "The GTE PD Baseline includes a set of OAuth clients that are used by the OAuth Playground.  \n\nI don't like the way they're created \\ wired, so this call removes then before creating the OAuth \\ OIDC clients I want in PF-Base.",
-              "_postman_isSubFolder": true
             }
           ],
           "_postman_id": "0a73ed2a-4eb0-4b7c-b797-c36c752947db",
@@ -2585,6 +2459,134 @@
           "_postman_isSubFolder": true
         },
         {
+          "name": "Delete existing OAuth clients",
+          "item": [
+            {
+              "name": "Delete ac_oic_client Client",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "6809dd36-423d-4e9b-b553-f4982b2b4626",
+                    "exec": [
+                      "console.log(pm.request);",
+                      "",
+                      "pm.test(\"ac_oidc_client OAuth Client deleted\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "fdd2cae6-78cb-4453-8cb6-59b41a7f7aef",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "5fca494c-9e7f-43bf-9fab-60e1701d6f23",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-XSRF-Header",
+                    "value": "pingfederate",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients/ac_oic_client"
+              },
+              "response": []
+            },
+            {
+              "name": "Get existing OAuth clients",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "a112a461-63e3-4701-b1c8-b39bdebe1d92",
+                    "exec": [
+                      "pm.test(\"OAuth Clients retrieved\", function () {",
+                      "    pm.response.to.be.ok;",
+                      "    // Flush the value of {{deleteClientId}}",
+                      "    pm.environment.set(\"deleteClientId\", \"\");",
+                      "    ",
+                      "    var response = pm.response.json();",
+                      "    pm.environment.set(\"deleteClientId\", response.items[0].clientId);",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "bbc44218-c085-4e49-a088-14dc70d9b202",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-XSRF-Header",
+                    "value": "pingfederate",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients"
+              },
+              "response": []
+            },
+            {
+              "name": "Delete OAuth client",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "7cdb2e38-bbd1-4ada-ba6e-b0d189fb9418",
+                    "exec": [
+                      "pm.test(\"Deleted Client - {{deleteClientId}}\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "    ",
+                      "    if (pm.environment.get(\"deleteClientId\") !== null) {",
+                      "        postman.setNextRequest(\"Get existing OAuth clients\");",
+                      "    }",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "01938335-11ca-4f92-8261-d9aa43f4797c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-XSRF-Header",
+                    "value": "pingfederate",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients/{{deleteClientId}}"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "24318ebe-72cc-4149-8999-aedb7613a319",
+          "description": "The GTE PD Baseline includes a set of OAuth clients that are used by the OAuth Playground.  \n\nI don't like the way they're created \\ wired, so this call removes then before creating the OAuth \\ OIDC clients I want in PF-Base.",
+          "_postman_isSubFolder": true
+        },
+        {
           "name": "Create OIDC Clients",
           "item": [
             {
@@ -2984,7 +2986,7 @@
   ],
   "variable": [
     {
-      "id": "2f56c67d-d3de-414a-b4f5-f3da9f1f19fa",
+      "id": "457c8f34-9c8c-4e72-9d73-077de6bd0864",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
