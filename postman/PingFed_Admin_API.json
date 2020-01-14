@@ -738,7 +738,7 @@
                     "disableBodyPruning": true
                   },
                   "request": {
-                    "method": "PUT",
+                    "method": "GET",
                     "header": [
                       {
                         "key": "Content-Type",
@@ -756,7 +756,7 @@
                       "mode": "raw",
                       "raw": "{\n    \"id\": \"SearchBase\",\n    \"type\": \"STRING\",\n    \"stringValue\": \"ou=grants,{{userBaseDN}}\"\n}"
                     },
-                    "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.oauth20.token.AccessGrantManagerLDAPPingDirectoryImpl/SearchBase"
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/hivemodule"
                   },
                   "response": []
                 }
@@ -2974,7 +2974,7 @@
   ],
   "variable": [
     {
-      "id": "c2add9cc-b0da-49ef-89d9-958f753e01c0",
+      "id": "34b3f501-b865-41b4-8ef1-ff2bc3befdd0",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
