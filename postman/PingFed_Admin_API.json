@@ -868,21 +868,14 @@
                   },
                   "request": {
                     "method": "GET",
-                    "header": [],
-                    "url": ""
-                  },
-                  "response": []
-                },
-                {
-                  "name": "Get existing OAuth clients Copy",
-                  "_postman_id": "c284c246-183c-4bc5-8450-e54149c611fd",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": ""
+                    "header": [
+                      {
+                        "key": "X-XSRF-Header",
+                        "value": "pingfederate",
+                        "type": "text"
+                      }
+                    ],
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients"
                   },
                   "response": []
                 }
@@ -2892,7 +2885,7 @@
   ],
   "variable": [
     {
-      "id": "423b8c00-e949-43ba-8e64-a63218aa68a6",
+      "id": "76ce7dd0-2176-4404-9f64-bde87e9d55f3",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
