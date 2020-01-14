@@ -859,7 +859,7 @@
             }
           ],
           "_postman_id": "0a73ed2a-4eb0-4b7c-b797-c36c752947db",
-          "description": "These calls configure the System for PingDirectory for Users and Configuration.\n\nAdds the following:\n\n* Datastore\n* Password Credential Validator\n* OAuth Clients\n* OAuth Grants\n* PF AuthN Sessions",
+          "description": "These calls configure the System for PingDirectory for Users and Configuration.\n\nAdds the following:\n\n* Datastore\n* Password Credential Validator\n\nIn the `50-before-post-start.sh` hook (`/pingfed/hooks`) the values in `hivemodule.xml` are swapped out for LDAP providers. The `/config-store` API is then used to configure those providers. \n\nThis enables PD as the store for:  \n\n* OAuth Clients\n* OAuth Grants\n* PF AuthN Sessions",
           "event": [
             {
               "listen": "prerequest",
@@ -2858,7 +2858,7 @@
   ],
   "variable": [
     {
-      "id": "10513afb-87bb-4f9e-b710-386246e6dbaa",
+      "id": "e635f6f1-430a-499a-b294-a448efa6a311",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
