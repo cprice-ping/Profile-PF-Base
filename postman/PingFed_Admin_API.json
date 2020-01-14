@@ -859,7 +859,7 @@
             }
           ],
           "_postman_id": "0a73ed2a-4eb0-4b7c-b797-c36c752947db",
-          "description": "These calls configure the System for PingDirectory for Users and Configuration.\n\nAdds the following:\n\n* Datastore\n* Password Credential Validator\n* OAuth Clients\n* OAuth Grants\n* PF AuthN Sessions",
+          "description": "These calls configure the System for PingDirectory for Users and Configuration.\n\nAdds the following:\n\n* Datastore\n* Password Credential Validator\n\nIn the `50-before-post-start.sh` hook (`/pingfed/hooks`) the values in `hivemodule.xml` are swapped out for LDAP providers. The `/config-store` API is then used to configure those providers. \n\nThis enables PD as the store for:  \n\n* OAuth Clients\n* OAuth Grants\n* PF AuthN Sessions",
           "event": [
             {
               "listen": "prerequest",
@@ -2459,6 +2459,199 @@
           "_postman_isSubFolder": true
         },
         {
+          "name": "Delete GTE Baseline OAuth clients",
+          "item": [
+            {
+              "name": "Delete ac_oic_client Client",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "6809dd36-423d-4e9b-b553-f4982b2b4626",
+                    "exec": [
+                      "console.log(pm.request);",
+                      "",
+                      "pm.test(\"ac_oidc_client OAuth Client deleted\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "fdd2cae6-78cb-4453-8cb6-59b41a7f7aef",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "5fca494c-9e7f-43bf-9fab-60e1701d6f23",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-XSRF-Header",
+                    "value": "pingfederate",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients/ac_oic_client"
+              },
+              "response": []
+            },
+            {
+              "name": "Get existing OAuth clients",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "a112a461-63e3-4701-b1c8-b39bdebe1d92",
+                    "exec": [
+                      "pm.test(\"OAuth Clients retrieved\", function () {",
+                      "    pm.response.to.be.ok;",
+                      "    // Flush the value of {{deleteClientId}}",
+                      "    pm.environment.set(\"deleteClientId\", \"\");",
+                      "    ",
+                      "    var response = pm.response.json();",
+                      "    pm.environment.set(\"deleteClientId\", response.items[0].clientId);",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "bbc44218-c085-4e49-a088-14dc70d9b202",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-XSRF-Header",
+                    "value": "pingfederate",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients"
+              },
+              "response": []
+            },
+            {
+              "name": "Delete OAuth client",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "7cdb2e38-bbd1-4ada-ba6e-b0d189fb9418",
+                    "exec": [
+                      "pm.test(\"Deleted Client\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "    ",
+                      "    if (pm.environment.get(\"deleteClientId\") !== null) {",
+                      "        postman.setNextRequest(\"Get existing OAuth clients\");",
+                      "    }",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "01938335-11ca-4f92-8261-d9aa43f4797c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-XSRF-Header",
+                    "value": "pingfederate",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients/{{deleteClientId}}"
+              },
+              "response": []
+            },
+            {
+              "name": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "41847d1c-9c1e-4b88-b671-c997621406f0",
+                    "exec": [
+                      "pm.test(\"OIDC Client - CIBA Created\", function () {",
+                      "    pm.response.to.have.status(\"Created\");",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "983dde7a-984a-4e6f-807e-a018785d1d67",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-XSRF-Header",
+                    "type": "text",
+                    "value": "pingfederate"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientId\": \"CIBALogon\",\n  \"enabled\": true,\n  \"redirectUris\": [\n    \"com.cpricelab.ciba://cb\",\n    \"https://change.me\"\n  ],\n  \"grantTypes\": [\n    \"IMPLICIT\",\n\t\"AUTHORIZATION_CODE\",\n    \"CIBA\"\n  ],\n  \"name\": \"CIBA Logon\",\n  \"description\": \"This client is used to perform OIDC CIBA Logons\",\n  \"logoUrl\": \"\",\n  \"refreshRolling\": \"SERVER_DEFAULT\",\n  \"persistentGrantExpirationType\": \"SERVER_DEFAULT\",\n  \"persistentGrantExpirationTime\": 0,\n  \"persistentGrantExpirationTimeUnit\": \"DAYS\",\n  \"persistentGrantIdleTimeoutType\": \"SERVER_DEFAULT\",\n  \"persistentGrantIdleTimeout\": 0,\n  \"persistentGrantIdleTimeoutTimeUnit\": \"DAYS\",\n  \"bypassApprovalPage\": true,\n  \"restrictScopes\": false,\n  \"restrictedScopes\": [],\n  \"exclusiveScopes\": [],\n  \"restrictedResponseTypes\": [],\n  \"defaultAccessTokenManagerRef\": {\n    \"id\": \"jwtDefault\"\n  },\n  \"validateUsingAllEligibleAtms\": false,\n  \"oidcPolicy\": {\n    \"policyGroup\": {\n      \"id\": \"OIDCPolicyDefault\"\n    },\n    \"grantAccessSessionRevocationApi\": false,\n    \"pingAccessLogoutCapable\": false,\n    \"pairwiseIdentifierUserType\": false\n  },\n  \"clientAuth\": {\n    \"type\": \"NONE\",\n    \"enforceReplayPrevention\": false\n  },\n  \"extendedParameters\": {\n\t\"authNexp\": {\n    \t\"values\": [\n    \t\t\"Enhanced\"\n      ]\n    }\n  },\n  \"deviceFlowSettingType\": \"SERVER_DEFAULT\",\n  \"requireProofKeyForCodeExchange\": false,\n  \"cibaDeliveryMode\": \"POLL\",\n  \"cibaPollingInterval\": 3,\n  \"cibaRequireSignedRequests\": false,\n  \"cibaUserCodeSupported\": false,\n  \"requestPolicyRef\": {\n    \"id\": \"PINGIDSDK\"\n  },\n  \"requireSignedRequests\": false\n}"
+                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "24318ebe-72cc-4149-8999-aedb7613a319",
+          "description": "The GTE PD Baseline includes a set of OAuth clients that are used by the OAuth Playground.  \n\nI don't like the way they're created \\ wired, so this call removes then before creating the OAuth \\ OIDC clients I want in PF-Base.",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "85d9bcc3-fa62-40e1-912f-fd5610fd9251",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "fc222124-2ef5-4415-ae95-1694c3474050",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
           "name": "Create OIDC Clients",
           "item": [
             {
@@ -2545,6 +2738,50 @@
                   "raw": "{\n      \"clientId\": \"PingIntrospect\",\n      \"enabled\": true,\n      \"redirectUris\": [],\n      \"grantTypes\": [\n        \"ACCESS_TOKEN_VALIDATION\"\n      ],\n      \"name\": \"Ping Introspect\",\n      \"description\": \"This client is used to Introspect and validate PF-issued access_tokens\",\n      \"logoUrl\": \"\",\n      \"refreshRolling\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationType\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationTime\": 0,\n      \"persistentGrantExpirationTimeUnit\": \"DAYS\",\n      \"persistentGrantIdleTimeoutType\": \"SERVER_DEFAULT\",\n      \"persistentGrantIdleTimeout\": 0,\n      \"persistentGrantIdleTimeoutTimeUnit\": \"DAYS\",\n      \"bypassApprovalPage\": false,\n      \"restrictScopes\": false,\n      \"restrictedScopes\": [],\n      \"exclusiveScopes\": [],\n      \"restrictedResponseTypes\": [],\n      \"defaultAccessTokenManagerRef\": {\n        \"id\": \"jwtDefault\"\n      },\n      \"validateUsingAllEligibleAtms\": true,\n      \"oidcPolicy\": {\n        \"grantAccessSessionRevocationApi\": false,\n        \"pingAccessLogoutCapable\": false\n      },\n      \"clientAuth\": {\n        \"type\": \"SECRET\",\n        \"secret\": \"{{oauthSecret}}\",\n        \"enforceReplayPrevention\": false\n      },\n      \"extendedParameters\": {},\n      \"deviceFlowSettingType\": \"SERVER_DEFAULT\",\n      \"requireSignedRequests\": false\n    }"
                 },
                 "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients"
+              },
+              "response": []
+            },
+            {
+              "name": "Add CIBALogon OIDC Client Copy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "41847d1c-9c1e-4b88-b671-c997621406f0",
+                    "exec": [
+                      "pm.test(\"OIDC Client - CIBA Created\", function () {",
+                      "    pm.response.to.have.status(\"Created\");",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "8f34fa0b-8580-41d2-a877-9ffd75436013",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-XSRF-Header",
+                    "type": "text",
+                    "value": "pingfederate"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"clientId\": \"CIBALogon\",\n  \"enabled\": true,\n  \"redirectUris\": [\n    \"com.cpricelab.ciba://cb\",\n    \"https://change.me\"\n  ],\n  \"grantTypes\": [\n    \"IMPLICIT\",\n\t\"AUTHORIZATION_CODE\",\n    \"CIBA\"\n  ],\n  \"name\": \"CIBA Logon\",\n  \"description\": \"This client is used to perform OIDC CIBA Logons\",\n  \"logoUrl\": \"\",\n  \"refreshRolling\": \"SERVER_DEFAULT\",\n  \"persistentGrantExpirationType\": \"SERVER_DEFAULT\",\n  \"persistentGrantExpirationTime\": 0,\n  \"persistentGrantExpirationTimeUnit\": \"DAYS\",\n  \"persistentGrantIdleTimeoutType\": \"SERVER_DEFAULT\",\n  \"persistentGrantIdleTimeout\": 0,\n  \"persistentGrantIdleTimeoutTimeUnit\": \"DAYS\",\n  \"bypassApprovalPage\": true,\n  \"restrictScopes\": false,\n  \"restrictedScopes\": [],\n  \"exclusiveScopes\": [\n  \t\"ciba:stack-up:*\"\n  \t],\n  \"restrictedResponseTypes\": [],\n  \"defaultAccessTokenManagerRef\": {\n    \"id\": \"jwtDefault\"\n  },\n  \"validateUsingAllEligibleAtms\": false,\n  \"oidcPolicy\": {\n    \"policyGroup\": {\n      \"id\": \"OIDCPolicyDefault\"\n    },\n    \"grantAccessSessionRevocationApi\": false,\n    \"pingAccessLogoutCapable\": false,\n    \"pairwiseIdentifierUserType\": false\n  },\n  \"clientAuth\": {\n    \"type\": \"NONE\",\n    \"enforceReplayPrevention\": false\n  },\n  \"extendedParameters\": {\n\t\"authNexp\": {\n    \t\"values\": [\n    \t\t\"Enhanced\"\n      ]\n    }\n  },\n  \"deviceFlowSettingType\": \"SERVER_DEFAULT\",\n  \"requireProofKeyForCodeExchange\": false,\n  \"cibaDeliveryMode\": \"POLL\",\n  \"cibaPollingInterval\": 3,\n  \"cibaRequireSignedRequests\": false,\n  \"cibaUserCodeSupported\": false,\n  \"requestPolicyRef\": {\n    \"id\": \"PINGIDSDK\"\n  },\n  \"requireSignedRequests\": false\n}"
+                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients",
+                "description": "This client can be used to issue tokens for several Ping Products (using Exclusive Scopes):\n\n* PD DirAPI (`pd:dir:access`)\n* PD Consent API (`pd:consents:unpriv` | `pd:consents:priv`)\n* PD Delegated Admin App (`urn:pingidentity:directory-delegated-admin`)\n* PF Dynamic Client Registration (`pf:client:reg`)"
               },
               "response": []
             }
@@ -2858,7 +3095,7 @@
   ],
   "variable": [
     {
-      "id": "10513afb-87bb-4f9e-b710-386246e6dbaa",
+      "id": "fa8e8ffc-0ccb-4fcf-a47e-2e078ae2dd47",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
