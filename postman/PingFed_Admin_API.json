@@ -738,7 +738,7 @@
                     "disableBodyPruning": true
                   },
                   "request": {
-                    "method": "GET",
+                    "method": "PUT",
                     "header": [
                       {
                         "key": "Content-Type",
@@ -2974,7 +2974,7 @@
   ],
   "variable": [
     {
-      "id": "0ad9712b-63c2-4362-b3d1-ad3bba8a8763",
+      "id": "2f89ed89-16f8-4293-8b34-74bb1bfb43da",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
