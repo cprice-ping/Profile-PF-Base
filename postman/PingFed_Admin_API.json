@@ -930,7 +930,7 @@
                   "response": []
                 },
                 {
-                  "name": "Get existing OAuth clients Copy",
+                  "name": "Delete OAuth client",
                   "_postman_id": "01938335-11ca-4f92-8261-d9aa43f4797c",
                   "protocolProfileBehavior": {
                     "disableBodyPruning": true
@@ -2954,7 +2954,7 @@
   ],
   "variable": [
     {
-      "id": "d652a235-af8c-44fe-8de5-9963bfb506ab",
+      "id": "2e282dbd-0d01-484d-83a3-500698991b31",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
