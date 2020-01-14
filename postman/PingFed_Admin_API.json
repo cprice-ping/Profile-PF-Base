@@ -2199,7 +2199,7 @@
                         "id": "4aa206d6-cc0b-49c2-83a2-ddfdd4de1b6b",
                         "exec": [
                           "pm.test(\"OIDC Policy Created\", function () {",
-                          "    pm.response.have.status(201);",
+                          "    pm.response.to.have.status(\"Created\");",
                           "});"
                         ],
                         "type": "text/javascript"
@@ -3052,7 +3052,7 @@
   ],
   "variable": [
     {
-      "id": "df2be8f5-2385-4f6f-87e3-02d2cfaed30e",
+      "id": "2f624eab-9cf6-44c5-94d0-970d646b078b",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
