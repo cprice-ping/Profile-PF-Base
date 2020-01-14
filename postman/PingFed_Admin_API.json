@@ -938,7 +938,7 @@
                         "id": "7cdb2e38-bbd1-4ada-ba6e-b0d189fb9418",
                         "exec": [
                           "pm.test(\"Deleted Client - {{deleteClientId}}\", function () {",
-                          "    pm.response.to.be.ok;",
+                          "    pm.response.to.have.status(204);",
                           "    ",
                           "    if (pm.environment.get(\"deleteClientId\") !== null) {",
                           "        postman.setNextRequest(\"Get existing OAuth clients\");",
@@ -2972,7 +2972,7 @@
   ],
   "variable": [
     {
-      "id": "c33e0f62-f382-459c-98ea-0bc3ede5da09",
+      "id": "8ff44a16-9fc0-4c3c-90d1-dd2eec51f920",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
