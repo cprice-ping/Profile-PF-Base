@@ -861,7 +861,7 @@
               "name": "Delete existing OAuth clients",
               "item": [
                 {
-                  "name": "Delete `ac_oic_client`",
+                  "name": "Delete ac_oic_client Client",
                   "event": [
                     {
                       "listen": "test",
@@ -2984,7 +2984,7 @@
   ],
   "variable": [
     {
-      "id": "bbd806f3-7545-417b-92eb-e14a668d2850",
+      "id": "2f56c67d-d3de-414a-b4f5-f3da9f1f19fa",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
