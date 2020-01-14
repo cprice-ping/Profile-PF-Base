@@ -931,12 +931,30 @@
                 },
                 {
                   "name": "Delete OAuth client",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "7cdb2e38-bbd1-4ada-ba6e-b0d189fb9418",
+                        "exec": [
+                          "pm.test(\"Deleted Client - {{deleteClientId}}\", function () {",
+                          "    pm.response.to.be.ok;",
+                          "    ",
+                          "    if (pm.environment.get(\"deleteClientId\") !== null) {",
+                          "        postman.setNextRequest(\"Get existing OAuth clients\");",
+                          "    }",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
                   "_postman_id": "01938335-11ca-4f92-8261-d9aa43f4797c",
                   "protocolProfileBehavior": {
                     "disableBodyPruning": true
                   },
                   "request": {
-                    "method": "GET",
+                    "method": "DELETE",
                     "header": [
                       {
                         "key": "X-XSRF-Header",
@@ -944,7 +962,7 @@
                         "type": "text"
                       }
                     ],
-                    "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients"
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients/{{deleteClientId}}"
                   },
                   "response": []
                 }
@@ -2954,7 +2972,7 @@
   ],
   "variable": [
     {
-      "id": "2e282dbd-0d01-484d-83a3-500698991b31",
+      "id": "c25ea3c4-dea8-4c86-a19a-95f67177d89f",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
