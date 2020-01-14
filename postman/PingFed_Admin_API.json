@@ -872,6 +872,19 @@
                     "url": ""
                   },
                   "response": []
+                },
+                {
+                  "name": "Get existing OAuth clients Copy",
+                  "_postman_id": "c284c246-183c-4bc5-8450-e54149c611fd",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": ""
+                  },
+                  "response": []
                 }
               ],
               "_postman_id": "24318ebe-72cc-4149-8999-aedb7613a319",
@@ -2879,7 +2892,7 @@
   ],
   "variable": [
     {
-      "id": "e5da5d53-877d-4c45-9ca2-40e32d48d9d8",
+      "id": "c40f7173-ca00-4f2f-a918-e189da6dbb95",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
