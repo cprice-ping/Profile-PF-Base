@@ -869,7 +869,7 @@
                         "id": "6809dd36-423d-4e9b-b553-f4982b2b4626",
                         "exec": [
                           "pm.test(\"ac_oidc_client OAuth Client deleted\", function () {",
-                          "    pm.response.status.to.be(204);",
+                          "    pm.response.to.have.status(204);",
                           "});"
                         ],
                         "type": "text/javascript"
@@ -2972,7 +2972,7 @@
   ],
   "variable": [
     {
-      "id": "f05aa32c-b819-4cea-9d37-0a0ed7bf1a0f",
+      "id": "45944d57-6f05-45ab-9d4f-6c70c2a8316f",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
