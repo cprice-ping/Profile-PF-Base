@@ -1,7 +1,7 @@
 {
   "info": {
     "_postman_id": "d8f32c40-44b9-4c2a-8c6e-963a9904c854",
-    "name": "PF Admin API - Configure Server",
+    "name": "PF Admin API - Base",
     "description": "## Collection - PingFed Admin API\n\nThis set demonstrates the new APIs in PF 9.2+ that allow you do use the Admin API to fully build out a PingFed server that's connected to PingDirectory.\n\nIt is designed to be used with a DevOps Server Profile (https://github.com/cprice-ping/Profile-PF-Base), with the license either supplied by DevOps, or injected into the Docker container with a volume.\n\nThis set of calls:\n* Accepts EULA\n* Enables the Server Roles\n* Adds PingDirectory as a Data Store\n* Adds a LDAP Password Credential Validator\n* Adds IDP Adapters - Form \\ Form with LIP (SSPR) \\ PingID \\ ID-First\n* Adds an AuthN Policy with Contract (Extended Properties)\n* Adds a Local Identity Profile\n* Authentication API (ID-First & HTML Form with LIP)\n* Adds a SP Connection to HTTPBIN\n* Configures OAuth \\ OIDC\n* Adds a couple of OAuth clients\n\nThis collection is designed to be executed via a Newman container in the stack\n\n```\npf-config:\n    image: postman/newman\n    command: run https://www.getpostman.com/collections/2e0df14dcf26f1ddb39a -e postman_vars.json --insecure\n    volumes: \n      # An environment file should be injected into the image - this file should contain your specfic info and secrets\n      - ./postman_vars.json:/etc/newman/postman_vars.json\n    networks:\n      - pingnet-internal\n```\n      \n",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
@@ -91,6 +91,115 @@
         }
       ],
       "_postman_id": "18a8c929-293b-40d3-8adc-e9809f196055",
+      "description": "This folder contains the call that's used to wait until a desired condition is met.\n\nThe `Pre-request` of the call contains a log event with a timer of 30s. The `Test Script` of the call contains the loop back to this call, and the Condition test that will break the looping.\n\nThe name of the call for the break is `00-Start-API-Calls` -- it's a simple GET request to https://postman-echo.com and allows for this to be always consistent.\n\nThe actual set of API calls for this collection are started right after this GET call.",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "263d6b60-7de9-4ff9-850e-1838ee21a6a3",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "ba5aaee1-d75e-4fca-8667-8ff592b34ad4",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Check PF is Running Copy",
+      "item": [
+        {
+          "name": "Check if Server is up",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "4a7864a9-1358-402a-b81d-bcc6da8044ff",
+                "exec": [
+                  "// Checks to see if the server actually responded",
+                  "// If not, run the call again (with the 30 sec delay)",
+                  "postman.setNextRequest(\"Check if Server is up\");",
+                  "",
+                  "pm.test(\"Server is Up\", function () {",
+                  "    pm.response.to.be.ok;",
+                  "    postman.setNextRequest(\"00-Start-API-Calls\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "f9e66381-07f9-487a-b8e4-f97b5521bef7",
+                "exec": [
+                  "// Puts a 30 sec delay into this call",
+                  "setTimeout(function() {",
+                  " console.log(\"Connecting to Server\");",
+                  "}, 30000);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "82e9cedd-51f5-4984-9e2a-fa5b55d850d9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-XSRF-Header",
+                "value": "pingfederate",
+                "type": "text"
+              }
+            ],
+            "url": "{{pfAdminURL}}/pf-admin-api/v1/license/agreement",
+            "description": "Uses the API endpoint instead of just the heartbeat"
+          },
+          "response": []
+        },
+        {
+          "name": "00-Start-API-Calls",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "cd64bf84-50d5-4ada-aec9-ff1d52f0c5cb",
+                "exec": [
+                  "pm.test(\"Starting Collection\", function () {",
+                  "    pm.response.to.be.status(302);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "e87c6a0a-ec5c-461c-85d7-d07ded68a3d0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "https://postman-echo.com"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "ff17e8c1-c3eb-4157-867a-8ed11da5b0d4",
       "description": "This folder contains the call that's used to wait until a desired condition is met.\n\nThe `Pre-request` of the call contains a log event with a timer of 30s. The `Test Script` of the call contains the loop back to this call, and the Condition test that will break the looping.\n\nThe name of the call for the break is `00-Start-API-Calls` -- it's a simple GET request to https://postman-echo.com and allows for this to be always consistent.\n\nThe actual set of API calls for this collection are started right after this GET call.",
       "event": [
         {
@@ -3008,7 +3117,7 @@
   ],
   "variable": [
     {
-      "id": "a8b7fe81-0130-4cfc-b36e-c28a8cd104ab",
+      "id": "cf8eb20c-1fef-40a4-8d24-3a4667b8a3b4",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
