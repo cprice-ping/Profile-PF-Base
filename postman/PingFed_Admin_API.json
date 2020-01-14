@@ -2580,49 +2580,6 @@
                 "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients/{{deleteClientId}}"
               },
               "response": []
-            },
-            {
-              "name": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "41847d1c-9c1e-4b88-b671-c997621406f0",
-                    "exec": [
-                      "pm.test(\"OIDC Client - CIBA Created\", function () {",
-                      "    pm.response.to.have.status(\"Created\");",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "983dde7a-984a-4e6f-807e-a018785d1d67",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "type": "text",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "X-XSRF-Header",
-                    "type": "text",
-                    "value": "pingfederate"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"clientId\": \"CIBALogon\",\n  \"enabled\": true,\n  \"redirectUris\": [\n    \"com.cpricelab.ciba://cb\",\n    \"https://change.me\"\n  ],\n  \"grantTypes\": [\n    \"IMPLICIT\",\n\t\"AUTHORIZATION_CODE\",\n    \"CIBA\"\n  ],\n  \"name\": \"CIBA Logon\",\n  \"description\": \"This client is used to perform OIDC CIBA Logons\",\n  \"logoUrl\": \"\",\n  \"refreshRolling\": \"SERVER_DEFAULT\",\n  \"persistentGrantExpirationType\": \"SERVER_DEFAULT\",\n  \"persistentGrantExpirationTime\": 0,\n  \"persistentGrantExpirationTimeUnit\": \"DAYS\",\n  \"persistentGrantIdleTimeoutType\": \"SERVER_DEFAULT\",\n  \"persistentGrantIdleTimeout\": 0,\n  \"persistentGrantIdleTimeoutTimeUnit\": \"DAYS\",\n  \"bypassApprovalPage\": true,\n  \"restrictScopes\": false,\n  \"restrictedScopes\": [],\n  \"exclusiveScopes\": [],\n  \"restrictedResponseTypes\": [],\n  \"defaultAccessTokenManagerRef\": {\n    \"id\": \"jwtDefault\"\n  },\n  \"validateUsingAllEligibleAtms\": false,\n  \"oidcPolicy\": {\n    \"policyGroup\": {\n      \"id\": \"OIDCPolicyDefault\"\n    },\n    \"grantAccessSessionRevocationApi\": false,\n    \"pingAccessLogoutCapable\": false,\n    \"pairwiseIdentifierUserType\": false\n  },\n  \"clientAuth\": {\n    \"type\": \"NONE\",\n    \"enforceReplayPrevention\": false\n  },\n  \"extendedParameters\": {\n\t\"authNexp\": {\n    \t\"values\": [\n    \t\t\"Enhanced\"\n      ]\n    }\n  },\n  \"deviceFlowSettingType\": \"SERVER_DEFAULT\",\n  \"requireProofKeyForCodeExchange\": false,\n  \"cibaDeliveryMode\": \"POLL\",\n  \"cibaPollingInterval\": 3,\n  \"cibaRequireSignedRequests\": false,\n  \"cibaUserCodeSupported\": false,\n  \"requestPolicyRef\": {\n    \"id\": \"PINGIDSDK\"\n  },\n  \"requireSignedRequests\": false\n}"
-                },
-                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients"
-              },
-              "response": []
             }
           ],
           "_postman_id": "24318ebe-72cc-4149-8999-aedb7613a319",
@@ -2738,50 +2695,6 @@
                   "raw": "{\n      \"clientId\": \"PingIntrospect\",\n      \"enabled\": true,\n      \"redirectUris\": [],\n      \"grantTypes\": [\n        \"ACCESS_TOKEN_VALIDATION\"\n      ],\n      \"name\": \"Ping Introspect\",\n      \"description\": \"This client is used to Introspect and validate PF-issued access_tokens\",\n      \"logoUrl\": \"\",\n      \"refreshRolling\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationType\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationTime\": 0,\n      \"persistentGrantExpirationTimeUnit\": \"DAYS\",\n      \"persistentGrantIdleTimeoutType\": \"SERVER_DEFAULT\",\n      \"persistentGrantIdleTimeout\": 0,\n      \"persistentGrantIdleTimeoutTimeUnit\": \"DAYS\",\n      \"bypassApprovalPage\": false,\n      \"restrictScopes\": false,\n      \"restrictedScopes\": [],\n      \"exclusiveScopes\": [],\n      \"restrictedResponseTypes\": [],\n      \"defaultAccessTokenManagerRef\": {\n        \"id\": \"jwtDefault\"\n      },\n      \"validateUsingAllEligibleAtms\": true,\n      \"oidcPolicy\": {\n        \"grantAccessSessionRevocationApi\": false,\n        \"pingAccessLogoutCapable\": false\n      },\n      \"clientAuth\": {\n        \"type\": \"SECRET\",\n        \"secret\": \"{{oauthSecret}}\",\n        \"enforceReplayPrevention\": false\n      },\n      \"extendedParameters\": {},\n      \"deviceFlowSettingType\": \"SERVER_DEFAULT\",\n      \"requireSignedRequests\": false\n    }"
                 },
                 "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients"
-              },
-              "response": []
-            },
-            {
-              "name": "Add CIBALogon OIDC Client Copy",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "41847d1c-9c1e-4b88-b671-c997621406f0",
-                    "exec": [
-                      "pm.test(\"OIDC Client - CIBA Created\", function () {",
-                      "    pm.response.to.have.status(\"Created\");",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "8f34fa0b-8580-41d2-a877-9ffd75436013",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "type": "text",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "X-XSRF-Header",
-                    "type": "text",
-                    "value": "pingfederate"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"clientId\": \"CIBALogon\",\n  \"enabled\": true,\n  \"redirectUris\": [\n    \"com.cpricelab.ciba://cb\",\n    \"https://change.me\"\n  ],\n  \"grantTypes\": [\n    \"IMPLICIT\",\n\t\"AUTHORIZATION_CODE\",\n    \"CIBA\"\n  ],\n  \"name\": \"CIBA Logon\",\n  \"description\": \"This client is used to perform OIDC CIBA Logons\",\n  \"logoUrl\": \"\",\n  \"refreshRolling\": \"SERVER_DEFAULT\",\n  \"persistentGrantExpirationType\": \"SERVER_DEFAULT\",\n  \"persistentGrantExpirationTime\": 0,\n  \"persistentGrantExpirationTimeUnit\": \"DAYS\",\n  \"persistentGrantIdleTimeoutType\": \"SERVER_DEFAULT\",\n  \"persistentGrantIdleTimeout\": 0,\n  \"persistentGrantIdleTimeoutTimeUnit\": \"DAYS\",\n  \"bypassApprovalPage\": true,\n  \"restrictScopes\": false,\n  \"restrictedScopes\": [],\n  \"exclusiveScopes\": [\n  \t\"ciba:stack-up:*\"\n  \t],\n  \"restrictedResponseTypes\": [],\n  \"defaultAccessTokenManagerRef\": {\n    \"id\": \"jwtDefault\"\n  },\n  \"validateUsingAllEligibleAtms\": false,\n  \"oidcPolicy\": {\n    \"policyGroup\": {\n      \"id\": \"OIDCPolicyDefault\"\n    },\n    \"grantAccessSessionRevocationApi\": false,\n    \"pingAccessLogoutCapable\": false,\n    \"pairwiseIdentifierUserType\": false\n  },\n  \"clientAuth\": {\n    \"type\": \"NONE\",\n    \"enforceReplayPrevention\": false\n  },\n  \"extendedParameters\": {\n\t\"authNexp\": {\n    \t\"values\": [\n    \t\t\"Enhanced\"\n      ]\n    }\n  },\n  \"deviceFlowSettingType\": \"SERVER_DEFAULT\",\n  \"requireProofKeyForCodeExchange\": false,\n  \"cibaDeliveryMode\": \"POLL\",\n  \"cibaPollingInterval\": 3,\n  \"cibaRequireSignedRequests\": false,\n  \"cibaUserCodeSupported\": false,\n  \"requestPolicyRef\": {\n    \"id\": \"PINGIDSDK\"\n  },\n  \"requireSignedRequests\": false\n}"
-                },
-                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients",
-                "description": "This client can be used to issue tokens for several Ping Products (using Exclusive Scopes):\n\n* PD DirAPI (`pd:dir:access`)\n* PD Consent API (`pd:consents:unpriv` | `pd:consents:priv`)\n* PD Delegated Admin App (`urn:pingidentity:directory-delegated-admin`)\n* PF Dynamic Client Registration (`pf:client:reg`)"
               },
               "response": []
             }
@@ -3095,7 +3008,7 @@
   ],
   "variable": [
     {
-      "id": "f388778b-1972-43c5-9100-28bc0ffcce7f",
+      "id": "a4fca7c0-7c20-4421-91be-b255b7014905",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
