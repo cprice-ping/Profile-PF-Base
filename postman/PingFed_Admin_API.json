@@ -862,6 +862,20 @@
               "item": [
                 {
                   "name": "Get existing OAuth clients Copy",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "6809dd36-423d-4e9b-b553-f4982b2b4626",
+                        "exec": [
+                          "pm.test(\"ac_oidc_client OAuth Client deleted\", function () {",
+                          "    pm.response.status.to.be(204);",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
                   "_postman_id": "5fca494c-9e7f-43bf-9fab-60e1701d6f23",
                   "protocolProfileBehavior": {
                     "disableBodyPruning": true
@@ -881,6 +895,23 @@
                 },
                 {
                   "name": "Get existing OAuth clients",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "a112a461-63e3-4701-b1c8-b39bdebe1d92",
+                        "exec": [
+                          "pm.test(\"OAuth Clients retrieved\", function () {",
+                          "    pm.response.to.be.ok;",
+                          "    ",
+                          "    var response = pm.response.json();",
+                          "    pm.environment.set(\"deleteClientId\", response.items[0].clientId);",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
                   "_postman_id": "bbc44218-c085-4e49-a088-14dc70d9b202",
                   "protocolProfileBehavior": {
                     "disableBodyPruning": true
@@ -2923,7 +2954,7 @@
   ],
   "variable": [
     {
-      "id": "7cfa5e47-8ed4-4f06-829e-68d6cc2fcc43",
+      "id": "d652a235-af8c-44fe-8de5-9963bfb506ab",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
