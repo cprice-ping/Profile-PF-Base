@@ -856,6 +856,13 @@
               ],
               "_postman_id": "c39202ef-ac13-4153-826c-648fb045bff1",
               "_postman_isSubFolder": true
+            },
+            {
+              "name": "Delete existing OAuth clients",
+              "item": [],
+              "_postman_id": "24318ebe-72cc-4149-8999-aedb7613a319",
+              "description": "The GTE PD Baseline includes a set of OAuth clients that are used by the OAuth Playground.  \n\nI don't like the way they're created \\ wired, so this call removes then before creating the OAuth \\ OIDC clients I want in PF-Base.",
+              "_postman_isSubFolder": true
             }
           ],
           "_postman_id": "0a73ed2a-4eb0-4b7c-b797-c36c752947db",
@@ -2858,7 +2865,7 @@
   ],
   "variable": [
     {
-      "id": "eb7606dd-4d49-4db3-87b8-4cb44b46f802",
+      "id": "bc9a2ecf-256d-4cac-9ba9-16864af66f41",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
