@@ -10,7 +10,6 @@ services:
     environment:
     - SERVER_PROFILE_URL=https://github.com/cprice-ping/Profile-PF-Base.git
     - SERVER_PROFILE_PATH=pingfed
-    - SERVER_PROFILE_BRANCH=api-testing
     #volumes:
     #  - ${HOME}/projects/devops/volumes/full-stack.pingfederate:/opt/out
     #  - ${HOME}/projects/devops/pingidentity-server-profiles/baseline/pingfederate:/opt/in
