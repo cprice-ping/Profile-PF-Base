@@ -756,7 +756,7 @@
                       "mode": "raw",
                       "raw": "{\n    \"id\": \"SearchBase\",\n    \"type\": \"STRING\",\n    \"stringValue\": \"ou=grants,{{userBaseDN}}\"\n}"
                     },
-                    "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/hivemodule"
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.oauth20.token.AccessGrantManagerLDAPPingDirectoryImpl/SearchBase"
                   },
                   "response": []
                 }
@@ -2974,7 +2974,7 @@
   ],
   "variable": [
     {
-      "id": "34b3f501-b865-41b4-8ef1-ff2bc3befdd0",
+      "id": "0ad9712b-63c2-4362-b3d1-ad3bba8a8763",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
