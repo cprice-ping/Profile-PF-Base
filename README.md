@@ -1,8 +1,10 @@
 This profile provides a base configuration for PingFederate.
 
-It uses Postman to do an Admin API collection set to fully configure PF from a Ping Docker image.
+It uses Postman to do an Admin API collection set to (almost) fully configure PF from a Ping Docker image.
 
 The Postman collection is documented here: [PF Admin API - Configure Server](https://documenter.getpostman.com/view/1239082/SWLh4RQB)
+
+Since you can't modify `hivemodule.xml` with the Admin API, there's a hook script that is called to do the changes -- [50-before-post-start.sh](pingfed/hooks/50-before-post-start.sh)
 
 ---
 **NOTE:** This will break existing Profiles based on `Profile-PF-Base` -- to resolve, you can:
