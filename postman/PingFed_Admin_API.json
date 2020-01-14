@@ -2656,6 +2656,50 @@
               "response": []
             },
             {
+              "name": "Create OIDC Client (PingLogon) Copy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "41847d1c-9c1e-4b88-b671-c997621406f0",
+                    "exec": [
+                      "pm.test(\"OIDC Client - PingLogon Created\", function () {",
+                      "    pm.response.to.have.status(\"Created\");",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "90084c99-4052-4ab3-9836-54aef291779b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-XSRF-Header",
+                    "type": "text",
+                    "value": "pingfederate"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n      \"clientId\": \"PingLogon\",\n      \"enabled\": true,\n      \"redirectUris\": [\n        \"https://change.me\",\n        \"https://*/delegator/*\"\n      ],\n      \"grantTypes\": [\n        \"IMPLICIT\",\n        \"AUTHORIZATION_CODE\"\n      ],\n      \"name\": \"Ping Logon\",\n      \"description\": \"This client is used to perform OIDC logons to Ping products:\\nPA Admin\\nDelegated Admin\\nConsent \\\\ DirAPI\\nDG (Symphonic)\",\n      \"logoUrl\": \"\",\n      \"refreshRolling\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationType\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationTime\": 0,\n      \"persistentGrantExpirationTimeUnit\": \"DAYS\",\n      \"persistentGrantIdleTimeoutType\": \"SERVER_DEFAULT\",\n      \"persistentGrantIdleTimeout\": 0,\n      \"persistentGrantIdleTimeoutTimeUnit\": \"DAYS\",\n      \"bypassApprovalPage\": true,\n      \"restrictScopes\": false,\n      \"restrictedScopes\": [],\n      \"exclusiveScopes\": [\n        \"pd:consents:priv\",\n        \"pd:consents:unpriv\",\n        \"pd:dir:access\",\n        \"urn:pingidentity:directory-delegated-admin\"\n      ],\n      \"restrictedResponseTypes\": [],\n      \"defaultAccessTokenManagerRef\": {\n        \"id\": \"jwtDefault\"\n      },\n      \"validateUsingAllEligibleAtms\": false,\n      \"oidcPolicy\": {\n        \"policyGroup\": {\n          \"id\": \"OIDCPolicyDefault\"\n        },\n        \"grantAccessSessionRevocationApi\": false,\n        \"pingAccessLogoutCapable\": false,\n        \"pairwiseIdentifierUserType\": false\n      },\n      \"clientAuth\": {\n        \"type\": \"NONE\",\n        \"enforceReplayPrevention\": false\n      },\n      \"extendedParameters\": {\n    \t\"authNexp\": {\n        \t\"values\": [\n        \t\t\"Basic\"\n          ]\n        }\n      },\n      \"deviceFlowSettingType\": \"SERVER_DEFAULT\",\n      \"requireProofKeyForCodeExchange\": false,\n      \"requireSignedRequests\": false\n    }"
+                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients",
+                "description": "This client can be used to issue tokens for several Ping Products (using Exclusive Scopes):\n\n* PD DirAPI (`pd:dir:access`)\n* PD Consent API (`pd:consents:unpriv` | `pd:consents:priv`)\n* PD Delegated Admin App (`urn:pingidentity:directory-delegated-admin`)\n* PF Dynamic Client Registration (`pf:client:reg`)"
+              },
+              "response": []
+            },
+            {
               "name": "Create OIDC Client (PingIntrospect)",
               "event": [
                 {
@@ -3008,7 +3052,7 @@
   ],
   "variable": [
     {
-      "id": "b53dae22-670c-47b2-94ed-941070d3414b",
+      "id": "f9747e67-6709-4ff7-8fe3-087e495770a1",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
