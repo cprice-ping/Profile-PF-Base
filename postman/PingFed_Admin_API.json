@@ -1021,9 +1021,9 @@
                       "    return output;",
                       "};",
                       "",
-                      "var licenseBase64 = base64object(pm.environment.get('pingId'));",
+                      "var pidBase64 = base64object(pm.environment.get('pingId'));",
                       "",
-                      "pm.environment.set('encodedPingID', licenseBase64);"
+                      "pm.environment.set('encodedPingID', pidBase64);"
                     ],
                     "type": "text/javascript"
                   }
@@ -3117,7 +3117,7 @@
   ],
   "variable": [
     {
-      "id": "cf8eb20c-1fef-40a4-8d24-3a4667b8a3b4",
+      "id": "859201b0-7d74-4fa5-9981-5c940616707a",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
