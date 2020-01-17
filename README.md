@@ -4,7 +4,13 @@ It uses Postman to do an Admin API collection set to (almost) fully configure PF
 
 The Postman collection is documented here: [PF Admin API - Base](https://documenter.getpostman.com/view/1239082/SWLh4RQB)
 
-Since you can't modify `hivemodule.xml` with the Admin API, there's a hook script that is called to do the changes -- [50-before-post-start.sh](pingfed/hooks/50-before-post-start.sh)
+Since you can't modify `hivemodule.xml` with the Admin API, there's a hook script that is called to do the changes:  
+[50-before-post-start.sh](pingfed/hooks/50-before-post-start.sh)
+
+Changes made:
+* LDAP (PD) - OAuth Client
+* LDAP (PD) - OAuth Access Grants
+* LDAP (PD) - AuthN Sessions
 
 ---
 **NOTE:** This will break existing Profiles based on `Profile-PF-Base` -- to resolve, you can:
