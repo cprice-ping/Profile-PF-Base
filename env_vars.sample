@@ -1,7 +1,7 @@
 PING_IDENTITY_ACCEPT_EULA=YES
 
-# Password used by PF to talk to PD
-PF_USER_PWD=S0meP@ssword1
+# Password used by PF to talk to PD (Default with Baseline PD is 2FederateMore)
+PF_USER_PWD=2FederateM0re
 
 # PF Logging Level
 PF_LOG_LEVEL=INFO
