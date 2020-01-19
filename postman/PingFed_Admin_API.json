@@ -23,7 +23,7 @@
                   "",
                   "pm.test(\"Server is Up\", function () {",
                   "    pm.response.to.be.ok;",
-                  "    postman.setNextRequest(\"00-Start-API-Calls\");",
+                  "    postman.setNextRequest(\"Accept EULA\");",
                   "});",
                   ""
                 ],
@@ -91,115 +91,6 @@
         }
       ],
       "_postman_id": "18a8c929-293b-40d3-8adc-e9809f196055",
-      "description": "This folder contains the call that's used to wait until a desired condition is met.\n\nThe `Pre-request` of the call contains a log event with a timer of 30s. The `Test Script` of the call contains the loop back to this call, and the Condition test that will break the looping.\n\nThe name of the call for the break is `00-Start-API-Calls` -- it's a simple GET request to https://postman-echo.com and allows for this to be always consistent.\n\nThe actual set of API calls for this collection are started right after this GET call.",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "263d6b60-7de9-4ff9-850e-1838ee21a6a3",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "ba5aaee1-d75e-4fca-8667-8ff592b34ad4",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "name": "Check PF is Running Copy",
-      "item": [
-        {
-          "name": "Check if Server is up",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "4a7864a9-1358-402a-b81d-bcc6da8044ff",
-                "exec": [
-                  "// Checks to see if the server actually responded",
-                  "// If not, run the call again (with the 30 sec delay)",
-                  "postman.setNextRequest(\"Check if Server is up\");",
-                  "",
-                  "pm.test(\"Server is Up\", function () {",
-                  "    pm.response.to.be.ok;",
-                  "    postman.setNextRequest(\"00-Start-API-Calls\");",
-                  "});",
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "f9e66381-07f9-487a-b8e4-f97b5521bef7",
-                "exec": [
-                  "// Puts a 30 sec delay into this call",
-                  "setTimeout(function() {",
-                  " console.log(\"Connecting to Server\");",
-                  "}, 30000);"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "82e9cedd-51f5-4984-9e2a-fa5b55d850d9",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-XSRF-Header",
-                "value": "pingfederate",
-                "type": "text"
-              }
-            ],
-            "url": "{{pfAdminURL}}/pf-admin-api/v1/license/agreement",
-            "description": "Uses the API endpoint instead of just the heartbeat"
-          },
-          "response": []
-        },
-        {
-          "name": "00-Start-API-Calls",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "cd64bf84-50d5-4ada-aec9-ff1d52f0c5cb",
-                "exec": [
-                  "pm.test(\"Starting Collection\", function () {",
-                  "    pm.response.to.be.status(302);",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "e87c6a0a-ec5c-461c-85d7-d07ded68a3d0",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "https://postman-echo.com"
-          },
-          "response": []
-        }
-      ],
-      "_postman_id": "ff17e8c1-c3eb-4157-867a-8ed11da5b0d4",
       "description": "This folder contains the call that's used to wait until a desired condition is met.\n\nThe `Pre-request` of the call contains a log event with a timer of 30s. The `Test Script` of the call contains the loop back to this call, and the Condition test that will break the looping.\n\nThe name of the call for the break is `00-Start-API-Calls` -- it's a simple GET request to https://postman-echo.com and allows for this to be always consistent.\n\nThe actual set of API calls for this collection are started right after this GET call.",
       "event": [
         {
@@ -624,7 +515,7 @@
                     ],
                     "body": {
                       "mode": "raw",
-                      "raw": "    {\n      \"type\": \"LDAP\",\n      \"id\": \"LDAP-PingDirectory\",\n      \"maskAttributeValues\": false,\n      \"hostnames\": [\n        \"pingdirectory\"\n      ],\n      \"ldapType\": \"PING_DIRECTORY\",\n      \"bindAnonymously\": false,\n      \"userDN\": \"cn=pingfederate\",\n\t  \"password\": \"{{pingdirAdminPwd}}\",\n      \"useSsl\": false,\n      \"useDnsSrvRecords\": false,\n      \"name\": \"PingDirectory\",\n      \"testOnBorrow\": false,\n      \"testOnReturn\": false,\n      \"createIfNecessary\": true\n    }"
+                      "raw": "    {\n      \"type\": \"LDAP\",\n      \"id\": \"LDAP-PingDirectory\",\n      \"maskAttributeValues\": false,\n      \"hostnames\": [\n        \"pingdirectory\"\n      ],\n      \"ldapType\": \"PING_DIRECTORY\",\n      \"bindAnonymously\": false,\n      \"userDN\": \"cn=pingfederate\",\n\t  \"password\": \"{{pfAdminPwd}}\",\n      \"useSsl\": false,\n      \"useDnsSrvRecords\": false,\n      \"name\": \"PingDirectory\",\n      \"testOnBorrow\": false,\n      \"testOnReturn\": false,\n      \"createIfNecessary\": true\n    }"
                     },
                     "url": "{{pfAdminURL}}/pf-admin-api/v1/dataStores"
                   },
@@ -2578,8 +2469,6 @@
                   "script": {
                     "id": "6809dd36-423d-4e9b-b553-f4982b2b4626",
                     "exec": [
-                      "console.log(pm.request);",
-                      "",
                       "pm.test(\"ac_oidc_client OAuth Client deleted\", function () {",
                       "    pm.response.to.have.status(204);",
                       "});"
@@ -3089,8 +2978,8 @@
   "auth": {
     "type": "basic",
     "basic": {
-      "password": "{{pingdirAdminPwd}}",
-      "username": "{{pingdirAdmin}}"
+      "password": "{{pfAdminPwd}}",
+      "username": "{{pfAdmin}}"
     }
   },
   "event": [
@@ -3117,7 +3006,7 @@
   ],
   "variable": [
     {
-      "id": "28a11dd5-0b8c-4307-8f98-b2b9c5a1bcb9",
+      "id": "d4958506-6ee6-4275-8473-9858238a466a",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
