@@ -23,7 +23,7 @@
                   "",
                   "pm.test(\"Server is Up\", function () {",
                   "    pm.response.to.be.ok;",
-                  "    postman.setNextRequest(\"00-Start-API-Calls\");",
+                  "    postman.setNextRequest(\"Accept EULA\");",
                   "});",
                   ""
                 ],
@@ -3087,8 +3087,8 @@
   "auth": {
     "type": "basic",
     "basic": {
-      "password": "{{pingdirAdminPwd}}",
-      "username": "{{pingdirAdmin}}"
+      "password": "{{pfAdminPwd}}",
+      "username": "{{pfAdmin}}"
     }
   },
   "event": [
@@ -3115,7 +3115,7 @@
   ],
   "variable": [
     {
-      "id": "9e73712b-5069-4f86-80d1-17da95e79230",
+      "id": "47dd1b14-dd61-4593-9afc-524333d3e662",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
