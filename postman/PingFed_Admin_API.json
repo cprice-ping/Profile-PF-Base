@@ -2973,6 +2973,254 @@
           }
         }
       ]
+    },
+    {
+      "name": "Test Use Cases Copy",
+      "item": [
+        {
+          "name": "Test SAML Connection (Basic)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "3d23267c-44f2-45ac-9e86-c538560e2537",
+                "exec": [
+                  "const $ = cheerio.load(responseBody);",
+                  "    ",
+                  "pm.test(\"SAML Assertion created\", function () {",
+                  "    pm.expect($(\"input[name='SAMLResponse']\").val()).to.not.be.empty; ",
+                  "    console.log(\"SAML Assertion was created\", $(\"input[name='SAMLResponse']\").val());",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "8e70412e-cbb9-41ab-9771-5091b83bd206",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "pf.username",
+                  "value": "user.0",
+                  "type": "text"
+                },
+                {
+                  "key": "pf.pass",
+                  "value": "2FederateM0re",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{pfBaseURL}}/idp/startSSO.ping?PartnerSpId=Dummy-SAML",
+              "host": [
+                "{{pfBaseURL}}"
+              ],
+              "path": [
+                "idp",
+                "startSSO.ping"
+              ],
+              "query": [
+                {
+                  "key": "PartnerSpId",
+                  "value": "Dummy-SAML"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Test OIDC Token request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "bc6b5143-869c-4bb1-b81e-e5d4a03511ea",
+                "exec": [
+                  "pm.test(\"OIDC AuthZ Code returned\", function () {",
+                  "    pm.response.to.have.status(302);",
+                  "        var loc = pm.response.headers.get(\"location\");",
+                  "        var authzCode = loc.substr(loc.search(\"code=\") + 5);",
+                  "",
+                  "        // Parse out the Code value",
+                  "        pm.environment.set(\"authzCode\", authzCode);",
+                  "        console.log(\"AuthZ Code:\", authzCode);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "5e7f21eb-f0fc-46d3-952d-5822d50d92eb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "pf.username",
+                  "value": "user.0",
+                  "type": "text"
+                },
+                {
+                  "key": "pf.pass",
+                  "value": "2FederateM0re",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{pfBaseURL}}/as/authorization.oauth2?response_type=code&client_id=PingLogon&redirect_uri=https://change.me",
+              "host": [
+                "{{pfBaseURL}}"
+              ],
+              "path": [
+                "as",
+                "authorization.oauth2"
+              ],
+              "query": [
+                {
+                  "key": "response_type",
+                  "value": "code"
+                },
+                {
+                  "key": "client_id",
+                  "value": "PingLogon"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://change.me"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Swap Code for Tokens",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "dbee2997-28a8-42e5-ab46-915d74cada50",
+                "exec": [
+                  "function parseJwt (token) {",
+                  "            var base64Url = token.split('.')[1];",
+                  "            var base64 = base64Url.replace('-', '+').replace('_', '/');",
+                  "            return JSON.parse(atob(base64));",
+                  "        }",
+                  "",
+                  "",
+                  "pm.test(\"Tokens returned\", function () {",
+                  "    ",
+                  "    var jsonData = pm.response.json();",
+                  "    ",
+                  "    pm.expect(jsonData.access_token).to.not.be.empty;",
+                  "    console.log(\"Access Token: \", parseJwt(jsonData.access_token));",
+                  "    ",
+                  "    console.log(\"--------------\");",
+                  "    ",
+                  "    pm.expect(jsonData.id_token).to.not.be.empty;",
+                  "    pm.environment.set(\"id_token\", jsonData.id_token );",
+                  "    console.log(\"ID Token: \", parseJwt(jsonData.id_token));",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "29692679-dfc7-45fe-a1bd-b96d92a87a1d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": {
+                "password": "",
+                "username": "PingLogon"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{pfBaseURL}}/as/token.oauth2?grant_type=authorization_code&redirect_uri=https://change.me&code={{authzCode}}",
+              "host": [
+                "{{pfBaseURL}}"
+              ],
+              "path": [
+                "as",
+                "token.oauth2"
+              ],
+              "query": [
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://change.me"
+                },
+                {
+                  "key": "code",
+                  "value": "{{authzCode}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "d65937d8-6259-46fc-828c-3da72cab31d5",
+      "description": "Test to see if the connections are up:\n\n* SAML Connection -- base64 encoded Assertion will be checked\n* OIDC -- Performs a OIDC Code flow and Token Swap (requires `--ignore-redirects`)\n\nNote: Minted tokens can be seen in the service log",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "e359e545-c9a4-4d03-9b49-d3d5faac809b",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "5aca5b7e-abbc-4ec0-9713-40468b9cb6c0",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
     }
   ],
   "auth": {
@@ -3006,7 +3254,7 @@
   ],
   "variable": [
     {
-      "id": "e49bb26d-2616-49d0-94fc-624e472616f7",
+      "id": "56aa9567-1ee0-444a-bbce-d4489b00a895",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
