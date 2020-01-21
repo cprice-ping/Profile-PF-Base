@@ -12,6 +12,8 @@ Changes made:
 * LDAP (PD) - OAuth Access Grants
 * LDAP (PD) - AuthN Sessions
 
+This Profile also installs the **Agentless v1.5.1 Adapter** to enable use cases like External OAuth Consent. 
+
 ---
 **NOTE:** This will break existing Profiles based on `Profile-PF-Base` -- to resolve, you can:
 
