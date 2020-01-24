@@ -210,7 +210,7 @@
               "response": []
             },
             {
-              "name": "Server Settings Copy",
+              "name": "Add API Account",
               "event": [
                 {
                   "listen": "test",
@@ -240,25 +240,25 @@
                 "disableBodyPruning": true
               },
               "request": {
-                "method": "PUT",
+                "method": "POST",
                 "header": [
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
+                    "type": "text",
+                    "value": "application/json"
                   },
                   {
                     "key": "X-XSRF-Header",
-                    "value": "PingFederate",
-                    "type": "text"
+                    "type": "text",
+                    "value": "PingFederate"
                   }
                 ],
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"contactInfo\": {\n    \"company\": \"PF Demo\"\n  },\n  \"rolesAndProtocols\": {\n    \"oauthRole\": {\n      \"enableOauth\": {{oauthEnabled}},\n      \"enableOpenIdConnect\": {{oauthEnabled}}\n    },\n    \"idpRole\": {\n      \"enable\": true,\n      \"saml20Profile\": {\n        \"enable\": true,\n        \"enableAutoConnect\": false\n      },\n      \"enableOutboundProvisioning\": {{provisioningEnabled}},\n      \"enableSaml11\": false,\n      \"enableSaml10\": false,\n      \"enableWsFed\": true,\n      \"enableWsTrust\": {{wsTrustEnabled}}\n    },\n    \"spRole\": {\n      \"enable\": true,\n      \"saml20Profile\": {\n        \"enable\": true,\n        \"enableXASP\": false,\n        \"enableAutoConnect\": false\n      },\n      \"enableSaml11\": false,\n      \"enableSaml10\": false,\n      \"enableWsFed\": false,\n      \"enableWsTrust\": false,\n      \"enableOpenIDConnect\": true,\n      \"enableInboundProvisioning\": false\n    },\n    \"enableIdpDiscovery\": false\n  },\n  \"federationInfo\": {\n    \"baseUrl\": \"{{pfBaseURL}}\",\n    \"saml2EntityId\": \"{{pfBaseURL}}\",\n    \"autoConnectEntityId\": \"{{pfBaseURL}}\",\n    \"saml1xIssuerId\": \"{{pfBaseURL}}\",\n    \"saml1xSourceId\": \"{{pfBaseURL}}\",\n    \"wsfedRealm\": \"{{pfBaseURL}}\"\n  }\n}"
                 },
-                "url": "{{pfAdminURL}}/pf-admin-api/v1/serverSettings"
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/administrativeAccounts"
               },
               "response": []
             },
@@ -3110,7 +3110,7 @@
   ],
   "variable": [
     {
-      "id": "d71ee161-e4f1-49ba-ae85-b8ca75198bf1",
+      "id": "d1c2a6e2-eea2-42db-9398-b9df58965b85",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
