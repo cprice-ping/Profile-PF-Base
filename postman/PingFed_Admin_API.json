@@ -1571,6 +1571,43 @@
           "name": "OAuth Config - AS Settings",
           "item": [
             {
+              "name": "Configure AS Settings",
+              "item": [
+                {
+                  "name": "Configure AS Settings",
+                  "_postman_id": "a0e97e01-169d-40ff-8a89-a7254dfa5fe9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-XSRF-Header",
+                        "value": "pingfederate",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"authorizationCodeTimeout\": 60,\n  \"authorizationCodeEntropy\": 30,\n  \"persistentGrantIdleTimeout\": 30,\n  \"persistentGrantIdleTimeoutTimeUnit\": \"DAYS\",\n  \"refreshTokenLength\": 42,\n  \"rollRefreshTokenValues\": false,\n  \"refreshRollingInterval\": 0,\n  \"persistentGrantReuseGrantTypes\": [\n    \"IMPLICIT\"\n  ],\n  \"persistentGrantContract\": {\n    \"extendedAttributes\": [],\n    \"coreAttributes\": [\n      {\n        \"name\": \"USER_KEY\"\n      },\n      {\n        \"name\": \"USER_NAME\"\n      }\n    ]\n  },\n  \"bypassAuthorizationForApprovedGrants\": false,\n  \"allowUnidentifiedClientROCreds\": false,\n  \"allowUnidentifiedClientExtensionGrants\": false,\n  \"tokenEndpointBaseUrl\": \"\",\n  \"userAuthorizationUrl\": \"\",\n  \"registeredAuthorizationPath\": \"\",\n  \"pendingAuthorizationTimeout\": 600,\n  \"bypassActivationCodeConfirmation\": false,\n  \"devicePollingInterval\": 5,\n  \"userAuthorizationConsentPageSetting\": \"INTERNAL\",\n  \"atmIdForOAuthGrantManagement\": \"\",\n  \"scopeForOAuthGrantManagement\": \"\",\n  \"allowedOrigins\": [\n    \"https://{{cors_host}}\",\n    \"http://{{cors_host}}\"\n  ],\n  \"trackUserSessionsForLogout\": false\n}"
+                    },
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authServerSettings"
+                  },
+                  "response": []
+                }
+              ],
+              "_postman_id": "86416b7e-666b-44db-9a83-2931c96625e3",
+              "description": "Add CORS for Delegator",
+              "_postman_isSubFolder": true
+            },
+            {
               "name": "Scope Management",
               "item": [
                 {
@@ -3006,7 +3043,7 @@
   ],
   "variable": [
     {
-      "id": "6dbbe54f-8772-4b7f-a573-96edbfb7cc17",
+      "id": "6fe70b8d-7c87-4d9e-993c-55a90a6b39e6",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
