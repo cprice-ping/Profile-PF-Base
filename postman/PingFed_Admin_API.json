@@ -2237,6 +2237,13 @@
               "_postman_id": "9a672a20-12f5-410d-810b-a96e69dc7d84",
               "description": "Creates a basic OIDC Policy.\n\nContains only the `sub` claim",
               "_postman_isSubFolder": true
+            },
+            {
+              "name": "Configure AS Settings",
+              "item": [],
+              "_postman_id": "86416b7e-666b-44db-9a83-2931c96625e3",
+              "description": "Add CORS for Delegator",
+              "_postman_isSubFolder": true
             }
           ],
           "_postman_id": "8b3b3ef2-5114-4093-954e-21ad2faea31b",
@@ -3006,7 +3013,7 @@
   ],
   "variable": [
     {
-      "id": "6dbbe54f-8772-4b7f-a573-96edbfb7cc17",
+      "id": "824bb437-9640-4685-a1be-a1764d93807d",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
