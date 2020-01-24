@@ -1571,6 +1571,27 @@
           "name": "OAuth Config - AS Settings",
           "item": [
             {
+              "name": "Configure AS Settings",
+              "item": [
+                {
+                  "name": "Configure AS Settings",
+                  "_postman_id": "a0e97e01-169d-40ff-8a89-a7254dfa5fe9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": ""
+                  },
+                  "response": []
+                }
+              ],
+              "_postman_id": "86416b7e-666b-44db-9a83-2931c96625e3",
+              "description": "Add CORS for Delegator",
+              "_postman_isSubFolder": true
+            },
+            {
               "name": "Scope Management",
               "item": [
                 {
@@ -2236,13 +2257,6 @@
               ],
               "_postman_id": "9a672a20-12f5-410d-810b-a96e69dc7d84",
               "description": "Creates a basic OIDC Policy.\n\nContains only the `sub` claim",
-              "_postman_isSubFolder": true
-            },
-            {
-              "name": "Configure AS Settings",
-              "item": [],
-              "_postman_id": "86416b7e-666b-44db-9a83-2931c96625e3",
-              "description": "Add CORS for Delegator",
               "_postman_isSubFolder": true
             }
           ],
@@ -3013,7 +3027,7 @@
   ],
   "variable": [
     {
-      "id": "97f5458d-8951-4b28-ae2a-bbfd02538561",
+      "id": "dc87d265-bd72-45f2-a471-f470c706e27d",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
