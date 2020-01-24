@@ -20,3 +20,9 @@ sed -e "s#<construct class=\"org.sourceid.oauth20.domain.ClientManagerXmlFileImp
     "/opt/out/instance/server/default/conf/META-INF/hivemodule.xml" > "/opt/out/instance/server/default/conf/META-INF/hivemodule.xml-modified"
 
 mv /opt/out/instance/server/default/conf/META-INF/hivemodule.xml-modified /opt/out/instance/server/default/conf/META-INF/hivemodule.xml
+
+echo "##########
+"
+cat /opt/out/instance/server/default/conf/META-INF/hivemodule.xml
+echo "
+##########"
