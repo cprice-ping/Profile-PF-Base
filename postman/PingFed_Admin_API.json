@@ -171,45 +171,6 @@
           "name": "Initial Server Config",
           "item": [
             {
-              "name": "Get License",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "dad3bd03-a53e-472d-96ae-5dc8c7f52a29",
-                    "exec": [
-                      "pm.test(\"PF License retrieved\", function () {",
-                      "    pm.response.to.be.ok;",
-                      "    ",
-                      "    var response = pm.response.json();",
-                      "    pm.environment.set(\"wsTrustEnabled\", response.wsTrustEnabled);    ",
-                      "    pm.environment.set(\"oauthEnabled\", response.oauthEnabled);",
-                      "    pm.environment.set(\"provisioningEnabled\", response.provisioningEnabled);",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "bb62736f-e2c5-4d51-b4b0-a556cd961700",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "X-XSRF-Header",
-                    "value": "pingfederate",
-                    "type": "text"
-                  }
-                ],
-                "url": "{{pfAdminURL}}/pf-admin-api/v1/license",
-                "description": "Used to configure Server Roles that match the license"
-              },
-              "response": []
-            },
-            {
               "name": "Add API Account",
               "event": [
                 {
@@ -259,6 +220,45 @@
                   "raw": "{\n  \"username\": \"api-admin\",\n  \"password\": \"2FederateM0re\",\n  \"active\": \"true\",\n  \"description\": \"Used for API calls\",\n  \"auditor\": \"false\",\n  \"roles\": [\n    \"ADMINISTRATOR\",\n    \"CRYPTO_ADMINISTRATOR\"\n  ]\n}"
                 },
                 "url": "{{pfAdminURL}}/pf-admin-api/v1/administrativeAccounts"
+              },
+              "response": []
+            },
+            {
+              "name": "Get License",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "dad3bd03-a53e-472d-96ae-5dc8c7f52a29",
+                    "exec": [
+                      "pm.test(\"PF License retrieved\", function () {",
+                      "    pm.response.to.be.ok;",
+                      "    ",
+                      "    var response = pm.response.json();",
+                      "    pm.environment.set(\"wsTrustEnabled\", response.wsTrustEnabled);    ",
+                      "    pm.environment.set(\"oauthEnabled\", response.oauthEnabled);",
+                      "    pm.environment.set(\"provisioningEnabled\", response.provisioningEnabled);",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "bb62736f-e2c5-4d51-b4b0-a556cd961700",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-XSRF-Header",
+                    "value": "pingfederate",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/license",
+                "description": "Used to configure Server Roles that match the license"
               },
               "response": []
             },
@@ -3110,7 +3110,7 @@
   ],
   "variable": [
     {
-      "id": "06ca5f49-abd2-497b-a576-7e49fcdd1620",
+      "id": "ed1a83b5-c9de-4282-9450-bd904d6a67a7",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
