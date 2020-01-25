@@ -50,11 +50,7 @@
           },
           "request": {
             "auth": {
-              "type": "basic",
-              "basic": {
-                "username": "agentless",
-                "password": "2FederateM0re"
-              }
+              "type": "noauth"
             },
             "method": "PUT",
             "header": [
@@ -3130,7 +3126,7 @@
   ],
   "variable": [
     {
-      "id": "b0c71421-93b5-480b-acc1-b7c8e43f7edb",
+      "id": "da38adde-b9b5-44ee-a1de-25c109f23cf4",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
