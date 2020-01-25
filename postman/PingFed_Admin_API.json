@@ -19,11 +19,11 @@
                 "exec": [
                   "// Checks to see if the server actually responded",
                   "// If not, run the call again (with the 30 sec delay)",
-                  "postman.setNextRequest(\"Add API Account\");",
+                  "postman.setNextRequest(\"00-Start-API-Calls\");",
                   "",
                   "pm.test(\"Server is Up\", function () {",
                   "    pm.response.to.be.ok;",
-                  "    postman.setNextRequest(\"Accept EULA\");",
+                  "    postman.setNextRequest(\"Add API Account\");",
                   "});",
                   ""
                 ],
@@ -56,14 +56,24 @@
                 "password": "2FederateM0re"
               }
             },
-            "method": "GET",
+            "method": "PUT",
             "header": [
               {
                 "key": "X-XSRF-Header",
                 "value": "pingfederate",
                 "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
               }
             ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"accepted\": true\n}"
+            },
             "url": "{{pfAdminURL}}/pf-admin-api/v1/license/agreement",
             "description": "Uses the API endpoint instead of just the heartbeat"
           },
@@ -3120,7 +3130,7 @@
   ],
   "variable": [
     {
-      "id": "a6f22fb7-26c1-435a-846f-38ffb7dd67ea",
+      "id": "b0c71421-93b5-480b-acc1-b7c8e43f7edb",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
