@@ -40,6 +40,9 @@
             "disableBodyPruning": true
           },
           "request": {
+            "auth": {
+              "type": "noauth"
+            },
             "method": "POST",
             "header": [
               {
@@ -72,7 +75,7 @@
                 "exec": [
                   "// Checks to see if the server actually responded",
                   "// If not, run the call again (with the 30 sec delay)",
-                  "postman.setNextRequest(\"Check if Server is up\");",
+                  "postman.setNextRequest(\"Add API Account\");",
                   "",
                   "pm.test(\"Server is Up\", function () {",
                   "    pm.response.to.be.ok;",
@@ -3117,7 +3120,7 @@
   ],
   "variable": [
     {
-      "id": "18e035fb-fe82-4581-a394-4a9a35dab753",
+      "id": "3067512c-c9c5-4942-b735-62b671273911",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
