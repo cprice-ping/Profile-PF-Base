@@ -23,7 +23,7 @@
                   "",
                   "pm.test(\"Server is Up\", function () {",
                   "    pm.response.to.be.ok;",
-                  "    postman.setNextRequest(\"Accept EULA\");",
+                  "    postman.setNextRequest(\"00-Start-API-Calls\");",
                   "});",
                   ""
                 ],
@@ -3108,7 +3108,7 @@
   ],
   "variable": [
     {
-      "id": "2a836be1-ca2a-47e2-9540-cb163e073f95",
+      "id": "4fa367b5-6f69-43a4-a937-94fd51634023",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
