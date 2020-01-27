@@ -4,6 +4,8 @@ It uses Postman to do an Admin API collection set to (almost) fully configure PF
 
 The Postman collection is documented here: [PF Admin API - Base](https://documenter.getpostman.com/view/1239082/SWLh4RQB)
 
+**Note:** In [run.properties](pingfed/instance/bin/run.properties.subst) the `pf.admin.api.authentication` setting needs to be `native` - the Postman collection will create an account that it will use.
+
 Since you can't modify `hivemodule.xml` with the Admin API, there's a hook script that is called to do the changes:  
 [50-before-post-start.sh](pingfed/hooks/50-before-post-start.sh)
 
