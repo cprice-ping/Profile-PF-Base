@@ -19,11 +19,11 @@
                 "exec": [
                   "// Checks to see if the server actually responded",
                   "// If not, run the call again (with the 30 sec delay)",
-                  "postman.setNextRequest(\"00-Start-API-Calls\");",
+                  "postman.setNextRequest(\"Check if Server is Running\");",
                   "",
                   "pm.test(\"Server is Up\", function () {",
                   "    pm.response.to.be.ok;",
-                  "    postman.setNextRequest(\"Add API Account\");",
+                  "    postman.setNextRequest(\"Accept EULA\");",
                   "});",
                   ""
                 ],
@@ -52,7 +52,7 @@
             "auth": {
               "type": "noauth"
             },
-            "method": "PUT",
+            "method": "GET",
             "header": [
               {
                 "key": "X-XSRF-Header",
@@ -105,6 +105,9 @@
       ],
       "_postman_id": "18a8c929-293b-40d3-8adc-e9809f196055",
       "description": "This folder contains the call that's used to wait until a desired condition is met.\n\nThe `Pre-request` of the call contains a log event with a timer of 30s. The `Test Script` of the call contains the loop back to this call, and the Condition test that will break the looping.\n\nThe name of the call for the break is `00-Start-API-Calls` -- it's a simple GET request to https://postman-echo.com and allows for this to be always consistent.\n\nThe actual set of API calls for this collection are started right after this GET call.",
+      "auth": {
+        "type": "noauth"
+      },
       "event": [
         {
           "listen": "prerequest",
@@ -175,7 +178,10 @@
           "response": []
         }
       ],
-      "_postman_id": "64491a04-b445-44f1-9869-dd20b6aa1f32"
+      "_postman_id": "64491a04-b445-44f1-9869-dd20b6aa1f32",
+      "auth": {
+        "type": "noauth"
+      }
     },
     {
       "name": "Configure Server",
@@ -964,24 +970,7 @@
                   "script": {
                     "id": "18654f1f-702d-45d1-b2e2-4742a2253d2e",
                     "exec": [
-                      "var removeIllegalCharacters = function(input) {",
-                      "    return input",
-                      "        .replace(/=/g, '')",
-                      "        .replace(/\\+/g, '-')",
-                      "        .replace(/\\//g, '_');",
-                      "};",
-                      "",
-                      "// Base64 Encoding function",
-                      "var base64object = function(input) {",
-                      "    ",
-                      "    console.log(input);",
-                      "    var inputWords = CryptoJS.enc.Utf8.parse(input);",
-                      "    var base64 = CryptoJS.enc.Base64.stringify(inputWords);",
-                      "    var output = removeIllegalCharacters(base64);",
-                      "    return output;",
-                      "};",
-                      "",
-                      "var pidBase64 = base64object(pm.environment.get('pingId'));",
+                      "var pidBase64 = btoa(pm.environment.get('pingId'));",
                       "",
                       "pm.environment.set('encodedPingID', pidBase64);"
                     ],
@@ -993,7 +982,7 @@
                   "script": {
                     "id": "1e26e9c5-34dc-4319-94d4-f12ca92fd718",
                     "exec": [
-                      "pm.test(\"PD Datastore Created\", function () {",
+                      "pm.test(\"PID Adapter Created\", function () {",
                       "    pm.response.to.have.status(\"Created\");",
                       "});"
                     ],
@@ -2854,7 +2843,7 @@
                   "    ",
                   "pm.test(\"SAML Assertion created\", function () {",
                   "    pm.expect($(\"input[name='SAMLResponse']\").val()).to.not.be.empty; ",
-                  "    console.log(\"SAML Assertion was created\", $(\"input[name='SAMLResponse']\").val());",
+                  "    console.log(\"SAML Assertion was created\", atob($(\"input[name='SAMLResponse']\").val()));",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -3119,7 +3108,7 @@
   ],
   "variable": [
     {
-      "id": "c1fbd23b-37fe-47f9-b268-a0298518fad8",
+      "id": "ee34ec72-7b42-4f74-a3ec-fa4e6a6b8ec8",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
