@@ -19,7 +19,7 @@
                 "exec": [
                   "// Checks to see if the server actually responded",
                   "// If not, run the call again (with the 30 sec delay)",
-                  "postman.setNextRequest(\"Check if Server is Running\");",
+                  "postman.setNextRequest(\"Check if Server is up\");",
                   "",
                   "pm.test(\"Server is Up\", function () {",
                   "    pm.response.to.be.ok;",
@@ -3108,7 +3108,7 @@
   ],
   "variable": [
     {
-      "id": "ee34ec72-7b42-4f74-a3ec-fa4e6a6b8ec8",
+      "id": "2a836be1-ca2a-47e2-9540-cb163e073f95",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
