@@ -101,6 +101,33 @@
             "url": "https://postman-echo.com"
           },
           "response": []
+        },
+        {
+          "name": "00-Start-API-Calls Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "cd64bf84-50d5-4ada-aec9-ff1d52f0c5cb",
+                "exec": [
+                  "pm.test(\"Starting Collection\", function () {",
+                  "    pm.response.to.be.status(302);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "61eb095b-669a-49af-9c32-9874157bef82",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "https://postman-echo.com"
+          },
+          "response": []
         }
       ],
       "_postman_id": "18a8c929-293b-40d3-8adc-e9809f196055",
@@ -3159,7 +3186,7 @@
   ],
   "variable": [
     {
-      "id": "f3cde6fd-22a7-4904-921e-50f7b77f6808",
+      "id": "0e80744d-af29-4926-9fa7-599b8be1767b",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
