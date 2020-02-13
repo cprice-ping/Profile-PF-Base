@@ -1165,6 +1165,59 @@
                     "url": "{{pfAdminURL}}/pf-admin-api/v1/authenticationPolicyContracts"
                   },
                   "response": []
+                },
+                {
+                  "name": "Create Default AuthN Policy Contract Copy",
+                  "event": [
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "id": "18654f1f-702d-45d1-b2e2-4742a2253d2e",
+                        "exec": [
+                          ""
+                        ],
+                        "type": "text/javascript"
+                      }
+                    },
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "4f14cf69-4857-4f29-b857-d41ad98f72a3",
+                        "exec": [
+                          "pm.test(\"Policy Contract (HTML) Created\", function () {",
+                          "    pm.response.to.have.status(\"Created\");",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "_postman_id": "032339bf-027b-4603-9980-7d91be43ac9d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "type": "text",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "X-XSRF-Header",
+                        "type": "text",
+                        "value": "PingFederate"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "    {\n      \"id\": \"defaultPolicyContract\",\n      \"name\": \"Default Policy Contract\",\n      \"coreAttributes\": [\n        {\n          \"name\": \"subject\"\n        }\n      ],\n      \"extendedAttributes\": [\n        {\n          \"name\": \"entryUUID\"\n        },\n        {\n          \"name\": \"mail\"\n        }\n      ]\n    }"
+                    },
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/authenticationPolicyContracts"
+                  },
+                  "response": []
                 }
               ],
               "_postman_id": "665dcf21-7087-4a8c-9686-fe390c8f5b39",
@@ -2910,7 +2963,7 @@
   ],
   "variable": [
     {
-      "id": "cd2fecb3-6c16-4b2a-b105-de8b60f1c42d",
+      "id": "35da6347-d2e2-497a-8920-878b2cc1b091",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
