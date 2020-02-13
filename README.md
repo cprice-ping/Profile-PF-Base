@@ -66,7 +66,6 @@ This configuration includes:
 
 ### Adapters
 * HTML Form
-* HTML Form with LIP
 * Identifier-First (Passwordless)
 * PingID
 
@@ -78,7 +77,6 @@ For this Profile, you can place the text from a `pingid.properties` file into `p
 ### Authentication Policy
 Extended Property Selector
   * Basic (HTML Form)
-  * Enhanced (HTML Form with LIP)
   * MFA (Enhanced --> PingID)
   * Passwordless (ID-First --> PingID)
 
@@ -86,14 +84,9 @@ The Authentication Experience is controlled by setting the `Extended Properties`
 
 ### Extended Properties
 * `Basic` (Plain HTML Form) *default*
-* `Enhanced` (HTML Form with LIP --  Facebook & QR Code buttons [not configured])
 * `MFA` (HTML Form with LIP --> PingID adapter)
 * `Passwordless` (ID-First --> PingID)
-* _Anything Else_ (AuthN API Explorer)
-
-### Authentication API
-The AuthN API is enabled -- any value in the Extended Property *other* than the above will trigger it.
-* ID-First --> HTML Form with LIP --> AuthN API Explorer 
+* _Anything Else_ (Plain HTML Form)
 
 ### Applications
 Two applications are pre-wired:
