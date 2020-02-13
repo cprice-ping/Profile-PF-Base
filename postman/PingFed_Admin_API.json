@@ -2,7 +2,7 @@
   "info": {
     "_postman_id": "d8f32c40-44b9-4c2a-8c6e-963a9904c854",
     "name": "PF Admin API - Base",
-    "description": "## Collection - PingFed Admin API\n\nThis set demonstrates the new APIs in PF 9.2+ that allow you do use the Admin API to fully build out a PingFed server that's connected to PingDirectory.\n\nIt is designed to be used with a DevOps Server Profile (https://github.com/cprice-ping/Profile-PF-Base), with the license either supplied by DevOps, or injected into the Docker container with a volume.\n\nThis set of calls:\n* Accepts EULA\n* Enables the Server Roles\n* Adds PingDirectory as a Data Store\n* Adds a LDAP Password Credential Validator\n* Adds IDP Adapters - Form \\ Form with LIP (SSPR) \\ PingID \\ ID-First\n* Adds an AuthN Policy with Contract (Extended Properties)\n* Adds a Local Identity Profile\n* Authentication API (ID-First & HTML Form with LIP)\n* Adds a SP Connection to HTTPBIN\n* Configures OAuth \\ OIDC\n* Adds a couple of OAuth clients\n\nThis collection is designed to be executed via a Newman container in the stack\n\n```\npf-config:\n    image: postman/newman\n    command: run https://www.getpostman.com/collections/2e0df14dcf26f1ddb39a -e postman_vars.json --insecure\n    volumes: \n      # An environment file should be injected into the image - this file should contain your specfic info and secrets\n      - ./postman_vars.json:/etc/newman/postman_vars.json\n    networks:\n      - pingnet-internal\n```\n      \n",
+    "description": "## Collection - PingFed Admin API\n\nThis set demonstrates the new APIs in PF 9.2+ that allow you do use the Admin API to fully build out a PingFed server that's connected to PingDirectory.\n\nIt is designed to be used with a DevOps Server Profile (https://github.com/cprice-ping/Profile-PF-Base), with the license either supplied by DevOps, or injected into the Docker container with a volume.\n\nThis set of calls:\n* Accepts EULA\n* Enables the Server Roles\n* Adds PingDirectory as a Data Store\n* Adds a LDAP Password Credential Validator\n* Adds IDP Adapters - Form \\ PingID \\ ID-First\n* Adds an AuthN Policy with Contract (Extended Properties)\n* Adds a SP Connection to HTTPBIN\n* Configures OAuth \\ OIDC\n* Adds a couple of OAuth clients\n\nThis collection is designed to be executed via a Newman container in the stack\n\n```\npf-config:\n    image: postman/newman\n    command: run https://www.getpostman.com/collections/2e0df14dcf26f1ddb39a -e postman_vars.json --insecure\n    volumes: \n      # An environment file should be injected into the image - this file should contain your specfic info and secrets\n      - ./postman_vars.json:/etc/newman/postman_vars.json\n    networks:\n      - pingnet-internal\n```\n      \n",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
@@ -2910,7 +2910,7 @@
   ],
   "variable": [
     {
-      "id": "b10ad366-bd45-4143-9351-5fe0eeedfb8e",
+      "id": "cd2fecb3-6c16-4b2a-b105-de8b60f1c42d",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
