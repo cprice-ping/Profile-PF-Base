@@ -7,7 +7,8 @@ The Postman collection is documented here: [PF Admin API - Base](https://documen
 **Note:** In [run.properties](pingfed/instance/bin/run.properties.subst) the `pf.admin.api.authentication` setting needs to be `native` - the Postman collection will create an account that it will use.
 
 Since you can't modify `hivemodule.xml` with the Admin API, there's a hook script that is called to do the changes:  
-[50-before-post-start.sh](pingfed/hooks/50-before-post-start.sh)
+[50-before-post-start.sh](pingfed/hooks/50-before-post-start.sh)  
+Also - since Proxy Settings can't be set by the Admin API, there's a pre-configured `sourceid-saml2-local-metadata.xml` file in the Profile. the `BaseURL` and `EntityID`s will be overwritten by the API calls. 
 
 Changes made:
 * LDAP (PD) - OAuth Client
