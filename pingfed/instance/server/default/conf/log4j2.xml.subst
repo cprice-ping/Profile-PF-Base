@@ -1094,8 +1094,8 @@
         org.sourceid.wstrust.log.STSAuditLogger (when PingFederate is acting as a Security Token Service)
         org.sourceid.websso.profiles.idp.AsAuditLogger (when PingFederate is acting as an OAuth Authorization Server)
         -->
-        <!--
-        <Socket name="SecurityAuditToCEFSyslog" host="{syslog.host}" port="{syslog.port}" protocol="{syslog.protocol}" ignoreExceptions="false">
+        
+        <Socket name="SecurityAuditToCEFSyslog" host="logstash" port="20514" protocol="TCP" ignoreExceptions="false">
             <PingSyslogLayout>
                 <PatternLayout>
                     <pattern>%escape{CEF}{CEF:0|Ping Identity|PingFederate|%X{pfversion}|%X{event}|%X{event}|0|rt=%d{MMM dd yyyy HH:mm:ss.SSS} duid=%X{subject} src=%X{ip} msg=%X{status} cs1Label=Target Application URL cs1=%X{app} cs2Label=Connection ID cs2=%X{connectionid} cs3Label=Protocol cs3=%X{protocol} dvchost=%X{host} cs4Label=Role cs4=%X{role} externalId=%X{trackingid} cs5Label=SP Local User ID cs5=%X{localuserid} cs6Label=Attributes cs6=%X{attributes} %n}</pattern>
@@ -1116,7 +1116,7 @@
                 <AppenderRef ref="SecurityAuditToCEFSyslog-FILE" />
             </Failovers>
         </PingFailover>
-        -->
+        
 
         <!-- Security Audit log : CEF Formatted file appender
 
@@ -1265,7 +1265,7 @@
         -->
         <Logger name="org.sourceid.websso.profiles.sp.SpAuditLogger"
                 level="INFO" additivity="false" includeLocation="false">
-            <appender-ref ref="SecurityAudit2File" />
+            <appender-ref ref="SecurityAuditToCEFSyslog-FAILOVER"/>
             <!--
                 <appender-ref ref="SecurityAuditToSQLServerDB-FAILOVER"/>
                 <appender-ref ref="SecurityAuditToOracleDB-FAILOVER"/>
@@ -1274,6 +1274,7 @@
                 <appender-ref ref="SecurityAuditToMySQLDB-FAILOVER"/>
                 <appender-ref ref="SecurityAuditToPostgreSQLDB-FAILOVER" />
                 <appender-ref ref="SecurityAudit2Splunk"/>
+                <appender-ref ref="SecurityAudit2File" />
             -->
         </Logger>
 
@@ -1293,7 +1294,7 @@
         -->
         <Logger name="org.sourceid.websso.profiles.idp.IdpAuditLogger"
                 level="INFO" additivity="false" includeLocation="false">
-            <appender-ref ref="SecurityAudit2File" />
+            <appender-ref ref="SecurityAuditToCEFSyslog-FAILOVER"/>
             <!--
                 <appender-ref ref="SecurityAuditToCEFSyslog-FAILOVER"/>
                 <appender-ref ref="SecurityAuditToCEFFile"/>
@@ -1302,6 +1303,7 @@
                 <appender-ref ref="SecurityAuditToSQLServerDB-FAILOVER"/>
                 <appender-ref ref="SecurityAuditToOracleDB-FAILOVER"/>
                 <appender-ref ref="SecurityAudit2Splunk"/>
+                <appender-ref ref="SecurityAudit2File" />
             -->
         </Logger>
 
@@ -1321,7 +1323,7 @@
         -->
         <Logger name="org.sourceid.websso.profiles.idp.AsAuditLogger"
                 level="INFO" additivity="false" includeLocation="false">
-            <appender-ref ref="SecurityAudit2File" />
+            <appender-ref ref="SecurityAuditToCEFSyslog-FAILOVER"/>
             <!--
                 <appender-ref ref="SecurityAuditToCEFSyslog-FAILOVER"/>
                 <appender-ref ref="SecurityAuditToCEFFile"/>
@@ -1330,6 +1332,7 @@
                 <appender-ref ref="SecurityAuditToSQLServerDB-FAILOVER"/>
                 <appender-ref ref="SecurityAuditToOracleDB-FAILOVER"/>
                 <appender-ref ref="SecurityAudit2Splunk"/>
+                <appender-ref ref="SecurityAudit2File" />
             -->
         </Logger>
 
