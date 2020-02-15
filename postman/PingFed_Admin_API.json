@@ -1390,49 +1390,6 @@
                 "url": "{{pfAdminURL}}/pf-admin-api/v1/session/authenticationSessionPolicies"
               },
               "response": []
-            },
-            {
-              "name": "Add PingID Override Copy",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "eb041198-282f-4559-af0e-d81f1c1abc69",
-                    "exec": [
-                      "pm.test(\"PingID Session Override Created\", function () {",
-                      "    pm.response.to.have.status(\"Created\");",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "f55aa269-1b12-4bac-9807-2e1d19232eaf",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "X-XSRF-Header",
-                    "value": "pingfederate",
-                    "type": "text"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "    {\n      \"id\": \"PingIDSessionOverride\",\n      \"authenticationSource\": {\n        \"type\": \"IDP_ADAPTER\",\n        \"sourceRef\": {\n          \"id\": \"PingID\"\n        }\n      },\n      \"enableSessions\": false,\n      \"persistent\": false,\n      \"timeoutDisplayUnit\": \"MINUTES\",\n      \"authnContextSensitive\": false\n    }"
-                },
-                "url": "{{pfAdminURL}}/pf-admin-api/v1/session/authenticationSessionPolicies"
-              },
-              "response": []
             }
           ],
           "_postman_id": "689e475a-d76e-453d-b9e1-4fcb5670451e",
@@ -2953,7 +2910,7 @@
   ],
   "variable": [
     {
-      "id": "9a9f7b34-151c-4680-baa6-a2194941e995",
+      "id": "d3c3f849-e874-4f1c-9870-a90913a4ab3c",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
