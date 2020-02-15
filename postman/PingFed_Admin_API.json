@@ -1216,6 +1216,49 @@
                     "url": "{{pfAdminURL}}/pf-admin-api/v1/authenticationSelectors"
                   },
                   "response": []
+                },
+                {
+                  "name": "Create Extended Property Selector - Main Use Cases Copy",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "2eeefba3-473e-41a4-91b7-85321fd28393",
+                        "exec": [
+                          "pm.test(\"Extended Property Selector Created\", function () {",
+                          "    pm.response.to.have.status(\"Created\");",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "_postman_id": "b57f21c5-c1d8-4be5-af97-55b612a78127",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-XSRF-Header",
+                        "value": "pingfederate",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n      \"id\": \"authnExp\",\n      \"name\": \"AuthN Experience\",\n      \"pluginDescriptorRef\": {\n        \"id\": \"com.pingidentity.pf.selectors.ExtendedPropertyAuthnSelector\"\n      },\n      \"configuration\": {\n        \"tables\": [],\n        \"fields\": [\n          {\n            \"name\": \"Extended Property\",\n            \"value\": \"authNexp\"\n          }\n        ]\n      },\n      \"attributeContract\": {\n        \"extendedAttributes\": [\n          {\n            \"name\": \"Basic\"\n          },\n          {\n            \"name\": \"MFA\"\n          },\n          {\n            \"name\": \"Passwordless\"\n          } ]\n      }\n}"
+                    },
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/authenticationSelectors"
+                  },
+                  "response": []
                 }
               ],
               "_postman_id": "731ede1a-fb35-470f-a4bb-5968746448a0",
@@ -2910,7 +2953,7 @@
   ],
   "variable": [
     {
-      "id": "e514ef3f-f87d-4211-aad2-01f1d0656e91",
+      "id": "b1a7ba07-7917-4088-8ac3-6e09bd1be158",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
