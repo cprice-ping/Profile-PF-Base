@@ -7,5 +7,5 @@ PF_USER_PWD=2FederateM0re
 PF_LOG_LEVEL=INFO
 
 # PD User Base DN (PD Baseline is `dc=example,dc=com`)
-# This needs to match what's in `postman-pf.json`
-# USER_BASE_DN=dc=example.com
+# This needs to match what's in postman `.json` environments
+USER_BASE_DN=dc=example.com
