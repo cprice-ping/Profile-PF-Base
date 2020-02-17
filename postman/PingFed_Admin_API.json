@@ -1434,9 +1434,7 @@
                         "exec": [
                           "pm.test(\"OAuth AS configured\", function () {",
                           "    pm.response.to.be.ok;",
-                          "});",
-                          "",
-                          "console.log(pm.response.json());"
+                          "});"
                         ],
                         "type": "text/javascript"
                       }
@@ -2710,8 +2708,8 @@
                 "exec": [
                   "pm.test(\"OIDC AuthZ Code returned\", function () {",
                   "    pm.response.to.have.status(302);",
-                  "        var loc = pm.response.headers.get(\"location\");",
-                  "        var authzCode = loc.substr(loc.search(\"code=\") + 5);",
+                  "        var loc = pm.response.headers.get(\"location\").split(\"=\");",
+                  "        var authzCode = loc[1];",
                   "",
                   "        // Parse out the Code value",
                   "        pm.environment.set(\"authzCode\", authzCode);",
@@ -2910,7 +2908,7 @@
   ],
   "variable": [
     {
-      "id": "d9cdbbb7-206d-49fc-909e-982e957f30fe",
+      "id": "bf6fceeb-9606-4a3e-9f38-e9f258e0f098",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
