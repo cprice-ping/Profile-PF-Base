@@ -975,61 +975,6 @@
               "response": []
             },
             {
-              "name": "Create Adapter - PingID Copy",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "18654f1f-702d-45d1-b2e2-4742a2253d2e",
-                    "exec": [
-                      "var pidBase64 = btoa(pm.environment.get('pingId'));",
-                      "",
-                      "pm.environment.set('encodedPingID', pidBase64);"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "1e26e9c5-34dc-4319-94d4-f12ca92fd718",
-                    "exec": [
-                      "pm.test(\"PID Adapter Created\", function () {",
-                      "    pm.response.to.have.status(\"Created\");",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "07b0a6e5-85a3-4ee6-ad86-a3feb00e33e3",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "type": "text",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "X-XSRF-Header",
-                    "type": "text",
-                    "value": "PingFederate"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "       {\n            \"id\": \"PingID\",\n            \"name\": \"PingID\",\n            \"pluginDescriptorRef\": {\n                \"id\": \"com.pingidentity.adapters.pingid.PingIDAdapter\"\n            },\n            \"configuration\": {\n        \"tables\": [],\n        \"fields\": [\n          {\n            \"name\": \"PingID Properties\",\n            \"value\": \"{{encodedPingID}}\"\n          },\n          {\n            \"name\": \"LDAP Data source\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"Query Directory\",\n            \"value\": \"false\"\n          },\n          {\n            \"name\": \"Base Domain\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"Filter\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"LDAP Search Scope\",\n            \"value\": \"3\"\n          },\n          {\n            \"name\": \"fname attribute\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"lname attribute\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"email attribute\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"group attribute\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"phone attribute\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"YubiKey attribute\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"Secondary email attribute\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"Voice number attribute\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"State attribute\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"PingID Heartbeat Timeout\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"Authentication During Errors\",\n            \"value\": \"REJECT\"\n          },\n          {\n            \"name\": \"Users without a paired device\",\n            \"value\": \"block\"\n          },\n          {\n            \"name\": \"LDAP Data Source For Devices\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"Create entry for devices\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"Encryption Key For Devices\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"Distinguished Name Pattern\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"HTML Template\",\n            \"value\": \"pingid.offline.auth.login.template.html\"\n          },\n          {\n            \"name\": \"Cookie Duration\",\n            \"value\": \"1\"\n          },\n          {\n            \"name\": \"PingID Properties File Name\",\n            \"value\": \"pingid.properties\"\n          },\n          {\n            \"name\": \"Refresh UserId Cookie\",\n            \"value\": \"false\"\n          },\n          {\n            \"name\": \"Require PingID Registration\",\n            \"value\": \"false\"\n          }\n        ]\n      },\n      \"attributeContract\": {\n        \"coreAttributes\": [\n          {\n            \"name\": \"org.sourceid.saml20.adapter.idp.authn.authnCtx\",\n            \"masked\": false,\n            \"pseudonym\": false\n          },\n          {\n            \"name\": \"pingid_state\",\n            \"masked\": false,\n            \"pseudonym\": false\n          },\n          {\n            \"name\": \"subject\",\n            \"masked\": false,\n            \"pseudonym\": true\n          }\n        ],\n        \"extendedAttributes\": [],\n        \"maskOgnlValues\": false\n      },\n      \"attributeMapping\": {\n        \"attributeSources\": [],\n        \"attributeContractFulfillment\": {\n          \"org.sourceid.saml20.adapter.idp.authn.authnCtx\": {\n            \"source\": {\n              \"type\": \"ADAPTER\"\n            },\n            \"value\": \"org.sourceid.saml20.adapter.idp.authn.authnCtx\"\n          },\n          \"pingid_state\": {\n            \"source\": {\n              \"type\": \"ADAPTER\"\n            },\n            \"value\": \"pingid_state\"\n          },\n          \"subject\": {\n            \"source\": {\n              \"type\": \"ADAPTER\"\n            },\n            \"value\": \"subject\"\n          }\n        },\n        \"issuanceCriteria\": {\n          \"conditionalCriteria\": []\n        }\n      }\n    }"
-                },
-                "url": "{{pfAdminURL}}/pf-admin-api/v1/idp/adapters"
-              },
-              "response": []
-            },
-            {
               "name": "Create Adapter - HTML Form",
               "event": [
                 {
@@ -1130,6 +1075,61 @@
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"id\": \"IDFirst\",\n  \"name\": \"ID-First\",\n  \"pluginDescriptorRef\": {\n    \"id\": \"com.pingidentity.adapters.identifierfirst.idp.IdentifierFirstAdapter\"\n  },\n  \"configuration\": {\n    \"tables\": [],\n    \"fields\": [\n      {\n        \"name\": \"Identifier Cookie Lifetime\",\n        \"value\": \"30\"\n      },\n      {\n        \"name\": \"Allow Cancelling Identifier Selection\",\n        \"value\": \"false\"\n      },\n      {\n        \"name\": \"Maximum Identifiers Count\",\n        \"value\": \"5\"\n      },\n      {\n        \"name\": \"Identifier Selection Template\",\n        \"value\": \"identifier.first.template.html\"\n      }\n    ]\n  },\n  \"attributeContract\": {\n    \"coreAttributes\": [\n      {\n        \"name\": \"subject\",\n        \"masked\": false,\n        \"pseudonym\": true\n      },\n      {\n        \"name\": \"domain\",\n        \"masked\": false,\n        \"pseudonym\": false\n      }\n    ],\n    \"extendedAttributes\": [\n      {\n        \"name\": \"entryUUID\",\n        \"masked\": false,\n        \"pseudonym\": false\n      },\n      {\n        \"name\": \"uid\",\n        \"masked\": false,\n        \"pseudonym\": false\n      },\n      {\n        \"name\": \"mail\",\n        \"masked\": false,\n        \"pseudonym\": false\n      }\n    ],\n    \"maskOgnlValues\": false\n  },\n  \"attributeMapping\": {\n    \"attributeSources\": [\n      {\n        \"type\": \"LDAP\",\n        \"dataStoreRef\": {\n          \"id\": \"LDAP-PingDirectory\"\n        },\n        \"id\": \"PD\",\n        \"description\": \"PD\",\n        \"baseDn\": \"{{userBaseDN}}\",\n        \"searchScope\": \"SUBTREE\",\n        \"searchFilter\": \"(|(uid=${subject} )(mail=$${subject}))\",\n        \"binaryAttributeSettings\": {},\n        \"memberOfNestedGroup\": false\n      }\n    ],\n    \"attributeContractFulfillment\": {\n      \"entryUUID\": {\n        \"source\": {\n          \"type\": \"LDAP_DATA_STORE\",\n          \"id\": \"PD\"\n        },\n        \"value\": \"entryUUID\"\n      },\n      \"uid\": {\n        \"source\": {\n          \"type\": \"LDAP_DATA_STORE\",\n          \"id\": \"PD\"\n        },\n        \"value\": \"uid\"\n      },\n      \"mail\": {\n        \"source\": {\n          \"type\": \"LDAP_DATA_STORE\",\n          \"id\": \"PD\"\n        },\n        \"value\": \"mail\"\n      },\n      \"subject\": {\n        \"source\": {\n          \"type\": \"ADAPTER\"\n        },\n        \"value\": \"subject\"\n      },\n      \"domain\": {\n        \"source\": {\n          \"type\": \"ADAPTER\"\n        },\n        \"value\": \"domain\"\n      }\n    },\n    \"issuanceCriteria\": {\n      \"conditionalCriteria\": []\n    }\n  }\n}"
+                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/idp/adapters"
+              },
+              "response": []
+            },
+            {
+              "name": "Create Adapter - PingID Copy",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "18654f1f-702d-45d1-b2e2-4742a2253d2e",
+                    "exec": [
+                      "var pidBase64 = btoa(pm.environment.get('pingId'));",
+                      "",
+                      "pm.environment.set('encodedPingID', pidBase64);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "1e26e9c5-34dc-4319-94d4-f12ca92fd718",
+                    "exec": [
+                      "pm.test(\"PID Adapter Created\", function () {",
+                      "    pm.response.to.have.status(\"Created\");",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "07b0a6e5-85a3-4ee6-ad86-a3feb00e33e3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-XSRF-Header",
+                    "type": "text",
+                    "value": "PingFederate"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "       {\n            \"id\": \"PingID\",\n            \"name\": \"PingID\",\n            \"pluginDescriptorRef\": {\n                \"id\": \"com.pingidentity.adapters.pingid.PingIDAdapter\"\n            },\n            \"configuration\": {\n        \"tables\": [],\n        \"fields\": [\n          {\n            \"name\": \"PingID Properties\",\n            \"value\": \"{{encodedPingID}}\"\n          },\n          {\n            \"name\": \"LDAP Data source\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"Query Directory\",\n            \"value\": \"false\"\n          },\n          {\n            \"name\": \"Base Domain\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"Filter\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"LDAP Search Scope\",\n            \"value\": \"3\"\n          },\n          {\n            \"name\": \"fname attribute\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"lname attribute\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"email attribute\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"group attribute\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"phone attribute\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"YubiKey attribute\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"Secondary email attribute\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"Voice number attribute\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"State attribute\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"PingID Heartbeat Timeout\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"Authentication During Errors\",\n            \"value\": \"REJECT\"\n          },\n          {\n            \"name\": \"Users without a paired device\",\n            \"value\": \"block\"\n          },\n          {\n            \"name\": \"LDAP Data Source For Devices\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"Create entry for devices\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"Encryption Key For Devices\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"Distinguished Name Pattern\",\n            \"value\": \"\"\n          },\n          {\n            \"name\": \"HTML Template\",\n            \"value\": \"pingid.offline.auth.login.template.html\"\n          },\n          {\n            \"name\": \"Cookie Duration\",\n            \"value\": \"1\"\n          },\n          {\n            \"name\": \"PingID Properties File Name\",\n            \"value\": \"pingid.properties\"\n          },\n          {\n            \"name\": \"Refresh UserId Cookie\",\n            \"value\": \"false\"\n          },\n          {\n            \"name\": \"Require PingID Registration\",\n            \"value\": \"false\"\n          }\n        ]\n      },\n      \"attributeContract\": {\n        \"coreAttributes\": [\n          {\n            \"name\": \"org.sourceid.saml20.adapter.idp.authn.authnCtx\",\n            \"masked\": false,\n            \"pseudonym\": false\n          },\n          {\n            \"name\": \"pingid_state\",\n            \"masked\": false,\n            \"pseudonym\": false\n          },\n          {\n            \"name\": \"subject\",\n            \"masked\": false,\n            \"pseudonym\": true\n          }\n        ],\n        \"extendedAttributes\": [],\n        \"maskOgnlValues\": false\n      },\n      \"attributeMapping\": {\n        \"attributeSources\": [],\n        \"attributeContractFulfillment\": {\n          \"org.sourceid.saml20.adapter.idp.authn.authnCtx\": {\n            \"source\": {\n              \"type\": \"ADAPTER\"\n            },\n            \"value\": \"org.sourceid.saml20.adapter.idp.authn.authnCtx\"\n          },\n          \"pingid_state\": {\n            \"source\": {\n              \"type\": \"ADAPTER\"\n            },\n            \"value\": \"pingid_state\"\n          },\n          \"subject\": {\n            \"source\": {\n              \"type\": \"ADAPTER\"\n            },\n            \"value\": \"subject\"\n          }\n        },\n        \"issuanceCriteria\": {\n          \"conditionalCriteria\": []\n        }\n      }\n    }"
                 },
                 "url": "{{pfAdminURL}}/pf-admin-api/v1/idp/adapters"
               },
@@ -2963,7 +2963,7 @@
   ],
   "variable": [
     {
-      "id": "857cc823-b7db-4eed-ae1c-130bc2e00cd5",
+      "id": "d61e62d8-8499-4690-90b7-61cc101882ff",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
