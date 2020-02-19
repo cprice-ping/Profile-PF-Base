@@ -2699,73 +2699,6 @@
           "response": []
         },
         {
-          "name": "Test SAML Connection (Basic) Copy",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "3d23267c-44f2-45ac-9e86-c538560e2537",
-                "exec": [
-                  "const $ = cheerio.load(responseBody);",
-                  "    ",
-                  "pm.test(\"SAML Assertion created\", function () {",
-                  "    pm.expect($(\"input[name='SAMLResponse']\").val()).to.not.be.empty; ",
-                  "    console.log(\"SAML Assertion was created\", atob($(\"input[name='SAMLResponse']\").val()));",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "5cda604e-bcb9-48ae-8a05-5708fe9c91e5",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "value": "application/x-www-form-urlencoded",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "key": "pf.username",
-                  "value": "user.0",
-                  "type": "text"
-                },
-                {
-                  "key": "pf.pass",
-                  "value": "2FederateM0re",
-                  "type": "text"
-                }
-              ]
-            },
-            "url": {
-              "raw": "{{pfBaseURL}}/idp/startSSO.ping?PartnerSpId=Dummy-SAML",
-              "host": [
-                "{{pfBaseURL}}"
-              ],
-              "path": [
-                "idp",
-                "startSSO.ping"
-              ],
-              "query": [
-                {
-                  "key": "PartnerSpId",
-                  "value": "Dummy-SAML"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
           "name": "Test OIDC Token request",
           "event": [
             {
@@ -2975,7 +2908,7 @@
   ],
   "variable": [
     {
-      "id": "9771816f-8426-4ab6-99c4-3d20585e5b65",
+      "id": "cb8ddef8-cf35-45a3-8c2a-1fc5c2bcb91e",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
