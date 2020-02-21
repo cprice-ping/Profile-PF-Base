@@ -2194,689 +2194,6 @@
       ]
     },
     {
-      "name": "Inital Use Cases",
-      "item": [
-        {
-          "name": "Create Default AuthN Policy",
-          "item": [
-            {
-              "name": "Create Default Policy",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "43c897b9-d3ca-403f-83f8-ae397e06abd4",
-                    "exec": [
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "7cbf9465-6740-4dd7-a6f1-89e0dbeefc48",
-                    "exec": [
-                      "pm.test(\"Default AuthN Policy Created\", function () {",
-                      "    pm.response.to.be.ok;",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "7a7ad4df-b686-49ac-bb72-c6f1380feb82",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "PUT",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "type": "text",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "X-XSRF-Header",
-                    "type": "text",
-                    "value": "PingFederate"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n    \"failIfNoSelection\": false,\n    \"authnSelectionTrees\": [\n        {\n            \"rootNode\": {\n                \"action\": {\n                    \"type\": \"AUTHN_SELECTOR\",\n                    \"authenticationSelectorRef\": {\n                        \"id\": \"authnExp\"\n                    }\n                },\n                \"children\": [\n                    {\n                        \"action\": {\n                            \"type\": \"AUTHN_SOURCE\",\n                            \"context\": \"Basic\",\n                            \"authenticationSource\": {\n                                \"type\": \"IDP_ADAPTER\",\n                                \"sourceRef\": {\n                                    \"id\": \"HTMLForm\"\n                                }\n                            }\n                        },\n                        \"children\": [\n                            {\n                                \"action\": {\n                                    \"type\": \"DONE\",\n                                    \"context\": \"Fail\"\n                                }\n                            },\n                            {\n                                \"action\": {\n                                    \"type\": \"APC_MAPPING\",\n                                    \"context\": \"Success\",\n                                    \"authenticationPolicyContractRef\": {\n                                        \"id\": \"defaultPolicyContract\"\n                                    },\n                                    \"attributeMapping\": {\n                                        \"attributeSources\": [],\n                                        \"attributeContractFulfillment\": {\n                                            \"entryUUID\": {\n                                                \"source\": {\n                                                    \"type\": \"ADAPTER\",\n                                                    \"id\": \"HTMLForm\"\n                                                },\n                                                \"value\": \"entryUUID\"\n                                            },\n                                            \"mail\": {\n                                                \"source\": {\n                                                    \"type\": \"ADAPTER\",\n                                                    \"id\": \"HTMLForm\"\n                                                },\n                                                \"value\": \"mail\"\n                                            },\n                                            \"subject\": {\n                                                \"source\": {\n                                                    \"type\": \"ADAPTER\",\n                                                    \"id\": \"HTMLForm\"\n                                                },\n                                                \"value\": \"username\"\n                                            }\n                                        },\n                                        \"issuanceCriteria\": {\n                                            \"conditionalCriteria\": []\n                                        }\n                                    }\n                                }\n                            }\n                        ]\n                    },\n                    {\n                        \"action\": {\n                            \"type\": \"AUTHN_SOURCE\",\n                            \"context\": \"MFA\",\n                            \"authenticationSource\": {\n                                \"type\": \"IDP_ADAPTER\",\n                                \"sourceRef\": {\n                                    \"id\": \"HTMLForm\"\n                                }\n                            }\n                        },\n                        \"children\": [\n                            {\n                                \"action\": {\n                                    \"type\": \"DONE\",\n                                    \"context\": \"Fail\"\n                                }\n                            },\n                            {\n                                \"action\": {\n                                    \"type\": \"AUTHN_SOURCE\",\n                                    \"context\": \"Success\",\n                                    \"authenticationSource\": {\n                                        \"type\": \"IDP_ADAPTER\",\n                                        \"sourceRef\": {\n                                            \"id\": \"PingID\"\n                                        }\n                                    },\n                                    \"inputUserIdMapping\": {\n                                        \"source\": {\n                                            \"type\": \"ADAPTER\",\n                                            \"id\": \"HTMLForm\"\n                                        },\n                                        \"value\": \"username\"\n                                    }\n                                },\n                                \"children\": [\n                                    {\n                                        \"action\": {\n                                            \"type\": \"DONE\",\n                                            \"context\": \"Fail\"\n                                        }\n                                    },\n                                    {\n                                        \"action\": {\n                                            \"type\": \"APC_MAPPING\",\n                                            \"context\": \"Success\",\n                                            \"authenticationPolicyContractRef\": {\n                                                \"id\": \"defaultPolicyContract\"\n                                            },\n                                            \"attributeMapping\": {\n                                                \"attributeSources\": [],\n                                                \"attributeContractFulfillment\": {\n                                                    \"entryUUID\": {\n                                                        \"source\": {\n                                                            \"type\": \"ADAPTER\",\n                                                            \"id\": \"HTMLForm\"\n                                                        },\n                                                        \"value\": \"entryUUID\"\n                                                    },\n                                                    \"mail\": {\n                                                        \"source\": {\n                                                            \"type\": \"ADAPTER\",\n                                                            \"id\": \"HTMLForm\"\n                                                        },\n                                                        \"value\": \"mail\"\n                                                    },\n                                                    \"subject\": {\n                                                        \"source\": {\n                                                            \"type\": \"ADAPTER\",\n                                                            \"id\": \"HTMLForm\"\n                                                        },\n                                                        \"value\": \"username\"\n                                                    }\n                                                },\n                                                \"issuanceCriteria\": {\n                                                    \"conditionalCriteria\": []\n                                                }\n                                            }\n                                        }\n                                    }\n                                ]\n                            }\n                        ]\n                    },\n                    {\n                        \"action\": {\n                            \"type\": \"AUTHN_SOURCE\",\n                            \"context\": \"Passwordless\",\n                            \"authenticationSource\": {\n                                \"type\": \"IDP_ADAPTER\",\n                                \"sourceRef\": {\n                                    \"id\": \"IDFirst\"\n                                }\n                            }\n                        },\n                        \"children\": [\n                            {\n                                \"action\": {\n                                    \"type\": \"DONE\",\n                                    \"context\": \"Fail\"\n                                }\n                            },\n                            {\n                                \"action\": {\n                                    \"type\": \"AUTHN_SOURCE\",\n                                    \"context\": \"Success\",\n                                    \"authenticationSource\": {\n                                        \"type\": \"IDP_ADAPTER\",\n                                        \"sourceRef\": {\n                                            \"id\": \"PingID\"\n                                        }\n                                    },\n                                    \"inputUserIdMapping\": {\n                                        \"source\": {\n                                            \"type\": \"ADAPTER\",\n                                            \"id\": \"IDFirst\"\n                                        },\n                                        \"value\": \"uid\"\n                                    }\n                                },\n                                \"children\": [\n                                    {\n                                        \"action\": {\n                                            \"type\": \"DONE\",\n                                            \"context\": \"Fail\"\n                                        }\n                                    },\n                                    {\n                                        \"action\": {\n                                            \"type\": \"APC_MAPPING\",\n                                            \"context\": \"Success\",\n                                            \"authenticationPolicyContractRef\": {\n                                                \"id\": \"defaultPolicyContract\"\n                                            },\n                                            \"attributeMapping\": {\n                                                \"attributeSources\": [],\n                                                \"attributeContractFulfillment\": {\n                                                    \"entryUUID\": {\n                                                        \"source\": {\n                                                            \"type\": \"ADAPTER\",\n                                                            \"id\": \"IDFirst\"\n                                                        },\n                                                        \"value\": \"entryUUID\"\n                                                    },\n                                                    \"mail\": {\n                                                        \"source\": {\n                                                            \"type\": \"ADAPTER\",\n                                                            \"id\": \"IDFirst\"\n                                                        },\n                                                        \"value\": \"mail\"\n                                                    },\n                                                    \"subject\": {\n                                                        \"source\": {\n                                                            \"type\": \"ADAPTER\",\n                                                            \"id\": \"IDFirst\"\n                                                        },\n                                                        \"value\": \"subject\"\n                                                    }\n                                                },\n                                                \"issuanceCriteria\": {\n                                                    \"conditionalCriteria\": []\n                                                }\n                                            }\n                                        }\n                                    }\n                                ]\n                            }\n                        ]\n                    }\n                ]\n            },\n            \"name\": \"Default AuthN Policy\",\n            \"description\": \"Used to present the default AuthN Experiences\",\n            \"enabled\": true\n        },\n        {\n            \"rootNode\": {\n                \"action\": {\n                    \"type\": \"AUTHN_SOURCE\",\n                    \"authenticationSource\": {\n                        \"type\": \"IDP_ADAPTER\",\n                        \"sourceRef\": {\n                            \"id\": \"HTMLForm\"\n                        }\n                    }\n                },\n                \"children\": [\n                    {\n                        \"action\": {\n                            \"type\": \"DONE\",\n                            \"context\": \"Fail\"\n                        }\n                    },\n                    {\n                        \"action\": {\n                            \"type\": \"APC_MAPPING\",\n                            \"context\": \"Success\",\n                            \"authenticationPolicyContractRef\": {\n                                \"id\": \"defaultPolicyContract\"\n                            },\n                            \"attributeMapping\": {\n                                \"attributeSources\": [],\n                                \"attributeContractFulfillment\": {\n                                    \"entryUUID\": {\n                                        \"source\": {\n                                            \"type\": \"ADAPTER\",\n                                            \"id\": \"HTMLForm\"\n                                        },\n                                        \"value\": \"entryUUID\"\n                                    },\n                                    \"mail\": {\n                                        \"source\": {\n                                            \"type\": \"ADAPTER\",\n                                            \"id\": \"HTMLForm\"\n                                        },\n                                        \"value\": \"mail\"\n                                    },\n                                    \"subject\": {\n                                        \"source\": {\n                                            \"type\": \"ADAPTER\",\n                                            \"id\": \"HTMLForm\"\n                                        },\n                                        \"value\": \"username\"\n                                    }\n                                },\n                                \"issuanceCriteria\": {\n                                    \"conditionalCriteria\": []\n                                }\n                            }\n                        }\n                    }\n                ]\n            },\n            \"name\": \"Fallback Policy\",\n            \"description\": \"Used to present the HTML Form for anything that doesn't have an Extended Properties value (i.e. Profile Management)\",\n            \"enabled\": true\n        }\n    ],\n    \"defaultAuthenticationSources\": [],\n    \"trackedHttpParameters\": []\n}"
-                },
-                "url": "{{pfAdminURL}}/pf-admin-api/v1/authenticationPolicies/default"
-              },
-              "response": []
-            }
-          ],
-          "_postman_id": "2b497726-fab8-4160-ab2e-b0aa04fbc193",
-          "description": "Creates a set of Authentication experiences:\n\n* Basic (HTML Form) \n* Enhanced (HTML Form with LIP)\n* MFA (Enhanced --> PingID)\n* Passwordless (ID-First --> PingID)\n* API (AuthN API Explorer)\n\n* Fallback (For things like Profile Management -- HTML Form with LIP)\n\nAn Extended Property Selector determines which path. You can configure the Application (SP Connection \\ OAuth client) on the `Extended Properties` tab with the following values:\n\n* Basic\n* Enhanced\n* MFA\n* Passwordless\n* API\n\n**Note:** Due to the way the AuthN API is rigged into the Policy Tree, you need a separate Selector to direct the `API` value into another branch\n\nAlso, since Profile Management doesn't exist as an actual application, you need a Fallback policy to have an AuthN experience for those events. \n\nPF Admin API treats all the Policies as belonging to `default` and there's no way to add new Policy Trees directly.\n\nSince we've pre-built all the Adapters \\ Policy Contracts - this uses a single call to pre-built the Policies as well\n\n",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "a702892d-b8ae-412d-ac69-12d3f2362794",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "35a6dd7c-7d9d-4a5a-bf8a-0e60ffcc445a",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            }
-          ],
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "Create SP Connections",
-          "item": [
-            {
-              "name": "SAML - HTTPBIN",
-              "item": [
-                {
-                  "name": "Add SP Connection",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "1dcbdc33-6fe7-4b12-a87c-333eb87390d6",
-                        "exec": [
-                          "pm.test(\"SAML SP Connection Created\", function () {",
-                          "    pm.response.to.have.status(\"Created\");",
-                          "});"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    }
-                  ],
-                  "_postman_id": "8e3bb9f8-b67d-4a8e-a1c5-446c4678b2fd",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "POST",
-                    "header": [
-                      {
-                        "key": "X-XSRF-Header",
-                        "value": "pingfederate",
-                        "type": "text"
-                      },
-                      {
-                        "key": "Content-Type",
-                        "name": "Content-Type",
-                        "value": "application/json",
-                        "type": "text"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n\t\"id\": \"Dummy-SAML\",\n    \"type\": \"SP\",\n    \"name\": \"Dummy SAML (HTTPBIN)\",\n    \"entityId\": \"Dummy-SAML\",\n\t\"applicationName\": \"Dummy-SAML\",\n    \"active\": true,\n    \"contactInfo\": {},\n    \"loggingMode\": \"STANDARD\",\n    \"virtualEntityIds\": [],\n    \"licenseConnectionGroup\": \"\",\n    \"credentials\": {\n        \"certs\": [],\n        \"signingSettings\": {\n            \"signingKeyPairRef\": {\n                \"id\": \"signing-cert\"\n            },\n            \"includeCertInSignature\": false,\n            \"includeRawKeyInSignature\": false,\n            \"algorithm\": \"SHA256withRSA\"\n        }\n    },\n    \"extendedProperties\": {\n\t\t\"authNexp\": {\n    \t\t\"values\": [\n        \t\t\"Basic\"\n        ]\n      }\n    },\n    \"spBrowserSso\": {\n        \"protocol\": \"SAML20\",\n        \"enabledProfiles\": [\n            \"IDP_INITIATED_SSO\"\n        ],\n        \"ssoServiceEndpoints\": [\n            {\n                \"binding\": \"POST\",\n                \"url\": \"https://httpbin.org/anything\",\n                \"isDefault\": true,\n                \"index\": 0\n            }\n        ],\n        \"signAssertions\": false,\n        \"signResponseAsRequired\": true,\n        \"spSamlIdentityMapping\": \"STANDARD\",\n        \"requireSignedAuthnRequests\": false,\n        \"assertionLifetime\": {\n            \"minutesBefore\": 5,\n            \"minutesAfter\": 5\n        },\n        \"encryptionPolicy\": {\n            \"encryptAssertion\": false,\n            \"encryptSloSubjectNameId\": false,\n            \"sloSubjectNameIDEncrypted\": false,\n            \"encryptedAttributes\": []\n        },\n        \"attributeContract\": {\n            \"coreAttributes\": [\n                {\n                    \"name\": \"SAML_SUBJECT\",\n                    \"nameFormat\": \"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified\"\n                }\n            ],\n            \"extendedAttributes\": []\n        },\n        \"adapterMappings\": [],\n        \"authenticationPolicyContractAssertionMappings\": [\n            {\n                \"attributeSources\": [],\n                \"attributeContractFulfillment\": {\n                    \"SAML_SUBJECT\": {\n                        \"source\": {\n                            \"type\": \"AUTHENTICATION_POLICY_CONTRACT\"\n                        },\n                        \"value\": \"entryUUID\"\n                    }\n                },\n                \"issuanceCriteria\": {\n                    \"conditionalCriteria\": []\n                },\n                \"authenticationPolicyContractRef\": {\n                    \"id\": \"defaultPolicyContract\"\n                },\n                \"restrictVirtualEntityIds\": false,\n                \"restrictedVirtualEntityIds\": [],\n                \"abortSsoTransactionAsFailSafe\": false\n            }\n        ]\n    }\n}"
-                    },
-                    "url": "{{pfAdminURL}}/pf-admin-api/v1/idp/spConnections",
-                    "description": "Dummy SP Connection -- sends you to https://httpbin.org/anything"
-                  },
-                  "response": []
-                }
-              ],
-              "_postman_id": "7ea6a756-5f27-415f-8aa2-6ba2abaff62f",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "69b139ef-1043-4efd-b4ca-309158b224fe",
-                    "type": "text/javascript",
-                    "exec": [
-                      ""
-                    ]
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "7e1245ce-0dae-4419-8873-10970ee051c4",
-                    "type": "text/javascript",
-                    "exec": [
-                      ""
-                    ]
-                  }
-                }
-              ],
-              "_postman_isSubFolder": true
-            }
-          ],
-          "_postman_id": "f8e5c769-ae6d-4b29-9b71-0a336b8864b1",
-          "description": "Create SP Connection that does an Authentication --> SAML Assertion to https://httpsbin.org/anything ",
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "Delete GTE Baseline OAuth clients",
-          "item": [
-            {
-              "name": "Delete ac_oic_client Client",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "6809dd36-423d-4e9b-b553-f4982b2b4626",
-                    "exec": [
-                      "pm.test(\"ac_oidc_client OAuth Client deleted\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "fdd2cae6-78cb-4453-8cb6-59b41a7f7aef",
-                    "exec": [
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "5fca494c-9e7f-43bf-9fab-60e1701d6f23",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "X-XSRF-Header",
-                    "value": "pingfederate",
-                    "type": "text"
-                  }
-                ],
-                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients/ac_oic_client"
-              },
-              "response": []
-            },
-            {
-              "name": "Get existing OAuth clients",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "a112a461-63e3-4701-b1c8-b39bdebe1d92",
-                    "exec": [
-                      "pm.test(\"OAuth Clients retrieved\", function () {",
-                      "    pm.response.to.be.ok;",
-                      "    // Flush the value of {{deleteClientId}}",
-                      "    pm.environment.set(\"deleteClientId\", \"\");",
-                      "    ",
-                      "    var response = pm.response.json();",
-                      "    pm.environment.set(\"deleteClientId\", response.items[0].clientId);",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "bbc44218-c085-4e49-a088-14dc70d9b202",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "X-XSRF-Header",
-                    "value": "pingfederate",
-                    "type": "text"
-                  }
-                ],
-                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients"
-              },
-              "response": []
-            },
-            {
-              "name": "Delete OAuth client",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "7cdb2e38-bbd1-4ada-ba6e-b0d189fb9418",
-                    "exec": [
-                      "pm.test(\"Deleted Client\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "    ",
-                      "    if (pm.environment.get(\"deleteClientId\") !== null) {",
-                      "        postman.setNextRequest(\"Get existing OAuth clients\");",
-                      "    }",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "01938335-11ca-4f92-8261-d9aa43f4797c",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "X-XSRF-Header",
-                    "value": "pingfederate",
-                    "type": "text"
-                  }
-                ],
-                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients/{{deleteClientId}}"
-              },
-              "response": []
-            }
-          ],
-          "_postman_id": "24318ebe-72cc-4149-8999-aedb7613a319",
-          "description": "The GTE PD Baseline includes a set of OAuth clients that are used by the OAuth Playground.  \n\nI don't like the way they're created \\ wired, so this call removes then before creating the OAuth \\ OIDC clients I want in PF-Base.",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "85d9bcc3-fa62-40e1-912f-fd5610fd9251",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "fc222124-2ef5-4415-ae95-1694c3474050",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            }
-          ],
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "Create OIDC Clients",
-          "item": [
-            {
-              "name": "Create OIDC Client (PingLogon)",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "41847d1c-9c1e-4b88-b671-c997621406f0",
-                    "exec": [
-                      "pm.test(\"OIDC Client - PingLogon Created\", function () {",
-                      "    pm.response.to.have.status(\"Created\");",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "bdd7e744-742e-49a1-bafd-b75ecf0c0352",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "type": "text",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "X-XSRF-Header",
-                    "type": "text",
-                    "value": "pingfederate"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n      \"clientId\": \"PingLogon\",\n      \"enabled\": true,\n      \"redirectUris\": [\n        \"https://change.me\",\n        \"https://*/delegator/*\",\n        \"http://*/delegator/*\"\n      ],\n      \"grantTypes\": [\n        \"IMPLICIT\",\n        \"AUTHORIZATION_CODE\"\n      ],\n      \"name\": \"Ping Logon\",\n      \"description\": \"This client is used to perform OIDC logons to Ping products:\\nPA Admin\\nDelegated Admin\\nConsent \\\\ DirAPI\\nDG (Symphonic)\",\n      \"logoUrl\": \"\",\n      \"refreshRolling\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationType\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationTime\": 0,\n      \"persistentGrantExpirationTimeUnit\": \"DAYS\",\n      \"persistentGrantIdleTimeoutType\": \"SERVER_DEFAULT\",\n      \"persistentGrantIdleTimeout\": 0,\n      \"persistentGrantIdleTimeoutTimeUnit\": \"DAYS\",\n      \"bypassApprovalPage\": true,\n      \"restrictScopes\": false,\n      \"restrictedScopes\": [],\n      \"exclusiveScopes\": [\n        \"pd:consents:priv\",\n        \"pd:consents:unpriv\",\n        \"pd:dir:access\",\n        \"urn:pingidentity:directory-delegated-admin\"\n      ],\n      \"restrictedResponseTypes\": [],\n      \"defaultAccessTokenManagerRef\": {\n        \"id\": \"jwtDefault\"\n      },\n      \"validateUsingAllEligibleAtms\": false,\n      \"oidcPolicy\": {\n        \"policyGroup\": {\n          \"id\": \"OIDCPolicyDefault\"\n        },\n        \"grantAccessSessionRevocationApi\": false,\n        \"pingAccessLogoutCapable\": false,\n        \"pairwiseIdentifierUserType\": false\n      },\n      \"clientAuth\": {\n        \"type\": \"NONE\",\n        \"enforceReplayPrevention\": false\n      },\n      \"extendedParameters\": {\n    \t\"authNexp\": {\n        \t\"values\": [\n        \t\t\"Basic\"\n          ]\n        }\n      },\n      \"deviceFlowSettingType\": \"SERVER_DEFAULT\",\n      \"requireProofKeyForCodeExchange\": false,\n      \"requireSignedRequests\": false\n    }"
-                },
-                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients",
-                "description": "This client can be used to issue tokens for several Ping Products (using Exclusive Scopes):\n\n* PD DirAPI (`pd:dir:access`)\n* PD Consent API (`pd:consents:unpriv` | `pd:consents:priv`)\n* PD Delegated Admin App (`urn:pingidentity:directory-delegated-admin`)\n* PF Dynamic Client Registration (`pf:client:reg`)"
-              },
-              "response": []
-            },
-            {
-              "name": "Create OIDC Client (PingIntrospect)",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "357f9987-ab1f-4e11-aea5-059c0dc4de65",
-                    "exec": [
-                      "pm.test(\"OIDC Client - PingIntrospect Created\", function () {",
-                      "    pm.response.to.have.status(\"Created\");",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "ffc65e2a-f6cc-4329-a3a7-2cd96c484899",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "type": "text",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "X-XSRF-Header",
-                    "type": "text",
-                    "value": "pingfederate"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n      \"clientId\": \"PingIntrospect\",\n      \"enabled\": true,\n      \"redirectUris\": [],\n      \"grantTypes\": [\n        \"ACCESS_TOKEN_VALIDATION\"\n      ],\n      \"name\": \"Ping Introspect\",\n      \"description\": \"This client is used to Introspect and validate PF-issued access_tokens\",\n      \"logoUrl\": \"\",\n      \"refreshRolling\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationType\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationTime\": 0,\n      \"persistentGrantExpirationTimeUnit\": \"DAYS\",\n      \"persistentGrantIdleTimeoutType\": \"SERVER_DEFAULT\",\n      \"persistentGrantIdleTimeout\": 0,\n      \"persistentGrantIdleTimeoutTimeUnit\": \"DAYS\",\n      \"bypassApprovalPage\": false,\n      \"restrictScopes\": false,\n      \"restrictedScopes\": [],\n      \"exclusiveScopes\": [],\n      \"restrictedResponseTypes\": [],\n      \"defaultAccessTokenManagerRef\": {\n        \"id\": \"jwtDefault\"\n      },\n      \"validateUsingAllEligibleAtms\": true,\n      \"oidcPolicy\": {\n        \"grantAccessSessionRevocationApi\": false,\n        \"pingAccessLogoutCapable\": false\n      },\n      \"clientAuth\": {\n        \"type\": \"SECRET\",\n        \"secret\": \"{{oauthSecret}}\",\n        \"enforceReplayPrevention\": false\n      },\n      \"extendedParameters\": {},\n      \"deviceFlowSettingType\": \"SERVER_DEFAULT\",\n      \"requireSignedRequests\": false\n    }"
-                },
-                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients"
-              },
-              "response": []
-            }
-          ],
-          "_postman_id": "680f59a5-a4b0-4f78-a13c-5f45e5f501bc",
-          "_postman_isSubFolder": true
-        }
-      ],
-      "_postman_id": "05e2283b-eb88-4797-ae2d-2e541f207b15",
-      "description": "Calls to setup some basic use cases:\n\n* Creates AuthN Policy\n * Uses Extended Properties Selector to switch:\n  * Basic (HTML Form)\n  * Enhanced (HTML Form with LIP)\n  * MFA (HTML Form with LIP --> PingID)  \n\n* Adds SAML SP Connection (to HTTPBIN)\n\n* Adds OIDC Clients\n * `PingLogon` -- AuthZ Code \\ Implicit\n * `PingIntrospect` -- Token Validation",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "7f027b52-ca9d-4090-a518-9fa1d73ff03a",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "b2ee03a5-58a7-4954-b60b-63a3e3ba50eb",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "name": "Test Use Cases",
-      "item": [
-        {
-          "name": "Test SAML Connection (Basic)",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "3d23267c-44f2-45ac-9e86-c538560e2537",
-                "exec": [
-                  "const $ = cheerio.load(responseBody);",
-                  "    ",
-                  "pm.test(\"SAML Assertion created\", function () {",
-                  "    pm.expect($(\"input[name='SAMLResponse']\").val()).to.not.be.empty; ",
-                  "    console.log(\"SAML Assertion was created\", atob($(\"input[name='SAMLResponse']\").val()));",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "f725a011-0211-44ff-95fa-cbd3da7f8b69",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "value": "application/x-www-form-urlencoded",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "key": "pf.username",
-                  "value": "user.0",
-                  "type": "text"
-                },
-                {
-                  "key": "pf.pass",
-                  "value": "2FederateM0re",
-                  "type": "text"
-                }
-              ]
-            },
-            "url": {
-              "raw": "{{pfBaseURL}}/idp/startSSO.ping?PartnerSpId=Dummy-SAML",
-              "host": [
-                "{{pfBaseURL}}"
-              ],
-              "path": [
-                "idp",
-                "startSSO.ping"
-              ],
-              "query": [
-                {
-                  "key": "PartnerSpId",
-                  "value": "Dummy-SAML"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Test OIDC Token request",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "bc6b5143-869c-4bb1-b81e-e5d4a03511ea",
-                "exec": [
-                  "pm.test(\"OIDC AuthZ Code returned\", function () {",
-                  "    pm.response.to.have.status(302);",
-                  "        var loc = pm.response.headers.get(\"location\").split(\"=\");",
-                  "        var authzCode = loc[1];",
-                  "",
-                  "        // Parse out the Code value",
-                  "        pm.environment.set(\"authzCode\", authzCode);",
-                  "        console.log(\"AuthZ Code:\", authzCode);",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "d00a48e0-be10-4973-958b-ed9d1926d7ff",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "value": "application/x-www-form-urlencoded",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "key": "pf.username",
-                  "value": "user.0",
-                  "type": "text"
-                },
-                {
-                  "key": "pf.pass",
-                  "value": "2FederateM0re",
-                  "type": "text"
-                }
-              ]
-            },
-            "url": {
-              "raw": "{{pfBaseURL}}/as/authorization.oauth2?response_type=code&client_id=PingLogon&redirect_uri=https://change.me",
-              "host": [
-                "{{pfBaseURL}}"
-              ],
-              "path": [
-                "as",
-                "authorization.oauth2"
-              ],
-              "query": [
-                {
-                  "key": "response_type",
-                  "value": "code"
-                },
-                {
-                  "key": "client_id",
-                  "value": "PingLogon"
-                },
-                {
-                  "key": "redirect_uri",
-                  "value": "https://change.me"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Swap Code for Tokens",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "dbee2997-28a8-42e5-ab46-915d74cada50",
-                "exec": [
-                  "function parseJwt (token) {",
-                  "            var base64Url = token.split('.')[1];",
-                  "            var base64 = base64Url.replace('-', '+').replace('_', '/');",
-                  "            return JSON.parse(atob(base64));",
-                  "        }",
-                  "",
-                  "",
-                  "pm.test(\"Tokens returned\", function () {",
-                  "    ",
-                  "    var jsonData = pm.response.json();",
-                  "    ",
-                  "    pm.expect(jsonData.access_token).to.not.be.empty;",
-                  "    console.log(\"Access Token: \", parseJwt(jsonData.access_token));",
-                  "    ",
-                  "    console.log(\"--------------\");",
-                  "    ",
-                  "    pm.expect(jsonData.id_token).to.not.be.empty;",
-                  "    pm.environment.set(\"id_token\", jsonData.id_token );",
-                  "    console.log(\"ID Token: \", parseJwt(jsonData.id_token));",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "eafdac8f-c744-4b65-bc2b-73c23c36e9dd",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "basic",
-              "basic": {
-                "password": "",
-                "username": "PingLogon"
-              }
-            },
-            "method": "POST",
-            "header": [],
-            "url": {
-              "raw": "{{pfBaseURL}}/as/token.oauth2?grant_type=authorization_code&redirect_uri=https://change.me&code={{authzCode}}",
-              "host": [
-                "{{pfBaseURL}}"
-              ],
-              "path": [
-                "as",
-                "token.oauth2"
-              ],
-              "query": [
-                {
-                  "key": "grant_type",
-                  "value": "authorization_code"
-                },
-                {
-                  "key": "redirect_uri",
-                  "value": "https://change.me"
-                },
-                {
-                  "key": "code",
-                  "value": "{{authzCode}}"
-                }
-              ]
-            }
-          },
-          "response": []
-        }
-      ],
-      "_postman_id": "95b9017c-2db9-4b1e-a9cb-99fa26813224",
-      "description": "Test to see if the connections are up:\n\n* SAML Connection -- base64 encoded Assertion will be checked\n* OIDC -- Performs a OIDC Code flow and Token Swap (requires `--ignore-redirects`)\n\nNote: Minted tokens can be seen in the service log",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "e359e545-c9a4-4d03-9b49-d3d5faac809b",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "5aca5b7e-abbc-4ec0-9713-40468b9cb6c0",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        }
-      ]
-    },
-    {
       "name": "Configure Server Copy",
       "item": [
         {
@@ -4885,6 +4202,689 @@
           }
         }
       ]
+    },
+    {
+      "name": "Inital Use Cases",
+      "item": [
+        {
+          "name": "Create Default AuthN Policy",
+          "item": [
+            {
+              "name": "Create Default Policy",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "43c897b9-d3ca-403f-83f8-ae397e06abd4",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "7cbf9465-6740-4dd7-a6f1-89e0dbeefc48",
+                    "exec": [
+                      "pm.test(\"Default AuthN Policy Created\", function () {",
+                      "    pm.response.to.be.ok;",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "7a7ad4df-b686-49ac-bb72-c6f1380feb82",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-XSRF-Header",
+                    "type": "text",
+                    "value": "PingFederate"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"failIfNoSelection\": false,\n    \"authnSelectionTrees\": [\n        {\n            \"rootNode\": {\n                \"action\": {\n                    \"type\": \"AUTHN_SELECTOR\",\n                    \"authenticationSelectorRef\": {\n                        \"id\": \"authnExp\"\n                    }\n                },\n                \"children\": [\n                    {\n                        \"action\": {\n                            \"type\": \"AUTHN_SOURCE\",\n                            \"context\": \"Basic\",\n                            \"authenticationSource\": {\n                                \"type\": \"IDP_ADAPTER\",\n                                \"sourceRef\": {\n                                    \"id\": \"HTMLForm\"\n                                }\n                            }\n                        },\n                        \"children\": [\n                            {\n                                \"action\": {\n                                    \"type\": \"DONE\",\n                                    \"context\": \"Fail\"\n                                }\n                            },\n                            {\n                                \"action\": {\n                                    \"type\": \"APC_MAPPING\",\n                                    \"context\": \"Success\",\n                                    \"authenticationPolicyContractRef\": {\n                                        \"id\": \"defaultPolicyContract\"\n                                    },\n                                    \"attributeMapping\": {\n                                        \"attributeSources\": [],\n                                        \"attributeContractFulfillment\": {\n                                            \"entryUUID\": {\n                                                \"source\": {\n                                                    \"type\": \"ADAPTER\",\n                                                    \"id\": \"HTMLForm\"\n                                                },\n                                                \"value\": \"entryUUID\"\n                                            },\n                                            \"mail\": {\n                                                \"source\": {\n                                                    \"type\": \"ADAPTER\",\n                                                    \"id\": \"HTMLForm\"\n                                                },\n                                                \"value\": \"mail\"\n                                            },\n                                            \"subject\": {\n                                                \"source\": {\n                                                    \"type\": \"ADAPTER\",\n                                                    \"id\": \"HTMLForm\"\n                                                },\n                                                \"value\": \"username\"\n                                            }\n                                        },\n                                        \"issuanceCriteria\": {\n                                            \"conditionalCriteria\": []\n                                        }\n                                    }\n                                }\n                            }\n                        ]\n                    },\n                    {\n                        \"action\": {\n                            \"type\": \"AUTHN_SOURCE\",\n                            \"context\": \"MFA\",\n                            \"authenticationSource\": {\n                                \"type\": \"IDP_ADAPTER\",\n                                \"sourceRef\": {\n                                    \"id\": \"HTMLForm\"\n                                }\n                            }\n                        },\n                        \"children\": [\n                            {\n                                \"action\": {\n                                    \"type\": \"DONE\",\n                                    \"context\": \"Fail\"\n                                }\n                            },\n                            {\n                                \"action\": {\n                                    \"type\": \"AUTHN_SOURCE\",\n                                    \"context\": \"Success\",\n                                    \"authenticationSource\": {\n                                        \"type\": \"IDP_ADAPTER\",\n                                        \"sourceRef\": {\n                                            \"id\": \"PingID\"\n                                        }\n                                    },\n                                    \"inputUserIdMapping\": {\n                                        \"source\": {\n                                            \"type\": \"ADAPTER\",\n                                            \"id\": \"HTMLForm\"\n                                        },\n                                        \"value\": \"username\"\n                                    }\n                                },\n                                \"children\": [\n                                    {\n                                        \"action\": {\n                                            \"type\": \"DONE\",\n                                            \"context\": \"Fail\"\n                                        }\n                                    },\n                                    {\n                                        \"action\": {\n                                            \"type\": \"APC_MAPPING\",\n                                            \"context\": \"Success\",\n                                            \"authenticationPolicyContractRef\": {\n                                                \"id\": \"defaultPolicyContract\"\n                                            },\n                                            \"attributeMapping\": {\n                                                \"attributeSources\": [],\n                                                \"attributeContractFulfillment\": {\n                                                    \"entryUUID\": {\n                                                        \"source\": {\n                                                            \"type\": \"ADAPTER\",\n                                                            \"id\": \"HTMLForm\"\n                                                        },\n                                                        \"value\": \"entryUUID\"\n                                                    },\n                                                    \"mail\": {\n                                                        \"source\": {\n                                                            \"type\": \"ADAPTER\",\n                                                            \"id\": \"HTMLForm\"\n                                                        },\n                                                        \"value\": \"mail\"\n                                                    },\n                                                    \"subject\": {\n                                                        \"source\": {\n                                                            \"type\": \"ADAPTER\",\n                                                            \"id\": \"HTMLForm\"\n                                                        },\n                                                        \"value\": \"username\"\n                                                    }\n                                                },\n                                                \"issuanceCriteria\": {\n                                                    \"conditionalCriteria\": []\n                                                }\n                                            }\n                                        }\n                                    }\n                                ]\n                            }\n                        ]\n                    },\n                    {\n                        \"action\": {\n                            \"type\": \"AUTHN_SOURCE\",\n                            \"context\": \"Passwordless\",\n                            \"authenticationSource\": {\n                                \"type\": \"IDP_ADAPTER\",\n                                \"sourceRef\": {\n                                    \"id\": \"IDFirst\"\n                                }\n                            }\n                        },\n                        \"children\": [\n                            {\n                                \"action\": {\n                                    \"type\": \"DONE\",\n                                    \"context\": \"Fail\"\n                                }\n                            },\n                            {\n                                \"action\": {\n                                    \"type\": \"AUTHN_SOURCE\",\n                                    \"context\": \"Success\",\n                                    \"authenticationSource\": {\n                                        \"type\": \"IDP_ADAPTER\",\n                                        \"sourceRef\": {\n                                            \"id\": \"PingID\"\n                                        }\n                                    },\n                                    \"inputUserIdMapping\": {\n                                        \"source\": {\n                                            \"type\": \"ADAPTER\",\n                                            \"id\": \"IDFirst\"\n                                        },\n                                        \"value\": \"uid\"\n                                    }\n                                },\n                                \"children\": [\n                                    {\n                                        \"action\": {\n                                            \"type\": \"DONE\",\n                                            \"context\": \"Fail\"\n                                        }\n                                    },\n                                    {\n                                        \"action\": {\n                                            \"type\": \"APC_MAPPING\",\n                                            \"context\": \"Success\",\n                                            \"authenticationPolicyContractRef\": {\n                                                \"id\": \"defaultPolicyContract\"\n                                            },\n                                            \"attributeMapping\": {\n                                                \"attributeSources\": [],\n                                                \"attributeContractFulfillment\": {\n                                                    \"entryUUID\": {\n                                                        \"source\": {\n                                                            \"type\": \"ADAPTER\",\n                                                            \"id\": \"IDFirst\"\n                                                        },\n                                                        \"value\": \"entryUUID\"\n                                                    },\n                                                    \"mail\": {\n                                                        \"source\": {\n                                                            \"type\": \"ADAPTER\",\n                                                            \"id\": \"IDFirst\"\n                                                        },\n                                                        \"value\": \"mail\"\n                                                    },\n                                                    \"subject\": {\n                                                        \"source\": {\n                                                            \"type\": \"ADAPTER\",\n                                                            \"id\": \"IDFirst\"\n                                                        },\n                                                        \"value\": \"subject\"\n                                                    }\n                                                },\n                                                \"issuanceCriteria\": {\n                                                    \"conditionalCriteria\": []\n                                                }\n                                            }\n                                        }\n                                    }\n                                ]\n                            }\n                        ]\n                    }\n                ]\n            },\n            \"name\": \"Default AuthN Policy\",\n            \"description\": \"Used to present the default AuthN Experiences\",\n            \"enabled\": true\n        },\n        {\n            \"rootNode\": {\n                \"action\": {\n                    \"type\": \"AUTHN_SOURCE\",\n                    \"authenticationSource\": {\n                        \"type\": \"IDP_ADAPTER\",\n                        \"sourceRef\": {\n                            \"id\": \"HTMLForm\"\n                        }\n                    }\n                },\n                \"children\": [\n                    {\n                        \"action\": {\n                            \"type\": \"DONE\",\n                            \"context\": \"Fail\"\n                        }\n                    },\n                    {\n                        \"action\": {\n                            \"type\": \"APC_MAPPING\",\n                            \"context\": \"Success\",\n                            \"authenticationPolicyContractRef\": {\n                                \"id\": \"defaultPolicyContract\"\n                            },\n                            \"attributeMapping\": {\n                                \"attributeSources\": [],\n                                \"attributeContractFulfillment\": {\n                                    \"entryUUID\": {\n                                        \"source\": {\n                                            \"type\": \"ADAPTER\",\n                                            \"id\": \"HTMLForm\"\n                                        },\n                                        \"value\": \"entryUUID\"\n                                    },\n                                    \"mail\": {\n                                        \"source\": {\n                                            \"type\": \"ADAPTER\",\n                                            \"id\": \"HTMLForm\"\n                                        },\n                                        \"value\": \"mail\"\n                                    },\n                                    \"subject\": {\n                                        \"source\": {\n                                            \"type\": \"ADAPTER\",\n                                            \"id\": \"HTMLForm\"\n                                        },\n                                        \"value\": \"username\"\n                                    }\n                                },\n                                \"issuanceCriteria\": {\n                                    \"conditionalCriteria\": []\n                                }\n                            }\n                        }\n                    }\n                ]\n            },\n            \"name\": \"Fallback Policy\",\n            \"description\": \"Used to present the HTML Form for anything that doesn't have an Extended Properties value (i.e. Profile Management)\",\n            \"enabled\": true\n        }\n    ],\n    \"defaultAuthenticationSources\": [],\n    \"trackedHttpParameters\": []\n}"
+                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/authenticationPolicies/default"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "2b497726-fab8-4160-ab2e-b0aa04fbc193",
+          "description": "Creates a set of Authentication experiences:\n\n* Basic (HTML Form) \n* Enhanced (HTML Form with LIP)\n* MFA (Enhanced --> PingID)\n* Passwordless (ID-First --> PingID)\n* API (AuthN API Explorer)\n\n* Fallback (For things like Profile Management -- HTML Form with LIP)\n\nAn Extended Property Selector determines which path. You can configure the Application (SP Connection \\ OAuth client) on the `Extended Properties` tab with the following values:\n\n* Basic\n* Enhanced\n* MFA\n* Passwordless\n* API\n\n**Note:** Due to the way the AuthN API is rigged into the Policy Tree, you need a separate Selector to direct the `API` value into another branch\n\nAlso, since Profile Management doesn't exist as an actual application, you need a Fallback policy to have an AuthN experience for those events. \n\nPF Admin API treats all the Policies as belonging to `default` and there's no way to add new Policy Trees directly.\n\nSince we've pre-built all the Adapters \\ Policy Contracts - this uses a single call to pre-built the Policies as well\n\n",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "a702892d-b8ae-412d-ac69-12d3f2362794",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "35a6dd7c-7d9d-4a5a-bf8a-0e60ffcc445a",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "Create SP Connections",
+          "item": [
+            {
+              "name": "SAML - HTTPBIN",
+              "item": [
+                {
+                  "name": "Add SP Connection",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "1dcbdc33-6fe7-4b12-a87c-333eb87390d6",
+                        "exec": [
+                          "pm.test(\"SAML SP Connection Created\", function () {",
+                          "    pm.response.to.have.status(\"Created\");",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "_postman_id": "8e3bb9f8-b67d-4a8e-a1c5-446c4678b2fd",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-XSRF-Header",
+                        "value": "pingfederate",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n\t\"id\": \"Dummy-SAML\",\n    \"type\": \"SP\",\n    \"name\": \"Dummy SAML (HTTPBIN)\",\n    \"entityId\": \"Dummy-SAML\",\n\t\"applicationName\": \"Dummy-SAML\",\n    \"active\": true,\n    \"contactInfo\": {},\n    \"loggingMode\": \"STANDARD\",\n    \"virtualEntityIds\": [],\n    \"licenseConnectionGroup\": \"\",\n    \"credentials\": {\n        \"certs\": [],\n        \"signingSettings\": {\n            \"signingKeyPairRef\": {\n                \"id\": \"signing-cert\"\n            },\n            \"includeCertInSignature\": false,\n            \"includeRawKeyInSignature\": false,\n            \"algorithm\": \"SHA256withRSA\"\n        }\n    },\n    \"extendedProperties\": {\n\t\t\"authNexp\": {\n    \t\t\"values\": [\n        \t\t\"Basic\"\n        ]\n      }\n    },\n    \"spBrowserSso\": {\n        \"protocol\": \"SAML20\",\n        \"enabledProfiles\": [\n            \"IDP_INITIATED_SSO\"\n        ],\n        \"ssoServiceEndpoints\": [\n            {\n                \"binding\": \"POST\",\n                \"url\": \"https://httpbin.org/anything\",\n                \"isDefault\": true,\n                \"index\": 0\n            }\n        ],\n        \"signAssertions\": false,\n        \"signResponseAsRequired\": true,\n        \"spSamlIdentityMapping\": \"STANDARD\",\n        \"requireSignedAuthnRequests\": false,\n        \"assertionLifetime\": {\n            \"minutesBefore\": 5,\n            \"minutesAfter\": 5\n        },\n        \"encryptionPolicy\": {\n            \"encryptAssertion\": false,\n            \"encryptSloSubjectNameId\": false,\n            \"sloSubjectNameIDEncrypted\": false,\n            \"encryptedAttributes\": []\n        },\n        \"attributeContract\": {\n            \"coreAttributes\": [\n                {\n                    \"name\": \"SAML_SUBJECT\",\n                    \"nameFormat\": \"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified\"\n                }\n            ],\n            \"extendedAttributes\": []\n        },\n        \"adapterMappings\": [],\n        \"authenticationPolicyContractAssertionMappings\": [\n            {\n                \"attributeSources\": [],\n                \"attributeContractFulfillment\": {\n                    \"SAML_SUBJECT\": {\n                        \"source\": {\n                            \"type\": \"AUTHENTICATION_POLICY_CONTRACT\"\n                        },\n                        \"value\": \"entryUUID\"\n                    }\n                },\n                \"issuanceCriteria\": {\n                    \"conditionalCriteria\": []\n                },\n                \"authenticationPolicyContractRef\": {\n                    \"id\": \"defaultPolicyContract\"\n                },\n                \"restrictVirtualEntityIds\": false,\n                \"restrictedVirtualEntityIds\": [],\n                \"abortSsoTransactionAsFailSafe\": false\n            }\n        ]\n    }\n}"
+                    },
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/idp/spConnections",
+                    "description": "Dummy SP Connection -- sends you to https://httpbin.org/anything"
+                  },
+                  "response": []
+                }
+              ],
+              "_postman_id": "7ea6a756-5f27-415f-8aa2-6ba2abaff62f",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "69b139ef-1043-4efd-b4ca-309158b224fe",
+                    "type": "text/javascript",
+                    "exec": [
+                      ""
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "7e1245ce-0dae-4419-8873-10970ee051c4",
+                    "type": "text/javascript",
+                    "exec": [
+                      ""
+                    ]
+                  }
+                }
+              ],
+              "_postman_isSubFolder": true
+            }
+          ],
+          "_postman_id": "f8e5c769-ae6d-4b29-9b71-0a336b8864b1",
+          "description": "Create SP Connection that does an Authentication --> SAML Assertion to https://httpsbin.org/anything ",
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "Delete GTE Baseline OAuth clients",
+          "item": [
+            {
+              "name": "Delete ac_oic_client Client",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "6809dd36-423d-4e9b-b553-f4982b2b4626",
+                    "exec": [
+                      "pm.test(\"ac_oidc_client OAuth Client deleted\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "fdd2cae6-78cb-4453-8cb6-59b41a7f7aef",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "5fca494c-9e7f-43bf-9fab-60e1701d6f23",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-XSRF-Header",
+                    "value": "pingfederate",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients/ac_oic_client"
+              },
+              "response": []
+            },
+            {
+              "name": "Get existing OAuth clients",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "a112a461-63e3-4701-b1c8-b39bdebe1d92",
+                    "exec": [
+                      "pm.test(\"OAuth Clients retrieved\", function () {",
+                      "    pm.response.to.be.ok;",
+                      "    // Flush the value of {{deleteClientId}}",
+                      "    pm.environment.set(\"deleteClientId\", \"\");",
+                      "    ",
+                      "    var response = pm.response.json();",
+                      "    pm.environment.set(\"deleteClientId\", response.items[0].clientId);",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "bbc44218-c085-4e49-a088-14dc70d9b202",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-XSRF-Header",
+                    "value": "pingfederate",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients"
+              },
+              "response": []
+            },
+            {
+              "name": "Delete OAuth client",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "7cdb2e38-bbd1-4ada-ba6e-b0d189fb9418",
+                    "exec": [
+                      "pm.test(\"Deleted Client\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "    ",
+                      "    if (pm.environment.get(\"deleteClientId\") !== null) {",
+                      "        postman.setNextRequest(\"Get existing OAuth clients\");",
+                      "    }",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "01938335-11ca-4f92-8261-d9aa43f4797c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-XSRF-Header",
+                    "value": "pingfederate",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients/{{deleteClientId}}"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "24318ebe-72cc-4149-8999-aedb7613a319",
+          "description": "The GTE PD Baseline includes a set of OAuth clients that are used by the OAuth Playground.  \n\nI don't like the way they're created \\ wired, so this call removes then before creating the OAuth \\ OIDC clients I want in PF-Base.",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "85d9bcc3-fa62-40e1-912f-fd5610fd9251",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "fc222124-2ef5-4415-ae95-1694c3474050",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "Create OIDC Clients",
+          "item": [
+            {
+              "name": "Create OIDC Client (PingLogon)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "41847d1c-9c1e-4b88-b671-c997621406f0",
+                    "exec": [
+                      "pm.test(\"OIDC Client - PingLogon Created\", function () {",
+                      "    pm.response.to.have.status(\"Created\");",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "bdd7e744-742e-49a1-bafd-b75ecf0c0352",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-XSRF-Header",
+                    "type": "text",
+                    "value": "pingfederate"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n      \"clientId\": \"PingLogon\",\n      \"enabled\": true,\n      \"redirectUris\": [\n        \"https://change.me\",\n        \"https://*/delegator/*\",\n        \"http://*/delegator/*\"\n      ],\n      \"grantTypes\": [\n        \"IMPLICIT\",\n        \"AUTHORIZATION_CODE\"\n      ],\n      \"name\": \"Ping Logon\",\n      \"description\": \"This client is used to perform OIDC logons to Ping products:\\nPA Admin\\nDelegated Admin\\nConsent \\\\ DirAPI\\nDG (Symphonic)\",\n      \"logoUrl\": \"\",\n      \"refreshRolling\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationType\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationTime\": 0,\n      \"persistentGrantExpirationTimeUnit\": \"DAYS\",\n      \"persistentGrantIdleTimeoutType\": \"SERVER_DEFAULT\",\n      \"persistentGrantIdleTimeout\": 0,\n      \"persistentGrantIdleTimeoutTimeUnit\": \"DAYS\",\n      \"bypassApprovalPage\": true,\n      \"restrictScopes\": false,\n      \"restrictedScopes\": [],\n      \"exclusiveScopes\": [\n        \"pd:consents:priv\",\n        \"pd:consents:unpriv\",\n        \"pd:dir:access\",\n        \"urn:pingidentity:directory-delegated-admin\"\n      ],\n      \"restrictedResponseTypes\": [],\n      \"defaultAccessTokenManagerRef\": {\n        \"id\": \"jwtDefault\"\n      },\n      \"validateUsingAllEligibleAtms\": false,\n      \"oidcPolicy\": {\n        \"policyGroup\": {\n          \"id\": \"OIDCPolicyDefault\"\n        },\n        \"grantAccessSessionRevocationApi\": false,\n        \"pingAccessLogoutCapable\": false,\n        \"pairwiseIdentifierUserType\": false\n      },\n      \"clientAuth\": {\n        \"type\": \"NONE\",\n        \"enforceReplayPrevention\": false\n      },\n      \"extendedParameters\": {\n    \t\"authNexp\": {\n        \t\"values\": [\n        \t\t\"Basic\"\n          ]\n        }\n      },\n      \"deviceFlowSettingType\": \"SERVER_DEFAULT\",\n      \"requireProofKeyForCodeExchange\": false,\n      \"requireSignedRequests\": false\n    }"
+                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients",
+                "description": "This client can be used to issue tokens for several Ping Products (using Exclusive Scopes):\n\n* PD DirAPI (`pd:dir:access`)\n* PD Consent API (`pd:consents:unpriv` | `pd:consents:priv`)\n* PD Delegated Admin App (`urn:pingidentity:directory-delegated-admin`)\n* PF Dynamic Client Registration (`pf:client:reg`)"
+              },
+              "response": []
+            },
+            {
+              "name": "Create OIDC Client (PingIntrospect)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "357f9987-ab1f-4e11-aea5-059c0dc4de65",
+                    "exec": [
+                      "pm.test(\"OIDC Client - PingIntrospect Created\", function () {",
+                      "    pm.response.to.have.status(\"Created\");",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "ffc65e2a-f6cc-4329-a3a7-2cd96c484899",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-XSRF-Header",
+                    "type": "text",
+                    "value": "pingfederate"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n      \"clientId\": \"PingIntrospect\",\n      \"enabled\": true,\n      \"redirectUris\": [],\n      \"grantTypes\": [\n        \"ACCESS_TOKEN_VALIDATION\"\n      ],\n      \"name\": \"Ping Introspect\",\n      \"description\": \"This client is used to Introspect and validate PF-issued access_tokens\",\n      \"logoUrl\": \"\",\n      \"refreshRolling\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationType\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationTime\": 0,\n      \"persistentGrantExpirationTimeUnit\": \"DAYS\",\n      \"persistentGrantIdleTimeoutType\": \"SERVER_DEFAULT\",\n      \"persistentGrantIdleTimeout\": 0,\n      \"persistentGrantIdleTimeoutTimeUnit\": \"DAYS\",\n      \"bypassApprovalPage\": false,\n      \"restrictScopes\": false,\n      \"restrictedScopes\": [],\n      \"exclusiveScopes\": [],\n      \"restrictedResponseTypes\": [],\n      \"defaultAccessTokenManagerRef\": {\n        \"id\": \"jwtDefault\"\n      },\n      \"validateUsingAllEligibleAtms\": true,\n      \"oidcPolicy\": {\n        \"grantAccessSessionRevocationApi\": false,\n        \"pingAccessLogoutCapable\": false\n      },\n      \"clientAuth\": {\n        \"type\": \"SECRET\",\n        \"secret\": \"{{oauthSecret}}\",\n        \"enforceReplayPrevention\": false\n      },\n      \"extendedParameters\": {},\n      \"deviceFlowSettingType\": \"SERVER_DEFAULT\",\n      \"requireSignedRequests\": false\n    }"
+                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "680f59a5-a4b0-4f78-a13c-5f45e5f501bc",
+          "_postman_isSubFolder": true
+        }
+      ],
+      "_postman_id": "05e2283b-eb88-4797-ae2d-2e541f207b15",
+      "description": "Calls to setup some basic use cases:\n\n* Creates AuthN Policy\n * Uses Extended Properties Selector to switch:\n  * Basic (HTML Form)\n  * Enhanced (HTML Form with LIP)\n  * MFA (HTML Form with LIP --> PingID)  \n\n* Adds SAML SP Connection (to HTTPBIN)\n\n* Adds OIDC Clients\n * `PingLogon` -- AuthZ Code \\ Implicit\n * `PingIntrospect` -- Token Validation",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "7f027b52-ca9d-4090-a518-9fa1d73ff03a",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "b2ee03a5-58a7-4954-b60b-63a3e3ba50eb",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Test Use Cases",
+      "item": [
+        {
+          "name": "Test SAML Connection (Basic)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "3d23267c-44f2-45ac-9e86-c538560e2537",
+                "exec": [
+                  "const $ = cheerio.load(responseBody);",
+                  "    ",
+                  "pm.test(\"SAML Assertion created\", function () {",
+                  "    pm.expect($(\"input[name='SAMLResponse']\").val()).to.not.be.empty; ",
+                  "    console.log(\"SAML Assertion was created\", atob($(\"input[name='SAMLResponse']\").val()));",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "f725a011-0211-44ff-95fa-cbd3da7f8b69",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "pf.username",
+                  "value": "user.0",
+                  "type": "text"
+                },
+                {
+                  "key": "pf.pass",
+                  "value": "2FederateM0re",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{pfBaseURL}}/idp/startSSO.ping?PartnerSpId=Dummy-SAML",
+              "host": [
+                "{{pfBaseURL}}"
+              ],
+              "path": [
+                "idp",
+                "startSSO.ping"
+              ],
+              "query": [
+                {
+                  "key": "PartnerSpId",
+                  "value": "Dummy-SAML"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Test OIDC Token request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "bc6b5143-869c-4bb1-b81e-e5d4a03511ea",
+                "exec": [
+                  "pm.test(\"OIDC AuthZ Code returned\", function () {",
+                  "    pm.response.to.have.status(302);",
+                  "        var loc = pm.response.headers.get(\"location\").split(\"=\");",
+                  "        var authzCode = loc[1];",
+                  "",
+                  "        // Parse out the Code value",
+                  "        pm.environment.set(\"authzCode\", authzCode);",
+                  "        console.log(\"AuthZ Code:\", authzCode);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "d00a48e0-be10-4973-958b-ed9d1926d7ff",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "pf.username",
+                  "value": "user.0",
+                  "type": "text"
+                },
+                {
+                  "key": "pf.pass",
+                  "value": "2FederateM0re",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{pfBaseURL}}/as/authorization.oauth2?response_type=code&client_id=PingLogon&redirect_uri=https://change.me",
+              "host": [
+                "{{pfBaseURL}}"
+              ],
+              "path": [
+                "as",
+                "authorization.oauth2"
+              ],
+              "query": [
+                {
+                  "key": "response_type",
+                  "value": "code"
+                },
+                {
+                  "key": "client_id",
+                  "value": "PingLogon"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://change.me"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Swap Code for Tokens",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "dbee2997-28a8-42e5-ab46-915d74cada50",
+                "exec": [
+                  "function parseJwt (token) {",
+                  "            var base64Url = token.split('.')[1];",
+                  "            var base64 = base64Url.replace('-', '+').replace('_', '/');",
+                  "            return JSON.parse(atob(base64));",
+                  "        }",
+                  "",
+                  "",
+                  "pm.test(\"Tokens returned\", function () {",
+                  "    ",
+                  "    var jsonData = pm.response.json();",
+                  "    ",
+                  "    pm.expect(jsonData.access_token).to.not.be.empty;",
+                  "    console.log(\"Access Token: \", parseJwt(jsonData.access_token));",
+                  "    ",
+                  "    console.log(\"--------------\");",
+                  "    ",
+                  "    pm.expect(jsonData.id_token).to.not.be.empty;",
+                  "    pm.environment.set(\"id_token\", jsonData.id_token );",
+                  "    console.log(\"ID Token: \", parseJwt(jsonData.id_token));",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "eafdac8f-c744-4b65-bc2b-73c23c36e9dd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": {
+                "password": "",
+                "username": "PingLogon"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{pfBaseURL}}/as/token.oauth2?grant_type=authorization_code&redirect_uri=https://change.me&code={{authzCode}}",
+              "host": [
+                "{{pfBaseURL}}"
+              ],
+              "path": [
+                "as",
+                "token.oauth2"
+              ],
+              "query": [
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://change.me"
+                },
+                {
+                  "key": "code",
+                  "value": "{{authzCode}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "95b9017c-2db9-4b1e-a9cb-99fa26813224",
+      "description": "Test to see if the connections are up:\n\n* SAML Connection -- base64 encoded Assertion will be checked\n* OIDC -- Performs a OIDC Code flow and Token Swap (requires `--ignore-redirects`)\n\nNote: Minted tokens can be seen in the service log",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "e359e545-c9a4-4d03-9b49-d3d5faac809b",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "5aca5b7e-abbc-4ec0-9713-40468b9cb6c0",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
     }
   ],
   "auth": {
@@ -4918,7 +4918,7 @@
   ],
   "variable": [
     {
-      "id": "57613dfa-34af-4513-894a-df325fdb8984",
+      "id": "53668f93-350b-4684-aeb0-9faeaef21708",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
