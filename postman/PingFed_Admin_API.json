@@ -605,6 +605,59 @@
                     "url": "{{pfAdminURL}}/pf-admin-api/v1/passwordCredentialValidators"
                   },
                   "response": []
+                },
+                {
+                  "name": "Add Datastore - PD Copy",
+                  "event": [
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "id": "18654f1f-702d-45d1-b2e2-4742a2253d2e",
+                        "exec": [
+                          ""
+                        ],
+                        "type": "text/javascript"
+                      }
+                    },
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "7c855f38-dfee-4e47-b7d8-7e230cd38dd3",
+                        "exec": [
+                          "pm.test(\"PD Datastore Created\", function () {",
+                          "    pm.response.to.have.status(\"Created\");",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "_postman_id": "8eac92e5-88c9-4838-ae4e-f18a247d2911",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-XSRF-Header",
+                        "value": "PingFederate",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "    {\n      \"type\": \"LDAP\",\n      \"id\": \"LDAP-PingDirectory\",\n      \"maskAttributeValues\": false,\n      \"hostnames\": [\n        \"pingdirectory\"\n      ],\n      \"ldapType\": \"PING_DIRECTORY\",\n      \"bindAnonymously\": false,\n      \"userDN\": \"cn=pingfederate\",\n\t  \"password\": \"{{pfAdminPwd}}\",\n      \"useSsl\": false,\n      \"useDnsSrvRecords\": false,\n      \"name\": \"PingDirectory\",\n      \"testOnBorrow\": false,\n      \"testOnReturn\": false,\n      \"createIfNecessary\": true\n    }"
+                    },
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/dataStores"
+                  },
+                  "response": []
                 }
               ],
               "_postman_id": "b089d7d4-9dc6-4bd5-a98d-4fd158192fe9",
@@ -2908,7 +2961,7 @@
   ],
   "variable": [
     {
-      "id": "2be122a6-7472-42e9-be35-4d1715531481",
+      "id": "b2af6c72-0195-48ed-97c5-fd55c90b193c",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
