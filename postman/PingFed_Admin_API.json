@@ -184,6 +184,58 @@
       }
     },
     {
+      "name": "Accept EULA Copy",
+      "item": [
+        {
+          "name": "Accept EULA",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "04f559ef-34fc-4ab3-9a8f-1b7fd36d993c",
+                "exec": [
+                  "pm.test(\"EULA Accepted\", function () {",
+                  "    pm.response.to.be.ok;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "e8bb7799-d123-4bf8-89c1-409a7b6b730f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-XSRF-Header",
+                "value": "pingfederate",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"accepted\": true\n}"
+            },
+            "url": "{{pfAdminURL}}/pf-admin-api/v1/license/agreement"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "fd858fba-0528-4f7e-8628-cb79ae8d702f",
+      "auth": {
+        "type": "noauth"
+      }
+    },
+    {
       "name": "Configure Server",
       "item": [
         {
@@ -2875,58 +2927,6 @@
           }
         }
       ]
-    },
-    {
-      "name": "Accept EULA Copy",
-      "item": [
-        {
-          "name": "Accept EULA",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "04f559ef-34fc-4ab3-9a8f-1b7fd36d993c",
-                "exec": [
-                  "pm.test(\"EULA Accepted\", function () {",
-                  "    pm.response.to.be.ok;",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "e8bb7799-d123-4bf8-89c1-409a7b6b730f",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "X-XSRF-Header",
-                "value": "pingfederate",
-                "type": "text"
-              },
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "value": "application/json",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"accepted\": true\n}"
-            },
-            "url": "{{pfAdminURL}}/pf-admin-api/v1/license/agreement"
-          },
-          "response": []
-        }
-      ],
-      "_postman_id": "fd858fba-0528-4f7e-8628-cb79ae8d702f",
-      "auth": {
-        "type": "noauth"
-      }
     }
   ],
   "auth": {
@@ -2960,7 +2960,7 @@
   ],
   "variable": [
     {
-      "id": "7db3a074-a951-4c36-a3e0-52612c1ce454",
+      "id": "8620aefa-69bb-4b03-a33c-56a5f282eca0",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
