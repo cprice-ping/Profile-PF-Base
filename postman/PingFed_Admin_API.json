@@ -132,6 +132,131 @@
       ]
     },
     {
+      "name": "Check PF is Running Copy",
+      "item": [
+        {
+          "name": "Check if Server is up",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "4a7864a9-1358-402a-b81d-bcc6da8044ff",
+                "exec": [
+                  "// Checks to see if the server actually responded",
+                  "// If not, run the call again (with the 30 sec delay)",
+                  "postman.setNextRequest(\"Check if Server is up\");",
+                  "",
+                  "pm.test(\"Server is Up\", function () {",
+                  "    pm.response.to.be.ok;",
+                  "    postman.setNextRequest(\"00-Start-API-Calls\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "f9e66381-07f9-487a-b8e4-f97b5521bef7",
+                "exec": [
+                  "// Puts a 30 sec delay into this call",
+                  "setTimeout(function() {",
+                  " console.log(\"Connecting to Server\");",
+                  "}, 30000);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "6c2d6098-9790-48ab-88f9-82f08df660a0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-XSRF-Header",
+                "value": "pingfederate",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"accepted\": true\n}"
+            },
+            "url": "{{pfAdminURL}}/pf-admin-api/v1/license/agreement",
+            "description": "Uses the API endpoint instead of just the heartbeat"
+          },
+          "response": []
+        },
+        {
+          "name": "00-Start-API-Calls",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "cd64bf84-50d5-4ada-aec9-ff1d52f0c5cb",
+                "exec": [
+                  "pm.test(\"Starting Collection\", function () {",
+                  "    pm.response.to.be.status(302);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "4e5d09d9-1b84-4699-80ce-ee170ba4e8d3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "https://postman-echo.com"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "b6a85642-6b0d-47eb-b540-9e5809d38afa",
+      "description": "This folder contains the call that's used to wait until a desired condition is met.\n\nThe `Pre-request` of the call contains a log event with a timer of 30s. The `Test Script` of the call contains the loop back to this call, and the Condition test that will break the looping.\n\nThe name of the call for the break is `00-Start-API-Calls` -- it's a simple GET request to https://postman-echo.com and allows for this to be always consistent.\n\nThe actual set of API calls for this collection are started right after this GET call.",
+      "auth": {
+        "type": "noauth"
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "263d6b60-7de9-4ff9-850e-1838ee21a6a3",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "ba5aaee1-d75e-4fca-8667-8ff592b34ad4",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
       "name": "Accept EULA",
       "item": [
         {
@@ -2908,7 +3033,7 @@
   ],
   "variable": [
     {
-      "id": "b376e2b1-6053-4274-9ab2-aa451d8be387",
+      "id": "d069dfb0-6ba7-4c70-9f4d-b00ce576b412",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
