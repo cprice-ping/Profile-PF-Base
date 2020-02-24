@@ -81,33 +81,6 @@
           "response": []
         },
         {
-          "name": "00-Start-API-Calls",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "cd64bf84-50d5-4ada-aec9-ff1d52f0c5cb",
-                "exec": [
-                  "pm.test(\"Starting Collection\", function () {",
-                  "    pm.response.to.be.status(302);",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "cb2b102b-49d7-47b2-b08c-7b6096528d40",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "https://postman-echo.com"
-          },
-          "response": []
-        },
-        {
           "name": "Check if Server is up Copy",
           "event": [
             {
@@ -175,6 +148,33 @@
             },
             "url": "{{pfAdminURL}}/pf-admin-api/v1/license/agreement",
             "description": "Uses the API endpoint instead of just the heartbeat"
+          },
+          "response": []
+        },
+        {
+          "name": "00-Start-API-Calls",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "cd64bf84-50d5-4ada-aec9-ff1d52f0c5cb",
+                "exec": [
+                  "pm.test(\"Starting Collection\", function () {",
+                  "    pm.response.to.be.status(302);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "cb2b102b-49d7-47b2-b08c-7b6096528d40",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "https://postman-echo.com"
           },
           "response": []
         }
@@ -2984,19 +2984,19 @@
   ],
   "variable": [
     {
-      "id": "d1761351-3037-43ad-bc6a-0e4d0385a2f2",
+      "id": "e7506bd6-ed01-49b4-a9e7-65c49c50efa6",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "39b20786-82d7-4a76-8b21-f536984e7bf0",
+      "id": "44411239-cb6a-4aef-900e-7100c80974aa",
       "key": "pfAdmin",
       "value": "adminstrator",
       "type": "string"
     },
     {
-      "id": "49b54b95-0f1d-4940-8494-705deb58141b",
+      "id": "758b9d72-4cd1-4b62-8850-41717cd71eeb",
       "key": "pfAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
