@@ -37,7 +37,7 @@
                 "exec": [
                   "// Puts a 30 sec delay into this call",
                   "setTimeout(function() {",
-                  " console.log(\"Connecting to Server\");",
+                  " console.log(\"Connecting to PF: \", pm.environment.get(\"pfAdminUrl\"));",
                   "}, 30000);"
                 ],
                 "type": "text/javascript"
@@ -68,7 +68,12 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"accepted\": true\n}"
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
             "url": "{{pfAdminURL}}/pf-admin-api/v1/license/agreement",
             "description": "Uses the API endpoint instead of just the heartbeat"
@@ -2908,7 +2913,7 @@
   ],
   "variable": [
     {
-      "id": "870beb83-11ad-46a0-8bba-2c81ad720aeb",
+      "id": "868496a2-4bbb-4780-87b6-313a7c71530a",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
