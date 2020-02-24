@@ -106,10 +106,10 @@
               "script": {
                 "id": "f9e66381-07f9-487a-b8e4-f97b5521bef7",
                 "exec": [
-                  "// Puts a 30 sec delay into this call",
+                  "// Puts a 15 sec delay into this call",
                   "setTimeout(function() {",
-                  " console.log(\"Connecting to PF: \", pm.variables.get(\"pfAdminURL\"));",
-                  "}, 30000);"
+                  " console.log(\"Connecting to PD: \", pm.variables.get(\"pfAdminURL\"));",
+                  "}, 15000);"
                 ],
                 "type": "text/javascript"
               }
@@ -127,14 +127,14 @@
             "header": [
               {
                 "key": "X-XSRF-Header",
-                "value": "pingfederate",
-                "type": "text"
+                "type": "text",
+                "value": "pingfederate"
               },
               {
                 "key": "Content-Type",
                 "name": "Content-Type",
-                "value": "application/json",
-                "type": "text"
+                "type": "text",
+                "value": "application/json"
               }
             ],
             "body": {
@@ -146,7 +146,7 @@
                 }
               }
             },
-            "url": "{{pfAdminURL}}/pf-admin-api/v1/license/agreement",
+            "url": "{{pdAdminUrl}}/directory/v1/uid=administrator,ou=People,{{baseDN}}",
             "description": "Uses the API endpoint instead of just the heartbeat"
           },
           "response": []
@@ -2987,19 +2987,19 @@
   ],
   "variable": [
     {
-      "id": "87398cb7-56e6-4fb8-b0fa-93c4ee05e2b9",
+      "id": "69650dd1-8504-4b99-805d-51d0c68af6aa",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "cf2b61ae-3035-41fa-855c-4f02df460f47",
+      "id": "a6d345d0-92dd-4334-bb9b-e1650af92a02",
       "key": "pfAdmin",
       "value": "adminstrator",
       "type": "string"
     },
     {
-      "id": "8a1c8559-db74-4907-8fe5-9a7697f46402",
+      "id": "6fadc71c-4377-4cfb-8270-e46fb440ec08",
       "key": "pfAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
