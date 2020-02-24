@@ -81,7 +81,7 @@
           "response": []
         },
         {
-          "name": "Check if Server is up Copy",
+          "name": "Check if PF Admin created in PD",
           "event": [
             {
               "listen": "test",
@@ -2984,19 +2984,19 @@
   ],
   "variable": [
     {
-      "id": "e7506bd6-ed01-49b4-a9e7-65c49c50efa6",
+      "id": "4649b5bb-fc03-426c-b75b-3be84dcd207d",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "44411239-cb6a-4aef-900e-7100c80974aa",
+      "id": "b95c321c-0029-45e2-a0c3-531bfbae34da",
       "key": "pfAdmin",
       "value": "adminstrator",
       "type": "string"
     },
     {
-      "id": "758b9d72-4cd1-4b62-8850-41717cd71eeb",
+      "id": "03219768-a677-4c44-ae08-2468b55e2eef",
       "key": "pfAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
