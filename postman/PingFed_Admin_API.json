@@ -146,7 +146,7 @@
                 }
               }
             },
-            "url": "{{pdAdminUrl}}/directory/v1/uid=administrator,ou=People,{{baseDN}}",
+            "url": "{{pdAdminUrl}}/directory/v1/cn=PFAdminGroup,ou=Groups,{{baseDN}}",
             "description": "Uses the API endpoint instead of just the heartbeat"
           },
           "response": []
@@ -2987,19 +2987,19 @@
   ],
   "variable": [
     {
-      "id": "d3286953-be2f-4773-8c82-883c7287ba06",
+      "id": "2189c672-3257-4605-be3b-3e098ed36dc3",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "b25811d5-3609-4f9a-8528-0985ff6bf76c",
+      "id": "e8f47bbd-f8c4-4644-9e4b-fdaf1076095a",
       "key": "pfAdmin",
       "value": "adminstrator",
       "type": "string"
     },
     {
-      "id": "4fb5848e-1e31-4683-bcd4-13c8dd41b28f",
+      "id": "04b77c98-5091-4093-a18c-6a3339d583eb",
       "key": "pfAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
