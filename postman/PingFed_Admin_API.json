@@ -81,7 +81,7 @@
           "response": []
         },
         {
-          "name": "Check if PF Admin created in PD",
+          "name": "Check if PF Admin Group created in PD",
           "event": [
             {
               "listen": "test",
@@ -2987,19 +2987,19 @@
   ],
   "variable": [
     {
-      "id": "2189c672-3257-4605-be3b-3e098ed36dc3",
+      "id": "38321cd3-f725-4c65-8e8e-ac8ab9af0fd1",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "e8f47bbd-f8c4-4644-9e4b-fdaf1076095a",
+      "id": "ea60d687-24c0-472b-b2bc-ba25ba74376e",
       "key": "pfAdmin",
       "value": "adminstrator",
       "type": "string"
     },
     {
-      "id": "04b77c98-5091-4093-a18c-6a3339d583eb",
+      "id": "7a7d649f-69c3-4d60-9344-628c18c6dcbd",
       "key": "pfAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
