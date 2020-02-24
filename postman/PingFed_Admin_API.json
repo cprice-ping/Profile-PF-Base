@@ -81,7 +81,7 @@
           "response": []
         },
         {
-          "name": "Check if PF Admin created in PD",
+          "name": "Check if PF Admin Group created in PD",
           "event": [
             {
               "listen": "test",
@@ -146,7 +146,7 @@
                 }
               }
             },
-            "url": "{{pdAdminUrl}}/directory/v1/uid=administrator,ou=People,{{baseDN}}",
+            "url": "{{pdAdminUrl}}/directory/v1/cn=PFAdminGroup,ou=Groups,{{baseDN}}",
             "description": "Uses the API endpoint instead of just the heartbeat"
           },
           "response": []
@@ -2987,19 +2987,19 @@
   ],
   "variable": [
     {
-      "id": "d3286953-be2f-4773-8c82-883c7287ba06",
+      "id": "ebb79e1b-5913-49c1-97b2-9e625f989a5b",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "b25811d5-3609-4f9a-8528-0985ff6bf76c",
+      "id": "2f7919bc-d193-4ac8-acfd-0517a6496197",
       "key": "pfAdmin",
-      "value": "adminstrator",
+      "value": "administrator",
       "type": "string"
     },
     {
-      "id": "4fb5848e-1e31-4683-bcd4-13c8dd41b28f",
+      "id": "b548bfbd-9508-483d-8537-325ac11b2f43",
       "key": "pfAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
