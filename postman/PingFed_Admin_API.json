@@ -2987,19 +2987,19 @@
   ],
   "variable": [
     {
-      "id": "38321cd3-f725-4c65-8e8e-ac8ab9af0fd1",
+      "id": "ebb79e1b-5913-49c1-97b2-9e625f989a5b",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "ea60d687-24c0-472b-b2bc-ba25ba74376e",
+      "id": "2f7919bc-d193-4ac8-acfd-0517a6496197",
       "key": "pfAdmin",
-      "value": "adminstrator",
+      "value": "administrator",
       "type": "string"
     },
     {
-      "id": "7a7d649f-69c3-4d60-9344-628c18c6dcbd",
+      "id": "b548bfbd-9508-483d-8537-325ac11b2f43",
       "key": "pfAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
