@@ -37,7 +37,7 @@
                 "exec": [
                   "// Puts a 30 sec delay into this call",
                   "setTimeout(function() {",
-                  " console.log(\"Connecting to Server\");",
+                  " console.log(\"Connecting to PF: \", pm.variables.get(\"pfAdminURL\"));",
                   "}, 30000);"
                 ],
                 "type": "text/javascript"
@@ -68,9 +68,85 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"accepted\": true\n}"
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
             "url": "{{pfAdminURL}}/pf-admin-api/v1/license/agreement",
+            "description": "Uses the API endpoint instead of just the heartbeat"
+          },
+          "response": []
+        },
+        {
+          "name": "Check if PF Admin created in PD",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "4a7864a9-1358-402a-b81d-bcc6da8044ff",
+                "exec": [
+                  "// Checks to see if the server actually responded",
+                  "// If not, run the call again (with the 30 sec delay)",
+                  "postman.setNextRequest(\"Check if Server is up\");",
+                  "",
+                  "pm.test(\"Server is Up\", function () {",
+                  "    pm.response.to.be.ok;",
+                  "    postman.setNextRequest(\"00-Start-API-Calls\");",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "f9e66381-07f9-487a-b8e4-f97b5521bef7",
+                "exec": [
+                  "// Puts a 15 sec delay into this call",
+                  "setTimeout(function() {",
+                  " console.log(\"Connecting to PD: \", pm.variables.get(\"pdAdminURL\"));",
+                  "}, 15000);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "2812888e-ef5d-409d-9765-26c1d15f10e0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-XSRF-Header",
+                "type": "text",
+                "value": "pingfederate"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{pdAdminUrl}}/directory/v1/uid=administrator,ou=People,{{baseDN}}",
             "description": "Uses the API endpoint instead of just the heartbeat"
           },
           "response": []
@@ -223,7 +299,7 @@
                 "auth": {
                   "type": "noauth"
                 },
-                "method": "POST",
+                "method": "GET",
                 "header": [
                   {
                     "key": "Content-Type",
@@ -239,7 +315,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"username\": \"{{pfAdmin}}\",\n  \"password\": \"{{pfAdminPwd}}\",\n  \"active\": \"true\",\n  \"description\": \"Used for API calls\",\n  \"auditor\": \"false\",\n  \"roles\": [\n    \"ADMINISTRATOR\",\n    \"USER_ADMINISTRATOR\",\n    \"CRYPTO_ADMINISTRATOR\"\n  ]\n}"
+                  "raw": "{\n  \"username\": \"{{pfAdmin}}\",\n  \"password\": \"{{pfAdminPwd}}\",\n  \"active\": \"true\",\n  \"description\": \"Used for API calls\",\n  \"auditor\": \"false\",\n  \"roles\": [\n    \"ADMINISTRATOR\",\n    \"USER_ADMINISTRATOR\",\n    \"CRYPTO_ADMINISTRATOR\"\n  ]\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{pfAdminURL}}/pf-admin-api/v1/administrativeAccounts"
               },
@@ -1434,9 +1513,7 @@
                         "exec": [
                           "pm.test(\"OAuth AS configured\", function () {",
                           "    pm.response.to.be.ok;",
-                          "});",
-                          "",
-                          "console.log(pm.response.json());"
+                          "});"
                         ],
                         "type": "text/javascript"
                       }
@@ -2710,8 +2787,8 @@
                 "exec": [
                   "pm.test(\"OIDC AuthZ Code returned\", function () {",
                   "    pm.response.to.have.status(302);",
-                  "        var loc = pm.response.headers.get(\"location\");",
-                  "        var authzCode = loc.substr(loc.search(\"code=\") + 5);",
+                  "        var loc = pm.response.headers.get(\"location\").split(\"=\");",
+                  "        var authzCode = loc[1];",
                   "",
                   "        // Parse out the Code value",
                   "        pm.environment.set(\"authzCode\", authzCode);",
@@ -2910,9 +2987,21 @@
   ],
   "variable": [
     {
-      "id": "e514ef3f-f87d-4211-aad2-01f1d0656e91",
+      "id": "d3286953-be2f-4773-8c82-883c7287ba06",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
+      "type": "string"
+    },
+    {
+      "id": "b25811d5-3609-4f9a-8528-0985ff6bf76c",
+      "key": "pfAdmin",
+      "value": "adminstrator",
+      "type": "string"
+    },
+    {
+      "id": "4fb5848e-1e31-4683-bcd4-13c8dd41b28f",
+      "key": "pfAdminPwd",
+      "value": "2FederateM0re",
       "type": "string"
     }
   ]
