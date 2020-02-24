@@ -37,7 +37,7 @@
                 "exec": [
                   "// Puts a 30 sec delay into this call",
                   "setTimeout(function() {",
-                  " console.log(\"Connecting to PF: \", pm.environment.get(\"pfAdminUrl\"));",
+                  " console.log(\"Connecting to PF: \", pm.variable.get(\"pfAdminUrl\"));",
                   "}, 30000);"
                 ],
                 "type": "text/javascript"
@@ -2913,7 +2913,7 @@
   ],
   "variable": [
     {
-      "id": "868496a2-4bbb-4780-87b6-313a7c71530a",
+      "id": "5d19b74c-a765-47d9-b5e7-200ec16cb14a",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
