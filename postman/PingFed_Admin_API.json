@@ -299,7 +299,7 @@
                 "auth": {
                   "type": "noauth"
                 },
-                "method": "POST",
+                "method": "GET",
                 "header": [
                   {
                     "key": "Content-Type",
@@ -315,7 +315,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"username\": \"{{pfAdmin}}\",\n  \"password\": \"{{pfAdminPwd}}\",\n  \"active\": \"true\",\n  \"description\": \"Used for API calls\",\n  \"auditor\": \"false\",\n  \"roles\": [\n    \"ADMINISTRATOR\",\n    \"USER_ADMINISTRATOR\",\n    \"CRYPTO_ADMINISTRATOR\"\n  ]\n}"
+                  "raw": "{\n  \"username\": \"{{pfAdmin}}\",\n  \"password\": \"{{pfAdminPwd}}\",\n  \"active\": \"true\",\n  \"description\": \"Used for API calls\",\n  \"auditor\": \"false\",\n  \"roles\": [\n    \"ADMINISTRATOR\",\n    \"USER_ADMINISTRATOR\",\n    \"CRYPTO_ADMINISTRATOR\"\n  ]\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{pfAdminURL}}/pf-admin-api/v1/administrativeAccounts"
               },
@@ -2984,19 +2987,19 @@
   ],
   "variable": [
     {
-      "id": "4649b5bb-fc03-426c-b75b-3be84dcd207d",
+      "id": "87398cb7-56e6-4fb8-b0fa-93c4ee05e2b9",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "b95c321c-0029-45e2-a0c3-531bfbae34da",
+      "id": "cf2b61ae-3035-41fa-855c-4f02df460f47",
       "key": "pfAdmin",
       "value": "adminstrator",
       "type": "string"
     },
     {
-      "id": "03219768-a677-4c44-ae08-2468b55e2eef",
+      "id": "8a1c8559-db74-4907-8fe5-9a7697f46402",
       "key": "pfAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
