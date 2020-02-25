@@ -259,9 +259,28 @@
         }
       ],
       "_postman_id": "64491a04-b445-44f1-9869-dd20b6aa1f32",
-      "auth": {
-        "type": "noauth"
-      }
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "135501ba-0b1b-4fb9-8f34-1eb32b18b7e4",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "77bff15c-6d38-41e0-aa84-bb042c97b041",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
     },
     {
       "name": "Configure Server",
@@ -2932,19 +2951,19 @@
   ],
   "variable": [
     {
-      "id": "8e1cda08-f091-458b-9383-ebb81df363af",
+      "id": "afc2665e-2a21-432d-ae0d-930bccf1ff03",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "b41e43ae-d569-4498-beb9-900b7258b4a0",
+      "id": "6e03a74d-644a-4208-9d87-dcaf6c343722",
       "key": "pfAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "18da859c-4e16-4873-bf48-8317e050cb12",
+      "id": "7061982d-0b8d-4097-9212-ad44b844d823",
       "key": "pfAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
