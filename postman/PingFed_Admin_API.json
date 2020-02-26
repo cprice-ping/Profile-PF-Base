@@ -292,8 +292,8 @@
                   "script": {
                     "id": "f99d64af-a643-4445-bcac-fe0d289c4817",
                     "exec": [
-                      "pm.test(\"Signing Cert created\", function () {",
-                      "    pm.response.to.have.status(\"Created\");",
+                      "pm.test(\"API Admin account created\", function () {",
+                      "    pm.response.to.be.ok;",
                       "});"
                     ],
                     "type": "text/javascript"
@@ -2993,19 +2993,19 @@
   ],
   "variable": [
     {
-      "id": "4ae73b80-4ee7-4179-8581-ac2e30e24a0f",
+      "id": "2675e82d-3d2a-4840-b9fb-f7aa9ba85497",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "aafa85c2-ebbb-4154-b951-ed80b974415f",
+      "id": "00e343e6-dffd-4579-911b-0f303c5131ff",
       "key": "pfAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "43d9b0bf-86e0-4dbe-947d-320cde48aa01",
+      "id": "f5908e3b-21c6-4323-88d1-925ef2015436",
       "key": "pfAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
