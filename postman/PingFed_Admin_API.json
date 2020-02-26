@@ -81,77 +81,6 @@
           "response": []
         },
         {
-          "name": "Check if PF Admin Group created in PD",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "4a7864a9-1358-402a-b81d-bcc6da8044ff",
-                "exec": [
-                  "// Checks to see if the server actually responded",
-                  "// If not, run the call again (with the 30 sec delay)",
-                  "postman.setNextRequest(\"Check if Server is up\");",
-                  "",
-                  "pm.test(\"Server is Up\", function () {",
-                  "    pm.response.to.be.ok;",
-                  "    postman.setNextRequest(\"00-Start-API-Calls\");",
-                  "});",
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "f9e66381-07f9-487a-b8e4-f97b5521bef7",
-                "exec": [
-                  "// Puts a 15 sec delay into this call",
-                  "setTimeout(function() {",
-                  " console.log(\"Connecting to PD: \", pm.variables.get(\"pdAdminURL\"));",
-                  "}, 15000);"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "2812888e-ef5d-409d-9765-26c1d15f10e0",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "noauth"
-            },
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-XSRF-Header",
-                "type": "text",
-                "value": "pingfederate"
-              },
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "type": "text",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "{{pdAdminUrl}}/directory/v1/cn=PFAdminGroup,ou=Groups,{{baseDN}}",
-            "description": "Uses the API endpoint instead of just the heartbeat"
-          },
-          "response": []
-        },
-        {
           "name": "00-Start-API-Calls",
           "event": [
             {
@@ -3044,19 +2973,19 @@
   ],
   "variable": [
     {
-      "id": "a401fe9c-1869-4a77-b63d-81a1410a13c8",
+      "id": "742185c4-45bf-4e31-bb54-c2e0ca94bbc6",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "7e525517-9582-48b0-96d0-0c9bffecd7e0",
+      "id": "e6a04866-f1d2-435c-8175-502a3a07c85a",
       "key": "pfAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "d86c07c5-0c10-4112-b6d3-0ce8525e1bd9",
+      "id": "7dde3312-c2e4-472c-87e6-b977f836754b",
       "key": "pfAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
