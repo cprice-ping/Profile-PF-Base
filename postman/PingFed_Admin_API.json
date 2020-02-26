@@ -949,12 +949,7 @@
                     ],
                     "body": {
                       "mode": "raw",
-                      "raw": "    {\n      \"id\": \"SearchBase\",\n      \"type\": \"STRING\",\n      \"stringValue\": \"ou=sessions,{{userBaseDN}}\"\n    }",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
+                      "raw": "    {\n      \"id\": \"SearchBase\",\n      \"type\": \"STRING\",\n      \"stringValue\": \"ou=sessions,{{userBaseDN}}\"\n    }"
                     },
                     "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.saml20.service.session.data.impl.SessionStorageManagerLdapImpl/SearchBase"
                   },
@@ -2983,19 +2978,19 @@
   ],
   "variable": [
     {
-      "id": "b68cec5b-c67a-47fa-a019-ee300db8c4c1",
+      "id": "0a631f29-5154-4b74-a576-c14ac5f7c19e",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "30e6d055-cea4-421d-b101-e0ddf3fde159",
+      "id": "d09578b5-2847-4ea6-9b7d-cd0101d5f787",
       "key": "pfAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "393e6752-dd2f-4c98-8687-1126cdfbeb39",
+      "id": "b22960ce-2ab4-423a-b526-891109d1dbdd",
       "key": "pfAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
