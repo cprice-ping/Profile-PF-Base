@@ -50,7 +50,11 @@
           },
           "request": {
             "auth": {
-              "type": "noauth"
+              "type": "basic",
+              "basic": {
+                "password": "{{pfAdminPwd}}",
+                "username": "{{pfAdmin}}"
+              }
             },
             "method": "GET",
             "header": [
@@ -255,9 +259,28 @@
         }
       ],
       "_postman_id": "64491a04-b445-44f1-9869-dd20b6aa1f32",
-      "auth": {
-        "type": "noauth"
-      }
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "135501ba-0b1b-4fb9-8f34-1eb32b18b7e4",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "77bff15c-6d38-41e0-aa84-bb042c97b041",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
     },
     {
       "name": "Configure Server",
@@ -265,65 +288,6 @@
         {
           "name": "Initial Server Config",
           "item": [
-            {
-              "name": "Add API Account",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "37cd23c7-5a5a-4834-bc81-9210b59a4074",
-                    "exec": [
-                      "pm.test(\"API Account Created\", function () {",
-                      "    pm.response.to.be.ok;",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "a400b408-df00-44e0-91c1-a96af12aaa85",
-                    "exec": [
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "76f4ae4f-1955-4865-b200-91aea2ed541b",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "auth": {
-                  "type": "noauth"
-                },
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "type": "text",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "X-XSRF-Header",
-                    "type": "text",
-                    "value": "PingFederate"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"username\": \"{{pfAdmin}}\",\n  \"password\": \"{{pfAdminPwd}}\",\n  \"active\": \"true\",\n  \"description\": \"Used for API calls\",\n  \"auditor\": \"false\",\n  \"roles\": [\n    \"ADMINISTRATOR\",\n    \"USER_ADMINISTRATOR\",\n    \"CRYPTO_ADMINISTRATOR\"\n  ]\n}",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": "{{pfAdminURL}}/pf-admin-api/v1/administrativeAccounts"
-              },
-              "response": []
-            },
             {
               "name": "Get License",
               "event": [
@@ -2987,19 +2951,19 @@
   ],
   "variable": [
     {
-      "id": "ebb79e1b-5913-49c1-97b2-9e625f989a5b",
+      "id": "afc2665e-2a21-432d-ae0d-930bccf1ff03",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "2f7919bc-d193-4ac8-acfd-0517a6496197",
+      "id": "6e03a74d-644a-4208-9d87-dcaf6c343722",
       "key": "pfAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "b548bfbd-9508-483d-8537-325ac11b2f43",
+      "id": "7061982d-0b8d-4097-9212-ad44b844d823",
       "key": "pfAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
