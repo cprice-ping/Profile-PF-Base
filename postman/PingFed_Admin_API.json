@@ -285,7 +285,7 @@
           "name": "Initial Server Config",
           "item": [
             {
-              "name": "Get BaseDN Copy",
+              "name": "Get BaseDN from PD",
               "event": [
                 {
                   "listen": "test",
@@ -3044,19 +3044,19 @@
   ],
   "variable": [
     {
-      "id": "dca10e7e-90ce-4f28-b5a3-5a9ba993b936",
+      "id": "a401fe9c-1869-4a77-b63d-81a1410a13c8",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "01055219-8e42-4f52-98fc-3a76e6cd675e",
+      "id": "7e525517-9582-48b0-96d0-0c9bffecd7e0",
       "key": "pfAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "6a96055b-107a-43c6-a2ed-3b66c9acd48a",
+      "id": "d86c07c5-0c10-4112-b6d3-0ce8525e1bd9",
       "key": "pfAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
