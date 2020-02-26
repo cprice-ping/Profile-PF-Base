@@ -289,6 +289,52 @@
           "name": "Initial Server Config",
           "item": [
             {
+              "name": "Add Signing Cert Copy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "f99d64af-a643-4445-bcac-fe0d289c4817",
+                    "exec": [
+                      "pm.test(\"Signing Cert created\", function () {",
+                      "    pm.response.to.have.status(\"Created\");",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "0be2d09b-57f8-47eb-9377-d1b0589458a3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-XSRF-Header",
+                    "value": "pingfederate",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"signing-cert\",\n  \"commonName\": \"pingfederate\",\n  \"organization\": \"Ping Identity\",\n  \"country\": \"US\",\n  \"validDays\": \"1825\",\n  \"keyAlgorithm\": \"RSA\",\n  \"keySize\": \"2048\",\n  \"signatureAlgorithm\": \"SHA256withRSA\"\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/keyPairs/signing/generate"
+              },
+              "response": []
+            },
+            {
               "name": "Get License",
               "event": [
                 {
@@ -418,52 +464,6 @@
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"id\": \"signing-cert\",\n  \"commonName\": \"pingfederate\",\n  \"organization\": \"Ping Identity\",\n  \"country\": \"US\",\n  \"validDays\": \"1825\",\n  \"keyAlgorithm\": \"RSA\",\n  \"keySize\": \"2048\",\n  \"signatureAlgorithm\": \"SHA256withRSA\"\n}"
-                },
-                "url": "{{pfAdminURL}}/pf-admin-api/v1/keyPairs/signing/generate"
-              },
-              "response": []
-            },
-            {
-              "name": "Add Signing Cert Copy",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "f99d64af-a643-4445-bcac-fe0d289c4817",
-                    "exec": [
-                      "pm.test(\"Signing Cert created\", function () {",
-                      "    pm.response.to.have.status(\"Created\");",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "0be2d09b-57f8-47eb-9377-d1b0589458a3",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "X-XSRF-Header",
-                    "value": "pingfederate",
-                    "type": "text"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"id\": \"signing-cert\",\n  \"commonName\": \"pingfederate\",\n  \"organization\": \"Ping Identity\",\n  \"country\": \"US\",\n  \"validDays\": \"1825\",\n  \"keyAlgorithm\": \"RSA\",\n  \"keySize\": \"2048\",\n  \"signatureAlgorithm\": \"SHA256withRSA\"\n}",
-                  "options": {
-                    "raw": {}
-                  }
                 },
                 "url": "{{pfAdminURL}}/pf-admin-api/v1/keyPairs/signing/generate"
               },
@@ -2997,19 +2997,19 @@
   ],
   "variable": [
     {
-      "id": "9170fbd0-3d7f-409e-b718-55af8e1c337b",
+      "id": "e989d98d-71e4-4733-8a66-8f8e787ad174",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "074621a6-45a4-41d6-a7c9-09ca345fe96e",
+      "id": "dc4ec128-2533-47d0-9dcc-d740e8d42db6",
       "key": "pfAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "cd47ff1b-d040-42ed-ab87-a1e5dc25c45c",
+      "id": "f40e8bdc-7342-400b-a7dd-b6f45aa82fdd",
       "key": "pfAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
