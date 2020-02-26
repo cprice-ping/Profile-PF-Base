@@ -851,7 +851,12 @@
                     ],
                     "body": {
                       "mode": "raw",
-                      "raw": "{\n    \"id\": \"SearchBase\",\n    \"type\": \"STRING\",\n    \"stringValue\": \"ou=grants,{{userBaseDN}}\"\n}"
+                      "raw": "{\n    \"id\": \"SearchBase\",\n    \"type\": \"STRING\",\n    \"stringValue\": \"ou=grants,{{userBaseDN}}\"\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
                     },
                     "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.oauth20.token.AccessGrantManagerLDAPPingDirectoryImpl/SearchBase"
                   },
@@ -2973,19 +2978,19 @@
   ],
   "variable": [
     {
-      "id": "742185c4-45bf-4e31-bb54-c2e0ca94bbc6",
+      "id": "7f3d9d6f-0114-4e06-bd78-e888f0c4a5ab",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "e6a04866-f1d2-435c-8175-502a3a07c85a",
+      "id": "0ad30159-45d9-4db3-b500-13b8c4b2b0ee",
       "key": "pfAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "7dde3312-c2e4-472c-87e6-b977f836754b",
+      "id": "dc044751-53e7-4dc4-97c7-40e35bc6c764",
       "key": "pfAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
