@@ -778,7 +778,12 @@
                     ],
                     "body": {
                       "mode": "raw",
-                      "raw": "{\n    \"id\": \"SearchBase\",\n    \"type\": \"STRING\",\n    \"stringValue\": \"ou=oauthClients,{{userBaseDN}}\"\n}"
+                      "raw": "{\n    \"id\": \"SearchBase\",\n    \"type\": \"STRING\",\n    \"stringValue\": \"ou=oauthClients,{{baseDN}}\"\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
                     },
                     "url": "{{pfAdminURL}}/pf-admin-api/v1/configStore/org.sourceid.oauth20.domain.ClientManagerLdapImpl/SearchBase"
                   },
@@ -2993,19 +2998,19 @@
   ],
   "variable": [
     {
-      "id": "2675e82d-3d2a-4840-b9fb-f7aa9ba85497",
+      "id": "3b95177e-9da5-4737-92cf-d674a242ae25",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "00e343e6-dffd-4579-911b-0f303c5131ff",
+      "id": "13cfacc5-c0a5-4525-b147-85d0fc1de9ac",
       "key": "pfAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "f5908e3b-21c6-4323-88d1-925ef2015436",
+      "id": "81661817-5d8c-49ed-a249-ccb5ac81d188",
       "key": "pfAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
