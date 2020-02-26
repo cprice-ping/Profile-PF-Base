@@ -2256,6 +2256,52 @@
             }
           ],
           "_postman_isSubFolder": true
+        },
+        {
+          "name": "Get BaseDN Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "b84ada5d-f877-48d8-b818-e8b18dcb4155",
+                "exec": [
+                  "pm.test(\"BaseDN retrieved\", function () {",
+                  "    pm.response.to.be.ok;",
+                  "    ",
+                  "    var response = pm.response.json();",
+                  "    pm.environment.set(\"baseDN\", response.publicBaseDNs[0])",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "d47a2382-0f27-40d4-9f7f-a51969f37f8e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"objectClass\": [ \"top\",\"{{baseObject}}\" ],\n  \"_dn\": \"{{userBaseDN}}\",\n  \"description\": [\"Top container of PD\"],\n      \"aci\": [\n        \"(targetattr=\\\"userPassword\\\")(version 3.0; acl \\\"Allow users to update their own password\\\"; allow (write) userdn=\\\"ldap:///self\\\";)\",\n        \"(version 3.0; acl \\\"PingFed Proxy Access\\\"; allow(proxy) userdn=\\\"ldap:///cn=pingfederate,cn=root dns,cn=config\\\";)\",\n        \"(targetattr!=\\\"userPassword\\\")(version 3.0; acl \\\"Allow the pingfederate user to do everything in this branch\\\"; allow(all) userdn=\\\"ldap:///cn=pingfederate,cn=root dns,cn=config\\\";)\",\n        \"(targetattr=\\\"userPassword\\\")(version 3.0; acl \\\"Allow the pingfederate user to update passwords\\\"; allow (write) userdn=\\\"ldap:///cn=pingfederate,cn=root dns,cn=config\\\";)\",\n        \"(targetattr=\\\"isMemberOf\\\")(version 3.0; acl \\\"Allow the pingfederate user to get memberships\\\"; allow (read) userdn=\\\"ldap:///cn=pingfederate,cn=root dns,cn=config\\\";)\",\n        \"(targetcontrol=\\\"1.3.6.1.4.1.42.2.27.9.5.8\\\")(version 3.0; acl \\\"Access to the Account Usability Control\\\"; allow (read) userdn=\\\"ldap:///cn=pingfederate,cn=root dns,cn=config\\\";)\",\n        \"(targetcontrol=\\\"1.3.6.1.4.1.30221.2.5.40\\\")(version 3.0; acl \\\"Access to the Password Validation Details Request Control\\\"; allow (read) userdn=\\\"ldap:///dc=example.com\\\";)\"\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{pdAdminUrl}}/directory/v1"
+          },
+          "response": []
         }
       ],
       "_postman_id": "853f49ad-5616-468f-9e4f-4870151c3ef2",
@@ -2998,19 +3044,19 @@
   ],
   "variable": [
     {
-      "id": "3b95177e-9da5-4737-92cf-d674a242ae25",
+      "id": "de835b66-693c-461e-b9b3-ef4d8d21f3ef",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "13cfacc5-c0a5-4525-b147-85d0fc1de9ac",
+      "id": "8f4c6435-10be-4e77-9c32-c0adedcae3ea",
       "key": "pfAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "81661817-5d8c-49ed-a249-ccb5ac81d188",
+      "id": "0ee72341-1720-427d-adc4-44d5a713dd84",
       "key": "pfAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
