@@ -50,11 +50,7 @@
           },
           "request": {
             "auth": {
-              "type": "basic",
-              "basic": {
-                "password": "{{pfAdminPwd}}",
-                "username": "{{pfAdmin}}"
-              }
+              "type": "noauth"
             },
             "method": "GET",
             "header": [
@@ -2997,19 +2993,19 @@
   ],
   "variable": [
     {
-      "id": "5a867229-7577-415e-8ea9-f7b8ab745bef",
+      "id": "4ae73b80-4ee7-4179-8581-ac2e30e24a0f",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "034b5b02-0168-47e0-8380-33690ebb543d",
+      "id": "aafa85c2-ebbb-4154-b951-ed80b974415f",
       "key": "pfAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "a9137854-9f13-4f61-8e0d-cf4d3f6f74d6",
+      "id": "43d9b0bf-86e0-4dbe-947d-320cde48aa01",
       "key": "pfAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
