@@ -555,6 +555,366 @@
           "_postman_isSubFolder": true
         },
         {
+          "name": "Initial Server Config Copy",
+          "item": [
+            {
+              "name": "Get BaseDN from PD",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "b84ada5d-f877-48d8-b818-e8b18dcb4155",
+                    "exec": [
+                      "pm.test(\"BaseDN retrieved\", function () {",
+                      "    pm.response.to.be.ok;",
+                      "    ",
+                      "    var response = pm.response.json();",
+                      "    pm.environment.set(\"userBaseDN\", response.publicBaseDNs[0])",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "93427149-0f1a-442e-831f-426edc7f06ce",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{pdAdminUrl}}/directory/v1"
+              },
+              "response": []
+            },
+            {
+              "name": "Create API Admin Account",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "f99d64af-a643-4445-bcac-fe0d289c4817",
+                    "exec": [
+                      "pm.test(\"API Admin account created\", function () {",
+                      "    pm.response.to.be.ok;",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "72eb09ec-cff5-467a-91ea-69697a876cd1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-XSRF-Header",
+                    "type": "text",
+                    "value": "pingfederate"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"username\": \"api-admin\",\n    \"password\": \"2FederateM0re\",\n    \"active\": \"true\",\n    \"description\": \"Used to perform Admin API calls\",\n    \"roles\": [\n        \"USER_ADMINISTRATOR\",\n        \"CRYPTO_ADMINISTRATOR\",\n        \"ADMINISTRATOR\"\n    ]\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/administrativeAccounts"
+              },
+              "response": []
+            },
+            {
+              "name": "Get License",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "dad3bd03-a53e-472d-96ae-5dc8c7f52a29",
+                    "exec": [
+                      "pm.test(\"PF License retrieved\", function () {",
+                      "    pm.response.to.be.ok;",
+                      "    ",
+                      "    var response = pm.response.json();",
+                      "    pm.environment.set(\"wsTrustEnabled\", response.wsTrustEnabled);    ",
+                      "    pm.environment.set(\"oauthEnabled\", response.oauthEnabled);",
+                      "    pm.environment.set(\"provisioningEnabled\", response.provisioningEnabled);",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "e189d77f-f991-4c4f-b84e-5d2b9e86c5ba",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-XSRF-Header",
+                    "value": "pingfederate",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/license",
+                "description": "Used to configure Server Roles that match the license"
+              },
+              "response": []
+            },
+            {
+              "name": "Server Settings",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "37cd23c7-5a5a-4834-bc81-9210b59a4074",
+                    "exec": [
+                      "pm.test(\"Server Settings Configured\", function () {",
+                      "    pm.response.to.be.ok;",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "a400b408-df00-44e0-91c1-a96af12aaa85",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "a5936d85-7dc4-4868-9f83-a4bf4012c7ea",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-XSRF-Header",
+                    "value": "PingFederate",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contactInfo\": {\n    \"company\": \"PF Demo\"\n  },\n  \"rolesAndProtocols\": {\n    \"oauthRole\": {\n      \"enableOauth\": {{oauthEnabled}},\n      \"enableOpenIdConnect\": {{oauthEnabled}}\n    },\n    \"idpRole\": {\n      \"enable\": true,\n      \"saml20Profile\": {\n        \"enable\": true,\n        \"enableAutoConnect\": false\n      },\n      \"enableOutboundProvisioning\": {{provisioningEnabled}},\n      \"enableSaml11\": false,\n      \"enableSaml10\": false,\n      \"enableWsFed\": true,\n      \"enableWsTrust\": {{wsTrustEnabled}}\n    },\n    \"spRole\": {\n      \"enable\": true,\n      \"saml20Profile\": {\n        \"enable\": true,\n        \"enableXASP\": false,\n        \"enableAutoConnect\": false\n      },\n      \"enableSaml11\": false,\n      \"enableSaml10\": false,\n      \"enableWsFed\": false,\n      \"enableWsTrust\": false,\n      \"enableOpenIDConnect\": true,\n      \"enableInboundProvisioning\": false\n    },\n    \"enableIdpDiscovery\": false\n  },\n  \"federationInfo\": {\n    \"baseUrl\": \"{{pfBaseURL}}\",\n    \"saml2EntityId\": \"{{pfBaseURL}}\",\n    \"autoConnectEntityId\": \"{{pfBaseURL}}\",\n    \"saml1xIssuerId\": \"{{pfBaseURL}}\",\n    \"saml1xSourceId\": \"{{pfBaseURL}}\",\n    \"wsfedRealm\": \"{{pfBaseURL}}\"\n  }\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/serverSettings"
+              },
+              "response": []
+            },
+            {
+              "name": "Add Signing Cert",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "f99d64af-a643-4445-bcac-fe0d289c4817",
+                    "exec": [
+                      "pm.test(\"Signing Cert created\", function () {",
+                      "    pm.response.to.have.status(\"Created\");",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "2322f67d-d994-4136-86af-981baccad3ec",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-XSRF-Header",
+                    "value": "pingfederate",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"signing-cert\",\n  \"commonName\": \"pingfederate\",\n  \"organization\": \"Ping Identity\",\n  \"country\": \"US\",\n  \"validDays\": \"1825\",\n  \"keyAlgorithm\": \"RSA\",\n  \"keySize\": \"2048\",\n  \"signatureAlgorithm\": \"SHA256withRSA\"\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/keyPairs/signing/generate"
+              },
+              "response": []
+            },
+            {
+              "name": "Create Extended Propery",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "8b05293b-0945-4079-8094-f921b962ca35",
+                    "exec": [
+                      "pm.test(\"Extended Property Created\", function () {",
+                      "    pm.response.to.be.ok;",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "fd9aed68-f6b8-4f40-ba43-e3c9914e5f6d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-XSRF-Header",
+                    "value": "pingfederate",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"items\": [\n    {\n      \"name\": \"authNexp\",\n      \"description\": \"Authentication Experience\",\n      \"multiValued\": \"false\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/extendedProperties"
+              },
+              "response": []
+            },
+            {
+              "name": "Add `pingfederate` as Virtual Host Name",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "d2d7a1be-be2d-4600-9bd3-d0bb12edd3ed",
+                    "exec": [
+                      "pm.test(\"Virtual Host Created\", function () {",
+                      "    pm.response.to.be.ok;",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "f44ddc4e-68fe-489a-9a2a-26e7c867b27d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-XSRF-Header",
+                    "value": "pingfederate",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"virtualHostNames\": [\n    \"pingfederate\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/virtualHostNames",
+                "description": "This is used to accept backchannel calls from other services in the stack"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "50800113-6961-4ee5-9037-ebbffdba1ebe",
+          "description": "This folder contains calls to do the initial configuration of the Server:\n\n* Match the Roles & Protocols to the installed license\n* Add a Signing Certificate\n* Add Extended Property & Selector (Used to direct AuthN Experience)\n* Add native admin (doesn't work in v10- -- Malibu wizard will be shown in UI)\n* Add Virtual Host for `pingfederate` to enable any backchannel calls",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "2db108d5-3306-43e1-b2bc-a7f632d2dc32",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "f8c7d200-9864-40c6-9cea-6a7dc3ec2dc7",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
           "name": "System Config - Datastore \\ Config Store (PD)",
           "item": [
             {
@@ -2983,19 +3343,19 @@
   ],
   "variable": [
     {
-      "id": "ae6cd1d6-c6ad-4cf6-bc86-40c82d2185b4",
+      "id": "af094beb-3d66-4d2c-8926-556c7c567049",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "c77d2fe1-b17b-4c63-9152-30c0a6f1a435",
+      "id": "3bc6f991-e56a-4266-9777-ca93ecde0f77",
       "key": "pfAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "0165bbb5-6ea6-4676-8e89-86724392f8a5",
+      "id": "e2648519-5e31-49ed-af82-393946cfb7f3",
       "key": "pfAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
