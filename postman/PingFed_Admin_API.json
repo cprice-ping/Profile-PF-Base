@@ -2950,6 +2950,546 @@
           }
         }
       ]
+    },
+    {
+      "name": "OAuth Config - AS Settings",
+      "item": [
+        {
+          "name": "Configure AS Settings",
+          "item": [
+            {
+              "name": "Configure AS Settings",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "dd235f96-6f1f-4407-a764-215c3716cda8",
+                    "exec": [
+                      "pm.test(\"OAuth AS configured\", function () {",
+                      "    pm.response.to.be.ok;",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "a0e46b97-7dc4-4368-8051-1dc84ca84475",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-XSRF-Header",
+                    "value": "pingfederate",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"authorizationCodeTimeout\": 60,\n  \"authorizationCodeEntropy\": 30,\n  \"persistentGrantIdleTimeout\": 30,\n  \"persistentGrantIdleTimeoutTimeUnit\": \"DAYS\",\n  \"refreshTokenLength\": 42,\n  \"rollRefreshTokenValues\": false,\n  \"refreshRollingInterval\": 0,\n  \"persistentGrantReuseGrantTypes\": [\n    \"IMPLICIT\"\n  ],\n  \"persistentGrantContract\": {\n    \"extendedAttributes\": [],\n    \"coreAttributes\": [\n      {\n        \"name\": \"USER_KEY\"\n      },\n      {\n        \"name\": \"USER_NAME\"\n      }\n    ]\n  },\n  \"bypassAuthorizationForApprovedGrants\": false,\n  \"allowUnidentifiedClientROCreds\": false,\n  \"allowUnidentifiedClientExtensionGrants\": false,\n  \"tokenEndpointBaseUrl\": \"\",\n  \"userAuthorizationUrl\": \"\",\n  \"registeredAuthorizationPath\": \"\",\n  \"pendingAuthorizationTimeout\": 600,\n  \"bypassActivationCodeConfirmation\": false,\n  \"devicePollingInterval\": 5,\n  \"userAuthorizationConsentPageSetting\": \"INTERNAL\",\n  \"atmIdForOAuthGrantManagement\": \"\",\n  \"scopeForOAuthGrantManagement\": \"\",\n  \"allowedOrigins\": [\n  ],\n  \"trackUserSessionsForLogout\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authServerSettings"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "b1aae8cb-51c6-4b45-912c-580034063e37",
+          "description": "Add CORS for Delegator",
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "Scope Management",
+          "item": [
+            {
+              "name": "Common OIDC Scopes",
+              "item": [
+                {
+                  "name": "OIDC Scope - openid",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "d811d801-bc60-4dae-acfc-2718352313f9",
+                        "exec": [
+                          "pm.test(\"Scope (openid) Created\", function () {",
+                          "    pm.response.to.have.status(\"Created\");",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "_postman_id": "6031b324-f5a5-42d2-816b-0eb9ace6cc89",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-XSRF-Header",
+                        "value": "pingfederate",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"openid\",\n  \"description\": \"Used to authenticated with OIDC\",\n  \"dynamic\": \"false\"\n}",
+                      "options": {
+                        "raw": {}
+                      }
+                    },
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authServerSettings/scopes/commonScopes"
+                  },
+                  "response": []
+                },
+                {
+                  "name": "OIDC Scope - address",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "58ab8f47-2136-4bc6-b45f-f987aeaa2b92",
+                        "exec": [
+                          "pm.test(\"Scope (address) Created\", function () {",
+                          "    pm.response.to.have.status(\"Created\");",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "_postman_id": "a3c7b203-9706-4ffa-a621-757c7e1770e8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-XSRF-Header",
+                        "type": "text",
+                        "value": "pingfederate"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"address\",\n  \"description\": \"Used to access your postal address\",\n  \"dynamic\": \"false\"\n}",
+                      "options": {
+                        "raw": {}
+                      }
+                    },
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authServerSettings/scopes/commonScopes"
+                  },
+                  "response": []
+                },
+                {
+                  "name": "OIDC Scope - email",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "1cd8f58d-2dc3-4cf3-88b8-d678390c12ca",
+                        "exec": [
+                          "pm.test(\"Scope (email) Created\", function () {",
+                          "    pm.response.to.have.status(\"Created\");",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "_postman_id": "1bb0e21a-a2ba-47e6-8a59-b5ac7fcf8c58",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-XSRF-Header",
+                        "type": "text",
+                        "value": "pingfederate"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "type": "text",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"email\",\n  \"description\": \"Used to access your email address\",\n  \"dynamic\": \"false\"\n}",
+                      "options": {
+                        "raw": {}
+                      }
+                    },
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authServerSettings/scopes/commonScopes"
+                  },
+                  "response": []
+                },
+                {
+                  "name": "OIDC Scope - phone",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "1bc376ac-f0f6-41dc-a893-bf17e158fd8b",
+                        "exec": [
+                          "pm.test(\"Scope (phone) Created\", function () {",
+                          "    pm.response.to.have.status(\"Created\");",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "_postman_id": "f064666f-a2b2-45e2-9e50-de84b9e3ba0d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-XSRF-Header",
+                        "type": "text",
+                        "value": "pingfederate"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "type": "text",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"phone\",\n  \"description\": \"Used to access your phone number\",\n  \"dynamic\": \"false\"\n}",
+                      "options": {
+                        "raw": {}
+                      }
+                    },
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authServerSettings/scopes/commonScopes"
+                  },
+                  "response": []
+                },
+                {
+                  "name": "OIDC Scope - profile",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "186cebf3-76f8-4a06-aaae-793276f77cbf",
+                        "exec": [
+                          "pm.test(\"Scope (profile) Created\", function () {",
+                          "    pm.response.to.have.status(\"Created\");",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "_postman_id": "1862c5eb-cb48-424a-923c-409329c7d653",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-XSRF-Header",
+                        "type": "text",
+                        "value": "pingfederate"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "type": "text",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"profile\",\n  \"description\": \"Used to access your profile\",\n  \"dynamic\": \"false\"\n}",
+                      "options": {
+                        "raw": {}
+                      }
+                    },
+                    "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authServerSettings/scopes/commonScopes"
+                  },
+                  "response": []
+                }
+              ],
+              "_postman_id": "93f8c5d1-ff02-4571-9d50-6668bcb1fb01",
+              "_postman_isSubFolder": true
+            }
+          ],
+          "_postman_id": "29fd6938-158a-4bc7-9946-104cce603c4f",
+          "description": "Creates a base set of scopes for OIDC and Ping integrations",
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "Grant Mapping",
+          "item": [
+            {
+              "name": "Create APC mapping - Default Policy Contract",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "736f229e-688f-4dcf-b4bb-641f6c1e7dde",
+                    "exec": [
+                      "pm.test(\"Grant Mapping Created\", function () {",
+                      "    pm.response.to.have.status(\"Created\");",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "121df1ee-0f12-45d3-b0f3-a4d2da2f43a0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-XSRF-Header",
+                    "type": "text",
+                    "value": "pingfederate"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "    {\n      \"attributeSources\": [],\n      \"attributeContractFulfillment\": {\n        \"USER_NAME\": {\n          \"source\": {\n            \"type\": \"AUTHENTICATION_POLICY_CONTRACT\"\n          },\n          \"value\": \"userPrincipalName\"\n        },\n        \"USER_KEY\": {\n          \"source\": {\n            \"type\": \"AUTHENTICATION_POLICY_CONTRACT\"\n          },\n          \"value\": \"ms-ds-Consistency-GUID\"\n        }\n      },\n      \"issuanceCriteria\": {\n        \"conditionalCriteria\": []\n      },\n      \"authenticationPolicyContractRef\": {\n        \"id\": \"defaultPolicyContract\"\n      }\n    }",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authenticationPolicyContractMappings"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "17ed06bb-7c80-422f-ac6a-4c56341cb788",
+          "description": "Configuration of Grant Management\n\n* Default AuthN Policy Contract",
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "Token Managers",
+          "item": [
+            {
+              "name": "Create JWT Token Manager",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "3639a176-e3c5-4e1f-babc-d998991cfe6b",
+                    "exec": [
+                      "pm.test(\"Access Token Manager (JWT) Created\", function () {",
+                      "    pm.response.to.have.status(\"Created\");",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "2edc0892-52c1-4bb1-8cf3-966e0e3fb73e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-XSRF-Header",
+                    "type": "text",
+                    "value": "pingfederate"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"jwtDefault\",\n  \"name\": \"JWT-Default\",\n  \"pluginDescriptorRef\": {\n    \"id\": \"com.pingidentity.pf.access.token.management.plugins.JwtBearerAccessTokenManagementPlugin\"\n  },\n  \"configuration\": {\n    \"tables\": [\n      {\n        \"name\": \"Symmetric Keys\",\n        \"rows\": []\n      },\n      {\n        \"name\": \"Certificates\",\n        \"rows\": [\n          {\n            \"fields\": [\n              {\n                \"name\": \"Key ID\",\n                \"value\": \"cert\"\n              },\n              {\n                \"name\": \"Certificate\",\n                \"value\": \"signing-cert\"\n              }\n            ],\n            \"defaultRow\": false\n          }\n        ]\n      }\n    ],\n    \"fields\": [\n      {\n        \"name\": \"Token Lifetime\",\n        \"value\": \"120\"\n      },\n      {\n        \"name\": \"JWS Algorithm\",\n        \"value\": \"RS256\"\n      },\n      {\n        \"name\": \"Active Symmetric Key ID\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Active Signing Certificate Key ID\",\n        \"value\": \"cert\"\n      },\n      {\n        \"name\": \"JWE Algorithm\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"JWE Content Encryption Algorithm\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Active Symmetric Encryption Key ID\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Asymmetric Encryption Key\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Asymmetric Encryption JWKS URL\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Include Key ID Header Parameter\",\n        \"value\": \"true\"\n      },\n      {\n        \"name\": \"Include X.509 Thumbprint Header Parameter\",\n        \"value\": \"false\"\n      },\n      {\n        \"name\": \"Default JWKS URL Cache Duration\",\n        \"value\": \"720\"\n      },\n      {\n        \"name\": \"Include JWE Key ID Header Parameter\",\n        \"value\": \"true\"\n      },\n      {\n        \"name\": \"Include JWE X.509 Thumbprint Header Parameter\",\n        \"value\": \"false\"\n      },\n      {\n        \"name\": \"Client ID Claim Name\",\n        \"value\": \"client_id\"\n      },\n      {\n        \"name\": \"Scope Claim Name\",\n        \"value\": \"scope\"\n      },\n      {\n        \"name\": \"Space Delimit Scope Values\",\n        \"value\": \"true\"\n      },\n      {\n        \"name\": \"Issuer Claim Value\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"Audience Claim Value\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"JWT ID Claim Length\",\n        \"value\": \"0\"\n      },\n      {\n        \"name\": \"Access Grant GUID Claim Name\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"JWKS Endpoint Path\",\n        \"value\": \"\"\n      },\n      {\n        \"name\": \"JWKS Endpoint Cache Duration\",\n        \"value\": \"720\"\n      },\n      {\n        \"name\": \"Publish Key ID X.509 URL\",\n        \"value\": \"true\"\n      },\n      {\n        \"name\": \"Publish Thumbprint X.509 URL\",\n        \"value\": \"false\"\n      },\n      {\n        \"name\": \"Expand Scope Groups\",\n        \"value\": \"false\"\n      }\n    ]\n  },\n  \"attributeContract\": {\n    \"coreAttributes\": [],\n    \"extendedAttributes\": [\n      {\n        \"name\": \"sub\"\n      }\n    ]\n  },\n  \"selectionSettings\": {\n    \"resourceUris\": []\n  },\n  \"accessControlSettings\": {\n    \"restrictClients\": false,\n    \"allowedClients\": []\n  },\n  \"sessionValidationSettings\": {\n    \"checkValidAuthnSession\": false,\n    \"checkSessionRevocationStatus\": false,\n    \"updateAuthnSessionActivity\": false\n  }\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/accessTokenManagers"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "9fb89375-548b-4990-ae11-c1e6be128960",
+          "description": "Configures the OAuth Token Mapping settings\n\n* Adds Default JWT Token Manager (Symmetric Key)\n* Adds AuthN Policy Contract Mapping",
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "Token Mappings",
+          "item": [
+            {
+              "name": "Create JWT Token Mapping to AuthN Policy Contract",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "2b96e74c-7011-49d6-add6-37c1a46ed2c6",
+                    "exec": [
+                      "pm.test(\"Access Token Mapping Created\", function () {",
+                      "    pm.response.to.have.status(\"Created\");",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "3fad4f75-a169-4a2c-b8fb-cbed170ee82d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-XSRF-Header",
+                    "type": "text",
+                    "value": "pingfederate"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"context\": {\n    \"type\": \"AUTHENTICATION_POLICY_CONTRACT\",\n    \"contextRef\": {\n      \"id\": \"defaultPolicyContract\"\n    }\n  },\n  \"accessTokenManagerRef\": {\n    \"id\": \"jwtDefault\"\n  },\n  \"attributeContractFulfillment\": {\n    \"sub\": {\n      \"source\": {\n        \"type\": \"AUTHENTICATION_POLICY_CONTRACT\"\n      },\n      \"value\": \"userPrincipalName\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/accessTokenMappings"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "94830ddc-d4be-43d0-b853-80d24ed5ea50",
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "OIDC Policy",
+          "item": [
+            {
+              "name": "Create OIDC Policy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "4aa206d6-cc0b-49c2-83a2-ddfdd4de1b6b",
+                    "exec": [
+                      "pm.test(\"OIDC Policy Created\", function () {",
+                      "    pm.response.to.have.status(\"Created\");",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "fbe3f716-6512-4d9c-9b1a-c53e2d5d14fb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-XSRF-Header",
+                    "type": "text",
+                    "value": "pingdfederate"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"id\": \"OIDCPolicyDefault\",\n    \"name\": \"Default OIDC Policy\",\n    \"idTokenLifetime\": 5,\n    \"attributeContract\": {\n        \"coreAttributes\": [\n            {\n                \"name\": \"sub\"\n            }\n        ],\n        \"extendedAttributes\": [\n            {\n                \"name\": \"address\"\n            },\n            {\n                \"name\": \"phone_number\"\n            },\n            {\n                \"name\": \"email\"\n            }\n        ]\n    },\n    \"attributeMapping\": {\n        \"attributeSources\": [\n            {\n                \"type\": \"LDAP\",\n                \"dataStoreRef\": {\n                    \"id\": \"LDAP-ActiveDirectory\"\n                },\n                \"id\": \"AD\",\n                \"description\": \"AD\",\n                \"baseDn\": \"{{userBaseDN}}\",\n                \"searchScope\": \"SUBTREE\",\n                \"searchFilter\": \"userPrincipalName=${sub}\",\n                \"binaryAttributeSettings\": {},\n                \"memberOfNestedGroup\": false\n            }\n        ],\n        \"attributeContractFulfillment\": {\n            \"sub\": {\n                \"source\": {\n                    \"type\": \"TOKEN\"\n                },\n                \"value\": \"sub\"\n            },\n            \"address\": {\n                \"source\": {\n                    \"type\": \"LDAP_DATA_STORE\",\n                    \"id\": \"AD\"\n                },\n                \"value\": \"postalAddress\"\n            },\n            \"phone_number\": {\n                \"source\": {\n                    \"type\": \"LDAP_DATA_STORE\",\n                    \"id\": \"AD\"\n                },\n                \"value\": \"telephoneNumber\"\n            },\n            \"email\": {\n                \"source\": {\n                    \"type\": \"LDAP_DATA_STORE\",\n                    \"id\": \"AD\"\n                },\n                \"value\": \"mail\"\n            }\n        },\n        \"issuanceCriteria\": {\n            \"conditionalCriteria\": []\n        }\n    },\n    \"includeSriInIdToken\": false,\n    \"includeUserInfoInIdToken\": false,\n    \"includeSHashInIdToken\": false,\n    \"returnIdTokenOnRefreshGrant\": false,\n    \"accessTokenManagerRef\": {\n        \"id\": \"jwtDefault\"\n    },\n    \"scopeAttributeMappings\": {}\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/openIdConnect/policies"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "31764bee-e191-46dd-b96a-29dd7863cddd",
+          "description": "Creates a basic OIDC Policy.\n\nContains only the `sub` claim",
+          "_postman_isSubFolder": true
+        }
+      ],
+      "_postman_id": "fe67d0a3-cc8e-44b0-8a7d-0232fcb79002",
+      "description": "This folder contains calls to configure the AS Server:\n\n**Scope Management**\n* Default OIDC Scopes\n* Exclusive Ping App scopes\n\n**Grant Mapping**\n* Default AuthN Policy Contract Mapping\n\n**Access Tokens**\n* JWT Access Token Manager\n* Default AuthN Policy Contract Mapping\n",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "8850f13f-df87-4530-b114-0686c9ccd5c8",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "688e1869-1e7f-43e7-9554-57942c2a89e2",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
     }
   ],
   "auth": {
@@ -2983,19 +3523,19 @@
   ],
   "variable": [
     {
-      "id": "e9a41677-474d-47cd-9eee-ddf0f6281373",
+      "id": "da10719f-bc9c-4983-b41d-d72c43ad9df3",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "9af8c9c0-f56e-455d-b509-85265d1b49f2",
+      "id": "2820996e-fe9d-4f72-83d3-10eb43f0a9b7",
       "key": "pfAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "35c4bce5-3d41-41ed-adbb-57ce4705cfbe",
+      "id": "caadc0c3-9fb7-4826-b884-0040384b042e",
       "key": "pfAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
