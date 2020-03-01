@@ -1247,70 +1247,6 @@
               "_postman_isSubFolder": true
             },
             {
-              "name": "Create AuthN Policy Contracts Copy",
-              "item": [
-                {
-                  "name": "Create Default AuthN Policy Contract",
-                  "event": [
-                    {
-                      "listen": "prerequest",
-                      "script": {
-                        "id": "18654f1f-702d-45d1-b2e2-4742a2253d2e",
-                        "exec": [
-                          ""
-                        ],
-                        "type": "text/javascript"
-                      }
-                    },
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "4f14cf69-4857-4f29-b857-d41ad98f72a3",
-                        "exec": [
-                          "pm.test(\"Policy Contract (HTML) Created\", function () {",
-                          "    pm.response.to.have.status(\"Created\");",
-                          "});"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    }
-                  ],
-                  "_postman_id": "bd28219c-6111-4603-b008-0a425b50adf7",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "POST",
-                    "header": [
-                      {
-                        "key": "Content-Type",
-                        "name": "Content-Type",
-                        "type": "text",
-                        "value": "application/json"
-                      },
-                      {
-                        "key": "X-XSRF-Header",
-                        "type": "text",
-                        "value": "PingFederate"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "    {\n      \"id\": \"defaultPolicyContract\",\n      \"name\": \"Default Policy Contract\",\n      \"coreAttributes\": [\n        {\n          \"name\": \"subject\"\n        }\n      ],\n      \"extendedAttributes\": [\n        {\n          \"name\": \"entryUUID\"\n        },\n        {\n          \"name\": \"mail\"\n        }\n      ]\n    }",
-                      "options": {
-                        "raw": {}
-                      }
-                    },
-                    "url": "{{pfAdminURL}}/pf-admin-api/v1/authenticationPolicyContracts"
-                  },
-                  "response": []
-                }
-              ],
-              "_postman_id": "a0f564c0-d170-4996-98f6-0f466ba8a563",
-              "description": "Different Contracts used to provide different AuthN ceremonies for the Application.\n\nAdd the appropriate Contract to the App Mapping to trigger a different ceremony",
-              "_postman_isSubFolder": true
-            },
-            {
               "name": "Create Selectors",
               "item": [
                 {
@@ -3047,19 +2983,19 @@
   ],
   "variable": [
     {
-      "id": "e40f41d7-4b5a-4258-a14e-75c5c532591b",
+      "id": "0dead331-2be3-4933-b3db-365c4b8ec234",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "600f5dde-6da3-49d0-aab0-ddfabb8dd2c6",
+      "id": "b426db8f-745d-4cf8-9945-828312be4e49",
       "key": "pfAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "69b6f997-abf6-43c3-9c46-060b3e7e592d",
+      "id": "d19e6138-1e47-4683-be92-0843ea9ccc50",
       "key": "pfAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
