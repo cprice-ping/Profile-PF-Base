@@ -2676,6 +2676,106 @@
           ],
           "_postman_id": "680f59a5-a4b0-4f78-a13c-5f45e5f501bc",
           "_postman_isSubFolder": true
+        },
+        {
+          "name": "Create OIDC Clients Copy",
+          "item": [
+            {
+              "name": "Create OIDC Client (PingLogon)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "41847d1c-9c1e-4b88-b671-c997621406f0",
+                    "exec": [
+                      "pm.test(\"OIDC Client - PingLogon Created\", function () {",
+                      "    pm.response.to.have.status(\"Created\");",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "77588158-96c4-49e9-a359-b6a3f0bced5a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-XSRF-Header",
+                    "type": "text",
+                    "value": "pingfederate"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n      \"clientId\": \"PingLogon\",\n      \"enabled\": true,\n      \"redirectUris\": [\n        \"https://change.me\",\n        \"https://*/delegator/*\",\n        \"http://*/delegator/*\"\n      ],\n      \"grantTypes\": [\n        \"IMPLICIT\",\n        \"AUTHORIZATION_CODE\"\n      ],\n      \"name\": \"Ping Logon\",\n      \"description\": \"This client is used to perform OIDC logons to Ping products:\\nPA Admin\\nDelegated Admin\\nConsent \\\\ DirAPI\\nDG (Symphonic)\",\n      \"logoUrl\": \"\",\n      \"refreshRolling\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationType\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationTime\": 0,\n      \"persistentGrantExpirationTimeUnit\": \"DAYS\",\n      \"persistentGrantIdleTimeoutType\": \"SERVER_DEFAULT\",\n      \"persistentGrantIdleTimeout\": 0,\n      \"persistentGrantIdleTimeoutTimeUnit\": \"DAYS\",\n      \"bypassApprovalPage\": true,\n      \"restrictScopes\": false,\n      \"restrictedScopes\": [],\n      \"exclusiveScopes\": [\n        \"pd:consents:priv\",\n        \"pd:consents:unpriv\",\n        \"pd:dir:access\",\n        \"urn:pingidentity:directory-delegated-admin\"\n      ],\n      \"restrictedResponseTypes\": [],\n      \"defaultAccessTokenManagerRef\": {\n        \"id\": \"jwtDefault\"\n      },\n      \"validateUsingAllEligibleAtms\": false,\n      \"oidcPolicy\": {\n        \"policyGroup\": {\n          \"id\": \"OIDCPolicyDefault\"\n        },\n        \"grantAccessSessionRevocationApi\": false,\n        \"pingAccessLogoutCapable\": false,\n        \"pairwiseIdentifierUserType\": false\n      },\n      \"clientAuth\": {\n        \"type\": \"NONE\",\n        \"enforceReplayPrevention\": false\n      },\n      \"extendedParameters\": {\n    \t\"authNexp\": {\n        \t\"values\": [\n        \t\t\"Basic\"\n          ]\n        }\n      },\n      \"deviceFlowSettingType\": \"SERVER_DEFAULT\",\n      \"requireProofKeyForCodeExchange\": false,\n      \"requireSignedRequests\": false\n    }",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients",
+                "description": "This client can be used to issue tokens for several Ping Products (using Exclusive Scopes):\n\n* PD DirAPI (`pd:dir:access`)\n* PD Consent API (`pd:consents:unpriv` | `pd:consents:priv`)\n* PD Delegated Admin App (`urn:pingidentity:directory-delegated-admin`)\n* PF Dynamic Client Registration (`pf:client:reg`)"
+              },
+              "response": []
+            },
+            {
+              "name": "Create OIDC Client (PingIntrospect)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "357f9987-ab1f-4e11-aea5-059c0dc4de65",
+                    "exec": [
+                      "pm.test(\"OIDC Client - PingIntrospect Created\", function () {",
+                      "    pm.response.to.have.status(\"Created\");",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "bb8cac3f-910d-4958-833a-02ca70fa7eef",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-XSRF-Header",
+                    "type": "text",
+                    "value": "pingfederate"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n      \"clientId\": \"PingIntrospect\",\n      \"enabled\": true,\n      \"redirectUris\": [],\n      \"grantTypes\": [\n        \"ACCESS_TOKEN_VALIDATION\"\n      ],\n      \"name\": \"Ping Introspect\",\n      \"description\": \"This client is used to Introspect and validate PF-issued access_tokens\",\n      \"logoUrl\": \"\",\n      \"refreshRolling\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationType\": \"SERVER_DEFAULT\",\n      \"persistentGrantExpirationTime\": 0,\n      \"persistentGrantExpirationTimeUnit\": \"DAYS\",\n      \"persistentGrantIdleTimeoutType\": \"SERVER_DEFAULT\",\n      \"persistentGrantIdleTimeout\": 0,\n      \"persistentGrantIdleTimeoutTimeUnit\": \"DAYS\",\n      \"bypassApprovalPage\": false,\n      \"restrictScopes\": false,\n      \"restrictedScopes\": [],\n      \"exclusiveScopes\": [],\n      \"restrictedResponseTypes\": [],\n      \"defaultAccessTokenManagerRef\": {\n        \"id\": \"jwtDefault\"\n      },\n      \"validateUsingAllEligibleAtms\": true,\n      \"oidcPolicy\": {\n        \"grantAccessSessionRevocationApi\": false,\n        \"pingAccessLogoutCapable\": false\n      },\n      \"clientAuth\": {\n        \"type\": \"SECRET\",\n        \"secret\": \"{{oauthSecret}}\",\n        \"enforceReplayPrevention\": false\n      },\n      \"extendedParameters\": {},\n      \"deviceFlowSettingType\": \"SERVER_DEFAULT\",\n      \"requireSignedRequests\": false\n    }",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/clients"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "77afebe0-a175-43fa-99fa-d62ab6ece804",
+          "_postman_isSubFolder": true
         }
       ],
       "_postman_id": "05e2283b-eb88-4797-ae2d-2e541f207b15",
@@ -2983,19 +3083,19 @@
   ],
   "variable": [
     {
-      "id": "18deedd6-7a40-47c8-8521-7bc049955ff2",
+      "id": "6b602b7f-64c7-443a-937f-724b42b87448",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "f71c90c9-913d-4abb-a18d-b5d4e21cb4bf",
+      "id": "0270561b-26a2-4c72-88af-dc27f35e25b5",
       "key": "pfAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "d0295165-3bfc-4a35-88b0-2e2750215a9f",
+      "id": "14302544-6aaa-493c-85d5-dde7019dfad8",
       "key": "pfAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
