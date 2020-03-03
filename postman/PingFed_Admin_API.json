@@ -1298,62 +1298,6 @@
               "_postman_isSubFolder": true
             },
             {
-              "name": "Create Selectors Copy",
-              "item": [
-                {
-                  "name": "Create Extended Property Selector - Main Use Cases",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "2eeefba3-473e-41a4-91b7-85321fd28393",
-                        "exec": [
-                          "pm.test(\"Extended Property Selector Created\", function () {",
-                          "    pm.response.to.have.status(\"Created\");",
-                          "});"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    }
-                  ],
-                  "_postman_id": "47ba6dd0-bf13-4a7e-8928-c073b6803b20",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "POST",
-                    "header": [
-                      {
-                        "key": "Content-Type",
-                        "name": "Content-Type",
-                        "value": "application/json",
-                        "type": "text"
-                      },
-                      {
-                        "key": "X-XSRF-Header",
-                        "value": "pingfederate",
-                        "type": "text"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n      \"id\": \"authnExp\",\n      \"name\": \"AuthN Experience\",\n      \"pluginDescriptorRef\": {\n        \"id\": \"com.pingidentity.pf.selectors.ExtendedPropertyAuthnSelector\"\n      },\n      \"configuration\": {\n        \"tables\": [],\n        \"fields\": [\n          {\n            \"name\": \"Extended Property\",\n            \"value\": \"authNexp\"\n          }\n        ]\n      },\n      \"attributeContract\": {\n        \"extendedAttributes\": [\n          {\n            \"name\": \"Basic\"\n          },\n          {\n            \"name\": \"MFA\"\n          },\n          {\n            \"name\": \"Passwordless\"\n          } ]\n      }\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": "{{pfAdminURL}}/pf-admin-api/v1/authenticationSelectors"
-                  },
-                  "response": []
-                }
-              ],
-              "_postman_id": "66a760c5-9b3d-4cff-9355-fca8fe937021",
-              "description": "Due to the way the AuthN API and Profile Management works, you can't combine these into a single Policy branch.\n\nTo separate, 2 `Extended Properties` Selectors are needed to properly process the API Apps, and to ensure that Profile Management behaves correctly.\n\nThese Selectors will be used in the AuthN Policy call.",
-              "_postman_isSubFolder": true
-            },
-            {
               "name": "Enable IdP AuthN Policies",
               "event": [
                 {
@@ -3039,19 +2983,19 @@
   ],
   "variable": [
     {
-      "id": "0febd79a-20fb-486a-9247-d6e21ac16c9e",
+      "id": "8c7c2a99-40ce-4b2f-8636-88a9235f41da",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "945396a1-030e-44b0-b398-c58a3fa675fa",
+      "id": "232d513f-0cc2-47f9-ae31-446b1b192423",
       "key": "pfAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "3df2d1e4-b720-4479-bcdc-3ffe0e5dbdba",
+      "id": "70699e9e-001c-4223-9f15-9e2a5641ae81",
       "key": "pfAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
