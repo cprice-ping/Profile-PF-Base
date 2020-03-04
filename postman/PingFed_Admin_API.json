@@ -1541,54 +1541,6 @@
                     "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authServerSettings"
                   },
                   "response": []
-                },
-                {
-                  "name": "Configure AS Settings Copy",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "dd235f96-6f1f-4407-a764-215c3716cda8",
-                        "exec": [
-                          "pm.test(\"OAuth AS configured\", function () {",
-                          "    pm.response.to.be.ok;",
-                          "});"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    }
-                  ],
-                  "_postman_id": "978addee-a201-4c5f-9b35-811cc522fc9b",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "PUT",
-                    "header": [
-                      {
-                        "key": "Content-Type",
-                        "name": "Content-Type",
-                        "value": "application/json",
-                        "type": "text"
-                      },
-                      {
-                        "key": "X-XSRF-Header",
-                        "value": "pingfederate",
-                        "type": "text"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"authorizationCodeTimeout\": 60,\n  \"authorizationCodeEntropy\": 30,\n  \"persistentGrantIdleTimeout\": 30,\n  \"persistentGrantIdleTimeoutTimeUnit\": \"DAYS\",\n  \"refreshTokenLength\": 42,\n  \"rollRefreshTokenValues\": false,\n  \"refreshRollingInterval\": 0,\n  \"persistentGrantReuseGrantTypes\": [\n    \"IMPLICIT\"\n  ],\n  \"persistentGrantContract\": {\n    \"extendedAttributes\": [],\n    \"coreAttributes\": [\n      {\n        \"name\": \"USER_KEY\"\n      },\n      {\n        \"name\": \"USER_NAME\"\n      }\n    ]\n  },\n  \"bypassAuthorizationForApprovedGrants\": false,\n  \"allowUnidentifiedClientROCreds\": false,\n  \"allowUnidentifiedClientExtensionGrants\": false,\n  \"tokenEndpointBaseUrl\": \"\",\n  \"userAuthorizationUrl\": \"\",\n  \"registeredAuthorizationPath\": \"\",\n  \"pendingAuthorizationTimeout\": 600,\n  \"bypassActivationCodeConfirmation\": false,\n  \"devicePollingInterval\": 5,\n  \"userAuthorizationConsentPageSetting\": \"INTERNAL\",\n  \"atmIdForOAuthGrantManagement\": \"\",\n  \"scopeForOAuthGrantManagement\": \"\",\n  \"allowedOrigins\": [\n    \"https://{{cors_host}}\",\n    \"http://{{cors_host}}\"\n  ],\n  \"trackUserSessionsForLogout\": false\n}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": "{{pfAdminURL}}/pf-admin-api/v1/oauth/authServerSettings"
-                  },
-                  "response": []
                 }
               ],
               "_postman_id": "86416b7e-666b-44db-9a83-2931c96625e3",
@@ -3031,19 +2983,19 @@
   ],
   "variable": [
     {
-      "id": "e4a14093-8633-4b9e-9903-350a36649a89",
+      "id": "d875d0af-b1f6-4464-bd4b-586970b990f1",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "7e1dfcf6-255b-4db3-b653-b4a0ed2a7f76",
+      "id": "8f82446e-a5b2-49c1-a3e3-b1a5acbe50ea",
       "key": "pfAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "f192ea09-b5ed-453d-8e48-5c7d397f1981",
+      "id": "bcadd5ff-3820-405a-a4c4-b6a9d7043e1e",
       "key": "pfAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
