@@ -1,14 +1,15 @@
 This profile provides a common baseline configuration for PingFederate.
 
 It uses an API injection to build a common base of PF  
+
 **Note:** This relies on Use Case: PD - Base, and needs additional Use Case APIs to make this useful.
 
 API Collections (Required): 
 * Use Case: PD - Baseline
- * [Documentation]()
- * [Collection](https://www.getpostman.com/collections/251528ba1c88b823da85)
+  * [Documentation]()
+  * [Collection](https://www.getpostman.com/collections/251528ba1c88b823da85)
 * Use Case: PF - Initial
- * [Collection](https://www.getpostman.com/collections/f8e24e4e53f7059beb10)
+  * [Collection](https://www.getpostman.com/collections/f8e24e4e53f7059beb10)
 
 ## Configuration
 
@@ -40,6 +41,7 @@ This configuration includes:
 * Add Token Mapping to Policy Contract
 * Add OIDC Policy
 
+### Server Profile
 This Server Profile is built to inject non-API changes into the PingFederate container:
 
 [run.properties](pingfed/instance/bin/run.properties.subst)
@@ -59,9 +61,9 @@ This Server Profile is built to inject non-API changes into the PingFederate con
 
 [50-before-post-start.sh](pingfed/hooks/50-before-post-start.sh) 
 * Since you can't modify `hivemodule.xml` with the Admin API, there's a hook script that is called to do the changes:
- * LDAP (PD) - OAuth Client
- * LDAP (PD) - OAuth Access Grants
- * LDAP (PD) - AuthN Sessions
+  * LDAP (PD) - OAuth Client
+  * LDAP (PD) - OAuth Access Grants
+  * LDAP (PD) - AuthN Sessions
 
 ---
 **NOTE:** This will break existing Profiles based on `Profile-PF-Base` -- to resolve, you can:
@@ -73,8 +75,8 @@ This Server Profile is built to inject non-API changes into the PingFederate con
     - SERVER_PROFILE_PATH=pingfed
     - SERVER_PROFILE_BRANCH=pre-api
 ```
-
-* Add the API Calls as a service to your stack:
+### API Config container
+* To add the API Calls as a service to your stack:
 
 ```
   pingconfig:
