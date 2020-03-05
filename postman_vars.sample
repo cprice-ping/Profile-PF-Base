@@ -1,6 +1,6 @@
 {
 	"id": "40199d03-d15c-47e4-b502-8b62f98479d1",
-	"name": "postman_vars",
+	"name": "Use Case: PF - Base",
 	"values": [
 		{
 			"key": "pfAdminURL",
@@ -13,18 +13,8 @@
 			"enabled": true
 		},
 		{
-			"key": "userBaseDN",
-			"value": "dc=example.com",
-			"enabled": true
-		},
-		{
-			"key": "oauthSecret",
-			"value": "2FederateM0re",
-			"enabled": true
-		},
-		{
 			"key": "pfAdmin",
-			"value": "administrator",
+			"value": "api-admin",
 			"enabled": true
 		},
 		{
@@ -33,12 +23,22 @@
 			"enabled": true
 		},
 		{
-			"key": "pingId",
-			"value": "#Auto-Generated from PingOne, downloaded by id=[000000] email=[bogus@anywhere.com] #Mon Oct 07 12:36:37 MDT 2019 use_base64_key=ThisIsNotARealKey use_signature=true token=ThisIsABadToken idp_url=https://idpxnyl3m.pingidentity.com/pingid org_alias=YourOrgIsInYourPropertiesFile admin_url=https://idpxnyl3m.pingidentity.com/pingid authenticator_url=https://authenticator.pingone.com/pingid/ppm",
+			"key": "pdAdminUrl",
+			"value": "https://pingdirectory:443",
+			"enabled": true
+		},
+		{
+			"key": "pdAdmin",
+			"value": "cn=administrator",
+			"enabled": true
+		},
+		{
+			"key": "pdAdminPwd",
+			"value": "2FederateM0re",
 			"enabled": true
 		}
 	],
 	"_postman_variable_scope": "environment",
-	"_postman_exported_at": "2020-01-19T16:20:21.572Z",
-	"_postman_exported_using": "Postman/7.15.0"
+	"_postman_exported_at": "2020-02-24T18:49:30.401Z",
+	"_postman_exported_using": "Postman/7.18.1"
 }
