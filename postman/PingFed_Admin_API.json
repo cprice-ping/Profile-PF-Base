@@ -260,52 +260,6 @@
               "response": []
             },
             {
-              "name": "Get BaseDN from PD Copy",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "b84ada5d-f877-48d8-b818-e8b18dcb4155",
-                    "exec": [
-                      "pm.test(\"BaseDN retrieved\", function () {",
-                      "    pm.response.to.be.ok;",
-                      "    ",
-                      "    var response = pm.response.json();",
-                      "    pm.environment.set(\"userBaseDN\", response.publicBaseDNs[0])",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "36658c44-5fe5-4565-8625-c5999b574662",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "type": "text",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": "{{pdAdminUrl}}/directory/v1"
-              },
-              "response": []
-            },
-            {
               "name": "Create API Admin Account",
               "event": [
                 {
@@ -3029,19 +2983,19 @@
   ],
   "variable": [
     {
-      "id": "d3d1ab25-dad0-4f3a-b5e8-e8f3d7c2eb16",
+      "id": "3294da40-d608-41e6-b52b-0a1b9dca31ea",
       "key": "pfAdminURL",
       "value": "https://pingfederate:9999",
       "type": "string"
     },
     {
-      "id": "32c4eded-a761-4beb-89dc-2bf44899bea6",
+      "id": "799d6623-5080-447a-8370-f8206a93ec24",
       "key": "pfAdmin",
       "value": "administrator",
       "type": "string"
     },
     {
-      "id": "1d283a7d-9cc1-44c7-965c-4ca676a770e2",
+      "id": "4f9605a2-df25-4a21-a7ee-6a78da059c8d",
       "key": "pfAdminPwd",
       "value": "2FederateM0re",
       "type": "string"
